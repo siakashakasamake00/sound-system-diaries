@@ -1,0 +1,74 @@
+{
+  "items": [
+    {
+      "id": "lowland-festival-2026",
+      "title": "LOWLAND FESTIVAL 2026",
+      "year": 2026,
+      "mainPhoto": "images/diaries/lowland-festival-main.jpg",
+      "watchUrl": "https://www.instagram.com/soundsystemdiaries/",
+      "artists": "Bababoom HiFi · Galas · Jules I",
+      "loc": {
+        "en": "Netherlands",
+        "it": "Paesi Bassi",
+        "es": "Países Bajos"
+      },
+      "desc": {
+        "en": "Heavy bass, an open field and a night that never ends. A photo diary from the dance floor, among selectors, operators and the crowd that holds it all together.",
+        "it": "Bassi pesanti, campo aperto e una notte che non finisce mai. Un diario fotografico dalla dance, tra selectors, operators e la crowd che tiene tutto insieme.",
+        "es": "Bajos pesados, un campo abierto y una noche que no termina nunca. Un diario fotográfico desde la pista, entre selectors, operators y el público que lo mantiene todo unido."
+      },
+      "clips": [
+        {
+          "name": "Galas",
+          "url": "https://www.instagram.com/p/DdbLnkSqYCW/",
+          "photo": "images/diaries/lowland-galas.jpg"
+        },
+        {
+          "name": "Bababoom HiFi",
+          "url": "https://www.instagram.com/p/DdYkvFcIs_x/",
+          "photo": "images/diaries/lowland-bababoom.jpg"
+        },
+        {
+          "name": "Jules I",
+          "url": "https://www.instagram.com/p/DdWC_p4oeO4/",
+          "photo": "images/diaries/lowland-jules.jpg"
+        }
+      ]
+    },
+    {
+      "id": "reno-splash-festival-2026",
+      "title": "RENO SPLASH FESTIVAL 2026",
+      "year": 2026,
+      "mainPhoto": "images/diaries/reno-splash-main.jpg",
+      "watchUrl": "https://www.instagram.com/soundsystemdiaries/",
+      "artists": "Junior Kelly · Dr Dubwiser · Prince Alla",
+      "loc": {
+        "en": "Bologna, IT",
+        "it": "Bologna, IT",
+        "es": "Bolonia, IT"
+      },
+      "desc": {
+        "en": "Two nights at Officina Bistrot, between heavyweight vocalists and dub selections straight from the mixing desk.",
+        "it": "Due serate all'Officina Bistrot, tra voci pesanti e selezioni dub direttamente dal mixer.",
+        "es": "Dos noches en Officina Bistrot, entre voces pesadas y selecciones dub directamente desde la mesa de mezclas."
+      },
+      "clips": [
+        {
+          "name": "Junior Kelly",
+          "url": "https://www.instagram.com/p/DashBaoMtJG/",
+          "photo": "images/diaries/reno-junior-kelly.jpg"
+        },
+        {
+          "name": "Dr Dubwiser",
+          "url": "https://www.instagram.com/p/DauSX9rsk9J/",
+          "photo": "images/diaries/reno-dr-dubwiser.jpg"
+        },
+        {
+          "name": "Prince Alla",
+          "url": "https://www.instagram.com/p/Dapn10tslXG/",
+          "photo": "images/diaries/reno-prince-alla.jpg"
+        }
+      ]
+    }
+  ]
+}

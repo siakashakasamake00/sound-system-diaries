@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "id": "alborosie",
+      "photo": "images/people/alborosie.jpg",
+      "name": "Alborosie",
+      "role": {
+        "en": "Artist",
+        "it": "Artista",
+        "es": "Artista"
+      }
+    },
+    {
+      "id": "hempress-sativa",
+      "photo": "images/people/hempress-sativa.jpg",
+      "name": "Hempress Sativa",
+      "role": {
+        "en": "Artist",
+        "it": "Artista",
+        "es": "Artista"
+      }
+    },
+    {
+      "id": "brusco",
+      "photo": "images/people/brusco.jpg",
+      "name": "Brusco",
+      "role": {
+        "en": "Artist",
+        "it": "Artista",
+        "es": "Artista"
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "items": [
+    {
+      "id": "bass-station",
+      "photo": "images/events/event6-bass-station.jpg",
+      "date": {
+        "en": "26 SEP",
+        "it": "26 SET",
+        "es": "26 SEP"
+      },
+      "location": "Vallefoglia (PU) — Risto Park",
+      "name": "BASS STATION",
+      "sounds": "Vibra Family & Dub Lab Interceptor · secret artist",
+      "desc": {
+        "en": "From 7pm to 3am — food, drink and free camping, free entry.",
+        "it": "Dalle 19:00 alle 03:00 — food, drink e free camping, ingresso libero.",
+        "es": "De 19:00 a 03:00 — food, drink y camping gratuito, entrada libre."
+      }
+    },
+    {
+      "id": "dub-gate",
+      "photo": "images/events/event7-dub-gate.jpg",
+      "date": {
+        "en": "26 SEP",
+        "it": "26 SET",
+        "es": "26 SEP"
+      },
+      "location": "Mortegliano (UD) — Festintenda",
+      "name": "DUB GATE",
+      "sounds": "King Shiloh · Imperial Sound Army",
+      "desc": {
+        "en": "From 8pm, free camping available — tickets presale and at the door.",
+        "it": "Dalle 20:00, possibilità di campeggio gratuito — biglietti in prevendita e alla porta.",
+        "es": "Desde las 20:00, camping gratuito disponible — entradas anticipadas y en puerta."
+      }
+    },
+    {
+      "id": "dub-night-jah-station",
+      "photo": "images/events/event8-dub-night-jah-station.jpg",
+      "date": {
+        "en": "24 OCT",
+        "it": "24 OTT",
+        "es": "24 OCT"
+      },
+      "location": "Romola (FI) — Piazza Aiaccia, 1",
+      "name": "DUB NIGHT WITH JAH STATION",
+      "sounds": "Meet: Trail Foundation · Romola Soundsystem",
+      "desc": {
+        "en": "From 6pm to 2am — 3 sounds, 1 yard. Entry with ARCI card.",
+        "it": "Dalle 18:00 alle 02:00 — 3 sound, 1 yard. Ingresso con tessera ARCI.",
+        "es": "De 18:00 a 02:00 — 3 sounds, 1 yard. Entrada con carnet ARCI."
+      }
+    }
+  ]
+}

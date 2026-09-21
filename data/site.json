@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "eyebrow": {
+      "en": "A Sound System Culture Diary",
+      "it": "Un Diario Della Cultura Sound System",
+      "es": "Un Diario De La Cultura Sound System"
+    },
+    "script": {
+      "en": "A visual diary of Sound System culture.",
+      "it": "Un diario visivo della cultura Sound System.",
+      "es": "Un diario visual de la cultura Sound System."
+    }
+  },
+  "about": {
+    "p1": {
+      "en": "I want to show you who's behind Sound System Diaries.",
+      "it": "Voglio mostrarvi chi c'è dietro Sound System Diaries.",
+      "es": "Quiero mostraros quién está detrás de Sound System Diaries."
+    },
+    "p2": {
+      "en": "Sound System Diaries was born from a simple passion: for Roots, Reggae Dub and Sound System culture.",
+      "it": "Sound System Diaries è nato da una passione semplice: quella per la cultura Roots, Reggae Dub e Sound System.",
+      "es": "Sound System Diaries nació de una pasión simple: la cultura Roots, Reggae Dub y Sound System."
+    },
+    "p3": {
+      "en": "I go to the dances, I listen, I meet people, I film, I shoot photos and try to capture everything that's often hard to put into words: the vibrations, the energy of the sound, the people, the connections and those moments that make every session different from the others.",
+      "it": "Vado alle serate, ascolto, incontro persone, filmo, scatto e cerco di catturare tutto ciò che spesso non si riesce a spiegare a parole: le vibrazioni, l'energia del sound, la gente, le connessioni e quei momenti che rendono ogni session diversa dalle altre.",
+      "es": "Voy a los bailes, escucho, conozco gente, grabo, fotografío e intento capturar todo lo que a menudo no se puede explicar con palabras: las vibraciones, la energía del sound, la gente, las conexiones y esos momentos que hacen que cada session sea diferente de las demás."
+    },
+    "p4": {
+      "en": "I don't want to tell this culture from the outside. I want to live it, know it, document it and share it.",
+      "it": "Non voglio raccontare questa cultura da fuori. Voglio viverla, conoscerla, documentarla e condividerla.",
+      "es": "No quiero contar esta cultura desde fuera. Quiero vivirla, conocerla, documentarla y compartirla."
+    },
+    "p5": {
+      "en": "Every video, every photo and every moment I collect is a small fragment of a journey I'm living personally, sound after sound.",
+      "it": "Ogni video, ogni foto e ogni momento che raccolgo è un piccolo frammento di un viaggio che sto vivendo personalmente, sound dopo sound.",
+      "es": "Cada vídeo, cada foto y cada momento que recojo es un pequeño fragmento de un viaje que estoy viviendo personalmente, sound tras sound."
+    },
+    "p6": {
+      "en": "Sound System Diaries is my way of giving value to these moments, discovering new sounds, meeting new people and continuing to learn from a culture that inspires me deeply.",
+      "it": "Sound System Diaries è il mio modo di dare valore a questi momenti, scoprire nuovi sound, incontrare nuove persone e continuare a imparare da una cultura che mi ispira profondamente.",
+      "es": "Sound System Diaries es mi manera de dar valor a estos momentos, descubrir nuevos sounds, conocer nuevas personas y seguir aprendiendo de una cultura que me inspira profundamente."
+    },
+    "p7": {
+      "en": "This is what's behind Sound System Diaries.",
+      "it": "Questo è ciò che c'è dietro Sound System Diaries.",
+      "es": "Esto es lo que hay detrás de Sound System Diaries."
+    },
+    "final": {
+      "en": "Not just images. Not just music. But experiences, people, vibrations and moments worth remembering.",
+      "it": "Non solo immagini. Non solo musica. Ma esperienze, persone, vibrazioni e momenti da ricordare.",
+      "es": "No solo imágenes. No solo música. Sino experiencias, personas, vibraciones y momentos para recordar."
+    },
+    "journey": ["Dub Stone", "Rototom", "Zion Station Festival", "Reno Splash Festival", "Bababoom Festival"]
+  },
+  "contact": {
+    "lead": {
+      "en": "Sound System Diaries is always looking for new sounds, new people and new stories.",
+      "it": "Sound System Diaries è sempre alla ricerca di nuovi sound, nuove persone e nuove storie.",
+      "es": "Sound System Diaries siempre está buscando nuevos sonidos, nueva gente y nuevas historias."
+    }
+  }
+}

@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sound System Diaries — A visual diary of Sound System culture</title>
+<meta name="description" content="Sound System Diaries is a visual diary of Sound System culture, Roots Reggae and Dub — dance, sounds, people and stories, documented from the inside.">
+
+<!-- ===================== SOCIAL SHARE PREVIEW (Open Graph / Twitter Card) =====================
+     Points at soundsystemdiaries.it — WhatsApp/Instagram/Facebook read these from the live URL. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sound System Diaries">
+<meta property="og:title" content="Sound System Diaries — A visual diary of Sound System culture">
+<meta property="og:description" content="Sound System Diaries is a visual diary of Sound System culture, Roots Reggae and Dub — dance, sounds, people and stories, documented from the inside.">
+<meta property="og:url" content="https://soundsystemdiaries.it/">
+<meta property="og:image" content="https://soundsystemdiaries.it/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sound System Diaries — A visual diary of Sound System culture">
+<meta name="twitter:description" content="Sound System Diaries is a visual diary of Sound System culture, Roots Reggae and Dub — dance, sounds, people and stories, documented from the inside.">
+<meta name="twitter:image" content="https://soundsystemdiaries.it/images/og-image.jpg">
+
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Sampled directly from the Sound System Diaries logo — no hues outside this set are used anywhere on the page.
+       --black/--ink are the dark "bookend" surfaces (hero, marquee, footer, instagram block).
+       --paper/--paper-alt are the light page background now used everywhere else.
+       --text is the dark ink color used for body copy on --paper. */
+    --black:#000000;
+    --ink:#0c0c0b;
+    --red:#ab0a05;
+    --red-dark:#6b0a06;
+    --gold:#dc9605;
+    --gold-dim:#a87206;
+    --green:#0a5a0a;
+    --green-dark:#073d07;
+    --cream:#e4d19f;
+    --cream-dim:#c9b483;
+    --paper:#efe2bb;
+    --paper-alt:#e4d29e;
+    --text:#18140f;
+    --header-h:68px;
+    --f-display:'Anton', sans-serif;
+    --f-script:'Permanent Marker', cursive;
+    --f-body:'Archivo', sans-serif;
+    --f-mono:'Space Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:var(--f-body);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    padding-top:var(--header-h);
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ::selection{background:var(--red); color:var(--paper);}
+  ::-webkit-scrollbar{width:10px;}
+  ::-webkit-scrollbar-track{background:var(--paper);}
+  ::-webkit-scrollbar-thumb{background:var(--red); border:2px solid var(--paper);}
+
+  .container{max-width:1400px; margin:0 auto; padding:0 24px;}
+  @media(min-width:768px){.container{padding:0 40px;}}
+
+  .eyebrow{
+    font-family:var(--f-mono); font-size:.75rem; letter-spacing:.25em;
+    text-transform:uppercase; color:var(--gold-dim);
+  }
+  @media(min-width:768px){.eyebrow{font-size:.85rem;}}
+  .hero-content .eyebrow{color:var(--gold);} /* on dark hero, full-brightness gold reads better */
+
+  .section-title{
+    font-family:var(--f-display); font-weight:400; text-transform:uppercase;
+    font-size:14vw; line-height:.85; letter-spacing:-.01em; color:var(--text); margin:.3em 0 0;
+  }
+  @media(min-width:768px){.section-title{font-size:6vw;}}
+
+  .teaser-title{
+    font-family:var(--f-display); font-weight:400; text-transform:uppercase;
+    font-size:2rem; line-height:.95; letter-spacing:-.01em; color:var(--text); margin:.2em 0 0;
+  }
+  @media(min-width:768px){.teaser-title{font-size:2.6rem;}}
+
+  .stamp-border{
+    border:1px solid rgba(24,20,15,.22);
+    outline:1px dashed rgba(24,20,15,.16);
+    outline-offset:4px;
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    border:1px solid rgba(24,20,15,.55); padding:12px 24px;
+    font-family:var(--f-mono); font-size:.8rem; text-transform:uppercase; letter-spacing:.2em;
+    color:var(--text); background:transparent; cursor:pointer;
+    transition:background .3s,border-color .3s,color .3s,transform .3s cubic-bezier(.22,1,.36,1),letter-spacing .3s;
+  }
+  .btn:hover{background:var(--red); border-color:var(--red); color:var(--paper); transform:translateY(-3px); letter-spacing:.28em;}
+  .btn:active{transform:translateY(-1px) scale(.97);}
+  .btn-gold{border-color:var(--gold-dim); color:var(--gold-dim);}
+  .btn-gold:hover{background:var(--gold); border-color:var(--gold); color:var(--black);}
+  .btn-on-dark{border-color:rgba(228,209,159,.7); color:var(--cream);}
+  .btn-on-dark:hover{background:var(--red); border-color:var(--red); color:var(--cream);}
+
+  /* fixed grain overlay */
+  .grain{
+    position:fixed; inset:0; z-index:60; pointer-events:none; opacity:.045; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size:140px 140px;
+  }
+
+  /* --- placeholder "photo" boxes — these are always a dark tinted panel regardless
+     of page background, because they stand in for a photo, not for page chrome --- */
+  .ph{
+    position:relative; overflow:hidden; width:100%; height:100%;
+    display:flex; align-items:flex-end; justify-content:center;
+    background:
+      repeating-linear-gradient(45deg, rgba(228,209,159,.05) 0 2px, transparent 2px 14px),
+      linear-gradient(135deg, var(--c1,var(--black)) 0%, var(--c2,var(--red)) 55%, var(--c1,var(--black)) 100%);
+  }
+  .ph.pal-red{--c1:var(--black); --c2:var(--red);}
+  .ph.pal-green{--c1:var(--black); --c2:var(--green);}
+  .ph.pal-gold{--c1:var(--black); --c2:var(--gold);}
+  .ph.pal-mix{--c1:var(--ink); --c2:var(--green);}
+  .ph .ph-label{
+    position:absolute; top:44%; left:50%; transform:translate(-50%,-50%); text-align:center; width:90%;
+    font-family:Arial, sans-serif; font-weight:800; letter-spacing:.1em; color:var(--gold); opacity:.85;
+    font-size:1.1rem; pointer-events:none;
+  }
+  .ph .ph-sub{
+    position:absolute; top:54%; left:50%; transform:translate(-50%,-50%); text-align:center; width:85%;
+    font-family:Arial, sans-serif; font-weight:400; letter-spacing:.03em; color:var(--cream); opacity:.5;
+    font-size:.7rem; pointer-events:none;
+  }
+  .ph.low-label .ph-label{top:88%; font-size:.95rem;}
+  .ph.low-label .ph-sub{top:94%; font-size:.6rem;}
+  .ph::before{
+    content:""; position:absolute; inset:14px; border:2px dashed rgba(228,209,159,.4); pointer-events:none;
+  }
+  /* a real photo dropped into a .ph slot: keep sizing/tilt behavior, drop the placeholder chrome */
+  img.ph{object-fit:cover;}
+  .ph.real-photo{background:none;}
+  .ph.real-photo::before{display:none;}
+
+  /* --- reveal on scroll --- */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1);}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+  .reveal.d1{transition-delay:.08s;}
+  .reveal.d2{transition-delay:.16s;}
+  .reveal.d3{transition-delay:.24s;}
+  .reveal.d4{transition-delay:.32s;}
+  .reveal.d5{transition-delay:.4s;}
+
+  /* --- JS-driven pointer tilt --- */
+  .tilt{perspective:900px;}
+  .tilt .ph{transition:transform .5s cubic-bezier(.22,1,.36,1);}
+  .tilt.tilting .ph{transition:transform .12s linear;}
+  .tilt .ph{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--tscale,1));}
+
+  /* ===================== MULTI-PAGE ROUTING ===================== */
+  /* Each top-level section is a "page". Only .page.active is shown; a tiny hash
+     router in the script at the bottom swaps them — no server, no build, one file. */
+  .page{display:none;}
+  .page.active{display:block; animation:pageIn .6s cubic-bezier(.22,1,.36,1);}
+  @keyframes pageIn{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
+
+  .page-banner{position:relative; height:4px; background:linear-gradient(to right, var(--red), var(--gold), var(--green));}
+  .page-head{padding:64px 0 40px;}
+  @media(min-width:768px){.page-head{padding:88px 0 56px;}}
+
+  /* ===================== HEADER ===================== */
+  header{
+    position:fixed; inset:0 0 auto 0; z-index:50; height:var(--header-h);
+    background:var(--paper); border-bottom:1px solid rgba(24,20,15,.14);
+    transition:box-shadow .3s;
+  }
+  header.scrolled{box-shadow:0 4px 18px rgba(0,0,0,.08);}
+  .nav-row{display:flex; align-items:center; justify-content:space-between; height:var(--header-h);}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand img{width:50px; height:50px; border-radius:999px; transition:transform .5s;}
+  .brand:hover img{transform:rotate(12deg);}
+  .brand-text{display:none; font-family:var(--f-display); font-size:.85rem; letter-spacing:.18em; text-transform:uppercase; color:var(--text);}
+  .brand-text .hl{color:var(--red);}
+  @media(min-width:640px){.brand-text{display:block;}}
+  nav.desktop-nav{display:none; align-items:center; gap:22px; font-family:var(--f-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.16em;}
+  @media(min-width:900px){nav.desktop-nav{display:flex;}}
+  nav.desktop-nav a{position:relative; color:rgba(24,20,15,.72); transition:color .3s; padding-bottom:4px;}
+  nav.desktop-nav a::after{content:""; position:absolute; left:0; right:0; bottom:0; height:1px; background:var(--red); transform:scaleX(0); transform-origin:right; transition:transform .35s cubic-bezier(.22,1,.36,1);}
+  nav.desktop-nav a:hover{color:var(--text);}
+  nav.desktop-nav a:hover::after{transform:scaleX(1); transform-origin:left;}
+  nav.desktop-nav a.active{color:var(--text);}
+  nav.desktop-nav a.active::after{transform:scaleX(1);}
+  .hamburger{display:flex; flex-direction:column; gap:6px; padding:8px; background:none; border:none; cursor:pointer;}
+  @media(min-width:900px){.hamburger{display:none;}}
+  .hamburger span{width:24px; height:2px; background:var(--text); transition:transform .3s, opacity .3s;}
+  .hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+  .mobile-menu{display:none; position:fixed; top:var(--header-h); left:0; right:0; z-index:49; background:var(--paper); border-top:1px solid rgba(24,20,15,.12); border-bottom:1px solid rgba(24,20,15,.12); padding:24px; flex-direction:column; gap:18px; font-family:var(--f-mono); font-size:.9rem; text-transform:uppercase; letter-spacing:.2em;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{color:rgba(24,20,15,.8);}
+  .mobile-menu a.active{color:var(--red);}
+
+  /* ===================== LANGUAGE SWITCHER ===================== */
+  .lang-switch{display:flex; align-items:center; gap:2px; border:1px solid rgba(24,20,15,.3); padding:2px;}
+  .lang-switch button{background:none; border:none; cursor:pointer; font-family:var(--f-mono); font-size:.65rem; letter-spacing:.1em; color:rgba(24,20,15,.55); padding:6px 8px; transition:background .25s, color .25s;}
+  .lang-switch button.active{background:var(--text); color:var(--paper);}
+  .lang-switch button:hover:not(.active){color:var(--text);}
+  .mobile-menu .lang-switch{border-color:rgba(24,20,15,.25); align-self:flex-start; margin-top:4px;}
+
+  /* ===================== HERO (dark, full-bleed — home page only) ===================== */
+  .hero{position:relative; height:calc(100svh - var(--header-h)); width:100%; overflow:hidden; background:var(--black);}
+  .hero-img-wrap{position:absolute; inset:0; will-change:transform;}
+  .hero-img-wrap .ph{opacity:.45;}
+  .hero-grad-1{position:absolute; inset:0; background:linear-gradient(to top, var(--black), rgba(0,0,0,.7) 60%, rgba(0,0,0,.7));}
+  .hero-grad-2{position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.4) 45%, var(--black));}
+  .hero-vignette{position:absolute; inset:0; background:radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,.65) 100%);}
+  .hero-top-bar{position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(to right, var(--red), var(--gold), var(--green));}
+  /* spinning vinyl logo, floating behind the hero headline like a turntable record */
+  .hero-vinyl{position:absolute; top:50%; left:50%; z-index:3; width:min(38vh,350px); height:min(38vh,350px); transform:translate(-50%,-50%) rotate(0deg); animation:spinVinyl 22s linear infinite; pointer-events:none;}
+  .hero-vinyl::before{content:""; position:absolute; inset:-18px; border-radius:50%; border:1px dashed rgba(228,209,159,.22);}
+  .hero-vinyl img{width:100%; height:100%; border-radius:50%; display:block; opacity:.4; box-shadow:0 0 80px 10px rgba(0,0,0,.5);}
+  @keyframes spinVinyl{from{transform:translate(-50%,-50%) rotate(0deg);} to{transform:translate(-50%,-50%) rotate(360deg);}}
+  @media(prefers-reduced-motion:reduce){.hero-vinyl{animation:none;}}
+  .hero-content{position:relative; z-index:10; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center; padding:0 24px;}
+  .hero-content h1{font-family:var(--f-display); text-transform:uppercase; line-height:.82; margin:16px 0 0; letter-spacing:-.01em;}
+  .hero-line1{display:block; font-size:15vw; color:var(--cream);}
+  .hero-line2{display:block; font-size:15vw; color:var(--red);}
+  @media(min-width:768px){.hero-line1,.hero-line2{font-size:8.5vw;}}
+  .hero-tag{margin-top:22px; font-family:var(--f-mono); font-size:.85rem; text-transform:uppercase; letter-spacing:.25em; color:var(--gold);}
+  @media(min-width:768px){.hero-tag{font-size:1rem;}}
+  .hero-script{margin-top:16px; max-width:420px; font-family:var(--f-script); font-size:1.4rem; color:rgba(228,209,159,.9);}
+  @media(min-width:768px){.hero-script{font-size:1.6rem;}}
+  @keyframes heroFadeUp{from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);}}
+  .hero-content > *{opacity:0; animation:heroFadeUp 1s cubic-bezier(.22,1,.36,1) forwards;}
+  .hero-content > *:nth-child(1){animation-delay:.15s;}
+  .hero-content > *:nth-child(2){animation-delay:.32s;}
+  .hero-content > *:nth-child(3){animation-delay:.62s;}
+  .hero-content > *:nth-child(4){animation-delay:.8s;}
+
+  @keyframes flicker{
+    0%,100%{opacity:1;} 45%{opacity:1;} 46%{opacity:.78;} 47%{opacity:1;}
+    72%{opacity:1;} 73%{opacity:.82;} 74%{opacity:1;}
+  }
+  .eyebrow{animation:flicker 6s ease-in-out infinite;}
+
+  /* infinite marquee ticker (dark) */
+  .marquee{position:relative; overflow:hidden; border-top:1px solid rgba(228,209,159,.14); border-bottom:1px solid rgba(228,209,159,.14); background:var(--black); padding:14px 0;}
+  .marquee-track{display:flex; width:max-content; gap:0; animation:marquee 26s linear infinite;}
+  .marquee-track span{display:inline-flex; align-items:center; font-family:var(--f-mono); font-size:.85rem; text-transform:uppercase; letter-spacing:.35em; color:var(--cream-dim); padding:0 20px; white-space:nowrap;}
+  .marquee-track span.hl{color:var(--gold);}
+  .marquee-track span::after{content:"★"; margin-left:20px; color:var(--red); font-size:.6rem;}
+  @keyframes marquee{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+  @media(prefers-reduced-motion:reduce){.marquee-track{animation:none;}}
+
+  /* ===================== generic light "teaser" blocks on Home ===================== */
+  .teaser{padding:80px 0;}
+  @media(min-width:768px){.teaser{padding:104px 0;}}
+  .teaser.alt{background:var(--paper-alt);}
+  .teaser-head{display:flex; flex-direction:column; gap:16px; margin-bottom:40px;}
+  @media(min-width:768px){.teaser-head{flex-direction:row; align-items:flex-end; justify-content:space-between;}}
+
+  .about-teaser-grid{display:grid; grid-template-columns:1fr; gap:36px; align-items:center;}
+  @media(min-width:768px){.about-teaser-grid{grid-template-columns:.8fr 1.2fr; gap:56px;}}
+  .about-teaser-photo{position:relative; margin:0 auto; width:100%; max-width:300px; aspect-ratio:4/5;}
+  .about-teaser p{max-width:520px; margin:16px 0 0; line-height:1.65; color:rgba(24,20,15,.8);}
+
+  .teaser-grid-3{display:grid; grid-template-columns:1fr; gap:20px;}
+  @media(min-width:640px){.teaser-grid-3{grid-template-columns:repeat(3,1fr);}}
+  .teaser-grid-4{display:grid; grid-template-columns:1fr; gap:20px;}
+  @media(min-width:560px){.teaser-grid-4{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:1024px){.teaser-grid-4{grid-template-columns:repeat(4,1fr);}}
+  .teaser-card{position:relative;}
+  .teaser-card .thumb{position:relative; display:block; aspect-ratio:4/5; overflow:hidden;}
+  .teaser-card .thumb .grad{position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.85), transparent 55%);}
+  .teaser-card .thumb .yr{position:absolute; top:10px; left:10px; font-family:var(--f-mono); font-size:.65rem; letter-spacing:.15em; color:var(--cream); background:rgba(0,0,0,.6); padding:3px 9px;}
+  .teaser-card .thumb .ttl{position:absolute; left:0; right:0; bottom:0; padding:12px; font-family:var(--f-display); text-transform:uppercase; font-size:1.15rem; color:var(--cream); line-height:1;}
+
+  /* ===================== VIDEO PREVIEW (play button overlay, links out to IG) ===================== */
+  a.video-link{cursor:pointer;}
+  .video-preview{position:absolute; inset:0; z-index:5; display:flex; align-items:center; justify-content:center; pointer-events:none;}
+  .play-btn{position:relative; width:56px; height:56px; border-radius:50%; background:rgba(10,9,8,.55); border:1.5px solid rgba(228,209,159,.85); display:flex; align-items:center; justify-content:center; backdrop-filter:blur(2px); transition:transform .3s cubic-bezier(.22,1,.36,1), background .3s ease, border-color .3s ease;}
+  .play-btn::after{content:''; width:0; height:0; margin-left:4px; border-style:solid; border-width:9px 0 9px 15px; border-color:transparent transparent transparent var(--cream);}
+  a.video-link:hover .play-btn{transform:scale(1.12); background:var(--red); border-color:var(--red);}
+  .video-preview .ig-tag{position:absolute; bottom:10px; right:10px; z-index:5; font-family:var(--f-mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--cream); background:rgba(0,0,0,.6); padding:4px 9px; display:flex; align-items:center; gap:5px;}
+
+  .teaser-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  @media(min-width:640px){.teaser-strip{grid-template-columns:repeat(6,1fr);}}
+  .teaser-strip .sq{position:relative; aspect-ratio:1/1; overflow:hidden;}
+  .teaser-strip .sq .grad{position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,.15) 50%, transparent 75%); pointer-events:none;}
+  .teaser-strip .sq .nm{position:absolute; left:8px; right:8px; bottom:8px; z-index:2; font-family:var(--f-display); text-transform:uppercase; font-size:.68rem; line-height:1.2; color:var(--cream); pointer-events:none;}
+  @media(min-width:768px){.teaser-strip .sq .nm{font-size:.78rem; left:10px; right:10px; bottom:10px;}}
+
+  .people-strip{display:grid; grid-template-columns:1fr; gap:14px; max-width:760px;}
+  @media(min-width:640px){.people-strip{grid-template-columns:repeat(3,1fr);}}
+  .people-strip .pp{position:relative; display:block; aspect-ratio:4/5; overflow:hidden;}
+  .people-strip .pp .grad{position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.85), transparent 55%); pointer-events:none;}
+  .people-strip .pp-name{position:absolute; left:9px; right:9px; bottom:24px; font-family:var(--f-display); text-transform:uppercase; font-size:.85rem; color:var(--cream); line-height:1.1; z-index:2; margin:0;}
+  .people-strip .pp-role{position:absolute; left:9px; bottom:8px; font-family:var(--f-mono); font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(228,209,159,.8); z-index:2; margin:0;}
+
+  .contact-teaser{text-align:center;}
+  .contact-teaser .teaser-title{margin-top:8px;}
+  .contact-teaser .btn{margin-top:28px;}
+
+  /* ===================== ABOUT (page) ===================== */
+  .about-grid{display:grid; grid-template-columns:1fr; gap:48px; align-items:center;}
+  @media(min-width:768px){.about-grid{grid-template-columns:1fr 1fr; gap:64px;}}
+  .about-photo-col{position:relative; order:2;}
+  @media(min-width:768px){.about-photo-col{order:1;}}
+  .about-photo{position:relative; margin:0 auto; width:100%; max-width:420px; aspect-ratio:4/5;}
+  .tape{position:absolute; left:-16px; top:-16px; background:var(--paper-alt); box-shadow:0 3px 10px rgba(0,0,0,.18); transform:rotate(-6deg); padding:8px 16px; display:none;}
+  @media(min-width:640px){.tape{display:block;}}
+  .tape span{font-family:var(--f-script); font-size:1.1rem; color:rgba(24,20,15,.85);}
+  .about-text-col{order:1;}
+  @media(min-width:768px){.about-text-col{order:2;}}
+  .about-title{margin-top:12px;}
+  .text-outline{-webkit-text-stroke:1.5px rgba(24,20,15,.75); color:transparent;}
+  @media(min-width:768px){.text-outline{-webkit-text-stroke:2px rgba(24,20,15,.75);}}
+  .about-copy{margin-top:32px; max-width:560px; font-size:1.05rem; line-height:1.7; color:rgba(24,20,15,.82);}
+  .about-copy p{margin:0 0 16px;}
+  .about-copy .final-line{font-family:var(--f-script); font-size:1.5rem; color:var(--gold-dim); margin-top:8px;}
+
+  /* ===================== DIARIES (page) ===================== */
+  .section-head{display:flex; flex-direction:column; gap:20px; margin-bottom:56px;}
+  @media(min-width:768px){.section-head{flex-direction:row; align-items:flex-end; justify-content:space-between;}}
+  .section-head .script-tag{font-family:var(--f-script); font-size:1.6rem; color:var(--gold-dim);}
+  @media(min-width:768px){.section-head .script-tag{font-size:1.9rem;}}
+
+  .diary-entry{display:grid; grid-template-columns:1fr; gap:28px; margin-bottom:72px;}
+  @media(min-width:768px){.diary-entry{grid-template-columns:7fr 5fr; gap:40px; align-items:center;}}
+  .diary-entry.reverse{direction:rtl;}
+  .diary-entry.reverse > *{direction:ltr;}
+  .diary-img{position:relative; display:block; aspect-ratio:4/3; overflow:hidden;}
+  @media(min-width:768px){.diary-img{aspect-ratio:4/5;}}
+  .diary-img .grad{position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.1) 55%, transparent);}
+  .diary-year{position:absolute; top:16px; left:16px; font-family:var(--f-mono); font-size:.75rem; text-transform:uppercase; letter-spacing:.2em; background:rgba(0,0,0,.7); color:var(--cream); border:1px solid rgba(228,209,159,.3); padding:4px 12px;}
+  .diary-title{font-family:var(--f-display); text-transform:uppercase; font-size:2.4rem; line-height:.92; margin:0; color:var(--text);}
+  @media(min-width:640px){.diary-title{font-size:2.9rem;}}
+  .diary-meta{font-family:var(--f-mono); font-size:.75rem; text-transform:uppercase; letter-spacing:.2em; margin:12px 0 0;}
+  .diary-meta.loc{color:var(--gold-dim);}
+  .diary-meta.artists{color:rgba(24,20,15,.6); margin-top:4px;}
+  .diary-desc{margin-top:20px; max-width:440px; color:rgba(24,20,15,.78); line-height:1.6;}
+  .diary-gallery{display:none; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:24px; padding-top:24px; border-top:1px solid rgba(24,20,15,.15);}
+  .diary-gallery.open{display:grid;}
+  .diary-gallery .ph{aspect-ratio:1/1;}
+  .diary-gallery .play-btn{width:40px; height:40px;}
+  .diary-gallery .play-btn::after{border-width:7px 0 7px 12px; margin-left:3px;}
+  .diary-gallery .ig-tag{left:5px; right:5px; bottom:6px; justify-content:center; font-size:.55rem; letter-spacing:.06em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding:3px 5px;}
+  .diary-gallery .note{grid-column:1/-1; font-family:var(--f-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.15em; color:rgba(24,20,15,.45); padding-top:4px;}
+
+  /* ===================== SOUNDS (page) ===================== */
+  .sound-grid{display:grid; grid-template-columns:1fr; gap:24px;}
+  @media(min-width:640px){.sound-grid{grid-template-columns:1fr 1fr;}}
+  @media(min-width:1024px){.sound-grid{grid-template-columns:repeat(3,1fr);}}
+  .sound-card{position:relative; aspect-ratio:1/1; overflow:hidden;}
+  .sound-card .grad{position:absolute; inset:0; background:linear-gradient(to top, var(--black), rgba(0,0,0,.5) 45%, rgba(0,0,0,.15) 70%, transparent);}
+  .sound-card .tint{position:absolute; inset:0; background:var(--red); opacity:0; mix-blend-mode:multiply; transition:opacity .5s;}
+  .sound-card:hover .tint{opacity:.25;}
+  .sound-info{position:absolute; left:0; right:0; bottom:0; padding:20px;}
+  .sound-info .place{font-family:var(--f-mono); font-size:.65rem; text-transform:uppercase; letter-spacing:.2em; color:var(--gold);}
+  .sound-info h3{font-family:var(--f-display); text-transform:uppercase; font-size:1.6rem; margin:4px 0 0; color:var(--cream);}
+  .sound-info .desc{margin-top:8px; font-size:.75rem; line-height:1.4; color:rgba(228,209,159,.82); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+  .sound-more{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; aspect-ratio:1/1; border:1px dashed rgba(24,20,15,.25); text-align:center; padding:24px;}
+  .sound-more .plus{font-family:var(--f-display); font-size:1.9rem; color:rgba(24,20,15,.4);}
+  .sound-more p{margin:0; font-family:var(--f-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.2em; color:rgba(24,20,15,.4);}
+
+  /* ===================== SOUNDS — MAP VIEW (Italian Sound System Map) ===================== */
+  .sounds-view-toggle{display:flex; justify-content:center; margin-bottom:28px;}
+  .sounds-view-toggle .lang-switch button{padding:8px 20px;}
+  .sound-grid.is-hidden, .map-wrap.is-hidden{display:none;}
+  .italy-map-outer{position:relative; max-width:480px; margin:0 auto; aspect-ratio:600/706.9;}
+  .italy-map-outer svg{position:absolute; inset:0; width:100%; height:100%; display:block;}
+  .italy-map-outer svg path{fill:var(--paper-alt); stroke:rgba(24,20,15,.4); stroke-width:1.2; transition:fill .3s;}
+  .map-pins{position:absolute; inset:0;}
+  .map-pin{position:absolute; transform:translate(-50%,-100%); width:22px; height:22px; cursor:pointer; background:none; border:none; padding:0; -webkit-tap-highlight-color:transparent;}
+  .map-pin .dot{position:absolute; left:50%; top:50%; width:15px; height:15px; margin:-15px 0 0 -7.5px; border-radius:50% 50% 50% 0; background:var(--red); border:2px solid var(--cream); transform:rotate(-45deg); box-shadow:0 2px 6px rgba(0,0,0,.4); transition:transform .2s ease, background .2s ease;}
+  .map-pin:hover .dot, .map-pin.active .dot{background:var(--gold); transform:rotate(-45deg) scale(1.18);}
+  .map-pin .count{position:absolute; left:50%; top:50%; margin:-26px 0 0 2px; background:var(--text); color:var(--paper); font-family:var(--f-mono); font-size:.55rem; font-weight:700; min-width:15px; height:15px; padding:0 3px; border-radius:999px; display:flex; align-items:center; justify-content:center; line-height:1;}
+  .map-note{text-align:center; margin-top:22px; font-family:var(--f-mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.15em; color:rgba(24,20,15,.45); line-height:1.6;}
+  .map-popup-backdrop{position:fixed; inset:0; background:rgba(12,12,11,.65); z-index:90; display:none; align-items:center; justify-content:center; padding:20px;}
+  .map-popup-backdrop.active{display:flex;}
+  .map-popup{background:var(--paper); width:100%; max-width:460px; max-height:82vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,.4);}
+  .map-popup-head{position:sticky; top:0; background:var(--paper); padding:16px 20px; border-bottom:1px solid rgba(24,20,15,.15); display:flex; align-items:center; justify-content:space-between; gap:12px;}
+  .map-popup-head h4{font-family:var(--f-display); text-transform:uppercase; font-size:1rem; margin:0; color:var(--text); letter-spacing:.02em;}
+  .map-popup-close{background:none; border:none; font-size:1.5rem; line-height:1; cursor:pointer; color:var(--text); padding:2px 6px; flex:none;}
+  .map-popup-item{padding:18px 20px; border-bottom:1px solid rgba(24,20,15,.1); display:flex; gap:14px;}
+  .map-popup-item:last-child{border-bottom:none;}
+  .map-popup-item .thumb{width:60px; height:60px; flex:none; object-fit:cover;}
+  .map-popup-item .thumb.ph{width:60px; height:60px;}
+  .map-popup-item h5{font-family:var(--f-display); text-transform:uppercase; font-size:.95rem; margin:0 0 4px; color:var(--text); line-height:1.15;}
+  .map-popup-item .yr{font-family:var(--f-mono); font-size:.62rem; text-transform:uppercase; letter-spacing:.12em; color:var(--gold-dim);}
+  .map-popup-tags{display:flex; flex-wrap:wrap; gap:5px; margin:8px 0 6px;}
+  .map-popup-tags span{font-family:var(--f-mono); font-size:.58rem; text-transform:uppercase; letter-spacing:.08em; padding:3px 7px; border:1px solid rgba(24,20,15,.25); color:rgba(24,20,15,.45);}
+  .map-popup-tags span.on{background:var(--green); color:var(--cream); border-color:var(--green);}
+  .map-popup-social{display:flex; gap:12px; margin-top:6px;}
+  .map-popup-social a{font-family:var(--f-mono); font-size:.62rem; text-transform:uppercase; letter-spacing:.08em; color:var(--red);}
+
+  /* Events */
+  .event-grid{display:grid; grid-template-columns:1fr; gap:24px;}
+  @media(min-width:640px){.event-grid{grid-template-columns:1fr 1fr;}}
+  @media(min-width:1024px){.event-grid{grid-template-columns:repeat(3,1fr);}}
+  .event-card{position:relative; aspect-ratio:3/4; overflow:hidden;}
+  .event-card .grad{position:absolute; inset:0; background:linear-gradient(to top, var(--black), rgba(0,0,0,.35) 55%, transparent);}
+  .event-date{position:absolute; top:16px; left:16px; background:var(--cream); color:var(--black); font-family:var(--f-mono); font-size:.65rem; font-weight:700; text-transform:uppercase; letter-spacing:.15em; padding:6px 10px; border:1px solid var(--black);}
+  .event-info{position:absolute; left:0; right:0; bottom:0; padding:20px;}
+  .event-info .place{font-family:var(--f-mono); font-size:.65rem; text-transform:uppercase; letter-spacing:.2em; color:var(--gold);}
+  .event-info h3{font-family:var(--f-display); text-transform:uppercase; font-size:1.4rem; margin:4px 0 0; color:var(--cream); line-height:1.15;}
+  .event-sounds{font-family:var(--f-mono); font-size:.7rem; letter-spacing:.05em; color:rgba(228,209,159,.85); margin-top:10px;}
+  .event-desc{font-size:.85rem; line-height:1.4; color:rgba(228,209,159,.7); margin-top:6px;}
+
+  /* ===================== PEOPLE (page) ===================== */
+  .people-grid{display:grid; grid-template-columns:repeat(2,1fr); grid-auto-rows:180px; gap:12px;}
+  @media(min-width:768px){.people-grid{grid-template-columns:repeat(3,1fr); grid-auto-rows:220px; gap:16px;}}
+  .people-card{position:relative; overflow:hidden;}
+  .people-card.tall{grid-row:span 2;}
+  .people-card .ph{filter:grayscale(.35); transition:filter .5s ease-out, transform .5s cubic-bezier(.22,1,.36,1);}
+  .people-card:hover .ph{filter:grayscale(0);}
+  .people-card .grad{position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.1) 55%, transparent); opacity:.85; transition:opacity .3s;}
+  .people-card:hover .grad{opacity:.95;}
+  .people-info{position:absolute; left:0; right:0; bottom:0; padding:14px;}
+  .people-info .pname{font-family:var(--f-display); text-transform:uppercase; font-size:1.15rem; line-height:1; margin:0; color:var(--cream);}
+  .people-info .prole{font-family:var(--f-mono); font-size:.65rem; text-transform:uppercase; letter-spacing:.2em; color:var(--gold); margin-top:4px;}
+  .people-note{margin-top:32px; text-align:center; font-family:var(--f-mono); font-size:.75rem; text-transform:uppercase; letter-spacing:.2em; color:rgba(24,20,15,.4);}
+
+  /* ===================== CONTACT (page) ===================== */
+  .contact-page{text-align:center;}
+  .contact-page p.lead{margin:24px auto 0; max-width:520px; color:rgba(24,20,15,.78); line-height:1.6;}
+  .contact-tags{display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:32px;}
+  .contact-tags span{font-family:var(--f-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.2em; border:1px solid rgba(24,20,15,.25); padding:8px 16px; color:rgba(24,20,15,.8);}
+
+  .journey{margin-top:40px;}
+  .journey-label{font-family:var(--f-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.2em; color:var(--gold-dim); margin:0 0 14px;}
+  .journey-tags{display:flex; flex-wrap:wrap; gap:10px;}
+  .journey-tags span{font-family:var(--f-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; border:1px solid rgba(24,20,15,.25); padding:8px 14px; color:rgba(24,20,15,.8);}
+  .contact-page .btn{margin-top:44px;}
+
+  /* ===================== FOOTER (dark, persistent across pages) ===================== */
+  footer{background:var(--black); color:var(--cream); border-top:1px solid rgba(228,209,159,.12); padding:64px 0 32px; text-align:center;}
+  footer img.logo{width:76px; height:76px; border-radius:999px; margin:0 auto 24px;}
+  footer h2{font-family:var(--f-display); text-transform:uppercase; line-height:.85; font-size:11vw; margin:0; color:var(--cream);}
+  @media(min-width:640px){footer h2{font-size:7vw;}}
+  @media(min-width:900px){footer h2{font-size:4.5vw;}}
+  footer h2 .fred{color:var(--red);}
+  footer .rrr{margin-top:22px; font-family:var(--f-script); font-size:1.6rem; color:var(--gold);}
+  footer .mpcm{margin-top:14px; font-family:var(--f-mono); font-size:.8rem; text-transform:uppercase; letter-spacing:.2em; color:rgba(228,209,159,.65);}
+  footer .ig-link{display:inline-block; margin-top:20px; font-family:var(--f-mono); font-size:.9rem; color:var(--green); transition:color .3s;}
+  footer .ig-link:hover{color:var(--gold);}
+  .footer-nav{margin-top:36px; display:flex; flex-wrap:wrap; justify-content:center; gap:18px; font-family:var(--f-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.15em; color:rgba(228,209,159,.75);}
+  .footer-nav a:hover{color:var(--gold);}
+  .footer-bottom{margin-top:36px; padding-top:24px; border-top:1px solid rgba(228,209,159,.14); display:flex; flex-direction:column; gap:10px; align-items:center; justify-content:space-between; font-family:var(--f-mono); font-size:.65rem; text-transform:uppercase; letter-spacing:.2em; color:rgba(228,209,159,.45);}
+  @media(min-width:640px){.footer-bottom{flex-direction:row;}}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header id="siteHeader">
+  <div class="container nav-row">
+    <a href="#home" class="brand" data-nav="home">
+      <img src="images/logo.png" alt="Sound System Diaries">
+      <span class="brand-text">SOUND SYSTEM <span class="hl">DIARIES</span></span>
+    </a>
+    <nav class="desktop-nav">
+      <a href="#home" data-nav="home" data-i18n="nav.home">Home</a>
+      <a href="#sounds" data-nav="sounds" data-i18n="nav.sounds">Sounds</a>
+      <a href="#diaries" data-nav="diaries" data-i18n="nav.diaries">Diaries</a>
+      <a href="#events" data-nav="events" data-i18n="nav.events">Events</a>
+      <a href="#about" data-nav="about" data-i18n="nav.about">About</a>
+      <a href="#people" data-nav="people" data-i18n="nav.people">People</a>
+      <a href="#contact" data-nav="contact" data-i18n="nav.contact">Contact</a>
+      <a href="https://instagram.com/soundsystemdiaries" target="_blank" rel="noreferrer" class="btn" style="padding:8px 16px;">IG</a>
+      <div class="lang-switch" data-lang-switch>
+        <button type="button" data-lang="en">EN</button><button type="button" data-lang="it">IT</button><button type="button" data-lang="es">ES</button>
+      </div>
+    </nav>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" data-nav="home" data-i18n="nav.home">Home</a>
+  <a href="#sounds" data-nav="sounds" data-i18n="nav.sounds">Sounds</a>
+  <a href="#diaries" data-nav="diaries" data-i18n="nav.diaries">Diaries</a>
+  <a href="#events" data-nav="events" data-i18n="nav.events">Events</a>
+  <a href="#about" data-nav="about" data-i18n="nav.about">About</a>
+  <a href="#people" data-nav="people" data-i18n="nav.people">People</a>
+  <a href="#contact" data-nav="contact" data-i18n="nav.contact">Contact</a>
+  <a href="https://instagram.com/soundsystemdiaries" target="_blank" rel="noreferrer" style="color:var(--gold-dim);">@soundsystemdiaries ↗</a>
+  <div class="lang-switch" data-lang-switch>
+    <button type="button" data-lang="en">EN</button><button type="button" data-lang="it">IT</button><button type="button" data-lang="es">ES</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- =====================================================================
+       HOME — aggregates a short preview of every section (reggae.it-style
+       magazine homepage), each with a "view all" link into its own page.
+  ====================================================================== -->
+  <section class="page active" data-page="home">
+
+    <section class="hero">
+      <div class="hero-img-wrap" id="heroParallax">
+        <!-- REPLACE: swap this .ph block for <img src="your-hero-photo.jpg"> — sound system @ full volume, 1600x1000+ -->
+        <div class="ph pal-red low-label">
+          <span class="ph-label">HERO PHOTO</span>
+          <span class="ph-sub">REPLACE — sound system @ full volume, 1600×1000+</span>
+        </div>
+      </div>
+      <div class="hero-grad-1"></div>
+      <div class="hero-grad-2"></div>
+      <div class="hero-vignette"></div>
+      <div class="hero-vinyl" aria-hidden="true">
+        <img src="images/logo.png" alt="">
+      </div>
+      <div class="hero-top-bar"></div>
+      <div class="hero-content">
+        <span class="eyebrow" data-i18n="hero.eyebrow">A Sound System Culture Diary</span>
+        <h1>
+          <span class="hero-line1">Sound System</span>
+          <span class="hero-line2">Diaries</span>
+        </h1>
+        <p class="hero-tag" data-i18n="hero.tag">Music · People · Culture · Memories</p>
+        <p class="hero-script" data-i18n="hero.script">A visual diary of Sound System culture.</p>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="hl">Roots</span><span>Dub</span><span data-i18n="marquee.culture">Culture</span><span class="hl">Sound System Diaries</span><span>Roots</span><span>Dub</span><span data-i18n="marquee.culture">Culture</span><span class="hl">Sound System Diaries</span>
+        <span class="hl">Roots</span><span>Dub</span><span data-i18n="marquee.culture">Culture</span><span class="hl">Sound System Diaries</span><span>Roots</span><span>Dub</span><span data-i18n="marquee.culture">Culture</span><span class="hl">Sound System Diaries</span>
+      </div>
+    </div>
+
+    <!-- Sounds teaser -->
+    <section class="teaser">
+      <div class="container">
+        <div class="teaser-head reveal">
+          <div>
+            <span class="eyebrow" data-i18n="sounds.teaser.eyebrow">The Sounds</span>
+            <h2 class="teaser-title" data-i18n="sounds.teaser.heading">Every Sound Has A Story</h2>
+          </div>
+          <a href="#sounds" class="btn"><span data-i18n="sounds.teaser.cta">Explore The Sounds</span> <span>→</span></a>
+        </div>
+        <div class="teaser-strip reveal d1" id="homeSoundsStrip"></div>
+      </div>
+    </section>
+
+    <!-- Diaries teaser -->
+    <section class="teaser alt">
+      <div class="container">
+        <div class="teaser-head reveal">
+          <div>
+            <span class="eyebrow" data-i18n="diaries.teaser.eyebrow">The Diaries</span>
+            <h2 class="teaser-title" data-i18n="diaries.teaser.heading">Moments Worth Remembering</h2>
+          </div>
+          <a href="#diaries" class="btn"><span data-i18n="diaries.teaser.cta">View All Diaries</span> <span>→</span></a>
+        </div>
+        <div class="teaser-grid-3" id="homeDiariesStrip"></div>
+      </div>
+    </section>
+
+    <!-- Events teaser -->
+    <section class="teaser">
+      <div class="container">
+        <div class="teaser-head reveal">
+          <div>
+            <span class="eyebrow" data-i18n="events.teaser.eyebrow">Events</span>
+            <h2 class="teaser-title" data-i18n="events.teaser.heading">What's Coming Up</h2>
+          </div>
+          <a href="#events" class="btn"><span data-i18n="events.teaser.cta">View All Events</span> <span>→</span></a>
+        </div>
+        <div class="teaser-grid-4" id="homeEventsStrip"></div>
+      </div>
+    </section>
+
+    <!-- About teaser -->
+    <section class="teaser alt">
+      <div class="container about-teaser-grid">
+        <div class="about-teaser-photo tilt stamp-border reveal">
+          <img class="ph real-photo" src="images/profile.jpg" alt="Siaka in front of Roar Sound System">
+        </div>
+        <div class="about-teaser reveal d1">
+          <span class="eyebrow" data-i18n="about.teaser.eyebrow">Who's behind this</span>
+          <h2 class="teaser-title" data-i18n="about.teaser.heading">I'M SIAKA.</h2>
+          <p data-i18n="about.teaser.body">Sound System Diaries was born from a simple passion: for Roots, Reggae Dub and Sound System culture.</p>
+          <a href="#about" class="btn" style="margin-top:20px;"><span data-i18n="about.teaser.cta">Read My Story</span> <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- People teaser -->
+    <section class="teaser">
+      <div class="container">
+        <div class="teaser-head reveal">
+          <div>
+            <span class="eyebrow" data-i18n="people.teaser.eyebrow">The People</span>
+            <h2 class="teaser-title" data-i18n="people.teaser.heading">Faces Of The Culture</h2>
+          </div>
+          <a href="#people" class="btn"><span data-i18n="people.teaser.cta">Meet The People</span> <span>→</span></a>
+        </div>
+        <div class="people-strip reveal d1" id="homePeopleStrip"></div>
+      </div>
+    </section>
+
+    <!-- Contact teaser -->
+    <section class="teaser alt contact-teaser reveal">
+      <div class="container">
+        <span class="eyebrow" data-i18n="contact.teaser.eyebrow">Got A Sound?</span>
+        <h2 class="teaser-title" data-i18n="contact.teaser.heading">Let's Add Your Story To The Diary</h2>
+        <a href="#contact" class="btn btn-gold"><span data-i18n="contact.teaser.cta">Get In Touch</span> <span>→</span></a>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- =====================================================================
+       SOUNDS
+  ====================================================================== -->
+  <section class="page" data-page="sounds">
+    <div class="page-banner"></div>
+    <div class="container page-head">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow" data-i18n="sounds.page.eyebrow">01 — The Sounds</span>
+          <h2 class="section-title" data-i18n="sounds.page.heading">THE SOUNDS</h2>
+        </div>
+        <p class="script-tag" style="color:var(--green);" data-i18n="sounds.page.tag">Every sound has a story.</p>
+      </div>
+      <div class="sounds-view-toggle reveal">
+        <div class="lang-switch" id="soundsViewToggle">
+          <button type="button" data-view="grid" class="active" data-i18n="sounds.view.grid">GRID</button>
+          <button type="button" data-view="map" data-i18n="sounds.view.map">MAP</button>
+        </div>
+      </div>
+      <div class="sound-grid" id="soundsPageGrid"></div>
+      <div class="map-wrap is-hidden" id="soundsMapWrap">
+        <div class="italy-map-outer">
+          <svg id="italySvg" viewBox="0 0 600 706.9" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+          <div class="map-pins" id="mapPins"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="map-popup-backdrop" id="mapPopupBackdrop">
+    <div class="map-popup" id="mapPopup"></div>
+  </div>
+
+  <!-- =====================================================================
+       DIARIES
+  ====================================================================== -->
+  <section class="page" data-page="diaries">
+    <div class="page-banner"></div>
+    <div class="container page-head">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow" data-i18n="diaries.page.eyebrow">02 — The Diaries</span>
+          <h2 class="section-title" data-i18n="diaries.page.heading">THE DIARIES</h2>
+        </div>
+        <p class="script-tag" data-i18n="diaries.page.tag">Moments worth remembering.</p>
+      </div>
+      <div id="diariesPageList"></div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       EVENTS — curated by Siaka. Sound systems send their event details
+       (date, location, description, flyer) and they get added here.
+  ====================================================================== -->
+  <section class="page" data-page="events">
+    <div class="page-banner"></div>
+    <div class="container page-head">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow" data-i18n="events.page.eyebrow">03 — Events</span>
+          <h2 class="section-title" data-i18n="events.page.heading">EVENTS</h2>
+        </div>
+        <p class="script-tag" data-i18n="events.page.tag">What's coming up next.</p>
+      </div>
+      <div class="event-grid" id="eventsPageGrid"></div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       ABOUT
+  ====================================================================== -->
+  <section class="page" data-page="about">
+    <div class="page-banner"></div>
+    <div class="container page-head">
+      <div class="about-grid">
+        <div class="about-photo-col reveal">
+          <div class="about-photo stamp-border tilt">
+            <img class="ph real-photo" src="images/profile.jpg" alt="Siaka in front of Roar Sound System">
+          </div>
+          <div class="tape"><span data-i18n="about.tape">est. dance floor</span></div>
+        </div>
+        <div class="about-text-col reveal d1">
+          <span class="eyebrow" data-i18n="about.page.eyebrow">03 — About</span>
+          <h2 class="section-title about-title"><span data-i18n="about.page.imtag">I'M</span><br><span class="text-outline">SIAKA.</span></h2>
+          <div class="about-copy">
+            <p data-i18n="about.page.p1">I want to show you who's behind Sound System Diaries.</p>
+            <p data-i18n="about.page.p2">Sound System Diaries was born from a simple passion: for Roots, Dub and Sound System culture.</p>
+            <p data-i18n="about.page.p3">I go to the dances, I listen, I meet people, I film, I shoot photos and try to capture everything that's often hard to put into words: the vibrations, the energy of the sound, the people, the connections and those moments that make every session different from the others.</p>
+            <p data-i18n="about.page.p4">I don't want to tell this culture from the outside. I want to live it, know it, document it and share it.</p>
+            <p data-i18n="about.page.p5">Every video, every photo and every moment I collect is a small fragment of a journey I'm living personally, sound after sound.</p>
+            <p data-i18n="about.page.p6">Sound System Diaries is my way of giving value to these moments, discovering new sounds, meeting new people and continuing to learn from a culture that inspires me deeply.</p>
+            <p data-i18n="about.page.p7">This is what's behind Sound System Diaries.</p>
+            <p class="final-line" data-i18n="about.page.final">Not just images. Not just music. But experiences, people, vibrations and moments worth remembering.</p>
+          </div>
+          <div class="journey reveal d2">
+            <p class="journey-label" data-i18n="about.journey.label">The Journey So Far</p>
+            <div class="journey-tags" id="journeyTags">
+              <span>Dub Stone</span>
+              <span>Rototom</span>
+              <span>Zion Station Festival</span>
+              <span>Reno Splash Festival</span>
+              <span>Bababoom Festival</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       PEOPLE
+  ====================================================================== -->
+  <section class="page" data-page="people">
+    <div class="page-banner"></div>
+    <div class="container page-head">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow" data-i18n="people.page.eyebrow">04 — The People</span>
+          <h2 class="section-title" data-i18n="people.page.heading">THE PEOPLE</h2>
+        </div>
+        <p class="script-tag" style="color:var(--red);" data-i18n="people.page.tag">Because culture is people.</p>
+      </div>
+      <div class="people-grid" id="peoplePageGrid"></div>
+      <p class="people-note" data-i18n="people.note">Real portraits from real dances — no stock photography, ever.</p>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       CONTACT
+  ====================================================================== -->
+  <section class="page" data-page="contact">
+    <div class="page-banner"></div>
+    <div class="container page-head contact-page">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="contact.page.eyebrow">05 — Contact</span>
+        <h2 class="section-title" data-i18n="contact.page.heading">GOT A SOUND?</h2>
+        <p class="lead" data-i18n="contact.page.lead">Sound System Diaries is always looking for new sounds, new people and new stories.</p>
+      </div>
+      <div class="contact-tags reveal d1">
+        <span data-i18n="contact.tag.soundsystems">Sound Systems</span><span data-i18n="contact.tag.artists">Artists</span><span data-i18n="contact.tag.selectors">Selectors</span><span data-i18n="contact.tag.festivals">Festivals</span><span data-i18n="contact.tag.promoters">Promoters</span><span data-i18n="contact.tag.photographers">Photographers</span>
+      </div>
+      <a href="mailto:soundsystemdiaries@gmail.com" class="btn btn-gold reveal d2"><span data-i18n="contact.page.cta">Get In Touch</span> <span>→</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <img class="logo" src="images/logo.png" alt="Sound System Diaries">
+    <h2>SOUND SYSTEM<br><span class="fred">DIARIES</span></h2>
+    <p class="rrr">Relax · Respect · Rise</p>
+    <p class="mpcm" data-i18n="hero.tag">Music · People · Culture · Memories</p>
+    <a class="ig-link" href="https://instagram.com/soundsystemdiaries" target="_blank" rel="noreferrer">@soundsystemdiaries</a>
+    <nav class="footer-nav">
+      <a href="#home" data-i18n="nav.home">Home</a>
+      <a href="#sounds" data-i18n="nav.sounds">Sounds</a>
+      <a href="#diaries" data-i18n="nav.diaries">Diaries</a>
+      <a href="#events" data-i18n="nav.events">Events</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#people" data-i18n="nav.people">People</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="footer-bottom">
+      <span id="year"></span>
+      <span>Roots · Dub · Culture</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var PAGES = ['home','sounds','diaries','events','about','people','contact'];
+  var TITLES = {
+    en:{
+      home:'Sound System Diaries — A visual diary of Sound System culture',
+      about:'About — Sound System Diaries',
+      diaries:'The Diaries — Sound System Diaries',
+      events:'Events — Sound System Diaries',
+      sounds:'The Sounds — Sound System Diaries',
+      people:'The People — Sound System Diaries',
+      contact:'Contact — Sound System Diaries'
+    },
+    it:{
+      home:'Sound System Diaries — Un diario visivo della cultura Sound System',
+      about:'Chi Sono — Sound System Diaries',
+      diaries:'I Diari — Sound System Diaries',
+      events:'Eventi — Sound System Diaries',
+      sounds:'I Sound — Sound System Diaries',
+      people:'Le Persone — Sound System Diaries',
+      contact:'Contatti — Sound System Diaries'
+    },
+    es:{
+      home:'Sound System Diaries — Un diario visual de la cultura Sound System',
+      about:'Sobre Mí — Sound System Diaries',
+      diaries:'Los Diarios — Sound System Diaries',
+      events:'Eventos — Sound System Diaries',
+      sounds:'Los Sonidos — Sound System Diaries',
+      people:'Las Personas — Sound System Diaries',
+      contact:'Contacto — Sound System Diaries'
+    }
+  };
+
+  // ===================== I18N (EN default · IT · ES) =====================
+  var I18N = {
+    en:{
+      'nav.home':'Home','nav.about':'About','nav.diaries':'Diaries','nav.events':'Events','nav.sounds':'Sounds','nav.people':'People','nav.contact':'Contact',
+      'hero.eyebrow':'A Sound System Culture Diary','hero.tag':'Music · People · Culture · Memories','hero.script':'A visual diary of Sound System culture.',
+      'marquee.culture':'Culture',
+      'about.teaser.eyebrow':"Who's behind this",'about.teaser.heading':"I'M SIAKA.",
+      'about.teaser.body':"Sound System Diaries was born from a simple passion: for Roots, Reggae Dub and Sound System culture.",
+      'about.teaser.cta':'Read My Story',
+      'diaries.teaser.eyebrow':'The Diaries','diaries.teaser.heading':'Moments Worth Remembering','diaries.teaser.cta':'View All Diaries',
+      'events.teaser.eyebrow':'Events','events.teaser.heading':"What's Coming Up",'events.teaser.cta':'View All Events',
+      'diaries.watchTag':'▶ Watch',
+      'diaries.watchAriaTpl':'Watch on Instagram — {title}','diaries.watchClipAriaTpl':'Watch on Instagram — {name} @ {title}',
+      'diaries.watchAria1':'Watch on Instagram — Lowland Festival 2026',
+      'sounds.teaser.eyebrow':'The Sounds','sounds.teaser.heading':'Every Sound Has A Story','sounds.teaser.cta':'Explore The Sounds',
+      'people.teaser.eyebrow':'The People','people.teaser.heading':'Faces Of The Culture','people.teaser.cta':'Meet The People',
+      'contact.teaser.eyebrow':'Got A Sound?','contact.teaser.heading':"Let's Add Your Story To The Diary",'contact.teaser.cta':'Get In Touch',
+      'about.tape':'est. dance floor',
+      'about.page.eyebrow':'04 — About','about.page.imtag':"I'M",
+      'about.page.p1':"I want to show you who's behind Sound System Diaries.",
+      'about.page.p2':'Sound System Diaries was born from a simple passion: for Roots, Reggae Dub and Sound System culture.',
+      'about.page.p3':"I go to the dances, I listen, I meet people, I film, I shoot photos and try to capture everything that's often hard to put into words: the vibrations, the energy of the sound, the people, the connections and those moments that make every session different from the others.",
+      'about.page.p4':"I don't want to tell this culture from the outside. I want to live it, know it, document it and share it.",
+      'about.page.p5':"Every video, every photo and every moment I collect is a small fragment of a journey I'm living personally, sound after sound.",
+      'about.page.p6':'Sound System Diaries is my way of giving value to these moments, discovering new sounds, meeting new people and continuing to learn from a culture that inspires me deeply.',
+      'about.page.p7':"This is what's behind Sound System Diaries.",
+      'about.page.final':'Not just images. Not just music. But experiences, people, vibrations and moments worth remembering.',
+      'about.journey.label':'The Journey So Far',
+      'diaries.page.eyebrow':'02 — The Diaries','diaries.page.heading':'THE DIARIES','diaries.page.tag':'Moments worth remembering.',
+      'diary1.loc':'Netherlands','diary1.desc':'Heavy bass, an open field and a night that never ends. A photo diary from the dance floor, among selectors, operators and the crowd that holds it all together.',
+      'diaries.watchAria2':'Watch on Instagram — Reno Splash Festival 2026',
+      'diary2.loc':'Bologna, IT','diary2.desc':'Two nights at Officina Bistrot, between heavyweight vocalists and dub selections straight from the mixing desk.',
+      'diaries.watchOnIG':'▶ Watch on Instagram','diaries.viewDiary':'View Diary','diaries.closeDiary':'Close Diary',
+      'diaries.galleryVideoNote':'Tap a clip to watch it on Instagram.',
+      'diary1.video.galas':'Watch on Instagram — Galas @ Lowland Festival 2026',
+      'diary1.video.bababoom':'Watch on Instagram — Bababoom HiFi @ Lowland Festival 2026',
+      'diary1.video.jules':'Watch on Instagram — Jules I @ Lowland Festival 2026',
+      'diary2.video.juniorkelly':'Watch on Instagram — Junior Kelly @ Reno Splash Festival 2026',
+      'diary2.video.drdubwiser':'Watch on Instagram — Dr Dubwiser @ Reno Splash Festival 2026',
+      'diary2.video.princealla':'Watch on Instagram — Prince Alla @ Reno Splash Festival 2026',
+      'events.page.eyebrow':'03 — Events','events.page.heading':'EVENTS','events.page.tag':"What's coming up next.",
+      'event1.date':'18 SEP','event1.location':'Mazara del Vallo (TP) — Azienda Agricola Mirto','event1.name':'DUB YARD','event1.sounds':'Kurina Sound System · Wise Sound · Awla','event1.desc':'From 6pm — free entry on the list, food & drink area.',
+      'event2.date':'19 SEP','event2.location':'Torino — Strada Castello di Mirafiori 346 (Dagiau)','event2.name':'DUBRIVIDI AND FRIENDS','event2.sounds':'Dubrividi Sound & Friends','event2.desc':'From 5pm to midnight — €5 entry with ARCI card.',
+      'event3.date':'19 SEP','event3.location':'Firenze — Parco delle Cascine','event3.name':'DUB FANTASTIK','event3.sounds':'Warrior Charge Sound System · open act Loud And Proud Sound System','event3.desc':'From 11pm, inside the Cirk Fantastik Festival — full sound in session.',
+      'event4.date':'19 SEP','event4.location':'Venue to be confirmed','event4.name':'BACK TO THE RIVER — SPECIAL EDITION','event4.sounds':'Alburnian Sound System in session','event4.desc':'Time and venue to be confirmed.',
+      'event5.date':'20 SEP','event5.location':'Legnano (MI) — Parco del Castello','event5.name':'CULTURE CORNER DEYA','event5.sounds':'Street Roots Hi.Fi. M.W.P. · Back A Bush · special bless Henry The Combatant','event5.desc':'From noon until close — free entry.',
+      'event6.date':'26 SEP','event6.location':'Vallefoglia (PU) — Risto Park','event6.name':'BASS STATION','event6.sounds':'Vibra Family & Dub Lab Interceptor · secret artist','event6.desc':'From 7pm to 3am — food, drink and free camping, free entry.',
+      'event7.date':'26 SEP','event7.location':'Mortegliano (UD) — Festintenda','event7.name':'DUB GATE','event7.sounds':'King Shiloh · Imperial Sound Army','event7.desc':'From 8pm, free camping available — tickets presale and at the door.',
+      'event8.date':'24 OCT','event8.location':'Romola (FI) — Piazza Aiaccia, 1','event8.name':'DUB NIGHT WITH JAH STATION','event8.sounds':'Meet: Trail Foundation · Romola Soundsystem','event8.desc':'From 6pm to 2am — 3 sounds, 1 yard. Entry with ARCI card.',
+      'events.more':'More events joining the diary soon',
+      'sounds.page.eyebrow':'01 — The Sounds','sounds.page.heading':'THE SOUNDS','sounds.page.tag':'Every sound has a story.',
+      'sound.addCity':'— add city —','sound.italy':'Italy',
+      'snd1.desc':'Young sound system from the Lombard lowlands, born in 2019 out of vinyl sessions and open-air dances.',
+      'snd2.desc':'Bologna-based sound system devoted to roots reggae fundamentals — classic selecting, analogue vibrations.',
+      'snd3.desc':"One of Southern Italy's most historic sound systems, active since 2004, blending dub with Neapolitan culture.",
+      'snd4.desc':'Bologna crew raised in the Emilian roots scene, self-built rig and dub-driven nights.',
+      'snd6.desc':'Veneto sound system from Feltre, carrying the dub torch at the foot of the Dolomites.',
+      'snd7.desc':'Genoa crew formed in 2013, a sound system since 2018, carrying anti-fascist, anti-racist and anti-sexist values.',
+      'snd8.desc':'Speaker wall raised in Osoppo, Friuli, known as the Sgrasay Tower Crew.',
+      'snd9.desc':"Born in 2012 in the Modena lowlands, out of the powerful vibration of that year's earthquake.",
+      'snd10.desc':"Active since 2008 in Turin's Vanchiglia district, rooted in vinyl and street culture.",
+      'snd11.desc':'DIY punk sound system from Udine, active since 2006 with its own record label.',
+      'snd12.desc':'Active since 2013 in Remedello, near Brescia, between roots sessions and sound system culture.',
+      'sounds.more':'More sounds joining the diary soon',
+      'sounds.view.grid':'Grid','sounds.view.map':'Map',
+      'sounds.map.unlocated':'+{n} sound systems still waiting for a city — add it from the admin panel',
+      'sounds.map.tbd':'TBD','sounds.map.since':'Since','sounds.map.yes':'Yes','sounds.map.no':'No',
+      'sounds.map.roots':'Roots','sounds.map.dub':'Dub','sounds.map.steppers':'Steppers',
+      'sounds.map.vinyl':'Vinyl','sounds.map.selfbuilt':'Self-built',
+      'people.page.eyebrow':'05 — The People','people.page.heading':'THE PEOPLE','people.page.tag':'Because culture is people.',
+      'role.artist':'Artist',
+      'people.note':'Real portraits from real dances — no stock photography, ever.',
+      'contact.page.eyebrow':'06 — Contact','contact.page.heading':'GOT A SOUND?',
+      'contact.page.lead':'Sound System Diaries is always looking for new sounds, new people and new stories.',
+      'contact.tag.soundsystems':'Sound Systems','contact.tag.artists':'Artists','contact.tag.selectors':'Selectors','contact.tag.festivals':'Festivals','contact.tag.promoters':'Promoters','contact.tag.photographers':'Photographers',
+      'contact.page.cta':'Get In Touch'
+    },
+    it:{
+      'nav.home':'Home','nav.about':'Chi Sono','nav.diaries':'Diari','nav.events':'Eventi','nav.sounds':'Sound','nav.people':'Persone','nav.contact':'Contatti',
+      'hero.eyebrow':'Un Diario Della Cultura Sound System','hero.tag':'Musica · Persone · Cultura · Ricordi','hero.script':'Un diario visivo della cultura Sound System.',
+      'marquee.culture':'Cultura',
+      'about.teaser.eyebrow':"Chi c'è dietro",'about.teaser.heading':'SONO SIAKA.',
+      'about.teaser.body':"Sound System Diaries è nato da una passione semplice: quella per la cultura Roots, Reggae Dub e Sound System.",
+      'about.teaser.cta':'Leggi La Mia Storia',
+      'diaries.teaser.eyebrow':'I Diari','diaries.teaser.heading':'Momenti Da Ricordare','diaries.teaser.cta':'Vedi Tutti I Diari',
+      'events.teaser.eyebrow':'Eventi','events.teaser.heading':'Cosa Ci Aspetta','events.teaser.cta':'Vedi Tutti Gli Eventi',
+      'diaries.watchTag':'▶ Guarda',
+      'diaries.watchAriaTpl':'Guarda il video su Instagram — {title}','diaries.watchClipAriaTpl':'Guarda il video su Instagram — {name} @ {title}',
+      'diaries.watchAria1':'Guarda il video su Instagram — Lowland Festival 2026',
+      'sounds.teaser.eyebrow':'I Sound','sounds.teaser.heading':'Ogni Sound Ha Una Storia','sounds.teaser.cta':'Esplora I Sound',
+      'people.teaser.eyebrow':'Le Persone','people.teaser.heading':'I Volti Della Cultura','people.teaser.cta':'Scopri Le Persone',
+      'contact.teaser.eyebrow':'Hai Un Sound?','contact.teaser.heading':'Aggiungiamo La Tua Storia Al Diario','contact.teaser.cta':'Contattami',
+      'about.tape':'dal dancefloor',
+      'about.page.eyebrow':'04 — Chi Sono','about.page.imtag':'SONO',
+      'about.page.p1':"Voglio mostrarvi chi c'è dietro Sound System Diaries.",
+      'about.page.p2':'Sound System Diaries è nato da una passione semplice: quella per la cultura Roots, Reggae Dub e Sound System.',
+      'about.page.p3':"Vado alle serate, ascolto, incontro persone, filmo, scatto e cerco di catturare tutto ciò che spesso non si riesce a spiegare a parole: le vibrazioni, l'energia del sound, la gente, le connessioni e quei momenti che rendono ogni session diversa dalle altre.",
+      'about.page.p4':'Non voglio raccontare questa cultura da fuori. Voglio viverla, conoscerla, documentarla e condividerla.',
+      'about.page.p5':"Ogni video, ogni foto e ogni momento che raccolgo è un piccolo frammento di un viaggio che sto vivendo personalmente, sound dopo sound.",
+      'about.page.p6':'Sound System Diaries è il mio modo di dare valore a questi momenti, scoprire nuovi sound, incontrare nuove persone e continuare a imparare da una cultura che mi ispira profondamente.',
+      'about.page.p7':"Questo è ciò che c'è dietro Sound System Diaries.",
+      'about.page.final':'Non solo immagini. Non solo musica. Ma esperienze, persone, vibrazioni e momenti da ricordare.',
+      'about.journey.label':'Il Viaggio Finora',
+      'diaries.page.eyebrow':'02 — I Diari','diaries.page.heading':'I DIARI','diaries.page.tag':'Momenti da ricordare.',
+      'diary1.loc':'Paesi Bassi','diary1.desc':'Bassi pesanti, campo aperto e una notte che non finisce mai. Un diario fotografico dalla dance, tra selectors, operators e la crowd che tiene tutto insieme.',
+      'diaries.watchAria2':'Guarda il video su Instagram — Reno Splash Festival 2026',
+      'diary2.loc':'Bologna, IT','diary2.desc':"Due serate all'Officina Bistrot, tra voci pesanti e selezioni dub direttamente dal mixer.",
+      'diaries.watchOnIG':'▶ Guarda su Instagram','diaries.viewDiary':'Vedi Diario','diaries.closeDiary':'Chiudi Diario',
+      'diaries.galleryVideoNote':'Tocca una clip per guardarla su Instagram.',
+      'diary1.video.galas':'Guarda il video su Instagram — Galas @ Lowland Festival 2026',
+      'diary1.video.bababoom':'Guarda il video su Instagram — Bababoom HiFi @ Lowland Festival 2026',
+      'diary1.video.jules':'Guarda il video su Instagram — Jules I @ Lowland Festival 2026',
+      'diary2.video.juniorkelly':'Guarda il video su Instagram — Junior Kelly @ Reno Splash Festival 2026',
+      'diary2.video.drdubwiser':'Guarda il video su Instagram — Dr Dubwiser @ Reno Splash Festival 2026',
+      'diary2.video.princealla':'Guarda il video su Instagram — Prince Alla @ Reno Splash Festival 2026',
+      'events.page.eyebrow':'03 — Eventi','events.page.heading':'EVENTI','events.page.tag':'Cosa ci aspetta.',
+      'event1.date':'18 SET','event1.location':'Mazara del Vallo (TP) — Azienda Agricola Mirto','event1.name':'DUB YARD','event1.sounds':'Kurina Sound System · Wise Sound · Awla','event1.desc':'Dalle 18:00 — ingresso gratuito in lista, food & drink area.',
+      'event2.date':'19 SET','event2.location':'Torino — Strada Castello di Mirafiori 346 (Dagiau)','event2.name':'DUBRIVIDI AND FRIENDS','event2.sounds':'Dubrividi Sound & Friends','event2.desc':'Dalle 17:00 alle 24:00 — ingresso 5€ con tessera ARCI.',
+      'event3.date':'19 SET','event3.location':'Firenze — Parco delle Cascine','event3.name':'DUB FANTASTIK','event3.sounds':'Warrior Charge Sound System · open act Loud And Proud Sound System','event3.desc':'Dalle 23:00, dentro il Festival Cirk Fantastik — full sound in session.',
+      'event4.date':'19 SET','event4.location':'Location da confermare','event4.name':'BACK TO THE RIVER — SPECIAL EDITION','event4.sounds':'Alburnian Sound System in session','event4.desc':'Orario e location in via di conferma.',
+      'event5.date':'20 SET','event5.location':'Legnano (MI) — Parco del Castello','event5.name':'CULTURE CORNER DEYA','event5.sounds':'Street Roots Hi.Fi. M.W.P. · Back A Bush · special bless Henry The Combatant','event5.desc':'Dalle 12:00 a chiusura — ingresso libero.',
+      'event6.date':'26 SET','event6.location':'Vallefoglia (PU) — Risto Park','event6.name':'BASS STATION','event6.sounds':'Vibra Family & Dub Lab Interceptor · secret artist','event6.desc':'Dalle 19:00 alle 03:00 — food, drink e free camping, ingresso libero.',
+      'event7.date':'26 SET','event7.location':'Mortegliano (UD) — Festintenda','event7.name':'DUB GATE','event7.sounds':'King Shiloh · Imperial Sound Army','event7.desc':'Dalle 20:00, possibilità di campeggio gratuito — biglietti in prevendita e alla porta.',
+      'event8.date':'24 OTT','event8.location':'Romola (FI) — Piazza Aiaccia, 1','event8.name':'DUB NIGHT WITH JAH STATION','event8.sounds':'Meet: Trail Foundation · Romola Soundsystem','event8.desc':'Dalle 18:00 alle 02:00 — 3 sound, 1 yard. Ingresso con tessera ARCI.',
+      'events.more':'Altri eventi in arrivo nel diario',
+      'sounds.page.eyebrow':'01 — I Sound','sounds.page.heading':'I SOUND','sounds.page.tag':'Ogni sound ha una storia.',
+      'sound.addCity':'— aggiungi città —','sound.italy':'Italia',
+      'snd1.desc':"Sound system giovane della Bassa lombarda, nato nel 2019 tra vinili e session all'aperto.",
+      'snd2.desc':'Sound system bolognese devoto ai fondamentali del roots reggae, tra selecting classico e vibrazioni analogiche.',
+      'snd3.desc':'Uno dei sound system più storici del Sud Italia, attivo dal 2004 tra dub e cultura napoletana.',
+      'snd4.desc':"Crew bolognese cresciuta nella scena roots emiliana, tra self-build e serate all'insegna del dub.",
+      'snd6.desc':'Sound system veneto di Feltre, portavoce di una scena dub in crescita ai piedi delle Dolomiti.',
+      'snd7.desc':'Crew genovese nata nel 2013, sound ufficiale dal 2018: valori antifascisti, antirazzisti e antisessisti.',
+      'snd8.desc':'Wall di casse cresciuto a Osoppo, in Friuli, conosciuto come Sgrasay Tower Crew.',
+      'snd9.desc':"Nato nel 2012 nella Bassa modenese, dalla forte vibrazione del terremoto di quell'anno.",
+      'snd10.desc':'Attivo dal 2008 nel quartiere torinese di Vanchiglia, tra vinile e cultura di strada.',
+      'snd11.desc':"Sound system punk/DIY di Udine, attivo dal 2006 con un'etichetta discografica propria.",
+      'snd12.desc':'Attivo dal 2013 a Remedello, nel bresciano, tra session roots e cultura sound system.',
+      'sounds.more':'Altri sound in arrivo nel diario',
+      'sounds.view.grid':'Griglia','sounds.view.map':'Mappa',
+      'sounds.map.unlocated':'+{n} sound system ancora senza città — aggiungila dal pannello di gestione',
+      'sounds.map.tbd':'Da confermare','sounds.map.since':'Dal','sounds.map.yes':'Sì','sounds.map.no':'No',
+      'sounds.map.roots':'Roots','sounds.map.dub':'Dub','sounds.map.steppers':'Steppers',
+      'sounds.map.vinyl':'Vinile','sounds.map.selfbuilt':'Autocostruito',
+      'people.page.eyebrow':'05 — Le Persone','people.page.heading':'LE PERSONE','people.page.tag':'Perché la cultura è fatta di persone.',
+      'role.artist':'Artista',
+      'people.note':'Ritratti veri da serate vere — mai foto stock.',
+      'contact.page.eyebrow':'06 — Contatti','contact.page.heading':'HAI UN SOUND?',
+      'contact.page.lead':'Sound System Diaries è sempre alla ricerca di nuovi sound, nuove persone e nuove storie.',
+      'contact.tag.soundsystems':'Sound System','contact.tag.artists':'Artisti','contact.tag.selectors':'Selectors','contact.tag.festivals':'Festival','contact.tag.promoters':'Promoter','contact.tag.photographers':'Fotografi',
+      'contact.page.cta':'Contattami'
+    },
+    es:{
+      'nav.home':'Inicio','nav.about':'Sobre Mí','nav.diaries':'Diarios','nav.events':'Eventos','nav.sounds':'Sonidos','nav.people':'Personas','nav.contact':'Contacto',
+      'hero.eyebrow':'Un Diario De La Cultura Sound System','hero.tag':'Música · Personas · Cultura · Recuerdos','hero.script':'Un diario visual de la cultura Sound System.',
+      'marquee.culture':'Cultura',
+      'about.teaser.eyebrow':'Quién está detrás','about.teaser.heading':'SOY SIAKA.',
+      'about.teaser.body':'Sound System Diaries nació de una pasión simple: la cultura Roots, Reggae Dub y Sound System.',
+      'about.teaser.cta':'Lee Mi Historia',
+      'diaries.teaser.eyebrow':'Los Diarios','diaries.teaser.heading':'Momentos Para Recordar','diaries.teaser.cta':'Ver Todos Los Diarios',
+      'events.teaser.eyebrow':'Eventos','events.teaser.heading':'Lo Que Viene','events.teaser.cta':'Ver Todos Los Eventos',
+      'diaries.watchTag':'▶ Ver',
+      'diaries.watchAriaTpl':'Ver el vídeo en Instagram — {title}','diaries.watchClipAriaTpl':'Ver el vídeo en Instagram — {name} @ {title}',
+      'diaries.watchAria1':'Ver el vídeo en Instagram — Lowland Festival 2026',
+      'sounds.teaser.eyebrow':'Los Sonidos','sounds.teaser.heading':'Cada Sonido Tiene Una Historia','sounds.teaser.cta':'Explora Los Sonidos',
+      'people.teaser.eyebrow':'Las Personas','people.teaser.heading':'Rostros De La Cultura','people.teaser.cta':'Conoce A Las Personas',
+      'contact.teaser.eyebrow':'¿Tienes Un Sonido?','contact.teaser.heading':'Añadamos Tu Historia Al Diario','contact.teaser.cta':'Contáctame',
+      'about.tape':'desde la pista',
+      'about.page.eyebrow':'04 — Sobre Mí','about.page.imtag':'SOY',
+      'about.page.p1':'Quiero mostraros quién está detrás de Sound System Diaries.',
+      'about.page.p2':'Sound System Diaries nació de una pasión simple: la cultura Roots, Reggae Dub y Sound System.',
+      'about.page.p3':'Voy a los bailes, escucho, conozco gente, grabo, fotografío e intento capturar todo lo que a menudo no se puede explicar con palabras: las vibraciones, la energía del sound, la gente, las conexiones y esos momentos que hacen que cada session sea diferente de las demás.',
+      'about.page.p4':'No quiero contar esta cultura desde fuera. Quiero vivirla, conocerla, documentarla y compartirla.',
+      'about.page.p5':'Cada vídeo, cada foto y cada momento que recojo es un pequeño fragmento de un viaje que estoy viviendo personalmente, sound tras sound.',
+      'about.page.p6':'Sound System Diaries es mi manera de dar valor a estos momentos, descubrir nuevos sounds, conocer nuevas personas y seguir aprendiendo de una cultura que me inspira profundamente.',
+      'about.page.p7':'Esto es lo que hay detrás de Sound System Diaries.',
+      'about.page.final':'No solo imágenes. No solo música. Sino experiencias, personas, vibraciones y momentos para recordar.',
+      'about.journey.label':'El Viaje Hasta Ahora',
+      'diaries.page.eyebrow':'02 — Los Diarios','diaries.page.heading':'LOS DIARIOS','diaries.page.tag':'Momentos para recordar.',
+      'diary1.loc':'Países Bajos','diary1.desc':'Bajos pesados, un campo abierto y una noche que no termina nunca. Un diario fotográfico desde la pista, entre selectors, operators y el público que lo mantiene todo unido.',
+      'diaries.watchAria2':'Ver el vídeo en Instagram — Reno Splash Festival 2026',
+      'diary2.loc':'Bolonia, IT','diary2.desc':'Dos noches en Officina Bistrot, entre voces pesadas y selecciones dub directamente desde la mesa de mezclas.',
+      'diaries.watchOnIG':'▶ Ver en Instagram','diaries.viewDiary':'Ver Diario','diaries.closeDiary':'Cerrar Diario',
+      'diaries.galleryVideoNote':'Toca un clip para verlo en Instagram.',
+      'diary1.video.galas':'Ver el vídeo en Instagram — Galas @ Lowland Festival 2026',
+      'diary1.video.bababoom':'Ver el vídeo en Instagram — Bababoom HiFi @ Lowland Festival 2026',
+      'diary1.video.jules':'Ver el vídeo en Instagram — Jules I @ Lowland Festival 2026',
+      'diary2.video.juniorkelly':'Ver el vídeo en Instagram — Junior Kelly @ Reno Splash Festival 2026',
+      'diary2.video.drdubwiser':'Ver el vídeo en Instagram — Dr Dubwiser @ Reno Splash Festival 2026',
+      'diary2.video.princealla':'Ver el vídeo en Instagram — Prince Alla @ Reno Splash Festival 2026',
+      'events.page.eyebrow':'03 — Eventos','events.page.heading':'EVENTOS','events.page.tag':'Lo que viene.',
+      'event1.date':'18 SEP','event1.location':'Mazara del Vallo (TP) — Azienda Agricola Mirto','event1.name':'DUB YARD','event1.sounds':'Kurina Sound System · Wise Sound · Awla','event1.desc':'Desde las 18:00 — entrada gratuita en lista, zona de food & drink.',
+      'event2.date':'19 SEP','event2.location':'Torino — Strada Castello di Mirafiori 346 (Dagiau)','event2.name':'DUBRIVIDI AND FRIENDS','event2.sounds':'Dubrividi Sound & Friends','event2.desc':'De 17:00 a 24:00 — entrada 5€ con carnet ARCI.',
+      'event3.date':'19 SEP','event3.location':'Florencia — Parco delle Cascine','event3.name':'DUB FANTASTIK','event3.sounds':'Warrior Charge Sound System · open act Loud And Proud Sound System','event3.desc':'Desde las 23:00, dentro del Festival Cirk Fantastik — full sound in session.',
+      'event4.date':'19 SEP','event4.location':'Lugar por confirmar','event4.name':'BACK TO THE RIVER — SPECIAL EDITION','event4.sounds':'Alburnian Sound System in session','event4.desc':'Hora y lugar por confirmar.',
+      'event5.date':'20 SEP','event5.location':'Legnano (MI) — Parco del Castello','event5.name':'CULTURE CORNER DEYA','event5.sounds':'Street Roots Hi.Fi. M.W.P. · Back A Bush · special bless Henry The Combatant','event5.desc':'Desde las 12:00 hasta el cierre — entrada libre.',
+      'event6.date':'26 SEP','event6.location':'Vallefoglia (PU) — Risto Park','event6.name':'BASS STATION','event6.sounds':'Vibra Family & Dub Lab Interceptor · secret artist','event6.desc':'De 19:00 a 03:00 — food, drink y camping gratuito, entrada libre.',
+      'event7.date':'26 SEP','event7.location':'Mortegliano (UD) — Festintenda','event7.name':'DUB GATE','event7.sounds':'King Shiloh · Imperial Sound Army','event7.desc':'Desde las 20:00, camping gratuito disponible — entradas anticipadas y en puerta.',
+      'event8.date':'24 OCT','event8.location':'Romola (FI) — Piazza Aiaccia, 1','event8.name':'DUB NIGHT WITH JAH STATION','event8.sounds':'Meet: Trail Foundation · Romola Soundsystem','event8.desc':'De 18:00 a 02:00 — 3 sounds, 1 yard. Entrada con carnet ARCI.',
+      'events.more':'Más eventos próximamente en el diario',
+      'sounds.page.eyebrow':'01 — Los Sonidos','sounds.page.heading':'LOS SONIDOS','sounds.page.tag':'Cada sonido tiene una historia.',
+      'sound.addCity':'— añade ciudad —','sound.italy':'Italia',
+      'snd1.desc':'Sound system joven de la llanura lombarda, nacido en 2019 entre vinilos y sesiones al aire libre.',
+      'snd2.desc':'Sound system de Bolonia dedicado a los fundamentos del roots reggae, entre selección clásica y vibraciones analógicas.',
+      'snd3.desc':'Uno de los sound system más históricos del sur de Italia, activo desde 2004 entre el dub y la cultura napolitana.',
+      'snd4.desc':'Crew de Bolonia crecida en la escena roots de Emilia-Romaña, equipo autoconstruido y noches dedicadas al dub.',
+      'snd6.desc':'Sound system véneto de Feltre, estandarte de una escena dub en crecimiento al pie de las Dolomitas.',
+      'snd7.desc':'Crew de Génova formada en 2013, sound system desde 2018: valores antifascistas, antirracistas y antisexistas.',
+      'snd8.desc':'Muro de altavoces crecido en Osoppo, Friuli, conocido como Sgrasay Tower Crew.',
+      'snd9.desc':'Nacido en 2012 en la Baja Módena, de la fuerte vibración del terremoto de ese año.',
+      'snd10.desc':'Activo desde 2008 en el barrio turinés de Vanchiglia, entre vinilo y cultura de calle.',
+      'snd11.desc':'Sound system punk/DIY de Udine, activo desde 2006 con su propio sello discográfico.',
+      'snd12.desc':'Activo desde 2013 en Remedello, cerca de Brescia, entre sesiones roots y cultura sound system.',
+      'sounds.more':'Más sonidos llegarán pronto al diario',
+      'sounds.view.grid':'Cuadrícula','sounds.view.map':'Mapa',
+      'sounds.map.unlocated':'+{n} sound systems aún sin ciudad — añádela desde el panel de gestión',
+      'sounds.map.tbd':'Por confirmar','sounds.map.since':'Desde','sounds.map.yes':'Sí','sounds.map.no':'No',
+      'sounds.map.roots':'Roots','sounds.map.dub':'Dub','sounds.map.steppers':'Steppers',
+      'sounds.map.vinyl':'Vinilo','sounds.map.selfbuilt':'Autoconstruido',
+      'people.page.eyebrow':'05 — Las Personas','people.page.heading':'LAS PERSONAS','people.page.tag':'Porque la cultura es gente.',
+      'role.artist':'Artista',
+      'people.note':'Retratos reales de bailes reales — nunca fotos de archivo.',
+      'contact.page.eyebrow':'06 — Contacto','contact.page.heading':'¿TIENES UN SONIDO?',
+      'contact.page.lead':'Sound System Diaries siempre está buscando nuevos sonidos, nueva gente y nuevas historias.',
+      'contact.tag.soundsystems':'Sound Systems','contact.tag.artists':'Artistas','contact.tag.selectors':'Selectors','contact.tag.festivals':'Festivales','contact.tag.promoters':'Promotores','contact.tag.photographers':'Fotógrafos',
+      'contact.page.cta':'Contáctame'
+    }
+  };
+
+  var currentLang = 'en';
+  try {
+    var savedLang = localStorage.getItem('ssd_lang');
+    if (savedLang && I18N[savedLang]) currentLang = savedLang;
+  } catch(e) {}
+
+  function t(key){
+    var dict = I18N[currentLang] || I18N.en;
+    return (key in dict) ? dict[key] : (I18N.en[key] || '');
+  }
+
+  function updateTitleFor(name){
+    var langTitles = TITLES[currentLang] || TITLES.en;
+    document.title = langTitles[name] || langTitles.home;
+  }
+
+  function refreshDiaryToggles(){
+    document.querySelectorAll('.diary-toggle').forEach(function(btn){
+      var gallery = btn.nextElementSibling;
+      var open = gallery && gallery.classList.contains('open');
+      btn.innerHTML = (open ? t('diaries.closeDiary') : t('diaries.viewDiary')) + ' <span>' + (open ? '×' : '→') + '</span>';
+    });
+  }
+
+  function applyLanguage(lang){
+    if(!I18N[lang]) lang = 'en';
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var val = t(el.getAttribute('data-i18n'));
+      if(val) el.textContent = val;
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach(function(el){
+      var spec = el.getAttribute('data-i18n-attr').split(':');
+      var val = t(spec[1]);
+      if(val) el.setAttribute(spec[0], val);
+    });
+    refreshDiaryToggles();
+    updateTitleFor(pageFromHash());
+    document.querySelectorAll('[data-lang-switch] button').forEach(function(b){
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    try { localStorage.setItem('ssd_lang', lang); } catch(e) {}
+  }
+
+  document.querySelectorAll('[data-lang-switch] button').forEach(function(b){
+    b.addEventListener('click', function(){ applyLanguage(b.dataset.lang); });
+  });
+
+  // header scroll shadow
+  var header = document.getElementById('siteHeader');
+  function onScroll(){
+    if(window.scrollY > 20){ header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // mobile menu
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function(){
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // scroll reveal
+  var io = null;
+  if('IntersectionObserver' in window){
+    io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12, rootMargin:'-8% 0px -8% 0px'});
+  }
+  function observeReveals(scope){
+    var els = scope.querySelectorAll('.reveal:not(.is-visible)');
+    if(io){ els.forEach(function(el){ io.observe(el); }); }
+    else { els.forEach(function(el){ el.classList.add('is-visible'); }); }
+  }
+
+  // hero parallax (home page only)
+  var heroParallax = document.getElementById('heroParallax');
+  var heroEl = document.querySelector('.hero');
+  function onHeroScroll(){
+    if(!heroEl || !heroParallax) return;
+    var rect = heroEl.getBoundingClientRect();
+    var heroHeight = heroEl.offsetHeight;
+    var progress = Math.min(Math.max(-rect.top / heroHeight, 0), 1);
+    var y = progress * 28;
+    var scale = 1 + progress * 0.15;
+    heroParallax.style.transform = 'translateY(' + y + '%) scale(' + scale + ')';
+  }
+  window.addEventListener('scroll', onHeroScroll, {passive:true});
+
+  // diary gallery toggle (delegated setup, reusable for dynamically-created articles)
+  function setupDiaryToggles(root){
+    root.querySelectorAll('.diary-toggle').forEach(function(btn){
+      if(btn.dataset.wired) return;
+      btn.dataset.wired = '1';
+      btn.addEventListener('click', function(){
+        var gallery = btn.nextElementSibling;
+        var open = gallery.classList.toggle('open');
+        btn.innerHTML = (open ? t('diaries.closeDiary') : t('diaries.viewDiary')) + ' <span>' + (open ? '×' : '→') + '</span>';
+      });
+    });
+  }
+
+  // footer year
+  document.getElementById('year').textContent = '© ' + new Date().getFullYear() + ' Sound System Diaries';
+
+  // pointer tilt (delegated setup, reusable for dynamically-created cards)
+  var TILT_MAX = 7;
+  function setupTilt(root){
+    root.querySelectorAll('.tilt').forEach(function(el){
+      if(el.dataset.tiltWired) return;
+      el.dataset.tiltWired = '1';
+      var ph = el.querySelector('.ph');
+      if(!ph) return;
+      function move(e){
+        var rect = el.getBoundingClientRect();
+        var px = (e.clientX - rect.left) / rect.width;
+        var py = (e.clientY - rect.top) / rect.height;
+        var ry = (px - 0.5) * TILT_MAX * 2;
+        var rx = (0.5 - py) * TILT_MAX * 2;
+        el.classList.add('tilting');
+        ph.style.setProperty('--rx', rx.toFixed(2) + 'deg');
+        ph.style.setProperty('--ry', ry.toFixed(2) + 'deg');
+        ph.style.setProperty('--tscale', '1.05');
+      }
+      function reset(){
+        el.classList.remove('tilting');
+        ph.style.setProperty('--rx', '0deg');
+        ph.style.setProperty('--ry', '0deg');
+        ph.style.setProperty('--tscale', '1');
+      }
+      el.addEventListener('pointermove', move);
+      el.addEventListener('pointerleave', reset);
+      el.addEventListener('pointercancel', reset);
+    });
+  }
+
+  // ---- tiny hash router: swaps which .page is visible, no server needed ----
+  function pageFromHash(){
+    var h = (location.hash || '').replace('#','').split('/')[0];
+    return PAGES.indexOf(h) !== -1 ? h : 'home';
+  }
+  function showPage(name){
+    var target = null;
+    document.querySelectorAll('.page').forEach(function(p){
+      var isMatch = p.dataset.page === name;
+      p.classList.toggle('active', isMatch);
+      if(isMatch) target = p;
+    });
+    document.querySelectorAll('[data-nav]').forEach(function(a){
+      a.classList.toggle('active', a.dataset.nav === name);
+    });
+    updateTitleFor(name);
+    window.scrollTo(0, 0);
+    onScroll();
+    onHeroScroll();
+    if(target) observeReveals(target);
+  }
+  function route(){ showPage(pageFromHash()); }
+  window.addEventListener('hashchange', route);
+
+  // ===================== DYNAMIC CONTENT (sounds / events / diaries / people) =====================
+  // Content for these four sections lives in data/*.json (edited via the /admin CMS panel)
+  // instead of being hardcoded here, so Siaka can add/change sounds, events, diaries and people
+  // without touching code. Each item's translated fields are merged into the I18N dictionaries
+  // above under "dyn.*" keys, then rendered with the same data-i18n / data-i18n-attr mechanism
+  // used everywhere else on the page, so language switching keeps working unchanged.
+
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+  function revealClass(i, cycle){
+    var m = i % cycle;
+    return m === 0 ? '' : ' d' + m;
+  }
+  function fillTpl(tpl, vars){
+    return tpl.replace(/\{(\w+)\}/g, function(_, k){ return vars[k] != null ? vars[k] : ''; });
+  }
+  // merge one {en,it,es} object into I18N under the given key
+  function mergeI18NField(key, obj){
+    if(!obj) return;
+    ['en','it','es'].forEach(function(lang){
+      if(obj[lang] != null) I18N[lang][key] = obj[lang];
+    });
+  }
+
+  function fetchJSON(path){
+    return fetch(path, {cache:'no-cache'}).then(function(r){
+      if(!r.ok) throw new Error('failed to load ' + path);
+      return r.json();
+    });
+  }
+
+  var ITALY_MAP_PATHS = [
+    'M 43.82,218.19 L 54.87,204.68 L 52.51,200.06 L 53.37,197.07 L 37.02,200.95 L 19.26,192.89 L 13.13,184.27 L 13.43,180.39 L 16.23,179.74 L 11.54,172.77 L 17.25,166.83 L 16.93,163.00 L 22.63,162.10 L 18.91,155.26 L 20.04,153.08 L 6.27,147.47 L 6.02,140.24 L 2.26,139.52 L 0.00,134.05 L 7.19,130.29 L 13.48,131.81 L 17.08,127.08 L 22.71,126.61 L 25.64,123.90 L 24.36,118.96 L 28.21,113.80 L 18.83,106.90 L 18.67,97.70 L 9.42,92.16 L 9.64,84.66 L 15.91,83.62 L 20.94,78.60 L 24.13,82.94 L 28.76,82.81 L 33.68,78.68 L 38.19,80.36 L 47.59,74.20 L 52.32,75.03 L 55.16,78.54 L 62.42,79.03 L 64.56,73.77 L 69.90,72.57 L 70.94,66.76 L 77.02,63.49 L 76.29,58.06 L 73.34,55.71 L 85.15,47.56 L 84.72,44.54 L 91.34,41.92 L 92.92,45.49 L 91.66,56.44 L 96.15,58.67 L 100.15,65.15 L 106.75,65.10 L 112.27,68.26 L 108.93,74.12 L 114.40,76.19 L 116.79,82.19 L 115.31,84.87 L 121.27,85.51 L 124.21,80.10 L 119.16,75.37 L 121.16,73.80 L 120.18,70.92 L 132.22,57.55 L 134.87,51.25 L 132.21,43.82 L 133.97,39.73 L 137.99,38.85 L 140.43,41.77 L 142.98,39.00 L 143.01,47.89 L 147.44,52.89 L 155.24,53.67 L 156.92,49.62 L 167.80,47.68 L 169.99,49.60 L 170.01,54.10 L 172.99,55.51 L 172.57,57.88 L 176.87,58.10 L 179.07,55.90 L 175.53,50.28 L 178.53,45.81 L 172.22,43.29 L 172.40,36.84 L 175.33,32.00 L 182.24,30.35 L 182.48,34.19 L 185.10,36.09 L 194.01,36.54 L 195.01,31.71 L 190.44,30.22 L 189.64,27.25 L 194.29,15.21 L 198.11,16.50 L 203.88,14.06 L 208.68,17.61 L 207.03,20.00 L 221.74,21.54 L 224.83,17.68 L 225.46,11.60 L 228.96,7.98 L 252.12,4.81 L 258.31,7.74 L 282.37,0.00 L 281.40,3.79 L 277.17,5.18 L 279.55,9.84 L 278.34,11.46 L 284.92,13.54 L 286.54,16.45 L 285.38,20.33 L 289.10,20.90 L 293.40,26.75 L 333.25,35.87 L 340.32,34.13 L 357.53,37.94 L 356.26,43.58 L 351.71,43.63 L 340.46,53.17 L 342.88,59.40 L 354.97,61.17 L 345.54,72.95 L 348.81,75.75 L 353.90,74.48 L 350.45,83.59 L 351.60,86.38 L 361.69,90.80 L 367.87,98.20 L 363.95,101.63 L 357.99,100.82 L 362.26,99.62 L 355.67,91.19 L 348.43,86.60 L 347.61,90.74 L 349.42,92.03 L 343.38,95.14 L 330.89,92.94 L 326.44,98.08 L 317.11,99.51 L 290.18,113.08 L 286.10,124.48 L 287.91,135.08 L 299.08,143.43 L 290.89,155.52 L 290.00,155.78 L 287.26,155.40 L 290.51,155.34 L 287.06,151.87 L 284.07,153.63 L 285.46,153.43 L 283.19,162.04 L 285.65,177.41 L 290.86,194.42 L 305.79,209.73 L 316.84,214.07 L 335.95,230.59 L 344.42,235.24 L 347.09,233.88 L 353.07,239.31 L 369.48,290.83 L 375.12,302.51 L 397.67,327.29 L 407.92,332.35 L 409.14,338.29 L 430.69,349.57 L 443.41,351.05 L 473.50,347.71 L 479.97,350.13 L 482.20,352.22 L 482.36,359.61 L 467.79,370.70 L 470.68,380.80 L 502.34,398.01 L 527.88,407.78 L 547.43,423.61 L 570.52,433.34 L 572.56,434.90 L 570.08,436.47 L 574.46,436.34 L 577.82,444.22 L 595.18,460.07 L 600.00,472.56 L 594.77,480.21 L 593.47,492.18 L 591.21,493.96 L 576.29,484.71 L 573.40,479.81 L 574.56,477.50 L 572.39,476.20 L 574.25,472.42 L 566.71,460.57 L 548.95,459.84 L 533.68,452.14 L 535.83,448.64 L 529.50,444.69 L 519.22,449.40 L 503.41,474.39 L 504.51,482.60 L 497.48,495.78 L 499.56,498.48 L 499.34,502.90 L 511.72,505.50 L 531.22,520.36 L 528.84,526.64 L 530.76,533.61 L 528.77,540.30 L 533.67,545.88 L 528.05,554.82 L 522.43,551.77 L 517.78,552.43 L 503.36,560.38 L 499.83,567.03 L 501.75,586.21 L 496.43,592.22 L 488.90,595.77 L 481.19,606.09 L 480.09,613.31 L 476.11,620.33 L 459.40,620.33 L 454.55,614.87 L 454.33,600.23 L 462.44,596.31 L 468.20,585.13 L 469.35,578.25 L 464.58,571.61 L 472.17,566.30 L 478.21,567.06 L 482.00,564.68 L 483.98,554.15 L 477.86,545.57 L 474.80,524.47 L 472.50,517.35 L 466.50,509.98 L 461.21,490.95 L 461.74,487.09 L 454.21,474.96 L 448.82,474.95 L 443.59,480.46 L 436.08,478.29 L 436.09,474.78 L 429.11,468.23 L 424.17,468.14 L 417.87,463.32 L 422.35,453.50 L 411.73,434.73 L 388.33,441.26 L 389.05,437.42 L 396.09,432.71 L 395.22,429.52 L 385.57,422.68 L 381.56,426.04 L 377.28,423.49 L 375.60,424.41 L 376.46,427.11 L 373.94,426.16 L 372.55,416.49 L 358.75,395.94 L 352.80,394.45 L 350.28,398.25 L 335.71,391.94 L 323.80,396.70 L 318.02,386.69 L 302.45,382.01 L 293.24,368.83 L 282.28,361.65 L 277.65,349.58 L 266.76,341.67 L 262.72,342.35 L 252.50,324.34 L 234.27,315.95 L 230.04,319.69 L 225.57,317.69 L 225.84,314.08 L 229.63,313.66 L 229.75,308.06 L 218.18,294.42 L 207.04,290.01 L 209.16,288.04 L 209.20,282.77 L 203.50,279.86 L 195.19,281.04 L 194.55,277.40 L 197.24,270.91 L 196.55,259.76 L 184.93,239.54 L 185.50,239.42 L 186.31,237.01 L 185.03,238.61 L 182.19,217.46 L 173.65,207.13 L 168.35,206.32 L 162.65,201.41 L 160.72,202.02 L 161.73,205.53 L 131.60,185.29 L 130.70,188.63 L 124.72,183.66 L 106.80,179.93 L 92.04,189.35 L 90.70,195.66 L 82.86,199.42 L 77.51,209.35 L 78.05,211.92 L 72.87,216.27 L 52.80,224.01 L 46.89,223.74 L 43.82,218.19 Z',
+    'M 318.09,613.37 L 325.44,609.35 L 324.19,606.00 L 326.83,602.39 L 331.17,603.82 L 337.40,600.08 L 340.90,607.93 L 348.65,607.67 L 350.03,612.59 L 359.10,617.31 L 373.11,612.49 L 386.51,614.82 L 398.30,612.47 L 404.07,610.33 L 409.73,604.06 L 418.10,602.29 L 427.28,607.09 L 433.07,602.72 L 433.74,596.98 L 434.58,600.60 L 437.18,601.31 L 449.72,594.87 L 455.37,597.15 L 451.78,598.67 L 447.31,610.24 L 433.20,631.78 L 431.34,643.99 L 426.76,650.37 L 427.46,661.57 L 432.81,663.15 L 435.30,666.68 L 433.70,666.85 L 434.14,669.59 L 431.79,667.01 L 431.74,669.79 L 434.36,675.21 L 437.33,675.80 L 436.31,680.36 L 439.39,682.55 L 436.30,682.54 L 430.15,688.82 L 427.23,696.88 L 429.39,704.54 L 426.43,706.89 L 423.31,703.22 L 416.20,701.25 L 411.36,703.10 L 396.83,697.49 L 391.28,685.99 L 385.01,679.08 L 375.91,675.58 L 365.85,676.08 L 354.89,669.89 L 349.54,663.69 L 343.17,662.44 L 330.04,649.70 L 322.53,649.46 L 317.36,643.94 L 305.04,645.09 L 301.53,639.52 L 294.80,635.28 L 292.53,628.63 L 295.58,623.85 L 294.20,621.52 L 297.30,614.66 L 295.93,614.22 L 306.89,607.92 L 307.71,602.59 L 309.82,603.13 L 312.79,610.80 L 318.09,613.37 Z',
+    'M 89.54,452.10 L 84.17,439.64 L 79.54,441.27 L 79.16,437.92 L 77.58,441.86 L 76.84,440.15 L 79.61,433.72 L 76.00,430.28 L 80.31,420.91 L 78.16,416.46 L 79.46,413.92 L 84.49,422.15 L 94.30,424.22 L 109.15,417.33 L 120.33,403.69 L 127.75,401.17 L 127.01,395.34 L 131.60,394.58 L 133.69,398.99 L 138.06,398.01 L 141.08,400.07 L 141.98,404.99 L 146.05,401.46 L 148.33,404.23 L 145.22,411.45 L 148.03,409.52 L 147.75,411.82 L 149.70,410.60 L 153.24,412.45 L 150.56,411.86 L 148.74,416.93 L 145.07,417.94 L 152.22,417.49 L 150.89,419.56 L 156.42,422.68 L 153.60,426.66 L 157.58,433.89 L 157.65,439.11 L 161.52,444.01 L 158.29,453.33 L 151.20,462.72 L 152.85,470.17 L 156.84,474.56 L 154.39,480.90 L 155.85,484.57 L 154.14,486.55 L 152.29,516.32 L 149.90,523.70 L 151.71,527.30 L 149.09,529.61 L 148.93,535.66 L 146.15,541.14 L 145.09,538.66 L 141.81,539.29 L 135.95,533.72 L 130.47,532.15 L 127.84,535.24 L 125.32,533.08 L 121.71,535.81 L 120.18,539.21 L 122.45,541.78 L 121.00,542.06 L 121.09,547.50 L 112.42,555.96 L 105.62,551.85 L 101.57,556.70 L 98.29,545.38 L 96.06,543.53 L 92.91,543.81 L 91.58,549.71 L 89.69,550.19 L 86.98,540.95 L 90.78,540.16 L 92.82,543.66 L 93.92,541.81 L 87.88,532.89 L 91.32,527.91 L 88.11,522.22 L 90.10,518.55 L 88.56,516.62 L 93.02,506.98 L 91.68,496.20 L 94.65,499.17 L 98.01,489.04 L 94.09,485.93 L 91.25,489.43 L 89.40,486.33 L 90.17,478.66 L 88.31,477.39 L 94.14,473.95 L 92.29,467.82 L 93.69,461.22 L 88.59,456.85 L 89.54,452.10 Z'
+  ];
+  var ITALY_MAP_VIEWBOX_W = 600, ITALY_MAP_VIEWBOX_H = 706.9;
+  // Projects lat/lon onto the map's SVG coordinate space (equirectangular, corrected
+  // for Italy's mean latitude so the outline isn't horizontally stretched). This lets
+  // Siaka add a new sound system's coordinates from the admin panel — no separate
+  // "map position" field to compute by hand, the pin appears automatically.
+  var ITALY_MAP_PROJ = {lonMin: 6.626621418032804, latMax: 47.0831730819083, cosCorr: 0.7447141944826597, scale: 67.73957093768041};
+  function projectLatLon(lat, lon){
+    return {
+      x: (lon - ITALY_MAP_PROJ.lonMin) * ITALY_MAP_PROJ.cosCorr * ITALY_MAP_PROJ.scale,
+      y: (ITALY_MAP_PROJ.latMax - lat) * ITALY_MAP_PROJ.scale
+    };
+  }
+
+  function renderSounds(data){
+    // Home teaser strip: only sounds with a real photo
+    var stripEl = document.getElementById('homeSoundsStrip');
+    if(stripEl){
+      stripEl.innerHTML = data.filter(function(s){ return s.photo; }).map(function(s){
+        return '<a href="#sounds" class="sq tilt"><img class="ph real-photo" src="' + esc(s.photo) + '" alt="' + esc(s.name) + '"><div class="grad"></div><span class="nm">' + esc(s.name) + '</span></a>';
+      }).join('');
+    }
+    // Sounds page grid: every sound, real photo or placeholder color
+    var gridEl = document.getElementById('soundsPageGrid');
+    if(gridEl){
+      var html = data.map(function(s, i){
+        var photoHtml = s.photo
+          ? '<img class="ph real-photo" src="' + esc(s.photo) + '" alt="' + esc(s.name) + '">'
+          : '<div class="ph pal-' + esc(s.color || 'red') + '"></div>';
+        return '<div class="sound-card tilt reveal' + revealClass(i, 6) + '">' +
+          photoHtml +
+          '<div class="grad"></div><div class="tint"></div>' +
+          '<div class="sound-info">' +
+            '<p class="place">' + esc(s.place) + '</p>' +
+            '<h3>' + esc(s.name.toUpperCase()) + '</h3>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+      html += '<div class="sound-more reveal"><span class="plus">+</span><p data-i18n="sounds.more">More sounds joining the diary soon</p></div>';
+      gridEl.innerHTML = html;
+    }
+    renderMap(data);
+  }
+
+  // ===================== ITALIAN SOUND SYSTEM MAP =====================
+  // Pins are positioned from each sound's mapX/mapY (pre-computed from city coordinates,
+  // see data/sounds.json). Sounds with no confirmed city (mapX/mapY null) aren't pinned —
+  // the note below the map tells Siaka how many are still waiting for a location.
+  var mapPinGroups = {};
+
+  function renderMap(data){
+    var svgEl = document.getElementById('italySvg');
+    if(svgEl && !svgEl.dataset.built){
+      svgEl.innerHTML = ITALY_MAP_PATHS.map(function(d){ return '<path d="' + d + '"></path>'; }).join('');
+      svgEl.dataset.built = '1';
+    }
+    var pinsEl = document.getElementById('mapPins');
+    if(!pinsEl) return;
+
+    var groups = {};
+    var order = [];
+    var unlocated = 0;
+    data.forEach(function(s){
+      var x, y;
+      if(s.lat != null && s.lon != null){
+        var p = projectLatLon(s.lat, s.lon);
+        x = p.x; y = p.y;
+      } else if(s.mapX != null && s.mapY != null){
+        x = s.mapX; y = s.mapY;
+      } else {
+        unlocated++; return;
+      }
+      s._mapX = x; s._mapY = y;
+      var key = x.toFixed(1) + ',' + y.toFixed(1);
+      if(!groups[key]){ groups[key] = []; order.push(key); }
+      groups[key].push(s);
+    });
+    mapPinGroups = groups;
+
+    pinsEl.innerHTML = order.map(function(key){
+      var group = groups[key];
+      var first = group[0];
+      var leftPct = (first._mapX / ITALY_MAP_VIEWBOX_W * 100).toFixed(2);
+      var topPct = (first._mapY / ITALY_MAP_VIEWBOX_H * 100).toFixed(2);
+      var countBadge = group.length > 1 ? '<span class="count">' + group.length + '</span>' : '';
+      var label = group.map(function(s){ return s.name; }).join(', ');
+      return '<button type="button" class="map-pin" style="left:' + leftPct + '%; top:' + topPct + '%;" data-key="' + esc(key) + '" aria-label="' + esc(label) + '">' +
+        '<span class="dot"></span>' + countBadge +
+      '</button>';
+    }).join('');
+
+    pinsEl.querySelectorAll('.map-pin').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        openMapPopup(groups[btn.getAttribute('data-key')], btn);
+      });
+    });
+  }
+
+  function openMapPopup(group, btn){
+    if(!group || !group.length) return;
+    document.querySelectorAll('.map-pin.active').forEach(function(b){ b.classList.remove('active'); });
+    if(btn) btn.classList.add('active');
+    var dict = I18N[currentLang] || I18N.en;
+    var headTitle = group.length === 1 ? group[0].name : (group[0].city || group[0].region || '');
+    var itemsHtml = group.map(function(s){
+      var thumb = s.photo
+        ? '<img class="thumb" src="' + esc(s.photo) + '" alt="' + esc(s.name) + '">'
+        : '<div class="thumb ph pal-' + esc(s.color || 'red') + '"></div>';
+      var loc = [s.city, s.region].filter(Boolean).join(', ') || dict['sounds.map.tbd'];
+      var yr = s.founded ? (dict['sounds.map.since'] + ' ' + s.founded) : dict['sounds.map.tbd'];
+      var genres = s.genres || {};
+      var tags = ['roots','dub','steppers'].map(function(g){
+        return '<span class="' + (genres[g] ? 'on' : '') + '">' + esc(dict['sounds.map.' + g]) + '</span>';
+      }).join('');
+      var yn = function(v){ return v === true ? dict['sounds.map.yes'] : v === false ? dict['sounds.map.no'] : dict['sounds.map.tbd']; };
+      var social = '';
+      if(s.instagram) social += '<a href="' + esc(s.instagram) + '" target="_blank" rel="noopener">Instagram</a>';
+      if(s.facebook) social += '<a href="' + esc(s.facebook) + '" target="_blank" rel="noopener">Facebook</a>';
+      return '<div class="map-popup-item">' +
+        thumb +
+        '<div>' +
+          '<h5>' + esc(s.name) + '</h5>' +
+          '<span class="yr">' + esc(loc) + ' · ' + esc(yr) + '</span>' +
+          '<div class="map-popup-tags">' + tags + '</div>' +
+          '<div class="map-popup-tags"><span>' + esc(dict['sounds.map.vinyl']) + ': ' + esc(yn(s.vinyl)) + '</span><span>' + esc(dict['sounds.map.selfbuilt']) + ': ' + esc(yn(s.selfBuilt)) + '</span></div>' +
+          (social ? '<div class="map-popup-social">' + social + '</div>' : '') +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    var popupEl = document.getElementById('mapPopup');
+    var backdropEl = document.getElementById('mapPopupBackdrop');
+    popupEl.innerHTML =
+      '<div class="map-popup-head"><h4>' + esc(headTitle) + '</h4><button type="button" class="map-popup-close" id="mapPopupCloseBtn" aria-label="Close">&times;</button></div>' +
+      itemsHtml;
+    backdropEl.classList.add('active');
+    document.getElementById('mapPopupCloseBtn').addEventListener('click', closeMapPopup);
+  }
+
+  function closeMapPopup(){
+    var backdropEl = document.getElementById('mapPopupBackdrop');
+    if(backdropEl) backdropEl.classList.remove('active');
+    document.querySelectorAll('.map-pin.active').forEach(function(b){ b.classList.remove('active'); });
+  }
+
+  function setupSoundsMapUI(){
+    var toggleEl = document.getElementById('soundsViewToggle');
+    var gridEl = document.getElementById('soundsPageGrid');
+    var mapEl = document.getElementById('soundsMapWrap');
+    if(toggleEl){
+      toggleEl.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click', function(){
+          toggleEl.querySelectorAll('button').forEach(function(x){ x.classList.remove('active'); });
+          b.classList.add('active');
+          var view = b.getAttribute('data-view');
+          if(gridEl) gridEl.classList.toggle('is-hidden', view === 'map');
+          if(mapEl) mapEl.classList.toggle('is-hidden', view !== 'map');
+        });
+      });
+    }
+    var backdropEl = document.getElementById('mapPopupBackdrop');
+    if(backdropEl){
+      backdropEl.addEventListener('click', function(e){
+        if(e.target === backdropEl) closeMapPopup();
+      });
+    }
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeMapPopup();
+    });
+  }
+
+  function renderEvents(data){
+    // Home teaser (first 8, 4-column grid, 4-cycle stagger)
+    var stripEl = document.getElementById('homeEventsStrip');
+    if(stripEl){
+      stripEl.innerHTML = data.map(function(ev, i){
+        var dateKey = 'dyn.event.' + ev.id + '.date';
+        mergeI18NField(dateKey, ev.date);
+        return '<div class="teaser-card tilt reveal' + revealClass(i, 4) + '">' +
+          '<a class="thumb" href="#events">' +
+            '<img class="ph real-photo" src="' + esc(ev.photo) + '" alt="' + esc(ev.name) + ' — ' + esc(ev.location) + '">' +
+            '<div class="grad"></div>' +
+            '<span class="yr" data-i18n="' + dateKey + '">' + esc(ev.date.en) + '</span>' +
+            '<span class="ttl">' + esc(ev.name) + '</span>' +
+          '</a>' +
+        '</div>';
+      }).join('');
+    }
+    // Events page grid
+    var gridEl = document.getElementById('eventsPageGrid');
+    if(gridEl){
+      var html = data.map(function(ev, i){
+        var dateKey = 'dyn.event.' + ev.id + '.date';
+        var descKey = 'dyn.event.' + ev.id + '.desc';
+        mergeI18NField(dateKey, ev.date);
+        mergeI18NField(descKey, ev.desc);
+        return '<div class="event-card tilt reveal' + revealClass(i, 6) + '">' +
+          '<img class="ph real-photo" src="' + esc(ev.photo) + '" alt="' + esc(ev.name) + ' — ' + esc(ev.sounds) + ' — ' + esc(ev.location) + '">' +
+          '<div class="grad"></div>' +
+          '<div class="event-date" data-i18n="' + dateKey + '">' + esc(ev.date.en) + '</div>' +
+          '<div class="event-info">' +
+            '<p class="place">' + esc(ev.location) + '</p>' +
+            '<h3>' + esc(ev.name) + '</h3>' +
+            '<p class="event-sounds">' + esc(ev.sounds) + '</p>' +
+            '<p class="event-desc" data-i18n="' + descKey + '">' + esc(ev.desc.en) + '</p>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+      html += '<div class="sound-more reveal d2"><span class="plus">+</span><p data-i18n="events.more">More events joining the diary soon</p></div>';
+      gridEl.innerHTML = html;
+    }
+  }
+
+  function renderDiaries(data){
+    // Home teaser: flatten every diary's clips into one 3/6-wide grid
+    var stripEl = document.getElementById('homeDiariesStrip');
+    if(stripEl){
+      var clipCards = [];
+      data.forEach(function(d){
+        (d.clips || []).forEach(function(clip, ci){
+          var ariaKey = 'dyn.diary.' + d.id + '.clip.' + ci + '.aria';
+          mergeI18NField(ariaKey, {
+            en: fillTpl(t('diaries.watchClipAriaTpl') || I18N.en['diaries.watchClipAriaTpl'], {name:clip.name, title:d.title}),
+            it: fillTplLang('it', clip, d),
+            es: fillTplLang('es', clip, d)
+          });
+          clipCards.push('<div class="teaser-card tilt reveal' + revealClass(clipCards.length, 3) + '">' +
+            '<a class="thumb video-link" href="' + esc(clip.url) + '" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:' + ariaKey + '" aria-label="' + esc(I18N.en[ariaKey]) + '">' +
+              '<img class="ph real-photo" src="' + esc(clip.photo) + '" alt="' + esc(clip.name) + ' — ' + esc(d.title) + '">' +
+              '<div class="video-preview"><span class="play-btn"></span><span class="ig-tag" data-i18n="diaries.watchTag">▶ Watch</span></div>' +
+            '</a>' +
+          '</div>');
+        });
+      });
+      stripEl.innerHTML = clipCards.join('');
+    }
+
+    // Diaries page: full articles with expandable gallery
+    var listEl = document.getElementById('diariesPageList');
+    if(listEl){
+      listEl.innerHTML = data.map(function(d, i){
+        var locKey = 'dyn.diary.' + d.id + '.loc';
+        var descKey = 'dyn.diary.' + d.id + '.desc';
+        var watchAriaKey = 'dyn.diary.' + d.id + '.watchAria';
+        mergeI18NField(locKey, d.loc);
+        mergeI18NField(descKey, d.desc);
+        mergeI18NField(watchAriaKey, {
+          en: fillTpl(I18N.en['diaries.watchAriaTpl'], {title:d.title}),
+          it: fillTpl(I18N.it['diaries.watchAriaTpl'], {title:d.title}),
+          es: fillTpl(I18N.es['diaries.watchAriaTpl'], {title:d.title})
+        });
+        var clipsHtml = (d.clips || []).map(function(clip, ci){
+          var ariaKey = 'dyn.diary.' + d.id + '.clip.' + ci + '.aria';
+          return '<a class="ph real-photo video-link" href="' + esc(clip.url) + '" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:' + ariaKey + '" aria-label="' + esc(I18N.en[ariaKey] || '') + '">' +
+            '<img src="' + esc(clip.photo) + '" alt="' + esc(clip.name) + ' — ' + esc(d.title) + '" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">' +
+            '<div class="video-preview"><span class="play-btn"></span></div>' +
+          '</a>';
+        }).join('');
+        return '<article class="diary-entry' + (i === 1 ? ' reverse' : '') + ' reveal">' +
+          '<a class="diary-img stamp-border tilt video-link" href="' + esc(d.watchUrl) + '" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:' + watchAriaKey + '" aria-label="' + esc(I18N.en[watchAriaKey]) + '">' +
+            '<img class="ph real-photo" src="' + esc(d.mainPhoto) + '" alt="' + esc(d.title) + '">' +
+            '<div class="grad"></div>' +
+            '<span class="diary-year">' + esc(d.year) + '</span>' +
+            '<div class="video-preview"><span class="play-btn"></span><span class="ig-tag" data-i18n="diaries.watchOnIG">▶ Watch on Instagram</span></div>' +
+          '</a>' +
+          '<div>' +
+            '<h3 class="diary-title">' + esc(d.title) + '</h3>' +
+            '<p class="diary-meta loc" data-i18n="' + locKey + '">' + esc(d.loc.en) + '</p>' +
+            '<p class="diary-meta artists">' + esc(d.artists) + '</p>' +
+            '<p class="diary-desc" data-i18n="' + descKey + '">' + esc(d.desc.en) + '</p>' +
+            '<button class="btn diary-toggle" type="button">View Diary <span>→</span></button>' +
+            '<div class="diary-gallery">' + clipsHtml + '<p class="note" data-i18n="diaries.galleryVideoNote">Tap a clip to watch it on Instagram.</p></div>' +
+          '</div>' +
+        '</article>';
+      }).join('');
+    }
+  }
+  // small helper: fill a per-language aria template for a diary clip
+  function fillTplLang(lang, clip, d){
+    var tpl = I18N[lang]['diaries.watchClipAriaTpl'] || I18N.en['diaries.watchClipAriaTpl'];
+    return fillTpl(tpl, {name:clip.name, title:d.title});
+  }
+
+  function renderPeople(data){
+    var stripEl = document.getElementById('homePeopleStrip');
+    if(stripEl){
+      stripEl.innerHTML = data.map(function(p){
+        var roleKey = 'dyn.people.' + p.id + '.role';
+        mergeI18NField(roleKey, p.role);
+        return '<a href="#people" class="pp tilt">' +
+          '<img class="ph real-photo" src="' + esc(p.photo) + '" alt="' + esc(p.name) + '">' +
+          '<div class="grad"></div>' +
+          '<p class="pp-name">' + esc(p.name) + '</p><p class="pp-role" data-i18n="' + roleKey + '">' + esc(p.role.en) + '</p>' +
+        '</a>';
+      }).join('');
+    }
+    var gridEl = document.getElementById('peoplePageGrid');
+    if(gridEl){
+      gridEl.innerHTML = data.map(function(p, i){
+        var roleKey = 'dyn.people.' + p.id + '.role';
+        return '<div class="people-card tilt reveal' + revealClass(i, 6) + '">' +
+          '<img class="ph real-photo" src="' + esc(p.photo) + '" alt="' + esc(p.name) + '">' +
+          '<div class="grad"></div>' +
+          '<div class="people-info"><p class="pname">' + esc(p.name) + '</p><p class="prole" data-i18n="' + roleKey + '">' + esc(p.role.en) + '</p></div>' +
+        '</div>';
+      }).join('');
+    }
+  }
+
+  function renderJourneyTags(tags){
+    var el = document.getElementById('journeyTags');
+    if(!el || !tags || !tags.length) return;
+    el.innerHTML = tags.map(function(t){ return '<span>' + esc(t) + '</span>'; }).join('');
+  }
+
+  function initDynamicContent(){
+    return Promise.all([
+      fetchJSON('data/sounds.json').catch(function(){ return []; }),
+      fetchJSON('data/events.json').catch(function(){ return []; }),
+      fetchJSON('data/diaries.json').catch(function(){ return []; }),
+      fetchJSON('data/people.json').catch(function(){ return []; }),
+      fetchJSON('data/site.json').catch(function(){ return {}; })
+    ]).then(function(results){
+      var sounds = (results[0] && results[0].items) || [];
+      var events = (results[1] && results[1].items) || [];
+      var diaries = (results[2] && results[2].items) || [];
+      var people = (results[3] && results[3].items) || [];
+      var site = results[4] || {};
+      renderSounds(sounds);
+      renderEvents(events);
+      renderDiaries(diaries);
+      renderPeople(people);
+      if(site.hero){
+        mergeI18NField('hero.eyebrow', site.hero.eyebrow);
+        mergeI18NField('hero.script', site.hero.script);
+      }
+      if(site.about){
+        ['p1','p2','p3','p4','p5','p6','p7'].forEach(function(k){
+          mergeI18NField('about.page.' + k, site.about[k]);
+        });
+        mergeI18NField('about.page.final', site.about.final);
+        renderJourneyTags(site.about.journey);
+      }
+      if(site.contact){
+        mergeI18NField('contact.page.lead', site.contact.lead);
+      }
+      setupTilt(document);
+      setupDiaryToggles(document);
+      applyLanguage(currentLang);
+      route();
+    });
+  }
+
+  // static (non-dynamic) parts of the page still work immediately
+  setupTilt(document);
+  setupDiaryToggles(document);
+  setupSoundsMapUI();
+  applyLanguage(currentLang);
+  route();
+  // then load + render the CMS-managed content and re-apply language once it's in the DOM
+  initDynamicContent();
+</script>
+
+
+</body>
+</html>
