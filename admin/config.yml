@@ -9,7 +9,7 @@
 
 backend:
   name: turbo-github
-  turbo_site_id: REPLACE_WITH_YOUR_TURBO_SITE_ID
+  turbo_site_id: 1a17d0ff-6a88-4e99-b43e-bd525368c0c6
   branch: main
 
 # media_folder è relativo alla RADICE DEL REPO (dove git salva i file caricati) —
