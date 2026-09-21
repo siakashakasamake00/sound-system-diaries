@@ -164,8 +164,8 @@ collections:
                   - {label: "Roots", name: "roots", widget: "boolean", default: false}
                   - {label: "Dub", name: "dub", widget: "boolean", default: false}
                   - {label: "Steppers", name: "steppers", widget: "boolean", default: false}
-              - {label: "🗺️ Suona vinile", name: "vinyl", widget: "select", required: false, options: [{label: "Sì", value: true}, {label: "No", value: false}], hint: "Lascia vuoto se non confermato"}
-              - {label: "🗺️ Impianto autocostruito", name: "selfBuilt", widget: "select", required: false, options: [{label: "Sì", value: true}, {label: "No", value: false}], hint: "Lascia vuoto se non confermato"}
+              - {label: "🗺️ Suona vinile", name: "vinyl", widget: "select", required: "true", options: [{label: "Sì", value: "true"}, {label: "No", value: "false"}], hint: "Lascia vuoto se non confermato"}
+              - {label: "🗺️ Impianto autocostruito", name: "selfBuilt", widget: "select", required: "false", options: [{label: "Sì", value: "true"}, {label: "No", value: "false"}], hint: "Lascia vuoto se non confermato"}
               - {label: "🗺️ Instagram (link completo)", name: "instagram", widget: "string", required: false}
               - {label: "🗺️ Facebook (link completo)", name: "facebook", widget: "string", required: false}
 
