@@ -423,6 +423,14 @@
   .event-card{position:relative; aspect-ratio:3/4; overflow:hidden;}
   .event-card .grad{position:absolute; inset:0; background:linear-gradient(to top, var(--black), rgba(0,0,0,.35) 55%, transparent);}
   .event-date{position:absolute; top:16px; left:16px; background:var(--cream); color:var(--black); font-family:var(--f-mono); font-size:.65rem; font-weight:700; text-transform:uppercase; letter-spacing:.15em; padding:6px 10px; border:1px solid var(--black);}
+
+  .event-actions{position:absolute; top:12px; right:12px; display:flex; gap:6px; z-index:3;}
+  .event-actions button,.event-actions a{width:34px; height:34px; display:flex; align-items:center; justify-content:center; background:rgba(10,10,10,.72); color:var(--cream); border:1px solid rgba(240,226,190,.35); border-radius:50%; cursor:pointer; font-size:15px; line-height:1; text-decoration:none; padding:0; transition:background .2s;}
+  .event-actions button:hover,.event-actions a:hover{background:var(--red);}
+  .flyer-lightbox{position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.92); display:none; align-items:center; justify-content:center; padding:24px; cursor:zoom-out;}
+  .flyer-lightbox.active{display:flex;}
+  .flyer-lightbox img{max-width:100%; max-height:100%; object-fit:contain; box-shadow:0 10px 40px rgba(0,0,0,.6);}
+  .flyer-lightbox .close{position:absolute; top:16px; right:20px; color:var(--cream); font-size:32px; background:none; border:none; cursor:pointer;}
   .event-info{position:absolute; left:0; right:0; bottom:0; padding:20px;}
   .event-info .place{font-family:var(--f-mono); font-size:.65rem; text-transform:uppercase; letter-spacing:.2em; color:var(--gold);}
   .event-info h3{font-family:var(--f-display); text-transform:uppercase; font-size:1.4rem; margin:4px 0 0; color:var(--cream); line-height:1.15;}
@@ -556,6 +564,7 @@
 </style>
 </head>
 <body>
+<div class="flyer-lightbox" id="flyerLightbox" role="dialog" aria-modal="true"><button type="button" class="close" aria-label="Close">&times;</button><img alt=""></div>
 
 <div class="grain" aria-hidden="true"></div>
 
@@ -1400,7 +1409,7 @@
         <select id="eventsMonthFilter" class="filter-select"><option value="" data-i18n="events.filter.allMonths">All months</option></select>
       </div>
       <div class="event-grid" id="eventsPageGrid">
-        <div class="event-card tilt reveal" data-event-card data-location="Presicce-Acquarica (LE) — Suoni Unione Kultura Arte" data-month="NOV" data-search="dubwise room original salento dub club presicce acquarica bababoom hifi earthikal towa sound system brisco" data-sounds="Bababoom HiFi|Earthikal Towa Sound System">
+        <div class="event-card tilt reveal" data-event-card data-location="Presicce-Acquarica (LE) — Suoni Unione Kultura Arte" data-month="NOV" data-search="dubwise room original salento dub club presicce acquarica bababoom hifi earthikal towa sound system brisco" data-sounds="Bababoom HiFi|Earthikal Towa Sound System" data-date="2026-11-07" data-key="11">
           <img loading="lazy" decoding="async" class="ph real-photo" src="images/bababoom-hifi-earthikal-towa-sound-system-dubwise-.jpg" alt="Bababoom HiFi, Earthikal Towa Sound System — Dubwise Room — Presicce-Acquarica (LE)">
           <div class="grad"></div>
           <div class="event-date" data-i18n="event11.date">07 NOV</div>
@@ -1411,7 +1420,7 @@
             <p class="event-desc" data-i18n="event11.desc"></p>
           </div>
         </div>
-        <div class="event-card tilt reveal d1" data-event-card data-location="Schio (VI) — C.S.A. Arcadia, Via Lago di Tovel 18" data-month="NOV" data-search="bass therapy 35 opening season 26 27 schio vi c s a arcadia via lago di tovel 18 ishaï music wave dub sound system ft pidduck siz" data-sounds="Ishaï Music|Wave Dub Sound System">
+        <div class="event-card tilt reveal d1" data-event-card data-location="Schio (VI) — C.S.A. Arcadia, Via Lago di Tovel 18" data-month="NOV" data-search="bass therapy 35 opening season 26 27 schio vi c s a arcadia via lago di tovel 18 ishaï music wave dub sound system ft pidduck siz" data-sounds="Ishaï Music|Wave Dub Sound System" data-date="2026-11-14" data-key="17" data-flyer="images/flyer-bass-therapy-35-schio.jpg">
           <img loading="lazy" decoding="async" class="ph real-photo" src="images/bass-therapy-35-schio.jpg" alt="Bass Therapy 35° — Ishaï Music, Wave Dub Sound System — Schio (VI)">
           <div class="grad"></div>
           <div class="event-date" data-i18n="event17.date">14 NOV</div>
@@ -1422,7 +1431,7 @@
             <p class="event-desc" data-i18n="event17.desc"></p>
           </div>
         </div>
-        <div class="event-card tilt reveal d2" data-event-card data-location="Roma — Fusolab, Viale della Bella Villa 94" data-month="NOV" data-search="king alpha fikir amlak a real dub experience roma fusolab viale della bella villa 94 king alpha fikir amlak blue zone hi fi" data-sounds="King Alpha|Fikir Amlak|Blue Zone Hi-Fi">
+        <div class="event-card tilt reveal d2" data-event-card data-location="Roma — Fusolab, Viale della Bella Villa 94" data-month="NOV" data-search="king alpha fikir amlak a real dub experience roma fusolab viale della bella villa 94 king alpha fikir amlak blue zone hi fi" data-sounds="King Alpha|Fikir Amlak|Blue Zone Hi-Fi" data-date="2026-11-14" data-key="18" data-flyer="images/flyer-king-alpha-fikir-amlak-roma.jpg">
           <img loading="lazy" decoding="async" class="ph real-photo" src="images/king-alpha-fikir-amlak-roma.jpg" alt="King Alpha, Fikir Amlak — A Real Dub Experience — Roma">
           <div class="grad"></div>
           <div class="event-date" data-i18n="event18.date">14 NOV</div>
@@ -1433,7 +1442,7 @@
             <p class="event-desc" data-i18n="event18.desc"></p>
           </div>
         </div>
-        <div class="event-card tilt reveal d3" data-event-card data-location="Torino — Sporting Dora, Corso Umbria 83" data-month="NOV" data-search="dora dub meeting torino sporting dora corso umbria 83 ras digby sir jessus sound afreekan children adowa sound system" data-sounds="Ras Digby|Afreekan Children Sound System|Adowa Sound System">
+        <div class="event-card tilt reveal d3" data-event-card data-location="Torino — Sporting Dora, Corso Umbria 83" data-month="NOV" data-search="dora dub meeting torino sporting dora corso umbria 83 ras digby sir jessus sound afreekan children adowa sound system" data-sounds="Ras Digby|Afreekan Children Sound System|Adowa Sound System" data-date="2026-11-21" data-key="19" data-flyer="images/flyer-dora-dub-meeting-torino.jpg">
           <img loading="lazy" decoding="async" class="ph real-photo" src="images/dora-dub-meeting-torino.jpg" alt="Dora Dub Meeting — Ras Digby, Afreekan Children, Adowa — Torino">
           <div class="grad"></div>
           <div class="event-date" data-i18n="event19.date">21 NOV</div>
@@ -1444,7 +1453,7 @@
             <p class="event-desc" data-i18n="event19.desc"></p>
           </div>
         </div>
-        <div class="event-card tilt reveal d4" data-event-card data-location="Presicce-Acquarica (LE) — Suoni Unione Kultura Arte" data-month="DEC" data-search="dubwise room original salento dub club presicce acquarica le suoni unione kultura arte black star line sound system ft stephen i irie youthman" data-sounds="Black Star Line Sound System|Irie Youthman">
+        <div class="event-card tilt reveal d4" data-event-card data-location="Presicce-Acquarica (LE) — Suoni Unione Kultura Arte" data-month="DEC" data-search="dubwise room original salento dub club presicce acquarica le suoni unione kultura arte black star line sound system ft stephen i irie youthman" data-sounds="Black Star Line Sound System|Irie Youthman" data-date="2026-12-05" data-key="20" data-flyer="images/flyer-dubwise-room-black-star-line-presicce.jpg">
           <img loading="lazy" decoding="async" class="ph real-photo" src="images/dubwise-room-black-star-line-presicce.jpg" alt="Black Star Line Sound System, Irie Youthman — Dubwise Room — Presicce-Acquarica (LE)">
           <div class="grad"></div>
           <div class="event-date" data-i18n="event20.date">05 DEC</div>
@@ -1455,7 +1464,7 @@
             <p class="event-desc" data-i18n="event20.desc"></p>
           </div>
         </div>
-        <div class="event-card tilt reveal d5" data-event-card data-location="Bologna — Sottotetto Soundclub, Via Viadagola 16" data-month="DEC" data-search="winston francis live bologna sottotetto soundclub via viadagola 16 bless line intl dj depa dj chris whitecat" data-sounds="Bless Line Intl.|Whitecat">
+        <div class="event-card tilt reveal d5" data-event-card data-location="Bologna — Sottotetto Soundclub, Via Viadagola 16" data-month="DEC" data-search="winston francis live bologna sottotetto soundclub via viadagola 16 bless line intl dj depa dj chris whitecat" data-sounds="Bless Line Intl.|Whitecat" data-date="2026-12-12" data-key="21" data-flyer="images/flyer-winston-francis-bologna.jpg">
           <img loading="lazy" decoding="async" class="ph real-photo" src="images/winston-francis-bologna.jpg" alt="Winston Francis live — Bless Line Intl., Whitecat — Bologna">
           <div class="grad"></div>
           <div class="event-date" data-i18n="event21.date">12 DEC</div>
@@ -1770,7 +1779,7 @@
       'filters.empty':'Nothing matches these filters.',
       'diaries.filter.search':'Search diaries…','diaries.filter.allYears':'All years','diaries.filter.allLocations':'All locations','diaries.filter.allSounds':'All sound systems',
       'diaries.detail.back':'All Diaries','diaries.detail.notfound':"This diary couldn't be found.",'diaries.detail.followIG':'Follow on Instagram','diaries.detail.share':'Share','diaries.detail.copied':'Link copied!','diaries.detail.related':'Related Diaries',
-      'events.view.list':'List','events.view.month':'Month','events.filter.allLocations':'All locations','events.filter.allMonths':'All months','events.archive.toggle':'Past events',
+      'events.act.map':'Open in Google Maps','events.act.cal':'Add to calendar','events.act.flyer':'View full flyer','events.none':'New dates coming soon — stay tuned.','events.view.list':'List','events.view.month':'Month','events.filter.allLocations':'All locations','events.filter.allMonths':'All months','events.archive.toggle':'Past events',
       'events.submit.cta':'Submit an Event','events.submit.title':'Submit an Event','events.submit.note':"Every submission is reviewed by Siaka before it's added to the calendar — nothing is published automatically.",
       'events.submit.name':'Event name','events.submit.location':'Location','events.submit.date':'Date','events.submit.sounds':'Sound systems / lineup','events.submit.organizerEmail':'Your email','events.submit.link':'Official link (optional)','events.submit.desc':'Description','events.submit.submitBtn':'Send for review',
       'events.submit.success':'Thanks — your event has been sent for review.','events.submit.error':"Something went wrong — please try again or email us directly.",
@@ -1839,7 +1848,7 @@
       'filters.empty':'Nessun risultato con questi filtri.',
       'diaries.filter.search':'Cerca nei diari…','diaries.filter.allYears':'Tutti gli anni','diaries.filter.allLocations':'Tutte le località','diaries.filter.allSounds':'Tutti i sound system',
       'diaries.detail.back':'Tutti i Diari','diaries.detail.notfound':'Diario non trovato.','diaries.detail.followIG':'Segui su Instagram','diaries.detail.share':'Condividi','diaries.detail.copied':'Link copiato!','diaries.detail.related':'Diari Correlati',
-      'events.view.list':'Elenco','events.view.month':'Mese','events.filter.allLocations':'Tutte le località','events.filter.allMonths':'Tutti i mesi','events.archive.toggle':'Eventi passati',
+      'events.act.map':'Apri in Google Maps','events.act.cal':'Aggiungi al calendario','events.act.flyer':'Vedi il flyer completo','events.none':'Nuove date in arrivo, restate sintonizzati.','events.view.list':'Elenco','events.view.month':'Mese','events.filter.allLocations':'Tutte le località','events.filter.allMonths':'Tutti i mesi','events.archive.toggle':'Eventi passati',
       'events.submit.cta':'Proponi un Evento','events.submit.title':'Proponi un Evento','events.submit.note':"Ogni proposta viene verificata da Siaka prima di essere aggiunta al calendario — nessun evento viene pubblicato automaticamente.",
       'events.submit.name':'Nome evento','events.submit.location':'Luogo','events.submit.date':'Data','events.submit.sounds':'Sound system / lineup','events.submit.organizerEmail':'La tua email','events.submit.link':'Link ufficiale (opzionale)','events.submit.desc':'Descrizione','events.submit.submitBtn':'Invia per la verifica',
       'events.submit.success':'Grazie — il tuo evento è stato inviato per la verifica.','events.submit.error':'Qualcosa è andato storto — riprova o scrivici direttamente.',
@@ -1908,7 +1917,7 @@
       'filters.empty':'Nada coincide con estos filtros.',
       'diaries.filter.search':'Buscar en los diarios…','diaries.filter.allYears':'Todos los años','diaries.filter.allLocations':'Todas las ubicaciones','diaries.filter.allSounds':'Todos los sound systems',
       'diaries.detail.back':'Todos los Diarios','diaries.detail.notfound':'No se encontró este diario.','diaries.detail.followIG':'Seguir en Instagram','diaries.detail.share':'Compartir','diaries.detail.copied':'¡Enlace copiado!','diaries.detail.related':'Diarios Relacionados',
-      'events.view.list':'Lista','events.view.month':'Mes','events.filter.allLocations':'Todas las ubicaciones','events.filter.allMonths':'Todos los meses','events.archive.toggle':'Eventos pasados',
+      'events.act.map':'Abrir en Google Maps','events.act.cal':'Añadir al calendario','events.act.flyer':'Ver el flyer completo','events.none':'Nuevas fechas muy pronto.','events.view.list':'Lista','events.view.month':'Mes','events.filter.allLocations':'Todas las ubicaciones','events.filter.allMonths':'Todos los meses','events.archive.toggle':'Eventos pasados',
       'events.submit.cta':'Proponer un Evento','events.submit.title':'Proponer un Evento','events.submit.note':'Cada propuesta es revisada por Siaka antes de añadirse al calendario — ningún evento se publica automáticamente.',
       'events.submit.name':'Nombre del evento','events.submit.location':'Ubicación','events.submit.date':'Fecha','events.submit.sounds':'Sound systems / lineup','events.submit.organizerEmail':'Tu email','events.submit.link':'Enlace oficial (opcional)','events.submit.desc':'Descripción','events.submit.submitBtn':'Enviar para revisión',
       'events.submit.success':'Gracias — tu evento fue enviado para revisión.','events.submit.error':'Algo salió mal — intenta de nuevo o escríbenos directamente.',
@@ -2576,7 +2585,8 @@ var SOUNDS_MAP_DATA = [{"id":"roar","name":"Roar Sound System","city":"Viadana",
           method: 'POST',
           headers: {'Content-Type': 'application/x-www-form-urlencoded'},
           body: new URLSearchParams(data).toString()
-        }).then(function(){
+        }).then(function(res){
+          if(!res.ok) throw new Error('HTTP ' + res.status);
           statusEl.textContent = t('events.submit.success');
           statusEl.className = 'form-status ok';
           form.reset();
@@ -2607,6 +2617,108 @@ var SOUNDS_MAP_DATA = [{"id":"roar","name":"Roar Sound System","city":"Viadana",
     if(catEl && !catEl.dataset.wired){ catEl.dataset.wired = '1'; catEl.addEventListener('change', applyPeopleFilter); }
   }
 
+  // ===================== EVENTS — automatic archive, home teaser, actions =====================
+  // Each event card carries data-date (YYYY-MM-DD). From the day after that date it moves to
+  // "Past events" by itself, and the home teaser always shows the next 4 upcoming dates.
+  function todayISO(){
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  }
+  function organizeEvents(){
+    var grid = document.getElementById('eventsPageGrid');
+    var archiveGrid = document.getElementById('eventsArchiveGrid');
+    var archiveSection = document.getElementById('eventsArchiveSection');
+    if(!grid) return;
+    var today = todayISO();
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('[data-event-card][data-date]'));
+    cards.sort(function(a,b){ return a.dataset.date < b.dataset.date ? -1 : a.dataset.date > b.dataset.date ? 1 : 0; });
+    var moreEl = grid.querySelector('.sound-more');
+    var upcoming = [], past = [];
+    cards.forEach(function(c){ (c.dataset.date < today ? past : upcoming).push(c); });
+    upcoming.forEach(function(c){ grid.insertBefore(c, moreEl); });
+    past.reverse().forEach(function(c){ archiveGrid.appendChild(c); });
+    if(archiveSection) archiveSection.classList.toggle('is-hidden', past.length === 0);
+    var countEl = document.getElementById('eventsArchiveCount');
+    if(countEl) countEl.textContent = '(' + past.length + ')';
+    var toggle = document.getElementById('eventsArchiveToggle');
+    if(toggle && !toggle.dataset.wired){
+      toggle.dataset.wired = '1';
+      toggle.addEventListener('click', function(){
+        toggle.classList.toggle('open');
+        archiveGrid.classList.toggle('is-hidden');
+      });
+    }
+    // action buttons (maps, calendar, full flyer) on every card
+    cards.forEach(function(c){
+      if(c.querySelector('.event-actions')) return;
+      var box = document.createElement('div');
+      box.className = 'event-actions';
+      var loc = c.dataset.location || '';
+      box.innerHTML =
+        '<button type="button" data-act="flyer" data-i18n-attr="title:events.act.flyer" title="' + esc(t('events.act.flyer')) + '">⤢</button>' +
+        '<a data-act="map" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(loc) + '" data-i18n-attr="title:events.act.map" title="' + esc(t('events.act.map')) + '">📍</a>' +
+        (c.dataset.date >= today ? '<button type="button" data-act="cal" data-i18n-attr="title:events.act.cal" title="' + esc(t('events.act.cal')) + '">📅</button>' : '');
+      c.appendChild(box);
+    });
+    // home teaser: next 4 upcoming events
+    var teaser = document.querySelector('.teaser-grid-4');
+    if(teaser){
+      var next = upcoming.slice(0, 4);
+      if(next.length){
+        teaser.innerHTML = next.map(function(c, i){
+          var img = c.querySelector('img.real-photo');
+          var k = c.dataset.key;
+          return '<div class="teaser-card tilt reveal d' + (i+1) + '"><a class="thumb" href="#events">' +
+            '<img loading="lazy" decoding="async" class="ph real-photo" src="' + img.getAttribute('src') + '" alt="' + esc(img.getAttribute('alt') || '') + '">' +
+            '<div class="grad"></div><span class="yr" data-i18n="event' + k + '.date"></span><span class="ttl" data-i18n="event' + k + '.name"></span></a></div>';
+        }).join('');
+      } else {
+        teaser.innerHTML = '<p class="script-tag" data-i18n="events.none"></p>';
+      }
+    }
+  }
+  function icsEscape(v){ return String(v || '').replace(/\\/g,'\\\\').replace(/;/g,'\;').replace(/,/g,'\\,').replace(/\n/g,'\\n'); }
+  function downloadIcs(card){
+    var d = card.dataset.date.replace(/-/g,'');
+    var end = new Date(card.dataset.date + 'T12:00:00'); end.setDate(end.getDate() + 1);
+    var e = end.getFullYear() + String(end.getMonth()+1).padStart(2,'0') + String(end.getDate()).padStart(2,'0');
+    var name = (card.querySelector('h3') || {}).textContent || 'Sound System Diaries';
+    var desc = ((card.querySelector('.event-sounds') || {}).textContent || '') + '\n' + ((card.querySelector('.event-desc') || {}).textContent || '');
+    var ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Sound System Diaries//IT','BEGIN:VEVENT',
+      'UID:ssd-' + card.dataset.key + '-' + d + '@soundsystemdiaries',
+      'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z',
+      'DTSTART;VALUE=DATE:' + d, 'DTEND;VALUE=DATE:' + e,
+      'SUMMARY:' + icsEscape(name), 'LOCATION:' + icsEscape(card.dataset.location), 'DESCRIPTION:' + icsEscape(desc.trim()),
+      'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([ics], {type:'text/calendar'}));
+    a.download = name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') + '.ics';
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+  function setupEventActions(){
+    var lb = document.getElementById('flyerLightbox');
+    document.addEventListener('click', function(ev){
+      var btn = ev.target.closest('.event-actions [data-act]');
+      if(!btn) return;
+      var card = btn.closest('[data-event-card]');
+      var act = btn.dataset.act;
+      if(act === 'map') return;
+      ev.preventDefault(); ev.stopPropagation();
+      if(act === 'cal') downloadIcs(card);
+      if(act === 'flyer' && lb){
+        lb.querySelector('img').src = card.dataset.flyer || card.querySelector('img.real-photo').getAttribute('src');
+        lb.querySelector('img').alt = (card.querySelector('h3') || {}).textContent || '';
+        lb.classList.add('active');
+      }
+    }, true);
+    if(lb){
+      lb.addEventListener('click', function(){ lb.classList.remove('active'); });
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape') lb.classList.remove('active'); });
+    }
+  }
+
+  organizeEvents();
+  setupEventActions();
   renderMap(SOUNDS_MAP_DATA);
   setupSoundsMapUI();
   wireSoundCardLinks();
