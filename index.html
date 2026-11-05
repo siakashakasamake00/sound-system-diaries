@@ -493,6 +493,7 @@
   .sound-detail-desc{margin-top:26px; font-size:.95rem; line-height:1.65; max-width:560px; margin-left:auto; margin-right:auto; text-align:center;}
   .sound-social{display:flex; gap:14px; justify-content:center; margin-top:22px; flex-wrap:wrap;}
   .sound-desc{max-width:640px; margin:22px auto 0; text-align:center; font-size:1rem; line-height:1.6;}
+  .sound-card.is-hidden, .sound-more.is-hidden{display:none !important;}
   .sound-no-extra{margin-top:28px; text-align:center; font-size:.8rem; color:rgba(24,20,15,.55); font-style:italic;}
 
   /* ===================== EVENTS ARCHIVE ===================== */
@@ -824,6 +825,11 @@
           <button type="button" data-view="map" data-i18n="sounds.view.map">MAP</button>
         </div>
       </div>
+      <div class="filters-bar reveal" id="soundsFilters">
+        <input type="search" id="soundsSearch" class="filter-input" data-i18n-attr="placeholder:sounds.filter.search" placeholder="Search sounds…">
+        <select id="soundsRegionFilter" class="filter-select"><option value="" data-i18n="sounds.filter.allRegions">All regions</option></select>
+      </div>
+      <p class="filters-empty is-hidden" id="soundsEmptyState" data-i18n="filters.empty">Nothing matches these filters.</p>
       <div class="sound-grid" id="soundsPageGrid">
         <div data-sound-id="roar" class="sound-card tilt reveal">
           <img loading="lazy" decoding="async" class="ph real-photo" src="images/roar-sound-system.jpg" alt="Roar Sound System">
@@ -1762,7 +1768,7 @@
       'event20.date':'05 DEC','event20.location':'Presicce-Acquarica (LE) — Suoni Unione Kultura Arte','event20.name':'DUBWISE ROOM — ORIGINAL SALENTO DUB CLUB','event20.sounds':'Black Star Line Sound System ft. Stephen I · Irie Youthman','event20.desc':'Black Star Line Sound System ft. Stephen I, special guest Irie Youthman from Treviso. Gate open 10pm till morning. Members only, online registration via QR code.',
       'event21.date':'12 DEC','event21.location':'Bologna — Sottotetto Soundclub, Via Viadagola 16','event21.name':'WINSTON FRANCIS — LIVE','event21.sounds':'Bless Line Intl. (DJ Depa · DJ Chris) · Whitecat','event21.desc':'Winston Francis live with Bless Line Intl. (DJ Depa, DJ Chris) and Whitecat. Start 10pm, entry €15. Members only, with membership card.',
       'events.more':'More events joining the diary soon',
-      'sounds.page.eyebrow':'01 — The Sounds','sounds.page.heading':'THE SOUNDS','sounds.page.tag':'Every sound has a story.','sounds.detail.back':'All Sounds','sounds.detail.notfound':"This sound system couldn't be found.",'sounds.detail.inDiaries':'Featured In These Diaries','sounds.detail.inEvents':'Playing At These Events','sounds.detail.moreSoon':'More on this sound is coming soon.',
+      'sounds.filter.search':'Search sounds…','sounds.filter.allRegions':'All regions','sounds.page.eyebrow':'01 — The Sounds','sounds.page.heading':'THE SOUNDS','sounds.page.tag':'Every sound has a story.','sounds.detail.back':'All Sounds','sounds.detail.notfound':"This sound system couldn't be found.",'sounds.detail.inDiaries':'Featured In These Diaries','sounds.detail.inEvents':'Playing At These Events','sounds.detail.moreSoon':'More on this sound is coming soon.',
       'sound.addCity':'— add city —','sound.italy':'Italy',
             'sounds.more':'More sounds joining the diary soon',
       'sounds.view.grid':'Grid','sounds.view.map':'Map',
@@ -1831,7 +1837,7 @@
       'event20.date':'05 DIC','event20.location':'Presicce-Acquarica (LE) — Suoni Unione Kultura Arte','event20.name':'DUBWISE ROOM — ORIGINAL SALENTO DUB CLUB','event20.sounds':'Black Star Line Sound System ft. Stephen I · Irie Youthman','event20.desc':'Black Star Line Sound System ft. Stephen I, special guest Irie Youthman da Treviso. Gate open 22:00 till morning. Ingresso soci, tesseramento online con QR code.',
       'event21.date':'12 DIC','event21.location':'Bologna — Sottotetto Soundclub, Via Viadagola 16','event21.name':'WINSTON FRANCIS — LIVE','event21.sounds':'Bless Line Intl. (DJ Depa · DJ Chris) · Whitecat','event21.desc':'Winston Francis live con Bless Line Intl. (DJ Depa, DJ Chris) e Whitecat. Inizio ore 22:00, ingresso 15€. Riservato ai soci con tessera.',
       'events.more':'Altri eventi in arrivo nel diario',
-      'sounds.page.eyebrow':'01 — I Sound','sounds.page.heading':'I SOUND','sounds.page.tag':'Ogni sound ha una storia.','sounds.detail.back':'Tutti i Sound','sounds.detail.notfound':'Sound system non trovato.','sounds.detail.inDiaries':'Presente In Questi Diari','sounds.detail.inEvents':'Suona A Questi Eventi','sounds.detail.moreSoon':'Altri contenuti su questo sound arriveranno presto.',
+      'sounds.filter.search':'Cerca un sound…','sounds.filter.allRegions':'Tutte le regioni','sounds.page.eyebrow':'01 — I Sound','sounds.page.heading':'I SOUND','sounds.page.tag':'Ogni sound ha una storia.','sounds.detail.back':'Tutti i Sound','sounds.detail.notfound':'Sound system non trovato.','sounds.detail.inDiaries':'Presente In Questi Diari','sounds.detail.inEvents':'Suona A Questi Eventi','sounds.detail.moreSoon':'Altri contenuti su questo sound arriveranno presto.',
       'sound.addCity':'— aggiungi città —','sound.italy':'Italia',
             'sounds.more':'Altri sound in arrivo nel diario',
       'sounds.view.grid':'Griglia','sounds.view.map':'Mappa',
@@ -1900,7 +1906,7 @@
       'event20.date':'05 DIC','event20.location':'Presicce-Acquarica (LE) — Suoni Unione Kultura Arte','event20.name':'DUBWISE ROOM — ORIGINAL SALENTO DUB CLUB','event20.sounds':'Black Star Line Sound System ft. Stephen I · Irie Youthman','event20.desc':'Black Star Line Sound System ft. Stephen I, invitado especial Irie Youthman desde Treviso. Apertura 22:00 hasta la mañana. Entrada para socios, inscripción online mediante código QR.',
       'event21.date':'12 DIC','event21.location':'Bologna — Sottotetto Soundclub, Via Viadagola 16','event21.name':'WINSTON FRANCIS — LIVE','event21.sounds':'Bless Line Intl. (DJ Depa · DJ Chris) · Whitecat','event21.desc':'Winston Francis en directo con Bless Line Intl. (DJ Depa, DJ Chris) y Whitecat. Inicio 22:00, entrada 15€. Reservado a socios con carné.',
       'events.more':'Más eventos próximamente en el diario',
-      'sounds.page.eyebrow':'01 — Los Sonidos','sounds.page.heading':'LOS SONIDOS','sounds.page.tag':'Cada sonido tiene una historia.','sounds.detail.back':'Todos Los Sounds','sounds.detail.notfound':'No se encontró este sound system.','sounds.detail.inDiaries':'Presente En Estos Diarios','sounds.detail.inEvents':'Toca En Estos Eventos','sounds.detail.moreSoon':'Más contenido sobre este sound llegará pronto.',
+      'sounds.filter.search':'Buscar un sound…','sounds.filter.allRegions':'Todas las regiones','sounds.page.eyebrow':'01 — Los Sonidos','sounds.page.heading':'LOS SONIDOS','sounds.page.tag':'Cada sonido tiene una historia.','sounds.detail.back':'Todos Los Sounds','sounds.detail.notfound':'No se encontró este sound system.','sounds.detail.inDiaries':'Presente En Estos Diarios','sounds.detail.inEvents':'Toca En Estos Eventos','sounds.detail.moreSoon':'Más contenido sobre este sound llegará pronto.',
       'sound.addCity':'— añade ciudad —','sound.italy':'Italia',
             'sounds.more':'Más sonidos llegarán pronto al diario',
       'sounds.view.grid':'Cuadrícula','sounds.view.map':'Mapa',
@@ -2723,6 +2729,38 @@ var SOUNDS_MAP_DATA = [{"id":"roar","name":"Roar Sound System","city":"Viadana",
     if(!x.desc) return;
     Object.keys(I18N).forEach(function(l){ I18N[l]['sounddesc.' + x.id] = x.desc[l] || x.desc.it || x.desc.en; });
   });
+  // ===================== SOUNDS — search + region filter =====================
+  function setupSoundsFilters(){
+    var q = document.getElementById('soundsSearch');
+    var reg = document.getElementById('soundsRegionFilter');
+    if(!q || !reg) return;
+    var byId = {};
+    SOUNDS_MAP_DATA.forEach(function(x){ byId[x.id] = x; });
+    var regions = {};
+    SOUNDS_MAP_DATA.forEach(function(x){ if(x.region) regions[x.region] = 1; });
+    Object.keys(regions).sort(function(a,b){ return a.localeCompare(b, 'it'); }).forEach(function(r){
+      var o = document.createElement('option'); o.value = r; o.textContent = r; reg.appendChild(o);
+    });
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#soundsPageGrid .sound-card[data-sound-id]'));
+    function apply(){
+      var term = normText(q.value || '');
+      var r = reg.value, any = false;
+      cards.forEach(function(c){
+        var x = byId[c.dataset.soundId] || {};
+        var hay = normText([x.name, x.city, x.region].join(' '));
+        var ok = (!term || hay.indexOf(term) !== -1) && (!r || x.region === r);
+        c.classList.toggle('is-hidden', !ok);
+        if(ok) any = true;
+      });
+      var more = document.querySelector('#soundsPageGrid .sound-more');
+      if(more) more.classList.toggle('is-hidden', !!(term || r));
+      document.getElementById('soundsEmptyState').classList.toggle('is-hidden', any);
+    }
+    q.addEventListener('input', apply);
+    reg.addEventListener('change', apply);
+  }
+
+  setupSoundsFilters();
   organizeEvents();
   setupEventActions();
   renderMap(SOUNDS_MAP_DATA);
