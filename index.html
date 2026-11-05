@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +7,25 @@
 <meta name="description" content="Sound System Diaries is a visual diary of Sound System culture, Roots Reggae and Dub — dance, sounds, people and stories, documented from the inside.">
 
 <!-- ===================== SOCIAL SHARE PREVIEW (Open Graph / Twitter Card) =====================
-     Points at soundsystemdiaries.it — WhatsApp/Instagram/Facebook read these from the live URL. -->
+     REPLACE og:url and og:image below with your real hosted domain once the site is live —
+     WhatsApp/Instagram/Facebook read these from the live URL, not from this file, so the
+     image must be reachable on the web (upload the separate og-image.jpg file you were given
+     to your host, next to this page, then point og:image at it). -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sound System Diaries">
 <meta property="og:title" content="Sound System Diaries — A visual diary of Sound System culture">
 <meta property="og:description" content="Sound System Diaries is a visual diary of Sound System culture, Roots Reggae and Dub — dance, sounds, people and stories, documented from the inside.">
 <meta property="og:url" content="https://soundsystemdiaries.it/">
-<meta property="og:image" content="https://soundsystemdiaries.it/images/og-image.jpg">
+<meta property="og:image" content="https://soundsystemdiaries.it/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sound System Diaries — A visual diary of Sound System culture">
 <meta name="twitter:description" content="Sound System Diaries is a visual diary of Sound System culture, Roots Reggae and Dub — dance, sounds, people and stories, documented from the inside.">
-<meta name="twitter:image" content="https://soundsystemdiaries.it/images/og-image.jpg">
+<meta name="twitter:image" content="https://soundsystemdiaries.it/og-image.jpg">
 
-<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -96,6 +99,9 @@
     outline:1px dashed rgba(24,20,15,.16);
     outline-offset:4px;
   }
+
+  @keyframes vinylSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .vinyl-spin{animation:vinylSpin 9s linear infinite;}
 
   .btn{
     display:inline-flex; align-items:center; gap:10px;
@@ -240,12 +246,14 @@
   @media(min-width:768px){.hero-tag{font-size:1rem;}}
   .hero-script{margin-top:16px; max-width:420px; font-family:var(--f-script); font-size:1.4rem; color:rgba(228,209,159,.9);}
   @media(min-width:768px){.hero-script{font-size:1.6rem;}}
+  .hero-cta-row{margin-top:30px; display:flex; flex-wrap:wrap; gap:14px; justify-content:center;}
   @keyframes heroFadeUp{from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);}}
   .hero-content > *{opacity:0; animation:heroFadeUp 1s cubic-bezier(.22,1,.36,1) forwards;}
   .hero-content > *:nth-child(1){animation-delay:.15s;}
   .hero-content > *:nth-child(2){animation-delay:.32s;}
   .hero-content > *:nth-child(3){animation-delay:.62s;}
   .hero-content > *:nth-child(4){animation-delay:.8s;}
+  .hero-content > *:nth-child(5){animation-delay:.98s;}
 
   @keyframes flicker{
     0%,100%{opacity:1;} 45%{opacity:1;} 46%{opacity:.78;} 47%{opacity:1;}
@@ -272,6 +280,7 @@
   .about-teaser-grid{display:grid; grid-template-columns:1fr; gap:36px; align-items:center;}
   @media(min-width:768px){.about-teaser-grid{grid-template-columns:.8fr 1.2fr; gap:56px;}}
   .about-teaser-photo{position:relative; margin:0 auto; width:100%; max-width:300px; aspect-ratio:4/5;}
+  .about-teaser-photo img.vinyl-spin{width:82%; height:auto; aspect-ratio:1/1; object-fit:cover; border-radius:50%; display:block; margin:9% auto 0; box-shadow:0 0 36px 4px rgba(0,0,0,.35);}
   .about-teaser p{max-width:520px; margin:16px 0 0; line-height:1.65; color:rgba(24,20,15,.8);}
 
   .teaser-grid-3{display:grid; grid-template-columns:1fr; gap:20px;}
@@ -348,6 +357,7 @@
   .diary-meta{font-family:var(--f-mono); font-size:.75rem; text-transform:uppercase; letter-spacing:.2em; margin:12px 0 0;}
   .diary-meta.loc{color:var(--gold-dim);}
   .diary-meta.artists{color:rgba(24,20,15,.6); margin-top:4px;}
+  .diary-meta.date{color:rgba(24,20,15,.5); margin-top:2px;}
   .diary-desc{margin-top:20px; max-width:440px; color:rgba(24,20,15,.78); line-height:1.6;}
   .diary-gallery{display:none; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:24px; padding-top:24px; border-top:1px solid rgba(24,20,15,.15);}
   .diary-gallery.open{display:grid;}
@@ -362,13 +372,14 @@
   @media(min-width:640px){.sound-grid{grid-template-columns:1fr 1fr;}}
   @media(min-width:1024px){.sound-grid{grid-template-columns:repeat(3,1fr);}}
   .sound-card{position:relative; aspect-ratio:1/1; overflow:hidden;}
-  .sound-card .grad{position:absolute; inset:0; background:linear-gradient(to top, var(--black), rgba(0,0,0,.5) 45%, rgba(0,0,0,.15) 70%, transparent);}
+  .sound-card .grad{position:absolute; inset:0; background:linear-gradient(to top, var(--black), rgba(0,0,0,.3) 55%, transparent);}
   .sound-card .tint{position:absolute; inset:0; background:var(--red); opacity:0; mix-blend-mode:multiply; transition:opacity .5s;}
   .sound-card:hover .tint{opacity:.25;}
   .sound-info{position:absolute; left:0; right:0; bottom:0; padding:20px;}
   .sound-info .place{font-family:var(--f-mono); font-size:.65rem; text-transform:uppercase; letter-spacing:.2em; color:var(--gold);}
   .sound-info h3{font-family:var(--f-display); text-transform:uppercase; font-size:1.6rem; margin:4px 0 0; color:var(--cream);}
-  .sound-info .desc{margin-top:8px; font-size:.75rem; line-height:1.4; color:rgba(228,209,159,.82); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+  .sound-info .desc{max-height:0; overflow:hidden; opacity:0; margin-top:10px; font-size:.85rem; line-height:1.4; color:rgba(228,209,159,.85); transition:max-height .5s, opacity .5s;}
+  .sound-card:hover .sound-info .desc{max-height:100px; opacity:1;}
   .sound-more{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; aspect-ratio:1/1; border:1px dashed rgba(24,20,15,.25); text-align:center; padding:24px;}
   .sound-more .plus{font-family:var(--f-display); font-size:1.9rem; color:rgba(24,20,15,.4);}
   .sound-more p{margin:0; font-family:var(--f-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.2em; color:rgba(24,20,15,.4);}
@@ -404,6 +415,7 @@
   .map-popup-social{display:flex; gap:12px; margin-top:6px;}
   .map-popup-social a{font-family:var(--f-mono); font-size:.62rem; text-transform:uppercase; letter-spacing:.08em; color:var(--red);}
 
+
   /* Events */
   .event-grid{display:grid; grid-template-columns:1fr; gap:24px;}
   @media(min-width:640px){.event-grid{grid-template-columns:1fr 1fr;}}
@@ -431,6 +443,87 @@
   .people-info .prole{font-family:var(--f-mono); font-size:.65rem; text-transform:uppercase; letter-spacing:.2em; color:var(--gold); margin-top:4px;}
   .people-note{margin-top:32px; text-align:center; font-family:var(--f-mono); font-size:.75rem; text-transform:uppercase; letter-spacing:.2em; color:rgba(24,20,15,.4);}
 
+  /* ===================== FILTERS / SEARCH (Diaries, Sounds, Events, People) ===================== */
+  .filters-bar{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px;}
+  .filter-input, .filter-select{font-family:var(--f-mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--text); background:var(--paper); border:1px solid rgba(24,20,15,.3); padding:10px 12px; min-width:160px; flex:1 1 160px;}
+  .filter-input::placeholder{color:rgba(24,20,15,.45); text-transform:none; letter-spacing:normal; font-size:.78rem;}
+  .filter-input:focus, .filter-select:focus{outline:none; border-color:var(--text);}
+  .filters-empty{text-align:center; margin:32px 0; font-family:var(--f-mono); font-size:.75rem; text-transform:uppercase; letter-spacing:.15em; color:rgba(24,20,15,.4);}
+  .filters-empty.is-hidden{display:none;}
+  .xref{color:var(--red-dark); text-decoration:underline; text-decoration-color:rgba(171,10,5,.4); text-decoration-thickness:1px;}
+  .xref:hover{color:var(--red);}
+
+  /* ===================== DIARY DETAIL (dedicated page per session) ===================== */
+  .back-link{display:inline-flex; align-items:center; gap:6px; font-family:var(--f-mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.15em; color:rgba(24,20,15,.55); margin-bottom:24px; transition:color .2s;}
+  .back-link:hover{color:var(--text);}
+  .diary-detail-head .diary-year{position:static; display:inline-block; background:none; border:none; padding:0; top:auto; left:auto; font-family:var(--f-mono); font-size:.72rem; font-weight:700; letter-spacing:.2em; color:var(--gold-dim); margin-bottom:10px;}
+  .diary-detail-head .section-title{margin:0 0 8px;}
+  .diary-detail-head .diary-meta.loc{font-family:var(--f-mono); font-size:.75rem; text-transform:uppercase; letter-spacing:.12em; color:var(--red-dark);}
+  .diary-detail-head .diary-meta.artists{font-size:.9rem; color:rgba(24,20,15,.7); margin-top:4px;}
+  .diary-detail-head .diary-meta.date{font-family:var(--f-mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.16em; color:rgba(24,20,15,.5); margin-top:6px;}
+  .diary-detail .diary-desc{font-size:1.05rem; line-height:1.6; max-width:62ch; margin:20px 0 32px;}
+  .diary-detail-gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:32px;}
+  @media(min-width:640px){.diary-detail-gallery{grid-template-columns:repeat(3,1fr);}}
+  .diary-detail-shot{position:relative; aspect-ratio:1/1; display:block; overflow:hidden;}
+  .share-buttons{display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:48px;}
+  .share-btn{background:none; cursor:pointer; font-family:var(--f-mono);}
+  .related-section h3{font-family:var(--f-display); text-transform:uppercase; font-size:1.1rem; letter-spacing:.04em; margin-bottom:16px; color:var(--text);}
+  .related-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; max-width:520px;}
+  .related-card{position:relative; aspect-ratio:1/1; overflow:hidden; display:block;}
+  .related-card .grad{position:absolute; inset:0; background:linear-gradient(to top, var(--black), transparent 65%);}
+  .related-card .nm{position:absolute; left:10px; right:10px; bottom:10px; font-family:var(--f-mono); font-size:.65rem; text-transform:uppercase; letter-spacing:.1em; color:var(--cream);}
+
+  /* ===================== SOUND DETAIL (page) ===================== */
+  [data-sound-id]{cursor:pointer;}
+  .sound-detail{max-width:720px; margin:0 auto;}
+  .sound-detail-photo{position:relative; aspect-ratio:1/1; max-width:360px; margin:0 auto 28px; overflow:hidden;}
+  .sound-detail-head{text-align:center;}
+  .sound-detail-head .place{font-family:var(--f-mono); font-size:.75rem; text-transform:uppercase; letter-spacing:.2em; color:var(--gold);}
+  .sound-detail-head h1{margin:10px 0 0;}
+  .sound-meta-row{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:16px;}
+  .sound-meta-row span{font-family:var(--f-mono); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; border:1px solid rgba(24,20,15,.3); padding:6px 14px; color:var(--text);}
+  .sound-detail-desc{margin-top:26px; font-size:.95rem; line-height:1.65; max-width:560px; margin-left:auto; margin-right:auto; text-align:center;}
+  .sound-social{display:flex; gap:14px; justify-content:center; margin-top:22px; flex-wrap:wrap;}
+  .sound-no-extra{margin-top:28px; text-align:center; font-size:.8rem; color:rgba(24,20,15,.55); font-style:italic;}
+
+  /* ===================== EVENTS ARCHIVE ===================== */
+  .events-archive{margin-top:44px; border-top:1px solid rgba(24,20,15,.14); padding-top:28px;}
+  .events-archive-toggle{display:flex; align-items:center; gap:8px; margin:0 auto; background:none; border:none; cursor:pointer; font-family:var(--f-mono); font-size:.8rem; text-transform:uppercase; letter-spacing:.18em; color:var(--text); opacity:.75;}
+  .events-archive-toggle:hover{opacity:1;}
+  .events-archive-toggle .chev{transition:transform .25s ease; display:inline-block;}
+  .events-archive-toggle.open .chev{transform:rotate(180deg);}
+  .events-archive-grid{margin-top:24px;}
+  .events-archive-grid.is-hidden{display:none;}
+  .events-archive-grid .event-card{opacity:.82;}
+
+  /* ===================== EVENTS — view toggle, month grouping, submit modal ===================== */
+  .events-view-toggle{display:flex; justify-content:center; margin-bottom:20px;}
+  .events-view-toggle .lang-switch button{padding:8px 20px;}
+  .event-grid.is-hidden, #eventsMonthWrap.is-hidden{display:none;}
+  .events-month-group{margin-bottom:40px;}
+  .events-month-label{font-family:var(--f-mono); font-size:.8rem; font-weight:700; letter-spacing:.25em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid rgba(24,20,15,.2);}
+  .events-submit-row{text-align:center; margin:36px 0 8px;}
+  .modal-backdrop{position:fixed; inset:0; background:rgba(12,12,11,.65); z-index:95; display:none; align-items:center; justify-content:center; padding:20px;}
+  .modal-backdrop.active{display:flex;}
+  .modal-card{background:var(--paper); width:100%; max-width:520px; max-height:88vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,.4);}
+  .modal-head{position:sticky; top:0; background:var(--paper); padding:18px 22px; border-bottom:1px solid rgba(24,20,15,.15); display:flex; align-items:center; justify-content:space-between; gap:12px;}
+  .modal-head h4{font-family:var(--f-display); text-transform:uppercase; font-size:1.1rem; margin:0; color:var(--text);}
+  .modal-close{background:none; border:none; font-size:1.6rem; line-height:1; cursor:pointer; color:var(--text); padding:2px 6px;}
+  .modal-body{padding:22px;}
+  .modal-note{font-size:.8rem; line-height:1.5; color:rgba(24,20,15,.6); margin:0 0 18px;}
+  .form-field{margin-bottom:16px;}
+  .form-field label{display:block; font-family:var(--f-mono); font-size:.65rem; text-transform:uppercase; letter-spacing:.12em; color:rgba(24,20,15,.6); margin-bottom:6px;}
+  .form-field input, .form-field textarea{width:100%; font-family:var(--f-body); font-size:.9rem; color:var(--text); background:var(--paper-alt); border:1px solid rgba(24,20,15,.25); padding:10px 12px;}
+  .form-field input:focus, .form-field textarea:focus{outline:none; border-color:var(--text);}
+  .form-field textarea{min-height:90px; resize:vertical;}
+  .form-status{margin-top:12px; font-family:var(--f-mono); font-size:.75rem; text-transform:uppercase; letter-spacing:.08em;}
+  .form-status.ok{color:var(--green);}
+  .form-status.err{color:var(--red);}
+  .hp-field{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+
+  /* ===================== PEOPLE — category tabs ===================== */
+  .people-card[data-category].is-hidden, .diary-entry.is-hidden, .event-card.is-hidden{display:none !important;}
+
   /* ===================== CONTACT (page) ===================== */
   .contact-page{text-align:center;}
   .contact-page p.lead{margin:24px auto 0; max-width:520px; color:rgba(24,20,15,.78); line-height:1.6;}
@@ -441,6 +534,8 @@
   .journey-label{font-family:var(--f-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.2em; color:var(--gold-dim); margin:0 0 14px;}
   .journey-tags{display:flex; flex-wrap:wrap; gap:10px;}
   .journey-tags span{font-family:var(--f-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; border:1px solid rgba(24,20,15,.25); padding:8px 14px; color:rgba(24,20,15,.8);}
+  .contact-cta-row{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:44px;}
+  .contact-cta-row .btn{margin-top:0;}
   .contact-page .btn{margin-top:44px;}
 
   /* ===================== FOOTER (dark, persistent across pages) ===================== */
@@ -512,17 +607,13 @@
 
     <section class="hero">
       <div class="hero-img-wrap" id="heroParallax">
-        <!-- REPLACE: swap this .ph block for <img src="your-hero-photo.jpg"> — sound system @ full volume, 1600x1000+ -->
-        <div class="ph pal-red low-label">
-          <span class="ph-label">HERO PHOTO</span>
-          <span class="ph-sub">REPLACE — sound system @ full volume, 1600×1000+</span>
-        </div>
+        <img class="ph real-photo" src="images/sound-system-in-full-session-at-dusk.jpg" alt="Sound system in full session at dusk" style="object-position:center 30%;">
       </div>
       <div class="hero-grad-1"></div>
       <div class="hero-grad-2"></div>
       <div class="hero-vignette"></div>
       <div class="hero-vinyl" aria-hidden="true">
-        <img src="images/logo.png" alt="">
+        <img src="images/img.png" alt="">
       </div>
       <div class="hero-top-bar"></div>
       <div class="hero-content">
@@ -532,7 +623,11 @@
           <span class="hero-line2">Diaries</span>
         </h1>
         <p class="hero-tag" data-i18n="hero.tag">Music · People · Culture · Memories</p>
-        <p class="hero-script" data-i18n="hero.script">A visual diary of Sound System culture.</p>
+        <p class="hero-script" data-i18n="hero.script">A visual diary of Roots, Reggae, Dub and Sound System culture.</p>
+        <div class="hero-cta-row">
+          <a href="#diaries" class="btn btn-gold"><span data-i18n="hero.cta.diaries">Explore The Diary</span> <span>→</span></a>
+          <a href="#contact" class="btn btn-on-dark"><span data-i18n="hero.cta.propose">Propose A Sound</span> <span>→</span></a>
+        </div>
       </div>
     </section>
 
@@ -553,7 +648,14 @@
           </div>
           <a href="#sounds" class="btn"><span data-i18n="sounds.teaser.cta">Explore The Sounds</span> <span>→</span></a>
         </div>
-        <div class="teaser-strip reveal d1" id="homeSoundsStrip"></div>
+        <div class="teaser-strip reveal d1">
+          <a href="#sound/roar" class="sq tilt"><img loading="lazy" decoding="async" class="ph real-photo" src="images/roar-sound-system.jpg" alt="Roar Sound System"><div class="grad"></div><span class="nm">Roar Sound System</span></a>
+          <a href="#sound/rise-shine" class="sq tilt"><img loading="lazy" decoding="async" class="ph real-photo" src="images/rise-shine-sound-system.jpg" alt="Rise & Shine Sound System"><div class="grad"></div><span class="nm">Rise &amp; Shine Sound System</span></a>
+          <a href="#sound/bababoom" class="sq tilt"><img loading="lazy" decoding="async" class="ph real-photo" src="images/bababoom-hifi.jpg" alt="Bababoom HiFi"><div class="grad"></div><span class="nm">Bababoom HiFi</span></a>
+          <a href="#sound/48-roots" class="sq tilt"><img loading="lazy" decoding="async" class="ph real-photo" src="images/48-roots.jpg" alt="48 Roots"><div class="grad"></div><span class="nm">48 Roots</span></a>
+          <a href="#sound/natural-mystic" class="sq tilt"><img loading="lazy" decoding="async" class="ph real-photo" src="images/natural-mystic-sound-system.jpg" alt="Natural Mystic Sound System"><div class="grad"></div><span class="nm">Natural Mystic Sound System</span></a>
+          <a href="#sound/imperial-sound-army" class="sq tilt"><img loading="lazy" decoding="async" class="ph real-photo" src="images/imperial-sound-army.jpg" alt="Imperial Sound Army"><div class="grad"></div><span class="nm">Imperial Sound Army</span></a>
+        </div>
       </div>
     </section>
 
@@ -567,7 +669,26 @@
           </div>
           <a href="#diaries" class="btn"><span data-i18n="diaries.teaser.cta">View All Diaries</span> <span>→</span></a>
         </div>
-        <div class="teaser-grid-3" id="homeDiariesStrip"></div>
+        <div class="teaser-grid-3">
+          <div class="teaser-card tilt reveal d3">
+            <a class="thumb video-link" href="https://www.instagram.com/reel/DdqwsnGI-HK/" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:diary1.video.worldinapressure" aria-label="Watch on Instagram — Bababoom Hi-Fi @ Lowland Festival 2026">
+              <img loading="lazy" decoding="async" class="ph real-photo" src="images/bababoom-hi-fi-world-ina-pressure-lowland-festival.jpg" alt="Bababoom Hi-Fi — World Ina Pressure — Lowland Festival 2026">
+              <div class="video-preview"><span class="play-btn"></span><span class="ig-tag" data-i18n="diaries.watchTag">▶ Watch</span></div>
+            </a>
+          </div>
+          <div class="teaser-card tilt reveal">
+            <a class="thumb video-link" href="https://www.instagram.com/p/DdbLnkSqYCW/" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:diary1.video.galas" aria-label="Watch on Instagram — Galas @ Lowland Festival 2026">
+              <img loading="lazy" decoding="async" class="ph real-photo" src="images/galas-lowland-festival-2026.jpg" alt="Galas — Lowland Festival 2026">
+              <div class="video-preview"><span class="play-btn"></span><span class="ig-tag" data-i18n="diaries.watchTag">▶ Watch</span></div>
+            </a>
+          </div>
+          <div class="teaser-card tilt reveal d1">
+            <a class="thumb video-link" href="https://www.instagram.com/p/DdYkvFcIs_x/" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:diary1.video.bababoom" aria-label="Watch on Instagram — Bababoom HiFi @ Lowland Festival 2026">
+              <img loading="lazy" decoding="async" class="ph real-photo" src="images/bababoom-hifi-lowland-festival-2026.jpg" alt="Bababoom HiFi — Lowland Festival 2026">
+              <div class="video-preview"><span class="play-btn"></span><span class="ig-tag" data-i18n="diaries.watchTag">▶ Watch</span></div>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -581,19 +702,52 @@
           </div>
           <a href="#events" class="btn"><span data-i18n="events.teaser.cta">View All Events</span> <span>→</span></a>
         </div>
-        <div class="teaser-grid-4" id="homeEventsStrip"></div>
+        <div class="teaser-grid-4">
+          <div class="teaser-card tilt reveal d1">
+            <a class="thumb" href="#events">
+              <img loading="lazy" decoding="async" class="ph real-photo" src="images/bredda-ital-dub-reggae-selection-venafro-is.jpg" alt="Bredda Ital — Dub Reggae Selection — Venafro (IS)">
+              <div class="grad"></div>
+              <span class="yr" data-i18n="event14.date">16 OCT</span>
+              <span class="ttl" data-i18n="event14.name">BREDDA ITAL — DUB REGGAE SELECTION</span>
+            </a>
+          </div>
+          <div class="teaser-card tilt reveal d2">
+            <a class="thumb" href="#events">
+              <img loading="lazy" decoding="async" class="ph real-photo" src="images/hope-ina-de-yard-como.jpg" alt="Hope Ina De Yard — Como">
+              <div class="grad"></div>
+              <span class="yr" data-i18n="event15.date">16 OCT</span>
+              <span class="ttl" data-i18n="event15.name">HOPE INA DE YARD</span>
+            </a>
+          </div>
+          <div class="teaser-card tilt reveal d3">
+            <a class="thumb" href="#events">
+              <img loading="lazy" decoding="async" class="ph real-photo" src="images/img-2.jpg">
+              <div class="grad"></div>
+              <span class="yr" data-i18n="event16.date">16 OCT</span>
+              <span class="ttl" data-i18n="event16.name">FLYAH BACK — LA DANCEHALL COME UNA VOLTA</span>
+            </a>
+          </div>
+          <div class="teaser-card tilt reveal d4">
+            <a class="thumb" href="#events">
+              <img loading="lazy" decoding="async" class="ph real-photo" src="images/dub-room-vol-2-recanati-mc.jpg" alt="Dub Room Vol. 2 — Recanati (MC)">
+              <div class="grad"></div>
+              <span class="yr" data-i18n="event13.date">17 OCT</span>
+              <span class="ttl" data-i18n="event13.name">DUB ROOM VOL. 2</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- About teaser -->
     <section class="teaser alt">
       <div class="container about-teaser-grid">
-        <div class="about-teaser-photo tilt stamp-border reveal">
-          <img class="ph real-photo" src="images/profile.jpg" alt="Siaka in front of Roar Sound System">
+        <div class="about-teaser-photo reveal">
+          <img loading="lazy" decoding="async" class="ph real-photo vinyl-spin" src="images/sound-system-diaries.jpg" alt="Sound System Diaries" style="object-fit:cover;">
         </div>
         <div class="about-teaser reveal d1">
           <span class="eyebrow" data-i18n="about.teaser.eyebrow">Who's behind this</span>
-          <h2 class="teaser-title" data-i18n="about.teaser.heading">I'M SIAKA.</h2>
+          <h2 class="teaser-title" data-i18n="about.teaser.heading">I'M SHAKA.</h2>
           <p data-i18n="about.teaser.body">Sound System Diaries was born from a simple passion: for Roots, Reggae Dub and Sound System culture.</p>
           <a href="#about" class="btn" style="margin-top:20px;"><span data-i18n="about.teaser.cta">Read My Story</span> <span>→</span></a>
         </div>
@@ -610,7 +764,23 @@
           </div>
           <a href="#people" class="btn"><span data-i18n="people.teaser.cta">Meet The People</span> <span>→</span></a>
         </div>
-        <div class="people-strip reveal d1" id="homePeopleStrip"></div>
+        <div class="people-strip reveal d1">
+          <a href="#people" class="pp tilt">
+            <img loading="lazy" decoding="async" class="ph real-photo" src="images/siaka-with-alborosie.jpg" alt="Siaka with Alborosie">
+            <div class="grad"></div>
+            <p class="pp-name">Alborosie</p><p class="pp-role" data-i18n="role.artist">Artist</p>
+          </a>
+          <a href="#people" class="pp tilt">
+            <img loading="lazy" decoding="async" class="ph real-photo" src="images/siaka-with-hempress-sativa.jpg" alt="Siaka with Hempress Sativa">
+            <div class="grad"></div>
+            <p class="pp-name">Hempress Sativa</p><p class="pp-role" data-i18n="role.artist">Artist</p>
+          </a>
+          <a href="#people" class="pp tilt">
+            <img loading="lazy" decoding="async" class="ph real-photo" src="images/siaka-with-brusco.jpg" alt="Siaka with Brusco">
+            <div class="grad"></div>
+            <p class="pp-name">Brusco</p><p class="pp-role" data-i18n="role.artist">Artist</p>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -644,7 +814,112 @@
           <button type="button" data-view="map" data-i18n="sounds.view.map">MAP</button>
         </div>
       </div>
-      <div class="sound-grid" id="soundsPageGrid"></div>
+      <div class="sound-grid" id="soundsPageGrid">
+        <div data-sound-id="roar" class="sound-card tilt reveal">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/roar-sound-system.jpg" alt="Roar Sound System">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <p class="place" data-i18n="sound.italy">Italy</p>
+            <h3>ROAR SOUND SYSTEM</h3>
+          </div>
+        </div>
+        <div data-sound-id="rise-shine" class="sound-card tilt reveal d1">
+          <!-- NOTE: this photo shows "Heal Hertz" painted on the cabinet — check it's really Rise & Shine Sound System before publishing, swap if not -->
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/rise-shine-sound-system.jpg" alt="Rise & Shine Sound System">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <p class="place">Emilia-Romagna</p>
+            <h3>RISE &amp; SHINE SOUND SYSTEM</h3>
+          </div>
+        </div>
+        <div data-sound-id="bababoom" class="sound-card tilt reveal d2">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/bababoom-hifi.jpg" alt="Bababoom HiFi">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <p class="place" data-i18n="sound.italy">Italy</p>
+            <h3>BABABOOM HIFI</h3>
+          </div>
+        </div>
+        <div data-sound-id="48-roots" class="sound-card tilt reveal d3">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/48-roots.jpg" alt="48 Roots">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <p class="place" data-i18n="sound.italy">Italy</p>
+            <h3>48 ROOTS</h3>
+          </div>
+        </div>
+        <div data-sound-id="natural-mystic" class="sound-card tilt reveal d4">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/natural-mystic-sound-system.jpg" alt="Natural Mystic Sound System">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <p class="place">Torino, Piemonte</p>
+            <h3>NATURAL MYSTIC SOUND SYSTEM</h3>
+          </div>
+        </div>
+        <div data-sound-id="imperial-sound-army" class="sound-card tilt reveal d5">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/imperial-sound-army.jpg" alt="Imperial Sound Army">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <p class="place" data-i18n="sound.italy">Italy</p>
+            <h3>IMPERIAL SOUND ARMY</h3>
+          </div>
+        </div>
+        <div data-sound-id="militant-youths" class="sound-card tilt reveal">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/militant-youths-hifi.jpg" alt="Militant Youths HiFi">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <p class="place" data-i18n="sound.italy">Italy</p>
+            <h3>MILITANT YOUTHS HIFI</h3>
+          </div>
+        </div>
+        <div data-sound-id="warrior-charge" class="sound-card tilt reveal d4">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/warrior-carghe-sound-system.jpg" alt="Warrior Carghe Sound System">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <p class="place" data-i18n="sound.italy">Italy</p>
+            <h3>WARRIOR CHARGE SOUND SYSTEM</h3>
+          </div>
+        </div>
+        <div data-sound-id="nuovo-sound-07" class="sound-card tilt reveal d2">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/echotronix-sound-system.jpg" alt="Echotronix Sound System">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <h3>ECHOTRONIX SOUND SYSTEM</h3>
+          </div>
+        </div>
+        <div data-sound-id="high-vision" class="sound-card tilt reveal d2">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/high-vision.jpg" alt="High Vision">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <h3>HIGH VISION</h3>
+          </div>
+        </div>
+        <div data-sound-id="dreadlion" class="sound-card tilt reveal d1">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/dreadlion-firestarter-system.jpg" alt="Dreadlion Firestarter System">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <h3>DREADLION FIRESTARTER SYSTEM</h3>
+          </div>
+        </div>
+        <div data-sound-id="dub-stone" class="sound-card tilt reveal">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/dub-stone-sound-system.jpg" alt="Dub Stone Sound System">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <h3>DUB STONE SOUND SYSTEM</h3>
+          </div>
+        </div>
+        <div data-sound-id="peaceful-warriors" class="sound-card tilt reveal">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/peaceful-warriors-sound-system.jpg" alt="Peaceful Warriors Sound System">
+          <div class="grad"></div><div class="tint"></div>
+          <div class="sound-info">
+            <h3>PEACEFUL WARRIORS SOUND SYSTEM</h3>
+          </div>
+        </div>
+<div class="sound-more reveal">
+          <span class="plus">+</span>
+          <p data-i18n="sounds.more">More sounds joining the diary soon</p>
+        </div>
+      </div>
       <div class="map-wrap is-hidden" id="soundsMapWrap">
         <div class="italy-map-outer">
           <svg id="italySvg" viewBox="0 0 600 706.9" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
@@ -671,14 +946,112 @@
         </div>
         <p class="script-tag" data-i18n="diaries.page.tag">Moments worth remembering.</p>
       </div>
-      <div id="diariesPageList"></div>
+      <div class="filters-bar reveal" id="diariesFilters">
+        <input type="search" id="diariesSearch" class="filter-input" data-i18n-attr="placeholder:diaries.filter.search" placeholder="Search diaries…">
+        <select id="diariesYearFilter" class="filter-select"><option value="" data-i18n="diaries.filter.allYears">All years</option></select>
+        <select id="diariesLocFilter" class="filter-select"><option value="" data-i18n="diaries.filter.allLocations">All locations</option></select>
+        <select id="diariesSoundFilter" class="filter-select"><option value="" data-i18n="diaries.filter.allSounds">All sound systems</option></select>
+      </div>
 
+      <!-- Diary 1 -->
+      <article class="diary-entry reveal" data-diary-card data-id="lowland-festival-2026" data-year="2026" data-loc="Netherlands" data-sounds="Bababoom HiFi|Galas|Jules I" data-search="lowland festival 2026 bababoom hifi galas jules i netherlands heavy bass open field night never ends" data-watch-url="https://www.instagram.com/soundsystemdiaries/">
+        <a class="diary-img stamp-border tilt" href="#diary/lowland-festival-2026" data-i18n-attr="aria-label:diaries.viewDiary" aria-label="View Diary">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/bababoom-hifi-lowland-festival-2026-2.jpg" alt="Bababoom HiFi — Lowland Festival 2026">
+          <div class="grad"></div>
+          <span class="diary-year">2026</span>
+        </a>
+        <div>
+          <h3 class="diary-title">LOWLAND FESTIVAL 2026</h3>
+          <p class="diary-meta date" data-i18n="diary1.dateLabel">10–12 September 2026</p>
+          <p class="diary-meta loc" data-i18n="diary1.loc">Netherlands</p>
+          <p class="diary-meta artists"><a href="#sound/bababoom" class="xref">Bababoom HiFi</a> · Galas · Jules I</p>
+          <p class="diary-desc" data-i18n="diary1.desc">Heavy bass, an open field and a night that never ends. A photo diary from the dance floor, among selectors, operators and the crowd that holds it all together.</p>
+          <a class="btn diary-toggle" href="#diary/lowland-festival-2026"><span data-i18n="diaries.viewDiary">View Diary</span> <span>→</span></a>
+          <div class="diary-gallery" hidden>
+            <a class="ph real-photo video-link" href="https://www.instagram.com/reel/DdqwsnGI-HK/" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:diary1.video.worldinapressure" aria-label="Watch on Instagram — Bababoom Hi-Fi @ Lowland Festival 2026">
+              <img loading="lazy" decoding="async" src="images/bababoom-hi-fi-world-ina-pressure-lowland-festival.jpg" alt="Bababoom Hi-Fi — World Ina Pressure — Lowland Festival 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+              <div class="video-preview"><span class="play-btn"></span></div>
+            </a>
+            <a class="ph real-photo video-link" href="https://www.instagram.com/p/DdbLnkSqYCW/" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:diary1.video.galas" aria-label="Watch on Instagram — Galas @ Lowland Festival 2026">
+              <img loading="lazy" decoding="async" src="images/galas-lowland-festival-2026.jpg" alt="Galas — Lowland Festival 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+              <div class="video-preview"><span class="play-btn"></span></div>
+            </a>
+            <a class="ph real-photo video-link" href="https://www.instagram.com/p/DdYkvFcIs_x/" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:diary1.video.bababoom" aria-label="Watch on Instagram — Bababoom HiFi @ Lowland Festival 2026">
+              <img loading="lazy" decoding="async" src="images/bababoom-hifi-lowland-festival-2026.jpg" alt="Bababoom HiFi — Lowland Festival 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+              <div class="video-preview"><span class="play-btn"></span></div>
+            </a>
+            <a class="ph real-photo video-link" href="https://www.instagram.com/p/DdWC_p4oeO4/" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:diary1.video.jules" aria-label="Watch on Instagram — Jules I @ Lowland Festival 2026">
+              <img loading="lazy" decoding="async" src="images/jules-i-lowland-festival-2026.jpg" alt="Jules I — Lowland Festival 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+              <div class="video-preview"><span class="play-btn"></span></div>
+            </a>
+            <p class="note" data-i18n="diaries.galleryVideoNote">Tap a clip to watch it on Instagram.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Diary 2 -->
+      <article class="diary-entry reverse reveal" data-diary-card data-id="reno-splash-festival-2026" data-year="2026" data-loc="Bologna, IT" data-sounds="Junior Kelly|Dr Dubwiser|Prince Alla" data-search="reno splash festival 2026 junior kelly dr dubwiser prince alla bologna two nights officina bistrot heavyweight vocalists dub selections mixing desk" data-watch-url="https://www.instagram.com/soundsystemdiaries/">
+        <a class="diary-img stamp-border tilt" href="#diary/reno-splash-festival-2026" data-i18n-attr="aria-label:diaries.viewDiary" aria-label="View Diary">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/junior-kelly-reno-splash-festival-2026.jpg" alt="Junior Kelly — Reno Splash Festival 2026">
+          <div class="grad"></div>
+          <span class="diary-year">2026</span>
+        </a>
+        <div>
+          <h3 class="diary-title">RENO SPLASH FESTIVAL 2026</h3>
+          <p class="diary-meta date" data-i18n="diary2.dateLabel">11–12 July 2026</p>
+          <p class="diary-meta loc" data-i18n="diary2.loc">Bologna, IT</p>
+          <p class="diary-meta artists">Junior Kelly · Dr Dubwiser · Prince Alla</p>
+          <p class="diary-desc" data-i18n="diary2.desc">Two nights at Officina Bistrot, between heavyweight vocalists and dub selections straight from the mixing desk.</p>
+          <a class="btn diary-toggle" href="#diary/reno-splash-festival-2026"><span data-i18n="diaries.viewDiary">View Diary</span> <span>→</span></a>
+          <div class="diary-gallery" hidden>
+            <a class="ph real-photo video-link" href="https://www.instagram.com/p/DashBaoMtJG/" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:diary2.video.juniorkelly" aria-label="Watch on Instagram — Junior Kelly @ Reno Splash Festival 2026">
+              <img loading="lazy" decoding="async" src="images/junior-kelly-reno-splash-festival-2026-2.jpg" alt="Junior Kelly — Reno Splash Festival 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+              <div class="video-preview"><span class="play-btn"></span></div>
+            </a>
+            <a class="ph real-photo video-link" href="https://www.instagram.com/p/DauSX9rsk9J/" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:diary2.video.drdubwiser" aria-label="Watch on Instagram — Dr Dubwiser @ Reno Splash Festival 2026">
+              <img loading="lazy" decoding="async" src="images/dr-dubwiser-reno-splash-festival-2026.jpg" alt="Dr Dubwiser — Reno Splash Festival 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+              <div class="video-preview"><span class="play-btn"></span></div>
+            </a>
+            <a class="ph real-photo video-link" href="https://www.instagram.com/p/Dapn10tslXG/" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:diary2.video.princealla" aria-label="Watch on Instagram — Prince Alla @ Reno Splash Festival 2026">
+              <img loading="lazy" decoding="async" src="images/prince-alla-reno-splash-festival-2026.jpg" alt="Prince Alla — Reno Splash Festival 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+              <div class="video-preview"><span class="play-btn"></span></div>
+            </a>
+            <p class="note" data-i18n="diaries.galleryVideoNote">Tap a clip to watch it on Instagram.</p>
+          </div>
+        </div>
+      </article>
+
+      <p class="filters-empty is-hidden" id="diariesEmptyState" data-i18n="filters.empty">Nothing matches these filters.</p>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SOUND DETAIL — one dedicated page per sound system, reached via #sound/<id>
+  ====================================================================== -->
+  <section class="page" data-page="sound">
+    <div class="page-banner"></div>
+    <div class="container page-head">
+      <a href="#sounds" class="back-link"><span>←</span> <span data-i18n="sounds.detail.back">All Sounds</span></a>
+      <div id="soundDetailContent"></div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       DIARY DETAIL — one dedicated page per session, reached via #diary/<id>
+  ====================================================================== -->
+  <section class="page" data-page="diary">
+    <div class="page-banner"></div>
+    <div class="container page-head">
+      <a href="#diaries" class="back-link"><span>←</span> <span data-i18n="diaries.detail.back">All Diaries</span></a>
+      <div id="diaryDetailContent"></div>
     </div>
   </section>
 
   <!-- =====================================================================
        EVENTS — curated by Siaka. Sound systems send their event details
        (date, location, description, flyer) and they get added here.
+       External organizers can also propose an event; nothing they submit
+       is published automatically — every proposal is reviewed by Siaka.
   ====================================================================== -->
   <section class="page" data-page="events">
     <div class="page-banner"></div>
@@ -690,9 +1063,158 @@
         </div>
         <p class="script-tag" data-i18n="events.page.tag">What's coming up next.</p>
       </div>
-      <div class="event-grid" id="eventsPageGrid"></div>
+      <div class="events-view-toggle reveal">
+        <div class="lang-switch" id="eventsViewToggle">
+          <button type="button" data-view="list" class="active" data-i18n="events.view.list">LIST</button>
+          <button type="button" data-view="month" data-i18n="events.view.month">MONTH</button>
+        </div>
+      </div>
+      <div class="filters-bar reveal" id="eventsFilters">
+        <select id="eventsLocFilter" class="filter-select"><option value="" data-i18n="events.filter.allLocations">All locations</option></select>
+        <select id="eventsMonthFilter" class="filter-select"><option value="" data-i18n="events.filter.allMonths">All months</option></select>
+      </div>
+      <div class="event-grid" id="eventsPageGrid">
+        <div class="event-card tilt reveal d1" data-event-card data-location="Venafro (IS) — Monkeys Bar" data-month="OCT" data-search="bredda ital dub reggae selection venafro monkeys bar" data-sounds="Bredda Ital">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/bredda-ital-dub-reggae-selection-venafro-is.jpg" alt="Bredda Ital — Dub Reggae Selection — Venafro (IS) — Monkeys Bar">
+          <div class="grad"></div>
+          <div class="event-date" data-i18n="event14.date">16 OCT</div>
+          <div class="event-info">
+            <p class="place" data-i18n="event14.location">Venafro (IS) — Monkeys Bar</p>
+            <h3 data-i18n="event14.name">BREDDA ITAL — DUB REGGAE SELECTION</h3>
+            <p class="event-sounds" data-i18n="event14.sounds"></p>
+            <p class="event-desc" data-i18n="event14.desc"></p>
+          </div>
+        </div>
+        <div class="event-card tilt reveal d2" data-event-card data-location="Como — Arci Joshua Blues Club" data-month="OCT" data-search="hope ina de yard como arci joshua blues club rising hope sound system monza ina de yard vito war" data-sounds="Rising Hope Sound System|Monza Ina De Yard">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/hope-ina-de-yard-como.jpg" alt="Rising Hope Sound System, Monza Ina De Yard — Hope Ina De Yard — Como">
+          <div class="grad"></div>
+          <div class="event-date" data-i18n="event15.date">16 OCT</div>
+          <div class="event-info">
+            <p class="place" data-i18n="event15.location">Como — Arci Joshua Blues Club</p>
+            <h3 data-i18n="event15.name">HOPE INA DE YARD</h3>
+            <p class="event-sounds" data-i18n="event15.sounds"></p>
+            <p class="event-desc" data-i18n="event15.desc"></p>
+          </div>
+        </div>
+        <div class="event-card tilt reveal d3" data-event-card data-location="Bologna — Officina Bistrot (DUMBO), Via Camillo Casarini 19" data-month="OCT" data-search="flyah back la dancehall come una volta bologna officina bistrot dumbo roots balera jitsu ken tai" data-sounds="Roots Balera|Jitsu Ken Tai">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/img-2.jpg">
+          <div class="grad"></div>
+          <div class="event-date" data-i18n="event16.date">16 OCT</div>
+          <div class="event-info">
+            <p class="place" data-i18n="event16.location">Bologna — Officina Bistrot (DUMBO), Via Camillo Casarini 19</p>
+            <h3 data-i18n="event16.name">FLYAH BACK — LA DANCEHALL COME UNA VOLTA</h3>
+            <p class="event-sounds" data-i18n="event16.sounds"></p>
+            <p class="event-desc" data-i18n="event16.desc"></p>
+          </div>
+        </div>
+        <div class="event-card tilt reveal d3" data-event-card data-location="Recanati (MC) — Spaziotempo" data-month="OCT" data-search="dub room vol 2 recanati spaziotempo doublespliff mannaroman zizze" data-sounds="Doublespliff|Mannaroman|Zizze">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/dub-room-vol-2-recanati-mc.jpg" alt="Doublespliff, Mannaroman, Zizze — Dub Room Vol. 2 — Recanati (MC)">
+          <div class="grad"></div>
+          <div class="event-date" data-i18n="event13.date">17 OCT</div>
+          <div class="event-info">
+            <p class="place" data-i18n="event13.location">Recanati (MC) — Spaziotempo</p>
+            <h3 data-i18n="event13.name">DUB ROOM VOL. 2</h3>
+            <p class="event-sounds" data-i18n="event13.sounds"></p>
+            <p class="event-desc" data-i18n="event13.desc"></p>
+          </div>
+        </div>
+        <div class="event-card tilt reveal d4" data-event-card data-location="Roma — CSA Intifada, Via di Casal Brucciato 15" data-month="OCT" data-search="moa anbessa full crew in session roma csa intifada jah station soundsystem mash up babylon" data-sounds="Jah Station Soundsystem">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/jah-station-soundsystem-moa-anbessa-roma.jpg" alt="Jah Station Soundsystem — Moa Anbessa — Roma">
+          <div class="grad"></div>
+          <div class="event-date" data-i18n="event12.date">17 OCT</div>
+          <div class="event-info">
+            <p class="place" data-i18n="event12.location">Roma — CSA Intifada, Via di Casal Brucciato 15</p>
+            <h3 data-i18n="event12.name">MOA ANBESSA — FULL CREW IN SESSION</h3>
+            <p class="event-sounds" data-i18n="event12.sounds"></p>
+            <p class="event-desc" data-i18n="event12.desc"></p>
+          </div>
+        </div>
+        <div class="event-card tilt reveal d5" data-event-card data-location="Romola (FI) — Piazza Aiaccia, 1" data-month="OCT" data-search="dub night with jah station romola trail foundation romola soundsystem arci card" data-sounds="Trail Foundation|Romola Soundsystem">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/meet-trail-foundation-romola-soundsystem-romola.jpg" alt="Meet: Trail Foundation, Romola Soundsystem — Romola">
+          <div class="grad"></div>
+          <div class="event-date" data-i18n="event8.date">24 OCT</div>
+          <div class="event-info">
+            <p class="place" data-i18n="event8.location">Romola (FI) — Piazza Aiaccia, 1</p>
+            <h3 data-i18n="event8.name">DUB NIGHT WITH JAH STATION</h3>
+            <p class="event-sounds" data-i18n="event8.sounds"></p>
+            <p class="event-desc" data-i18n="event8.desc"></p>
+          </div>
+        </div>
+        <div class="event-card tilt reveal" data-event-card data-location="Presicce-Acquarica (LE) — Suoni Unione Kultura Arte" data-month="NOV" data-search="dubwise room original salento dub club presicce acquarica bababoom hifi earthikal towa sound system brisco" data-sounds="Bababoom HiFi|Earthikal Towa Sound System">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/bababoom-hifi-earthikal-towa-sound-system-dubwise-.jpg" alt="Bababoom HiFi, Earthikal Towa Sound System — Dubwise Room — Presicce-Acquarica (LE)">
+          <div class="grad"></div>
+          <div class="event-date" data-i18n="event11.date">07 NOV</div>
+          <div class="event-info">
+            <p class="place" data-i18n="event11.location">Presicce-Acquarica (LE) — Suoni Unione Kultura Arte</p>
+            <h3 data-i18n="event11.name">DUBWISE ROOM — ORIGINAL SALENTO DUB CLUB</h3>
+            <p class="event-sounds" data-i18n="event11.sounds"></p>
+            <p class="event-desc" data-i18n="event11.desc"></p>
+          </div>
+        </div>
+        <div class="sound-more reveal d2">
+          <span class="plus">+</span>
+          <p data-i18n="events.more">More events joining the diary soon</p>
+        </div>
+      </div>
+      <div class="is-hidden" id="eventsMonthWrap"></div>
+      <p class="filters-empty is-hidden" id="eventsEmptyState" data-i18n="filters.empty">Nothing matches these filters.</p>
+      <div class="events-archive reveal is-hidden" id="eventsArchiveSection">
+        <button type="button" class="events-archive-toggle" id="eventsArchiveToggle">
+          <span class="chev">▾</span> <span data-i18n="events.archive.toggle">Past events</span> <span id="eventsArchiveCount">(0)</span>
+        </button>
+        <div class="event-grid events-archive-grid is-hidden" id="eventsArchiveGrid"></div>
+      </div>
+      <div class="events-submit-row reveal">
+        <button type="button" class="btn btn-gold" id="eventSubmitOpenBtn" data-i18n="events.submit.cta">Submit an Event</button>
+      </div>
     </div>
   </section>
+
+  <div class="modal-backdrop" id="eventSubmitBackdrop">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h4 data-i18n="events.submit.title">Submit an Event</h4>
+        <button type="button" class="modal-close" id="eventSubmitCloseBtn" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-note" data-i18n="events.submit.note">Every submission is reviewed by Siaka before it's added to the calendar — nothing is published automatically.</p>
+        <form id="eventSubmitForm" name="event-submission" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="event-submission">
+          <p class="hp-field"><label>Don't fill this out: <input name="bot-field"></label></p>
+          <div class="form-field">
+            <label for="evName" data-i18n="events.submit.name">Event name</label>
+            <input type="text" id="evName" name="event_name" required>
+          </div>
+          <div class="form-field">
+            <label for="evLocation" data-i18n="events.submit.location">Location</label>
+            <input type="text" id="evLocation" name="location" required>
+          </div>
+          <div class="form-field">
+            <label for="evDate" data-i18n="events.submit.date">Date</label>
+            <input type="text" id="evDate" name="event_date" required>
+          </div>
+          <div class="form-field">
+            <label for="evSounds" data-i18n="events.submit.sounds">Sound systems / lineup</label>
+            <input type="text" id="evSounds" name="sounds">
+          </div>
+          <div class="form-field">
+            <label for="evEmail" data-i18n="events.submit.organizerEmail">Your email</label>
+            <input type="email" id="evEmail" name="organizer_email" required>
+          </div>
+          <div class="form-field">
+            <label for="evLink" data-i18n="events.submit.link">Official link (optional)</label>
+            <input type="url" id="evLink" name="official_link">
+          </div>
+          <div class="form-field">
+            <label for="evDesc" data-i18n="events.submit.desc">Description</label>
+            <textarea id="evDesc" name="description"></textarea>
+          </div>
+          <button type="submit" class="btn" data-i18n="events.submit.submitBtn">Send for review</button>
+          <p class="form-status" id="eventSubmitStatus"></p>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- =====================================================================
        ABOUT
@@ -703,26 +1225,25 @@
       <div class="about-grid">
         <div class="about-photo-col reveal">
           <div class="about-photo stamp-border tilt">
-            <img class="ph real-photo" src="images/profile.jpg" alt="Siaka in front of Roar Sound System">
+            <img loading="lazy" decoding="async" class="ph real-photo" src="images/siaka-in-front-of-roar-sound-system.jpg" alt="Siaka in front of Roar Sound System">
           </div>
           <div class="tape"><span data-i18n="about.tape">est. dance floor</span></div>
         </div>
         <div class="about-text-col reveal d1">
           <span class="eyebrow" data-i18n="about.page.eyebrow">03 — About</span>
-          <h2 class="section-title about-title"><span data-i18n="about.page.imtag">I'M</span><br><span class="text-outline">SIAKA.</span></h2>
+          <h2 class="section-title about-title"><span data-i18n="about.page.imtag">I'M</span><br><span class="text-outline">SHAKA.</span></h2>
           <div class="about-copy">
-            <p data-i18n="about.page.p1">I want to show you who's behind Sound System Diaries.</p>
-            <p data-i18n="about.page.p2">Sound System Diaries was born from a simple passion: for Roots, Dub and Sound System culture.</p>
-            <p data-i18n="about.page.p3">I go to the dances, I listen, I meet people, I film, I shoot photos and try to capture everything that's often hard to put into words: the vibrations, the energy of the sound, the people, the connections and those moments that make every session different from the others.</p>
-            <p data-i18n="about.page.p4">I don't want to tell this culture from the outside. I want to live it, know it, document it and share it.</p>
-            <p data-i18n="about.page.p5">Every video, every photo and every moment I collect is a small fragment of a journey I'm living personally, sound after sound.</p>
-            <p data-i18n="about.page.p6">Sound System Diaries is my way of giving value to these moments, discovering new sounds, meeting new people and continuing to learn from a culture that inspires me deeply.</p>
-            <p data-i18n="about.page.p7">This is what's behind Sound System Diaries.</p>
+            <p data-i18n="about.page.p1">Sound System Diaries was born from my passion for music: for Roots, Reggae Dub and Sound System culture.</p>
+            <p data-i18n="about.page.p2">I go to the dances, and I try to capture everything that's often hard to put into words: the vibrations, the energy of the sound, the people, the connections and those moments that make every session special.</p>
+            <p data-i18n="about.page.p3">I don't want to tell this culture from the outside. I want to live it, know it, document it and share it.</p>
+            <p data-i18n="about.page.p4">Every video, every photo and every moment I collect is a small fragment of a journey I'm living personally, sound after sound.</p>
+            <p data-i18n="about.page.p5">Sound System Diaries is my way of giving value to these moments, discovering new sounds, meeting new people and continuing to learn from a culture that inspires me deeply.</p>
+            <p data-i18n="about.page.p6">This is what's behind Sound System Diaries.</p>
             <p class="final-line" data-i18n="about.page.final">Not just images. Not just music. But experiences, people, vibrations and moments worth remembering.</p>
           </div>
           <div class="journey reveal d2">
             <p class="journey-label" data-i18n="about.journey.label">The Journey So Far</p>
-            <div class="journey-tags" id="journeyTags">
+            <div class="journey-tags">
               <span>Dub Stone</span>
               <span>Rototom</span>
               <span>Zion Station Festival</span>
@@ -748,7 +1269,39 @@
         </div>
         <p class="script-tag" style="color:var(--red);" data-i18n="people.page.tag">Because culture is people.</p>
       </div>
-      <div class="people-grid" id="peoplePageGrid"></div>
+      <div class="filters-bar reveal" id="peopleFilters">
+        <select id="peopleCategoryFilter" class="filter-select">
+          <option value="" data-i18n="people.filter.all">All categories</option>
+          <option value="artist" data-i18n="role.artist">Artist</option>
+          <option value="selector" data-i18n="role.selector">Selector</option>
+          <option value="producer" data-i18n="role.producer">Producer</option>
+          <option value="singer" data-i18n="role.singer">Singer</option>
+          <option value="mc" data-i18n="role.mc">MC</option>
+          <option value="crew" data-i18n="role.crew">Sound System Crew</option>
+          <option value="engineer" data-i18n="role.engineer">Sound Engineer</option>
+          <option value="organizer" data-i18n="role.organizer">Organizer</option>
+          <option value="photographer" data-i18n="role.photographer">Photographer</option>
+          <option value="other" data-i18n="role.other">Other</option>
+        </select>
+      </div>
+      <div class="people-grid" id="peoplePageGrid">
+        <div class="people-card tilt reveal" data-category="artist">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/siaka-with-alborosie.jpg" alt="Siaka with Alborosie">
+          <div class="grad"></div>
+          <div class="people-info"><p class="pname">Alborosie</p><p class="prole" data-i18n="role.artist">Artist</p></div>
+        </div>
+        <div class="people-card tilt reveal d1" data-category="artist">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/siaka-with-hempress-sativa.jpg" alt="Siaka with Hempress Sativa">
+          <div class="grad"></div>
+          <div class="people-info"><p class="pname">Hempress Sativa</p><p class="prole" data-i18n="role.artist">Artist</p></div>
+        </div>
+        <div class="people-card tilt reveal d2" data-category="artist">
+          <img loading="lazy" decoding="async" class="ph real-photo" src="images/siaka-with-brusco.jpg" alt="Siaka with Brusco">
+          <div class="grad"></div>
+          <div class="people-info"><p class="pname">Brusco</p><p class="prole" data-i18n="role.artist">Artist</p></div>
+        </div>
+      </div>
+      <p class="filters-empty is-hidden" id="peopleEmptyState" data-i18n="filters.empty">Nothing matches these filters.</p>
       <p class="people-note" data-i18n="people.note">Real portraits from real dances — no stock photography, ever.</p>
     </div>
   </section>
@@ -767,7 +1320,10 @@
       <div class="contact-tags reveal d1">
         <span data-i18n="contact.tag.soundsystems">Sound Systems</span><span data-i18n="contact.tag.artists">Artists</span><span data-i18n="contact.tag.selectors">Selectors</span><span data-i18n="contact.tag.festivals">Festivals</span><span data-i18n="contact.tag.promoters">Promoters</span><span data-i18n="contact.tag.photographers">Photographers</span>
       </div>
-      <a href="mailto:soundsystemdiaries@gmail.com" class="btn btn-gold reveal d2"><span data-i18n="contact.page.cta">Get In Touch</span> <span>→</span></a>
+      <div class="contact-cta-row reveal d2">
+        <a href="mailto:soundsystemdiaries@gmail.com?subject=Proposta%20Sound%20System" class="btn btn-gold"><span data-i18n="contact.page.ctaSound">Propose A Sound</span> <span>→</span></a>
+        <a href="#events/submit" class="btn"><span data-i18n="contact.page.ctaSession">Report A Session</span> <span>→</span></a>
+      </div>
     </div>
   </section>
 
@@ -775,9 +1331,9 @@
 
 <footer>
   <div class="container">
-    <img class="logo" src="images/logo.png" alt="Sound System Diaries">
+    <img loading="lazy" decoding="async" class="logo" src="images/logo.png" alt="Sound System Diaries">
     <h2>SOUND SYSTEM<br><span class="fred">DIARIES</span></h2>
-    <p class="rrr">Relax · Respect · Rise</p>
+    <p class="rrr">One Love</p>
     <p class="mpcm" data-i18n="hero.tag">Music · People · Culture · Memories</p>
     <a class="ig-link" href="https://instagram.com/soundsystemdiaries" target="_blank" rel="noreferrer">@soundsystemdiaries</a>
     <nav class="footer-nav">
@@ -797,7 +1353,13 @@
 </footer>
 
 <script>
-  var PAGES = ['home','sounds','diaries','events','about','people','contact'];
+  var PAGES = ['home','sounds','sound','diaries','diary','events','about','people','contact'];
+  function normText(s){ return String(s == null ? '' : s).toLowerCase(); }
+  function uniqueSorted(arr){
+    var seen = {}, out = [];
+    arr.forEach(function(v){ v = (v == null ? '' : String(v).trim()); if(v && !seen[v]){ seen[v] = 1; out.push(v); } });
+    return out.sort();
+  }
   var TITLES = {
     en:{
       home:'Sound System Diaries — A visual diary of Sound System culture',
@@ -832,66 +1394,53 @@
   var I18N = {
     en:{
       'nav.home':'Home','nav.about':'About','nav.diaries':'Diaries','nav.events':'Events','nav.sounds':'Sounds','nav.people':'People','nav.contact':'Contact',
-      'hero.eyebrow':'A Sound System Culture Diary','hero.tag':'Music · People · Culture · Memories','hero.script':'A visual diary of Sound System culture.',
+      'hero.eyebrow':'A Sound System Culture Diary','hero.tag':'Music · People · Culture · Memories','hero.script':'A visual diary of Roots, Reggae, Dub and Sound System culture.','hero.cta.diaries':'Explore The Diary','hero.cta.propose':'Propose A Sound',
       'marquee.culture':'Culture',
-      'about.teaser.eyebrow':"Who's behind this",'about.teaser.heading':"I'M SIAKA.",
+      'about.teaser.eyebrow':"Who's behind this",'about.teaser.heading':"I'M SHAKA.",
       'about.teaser.body':"Sound System Diaries was born from a simple passion: for Roots, Reggae Dub and Sound System culture.",
       'about.teaser.cta':'Read My Story',
       'diaries.teaser.eyebrow':'The Diaries','diaries.teaser.heading':'Moments Worth Remembering','diaries.teaser.cta':'View All Diaries',
       'events.teaser.eyebrow':'Events','events.teaser.heading':"What's Coming Up",'events.teaser.cta':'View All Events',
       'diaries.watchTag':'▶ Watch',
-      'diaries.watchAriaTpl':'Watch on Instagram — {title}','diaries.watchClipAriaTpl':'Watch on Instagram — {name} @ {title}',
       'diaries.watchAria1':'Watch on Instagram — Lowland Festival 2026',
       'sounds.teaser.eyebrow':'The Sounds','sounds.teaser.heading':'Every Sound Has A Story','sounds.teaser.cta':'Explore The Sounds',
       'people.teaser.eyebrow':'The People','people.teaser.heading':'Faces Of The Culture','people.teaser.cta':'Meet The People',
       'contact.teaser.eyebrow':'Got A Sound?','contact.teaser.heading':"Let's Add Your Story To The Diary",'contact.teaser.cta':'Get In Touch',
       'about.tape':'est. dance floor',
       'about.page.eyebrow':'04 — About','about.page.imtag':"I'M",
-      'about.page.p1':"I want to show you who's behind Sound System Diaries.",
-      'about.page.p2':'Sound System Diaries was born from a simple passion: for Roots, Reggae Dub and Sound System culture.',
-      'about.page.p3':"I go to the dances, I listen, I meet people, I film, I shoot photos and try to capture everything that's often hard to put into words: the vibrations, the energy of the sound, the people, the connections and those moments that make every session different from the others.",
-      'about.page.p4':"I don't want to tell this culture from the outside. I want to live it, know it, document it and share it.",
-      'about.page.p5':"Every video, every photo and every moment I collect is a small fragment of a journey I'm living personally, sound after sound.",
-      'about.page.p6':'Sound System Diaries is my way of giving value to these moments, discovering new sounds, meeting new people and continuing to learn from a culture that inspires me deeply.',
-      'about.page.p7':"This is what's behind Sound System Diaries.",
+      'about.page.p1':"Sound System Diaries was born from my passion for music: for Roots, Reggae Dub and Sound System culture.",
+      'about.page.p2':"I go to the dances, and I try to capture everything that's often hard to put into words: the vibrations, the energy of the sound, the people, the connections and those moments that make every session special.",
+      'about.page.p3':"I don't want to tell this culture from the outside. I want to live it, know it, document it and share it.",
+      'about.page.p4':"Every video, every photo and every moment I collect is a small fragment of a journey I'm living personally, sound after sound.",
+      'about.page.p5':'Sound System Diaries is my way of giving value to these moments, discovering new sounds, meeting new people and continuing to learn from a culture that inspires me deeply.',
+      'about.page.p6':"This is what's behind Sound System Diaries.",
       'about.page.final':'Not just images. Not just music. But experiences, people, vibrations and moments worth remembering.',
       'about.journey.label':'The Journey So Far',
       'diaries.page.eyebrow':'02 — The Diaries','diaries.page.heading':'THE DIARIES','diaries.page.tag':'Moments worth remembering.',
-      'diary1.loc':'Netherlands','diary1.desc':'Heavy bass, an open field and a night that never ends. A photo diary from the dance floor, among selectors, operators and the crowd that holds it all together.',
+      'diary1.dateLabel':'10–12 September 2026','diary1.loc':'Netherlands','diary1.desc':'Heavy bass, an open field and a night that never ends. A photo diary from the dance floor, among selectors, operators and the crowd that holds it all together.',
       'diaries.watchAria2':'Watch on Instagram — Reno Splash Festival 2026',
-      'diary2.loc':'Bologna, IT','diary2.desc':'Two nights at Officina Bistrot, between heavyweight vocalists and dub selections straight from the mixing desk.',
+      'diary2.dateLabel':'11–12 July 2026','diary2.loc':'Bologna, IT','diary2.desc':'Two nights at Officina Bistrot, between heavyweight vocalists and dub selections straight from the mixing desk.',
       'diaries.watchOnIG':'▶ Watch on Instagram','diaries.viewDiary':'View Diary','diaries.closeDiary':'Close Diary',
       'diaries.galleryVideoNote':'Tap a clip to watch it on Instagram.',
       'diary1.video.galas':'Watch on Instagram — Galas @ Lowland Festival 2026',
       'diary1.video.bababoom':'Watch on Instagram — Bababoom HiFi @ Lowland Festival 2026',
       'diary1.video.jules':'Watch on Instagram — Jules I @ Lowland Festival 2026',
+      'diary1.video.worldinapressure':'Watch on Instagram — Bababoom Hi-Fi @ Lowland Festival 2026',
       'diary2.video.juniorkelly':'Watch on Instagram — Junior Kelly @ Reno Splash Festival 2026',
       'diary2.video.drdubwiser':'Watch on Instagram — Dr Dubwiser @ Reno Splash Festival 2026',
       'diary2.video.princealla':'Watch on Instagram — Prince Alla @ Reno Splash Festival 2026',
       'events.page.eyebrow':'03 — Events','events.page.heading':'EVENTS','events.page.tag':"What's coming up next.",
-      'event1.date':'18 SEP','event1.location':'Mazara del Vallo (TP) — Azienda Agricola Mirto','event1.name':'DUB YARD','event1.sounds':'Kurina Sound System · Wise Sound · Awla','event1.desc':'From 6pm — free entry on the list, food & drink area.',
-      'event2.date':'19 SEP','event2.location':'Torino — Strada Castello di Mirafiori 346 (Dagiau)','event2.name':'DUBRIVIDI AND FRIENDS','event2.sounds':'Dubrividi Sound & Friends','event2.desc':'From 5pm to midnight — €5 entry with ARCI card.',
-      'event3.date':'19 SEP','event3.location':'Firenze — Parco delle Cascine','event3.name':'DUB FANTASTIK','event3.sounds':'Warrior Charge Sound System · open act Loud And Proud Sound System','event3.desc':'From 11pm, inside the Cirk Fantastik Festival — full sound in session.',
-      'event4.date':'19 SEP','event4.location':'Venue to be confirmed','event4.name':'BACK TO THE RIVER — SPECIAL EDITION','event4.sounds':'Alburnian Sound System in session','event4.desc':'Time and venue to be confirmed.',
-      'event5.date':'20 SEP','event5.location':'Legnano (MI) — Parco del Castello','event5.name':'CULTURE CORNER DEYA','event5.sounds':'Street Roots Hi.Fi. M.W.P. · Back A Bush · special bless Henry The Combatant','event5.desc':'From noon until close — free entry.',
-      'event6.date':'26 SEP','event6.location':'Vallefoglia (PU) — Risto Park','event6.name':'BASS STATION','event6.sounds':'Vibra Family & Dub Lab Interceptor · secret artist','event6.desc':'From 7pm to 3am — food, drink and free camping, free entry.',
-      'event7.date':'26 SEP','event7.location':'Mortegliano (UD) — Festintenda','event7.name':'DUB GATE','event7.sounds':'King Shiloh · Imperial Sound Army','event7.desc':'From 8pm, free camping available — tickets presale and at the door.',
+      'event14.date':'16 OCT','event14.location':'Venafro (IS) — Monkeys Bar','event14.name':'BREDDA ITAL — DUB REGGAE SELECTION','event14.sounds':'Bredda Ital','event14.desc':'Dub reggae selection, starting at 10pm.',
+      'event15.date':'16 OCT','event15.location':'Como — Arci Joshua Blues Club','event15.name':'HOPE INA DE YARD','event15.sounds':'Rising Hope Sound System · Monza Ina De Yard','event15.desc':'A reggae and dancehall music night with Vito War — "the Italian reggae godfather" — presented by Rising Hope Sound System and Monza Ina De Yard. Artistic contribution €5, ARCI membership required, doors 9:30pm.',
+      'event16.date':'16 OCT','event16.location':'Bologna — Officina Bistrot (DUMBO), Via Camillo Casarini 19','event16.name':'FLYAH BACK — LA DANCEHALL COME UNA VOLTA','event16.sounds':'Roots Balera · Jitsu Ken Tai','event16.desc':'Reggae, dancehall and hip hop from 7pm to 3am. Free entry, no membership required.',
+      'event13.date':'17 OCT','event13.location':'Recanati (MC) — Spaziotempo','event13.name':'DUB ROOM VOL. 2','event13.sounds':'Doublespliff · Mannaroman · Zizze','event13.desc':'Doublespliff ft Mannaroman and Zizze — ARCI members only.',
+      'event12.date':'17 OCT','event12.location':'Roma — CSA Intifada, Via di Casal Brucciato 15','event12.name':'MOA ANBESSA — FULL CREW IN SESSION','event12.sounds':'Jah Station Soundsystem','event12.desc':'Moa Anbessa, full crew in session, amplified by Jah Station Soundsystem. Early vibes by Mash Up Babylon.',
       'event8.date':'24 OCT','event8.location':'Romola (FI) — Piazza Aiaccia, 1','event8.name':'DUB NIGHT WITH JAH STATION','event8.sounds':'Meet: Trail Foundation · Romola Soundsystem','event8.desc':'From 6pm to 2am — 3 sounds, 1 yard. Entry with ARCI card.',
+      'event11.date':'07 NOV','event11.location':'Presicce-Acquarica (LE) — Suoni Unione Kultura Arte','event11.name':'DUBWISE ROOM — ORIGINAL SALENTO DUB CLUB','event11.sounds':'Bababoom HiFi · Earthikal Towa Sound System','event11.desc':'Bababoom HiFi — Original Roots Defender from Naples — and Earthikal Towa Sound System, special guest Brisco. Members only, online registration via QR code.',
       'events.more':'More events joining the diary soon',
-      'sounds.page.eyebrow':'01 — The Sounds','sounds.page.heading':'THE SOUNDS','sounds.page.tag':'Every sound has a story.',
+      'sounds.page.eyebrow':'01 — The Sounds','sounds.page.heading':'THE SOUNDS','sounds.page.tag':'Every sound has a story.','sounds.detail.back':'All Sounds','sounds.detail.notfound':"This sound system couldn't be found.",'sounds.detail.inDiaries':'Featured In These Diaries','sounds.detail.inEvents':'Playing At These Events','sounds.detail.moreSoon':'More on this sound is coming soon.',
       'sound.addCity':'— add city —','sound.italy':'Italy',
-      'snd1.desc':'Young sound system from the Lombard lowlands, born in 2019 out of vinyl sessions and open-air dances.',
-      'snd2.desc':'Bologna-based sound system devoted to roots reggae fundamentals — classic selecting, analogue vibrations.',
-      'snd3.desc':"One of Southern Italy's most historic sound systems, active since 2004, blending dub with Neapolitan culture.",
-      'snd4.desc':'Bologna crew raised in the Emilian roots scene, self-built rig and dub-driven nights.',
-      'snd6.desc':'Veneto sound system from Feltre, carrying the dub torch at the foot of the Dolomites.',
-      'snd7.desc':'Genoa crew formed in 2013, a sound system since 2018, carrying anti-fascist, anti-racist and anti-sexist values.',
-      'snd8.desc':'Speaker wall raised in Osoppo, Friuli, known as the Sgrasay Tower Crew.',
-      'snd9.desc':"Born in 2012 in the Modena lowlands, out of the powerful vibration of that year's earthquake.",
-      'snd10.desc':"Active since 2008 in Turin's Vanchiglia district, rooted in vinyl and street culture.",
-      'snd11.desc':'DIY punk sound system from Udine, active since 2006 with its own record label.',
-      'snd12.desc':'Active since 2013 in Remedello, near Brescia, between roots sessions and sound system culture.',
-      'sounds.more':'More sounds joining the diary soon',
+            'sounds.more':'More sounds joining the diary soon',
       'sounds.view.grid':'Grid','sounds.view.map':'Map',
       'sounds.map.unlocated':'+{n} sound systems still waiting for a city — add it from the admin panel',
       'sounds.map.tbd':'TBD','sounds.map.since':'Since','sounds.map.yes':'Yes','sounds.map.no':'No',
@@ -903,70 +1452,65 @@
       'contact.page.eyebrow':'06 — Contact','contact.page.heading':'GOT A SOUND?',
       'contact.page.lead':'Sound System Diaries is always looking for new sounds, new people and new stories.',
       'contact.tag.soundsystems':'Sound Systems','contact.tag.artists':'Artists','contact.tag.selectors':'Selectors','contact.tag.festivals':'Festivals','contact.tag.promoters':'Promoters','contact.tag.photographers':'Photographers',
-      'contact.page.cta':'Get In Touch'
+      'contact.page.cta':'Get In Touch','contact.page.ctaSound':'Propose A Sound','contact.page.ctaSession':'Report A Session',
+      'filters.empty':'Nothing matches these filters.',
+      'diaries.filter.search':'Search diaries…','diaries.filter.allYears':'All years','diaries.filter.allLocations':'All locations','diaries.filter.allSounds':'All sound systems',
+      'diaries.detail.back':'All Diaries','diaries.detail.notfound':"This diary couldn't be found.",'diaries.detail.followIG':'Follow on Instagram','diaries.detail.share':'Share','diaries.detail.copied':'Link copied!','diaries.detail.related':'Related Diaries',
+      'events.view.list':'List','events.view.month':'Month','events.filter.allLocations':'All locations','events.filter.allMonths':'All months','events.archive.toggle':'Past events',
+      'events.submit.cta':'Submit an Event','events.submit.title':'Submit an Event','events.submit.note':"Every submission is reviewed by Siaka before it's added to the calendar — nothing is published automatically.",
+      'events.submit.name':'Event name','events.submit.location':'Location','events.submit.date':'Date','events.submit.sounds':'Sound systems / lineup','events.submit.organizerEmail':'Your email','events.submit.link':'Official link (optional)','events.submit.desc':'Description','events.submit.submitBtn':'Send for review',
+      'events.submit.success':'Thanks — your event has been sent for review.','events.submit.error':"Something went wrong — please try again or email us directly.",
+      'people.filter.all':'All categories','role.selector':'Selector','role.producer':'Producer','role.singer':'Singer','role.mc':'MC','role.crew':'Sound System Crew','role.engineer':'Sound Engineer','role.organizer':'Organizer','role.photographer':'Photographer','role.other':'Other'
     },
     it:{
       'nav.home':'Home','nav.about':'Chi Sono','nav.diaries':'Diari','nav.events':'Eventi','nav.sounds':'Sound','nav.people':'Persone','nav.contact':'Contatti',
-      'hero.eyebrow':'Un Diario Della Cultura Sound System','hero.tag':'Musica · Persone · Cultura · Ricordi','hero.script':'Un diario visivo della cultura Sound System.',
+      'hero.eyebrow':'Un Diario Della Cultura Sound System','hero.tag':'Musica · Persone · Cultura · Ricordi','hero.script':'Un diario visivo di cultura Roots, Reggae, Dub e Sound System.','hero.cta.diaries':'Scopri Il Diario','hero.cta.propose':'Proponi Un Sound',
       'marquee.culture':'Cultura',
-      'about.teaser.eyebrow':"Chi c'è dietro",'about.teaser.heading':'SONO SIAKA.',
+      'about.teaser.eyebrow':"Chi c'è dietro",'about.teaser.heading':'SONO SHAKA.',
       'about.teaser.body':"Sound System Diaries è nato da una passione semplice: quella per la cultura Roots, Reggae Dub e Sound System.",
       'about.teaser.cta':'Leggi La Mia Storia',
       'diaries.teaser.eyebrow':'I Diari','diaries.teaser.heading':'Momenti Da Ricordare','diaries.teaser.cta':'Vedi Tutti I Diari',
       'events.teaser.eyebrow':'Eventi','events.teaser.heading':'Cosa Ci Aspetta','events.teaser.cta':'Vedi Tutti Gli Eventi',
       'diaries.watchTag':'▶ Guarda',
-      'diaries.watchAriaTpl':'Guarda il video su Instagram — {title}','diaries.watchClipAriaTpl':'Guarda il video su Instagram — {name} @ {title}',
       'diaries.watchAria1':'Guarda il video su Instagram — Lowland Festival 2026',
       'sounds.teaser.eyebrow':'I Sound','sounds.teaser.heading':'Ogni Sound Ha Una Storia','sounds.teaser.cta':'Esplora I Sound',
       'people.teaser.eyebrow':'Le Persone','people.teaser.heading':'I Volti Della Cultura','people.teaser.cta':'Scopri Le Persone',
       'contact.teaser.eyebrow':'Hai Un Sound?','contact.teaser.heading':'Aggiungiamo La Tua Storia Al Diario','contact.teaser.cta':'Contattami',
       'about.tape':'dal dancefloor',
       'about.page.eyebrow':'04 — Chi Sono','about.page.imtag':'SONO',
-      'about.page.p1':"Voglio mostrarvi chi c'è dietro Sound System Diaries.",
-      'about.page.p2':'Sound System Diaries è nato da una passione semplice: quella per la cultura Roots, Reggae Dub e Sound System.',
-      'about.page.p3':"Vado alle serate, ascolto, incontro persone, filmo, scatto e cerco di catturare tutto ciò che spesso non si riesce a spiegare a parole: le vibrazioni, l'energia del sound, la gente, le connessioni e quei momenti che rendono ogni session diversa dalle altre.",
-      'about.page.p4':'Non voglio raccontare questa cultura da fuori. Voglio viverla, conoscerla, documentarla e condividerla.',
-      'about.page.p5':"Ogni video, ogni foto e ogni momento che raccolgo è un piccolo frammento di un viaggio che sto vivendo personalmente, sound dopo sound.",
-      'about.page.p6':'Sound System Diaries è il mio modo di dare valore a questi momenti, scoprire nuovi sound, incontrare nuove persone e continuare a imparare da una cultura che mi ispira profondamente.',
-      'about.page.p7':"Questo è ciò che c'è dietro Sound System Diaries.",
+      'about.page.p1':"Sound System Diaries è nato dalla mia passione per la musica: quella per la cultura Roots, Reggae Dub e Sound System.",
+      'about.page.p2':"Vado alle serate, e cerco di catturare tutto ciò che spesso non si riesce a spiegare a parole: le vibrazioni, l'energia del sound, la gente, le connessioni e quei momenti che rendono ogni session speciale.",
+      'about.page.p3':'Non voglio raccontare questa cultura da fuori. Voglio viverla, conoscerla, documentarla e condividerla.',
+      'about.page.p4':"Ogni video, ogni foto e ogni momento che raccolgo è un piccolo frammento di un viaggio che sto vivendo personalmente, sound dopo sound.",
+      'about.page.p5':'Sound System Diaries è il mio modo di dare valore a questi momenti, scoprire nuovi sound, incontrare nuove persone e continuare a imparare da una cultura che mi ispira profondamente.',
+      'about.page.p6':"Questo è ciò che c'è dietro Sound System Diaries.",
       'about.page.final':'Non solo immagini. Non solo musica. Ma esperienze, persone, vibrazioni e momenti da ricordare.',
       'about.journey.label':'Il Viaggio Finora',
       'diaries.page.eyebrow':'02 — I Diari','diaries.page.heading':'I DIARI','diaries.page.tag':'Momenti da ricordare.',
-      'diary1.loc':'Paesi Bassi','diary1.desc':'Bassi pesanti, campo aperto e una notte che non finisce mai. Un diario fotografico dalla dance, tra selectors, operators e la crowd che tiene tutto insieme.',
+      'diary1.dateLabel':'10–12 settembre 2026','diary1.loc':'Paesi Bassi','diary1.desc':'Bassi pesanti, campo aperto e una notte che non finisce mai. Un diario fotografico dalla dance, tra selectors, operators e la crowd che tiene tutto insieme.',
       'diaries.watchAria2':'Guarda il video su Instagram — Reno Splash Festival 2026',
-      'diary2.loc':'Bologna, IT','diary2.desc':"Due serate all'Officina Bistrot, tra voci pesanti e selezioni dub direttamente dal mixer.",
+      'diary2.dateLabel':'11–12 luglio 2026','diary2.loc':'Bologna, IT','diary2.desc':"Due serate all'Officina Bistrot, tra voci pesanti e selezioni dub direttamente dal mixer.",
       'diaries.watchOnIG':'▶ Guarda su Instagram','diaries.viewDiary':'Vedi Diario','diaries.closeDiary':'Chiudi Diario',
       'diaries.galleryVideoNote':'Tocca una clip per guardarla su Instagram.',
       'diary1.video.galas':'Guarda il video su Instagram — Galas @ Lowland Festival 2026',
       'diary1.video.bababoom':'Guarda il video su Instagram — Bababoom HiFi @ Lowland Festival 2026',
       'diary1.video.jules':'Guarda il video su Instagram — Jules I @ Lowland Festival 2026',
+      'diary1.video.worldinapressure':'Guarda il video su Instagram — Bababoom Hi-Fi @ Lowland Festival 2026',
       'diary2.video.juniorkelly':'Guarda il video su Instagram — Junior Kelly @ Reno Splash Festival 2026',
       'diary2.video.drdubwiser':'Guarda il video su Instagram — Dr Dubwiser @ Reno Splash Festival 2026',
       'diary2.video.princealla':'Guarda il video su Instagram — Prince Alla @ Reno Splash Festival 2026',
       'events.page.eyebrow':'03 — Eventi','events.page.heading':'EVENTI','events.page.tag':'Cosa ci aspetta.',
-      'event1.date':'18 SET','event1.location':'Mazara del Vallo (TP) — Azienda Agricola Mirto','event1.name':'DUB YARD','event1.sounds':'Kurina Sound System · Wise Sound · Awla','event1.desc':'Dalle 18:00 — ingresso gratuito in lista, food & drink area.',
-      'event2.date':'19 SET','event2.location':'Torino — Strada Castello di Mirafiori 346 (Dagiau)','event2.name':'DUBRIVIDI AND FRIENDS','event2.sounds':'Dubrividi Sound & Friends','event2.desc':'Dalle 17:00 alle 24:00 — ingresso 5€ con tessera ARCI.',
-      'event3.date':'19 SET','event3.location':'Firenze — Parco delle Cascine','event3.name':'DUB FANTASTIK','event3.sounds':'Warrior Charge Sound System · open act Loud And Proud Sound System','event3.desc':'Dalle 23:00, dentro il Festival Cirk Fantastik — full sound in session.',
-      'event4.date':'19 SET','event4.location':'Location da confermare','event4.name':'BACK TO THE RIVER — SPECIAL EDITION','event4.sounds':'Alburnian Sound System in session','event4.desc':'Orario e location in via di conferma.',
-      'event5.date':'20 SET','event5.location':'Legnano (MI) — Parco del Castello','event5.name':'CULTURE CORNER DEYA','event5.sounds':'Street Roots Hi.Fi. M.W.P. · Back A Bush · special bless Henry The Combatant','event5.desc':'Dalle 12:00 a chiusura — ingresso libero.',
-      'event6.date':'26 SET','event6.location':'Vallefoglia (PU) — Risto Park','event6.name':'BASS STATION','event6.sounds':'Vibra Family & Dub Lab Interceptor · secret artist','event6.desc':'Dalle 19:00 alle 03:00 — food, drink e free camping, ingresso libero.',
-      'event7.date':'26 SET','event7.location':'Mortegliano (UD) — Festintenda','event7.name':'DUB GATE','event7.sounds':'King Shiloh · Imperial Sound Army','event7.desc':'Dalle 20:00, possibilità di campeggio gratuito — biglietti in prevendita e alla porta.',
+      'event14.date':'16 OTT','event14.location':'Venafro (IS) — Monkeys Bar','event14.name':'BREDDA ITAL — DUB REGGAE SELECTION','event14.sounds':'Bredda Ital','event14.desc':'Selezione dub reggae, si parte dalle 22:00.',
+      'event15.date':'16 OTT','event15.location':'Como — Arci Joshua Blues Club','event15.name':'HOPE INA DE YARD','event15.sounds':'Rising Hope Sound System · Monza Ina De Yard','event15.desc':'Una serata di musica reggae e dancehall con Vito War — "the italian reggae godfather" — presentata da Rising Hope Sound System e Monza Ina De Yard. Contributo artistico 5€, ingresso riservato ai soci ARCI, si inizia alle 21:30.',
+      'event16.date':'16 OTT','event16.location':'Bologna — Officina Bistrot (DUMBO), Via Camillo Casarini 19','event16.name':'FLYAH BACK — LA DANCEHALL COME UNA VOLTA','event16.sounds':'Roots Balera · Jitsu Ken Tai','event16.desc':'Reggae, dancehall e hip hop dalle 19:00 alle 3:00 di notte. Ingresso gratuito, senza tessere.',
+      'event13.date':'17 OTT','event13.location':'Recanati (MC) — Spaziotempo','event13.name':'DUB ROOM VOL. 2','event13.sounds':'Doublespliff · Mannaroman · Zizze','event13.desc':'Doublespliff ft Mannaroman and Zizze — ingresso riservato ai soci ARCI.',
+      'event12.date':'17 OTT','event12.location':'Roma — CSA Intifada, Via di Casal Brucciato 15','event12.name':'MOA ANBESSA — FULL CREW IN SESSION','event12.sounds':'Jah Station Soundsystem','event12.desc':'Moa Anbessa, full crew in session, amplificati da Jah Station Soundsystem. Early vibes di Mash Up Babylon.',
       'event8.date':'24 OTT','event8.location':'Romola (FI) — Piazza Aiaccia, 1','event8.name':'DUB NIGHT WITH JAH STATION','event8.sounds':'Meet: Trail Foundation · Romola Soundsystem','event8.desc':'Dalle 18:00 alle 02:00 — 3 sound, 1 yard. Ingresso con tessera ARCI.',
+      'event11.date':'07 NOV','event11.location':'Presicce-Acquarica (LE) — Suoni Unione Kultura Arte','event11.name':'DUBWISE ROOM — ORIGINAL SALENTO DUB CLUB','event11.sounds':'Bababoom HiFi · Earthikal Towa Sound System','event11.desc':'Bababoom HiFi — Original Roots Defender da Napoli — ed Earthikal Towa Sound System, special guest Brisco. Ingresso riservato ai soci, tesseramento online tramite QR code.',
       'events.more':'Altri eventi in arrivo nel diario',
-      'sounds.page.eyebrow':'01 — I Sound','sounds.page.heading':'I SOUND','sounds.page.tag':'Ogni sound ha una storia.',
+      'sounds.page.eyebrow':'01 — I Sound','sounds.page.heading':'I SOUND','sounds.page.tag':'Ogni sound ha una storia.','sounds.detail.back':'Tutti i Sound','sounds.detail.notfound':'Sound system non trovato.','sounds.detail.inDiaries':'Presente In Questi Diari','sounds.detail.inEvents':'Suona A Questi Eventi','sounds.detail.moreSoon':'Altri contenuti su questo sound arriveranno presto.',
       'sound.addCity':'— aggiungi città —','sound.italy':'Italia',
-      'snd1.desc':"Sound system giovane della Bassa lombarda, nato nel 2019 tra vinili e session all'aperto.",
-      'snd2.desc':'Sound system bolognese devoto ai fondamentali del roots reggae, tra selecting classico e vibrazioni analogiche.',
-      'snd3.desc':'Uno dei sound system più storici del Sud Italia, attivo dal 2004 tra dub e cultura napoletana.',
-      'snd4.desc':"Crew bolognese cresciuta nella scena roots emiliana, tra self-build e serate all'insegna del dub.",
-      'snd6.desc':'Sound system veneto di Feltre, portavoce di una scena dub in crescita ai piedi delle Dolomiti.',
-      'snd7.desc':'Crew genovese nata nel 2013, sound ufficiale dal 2018: valori antifascisti, antirazzisti e antisessisti.',
-      'snd8.desc':'Wall di casse cresciuto a Osoppo, in Friuli, conosciuto come Sgrasay Tower Crew.',
-      'snd9.desc':"Nato nel 2012 nella Bassa modenese, dalla forte vibrazione del terremoto di quell'anno.",
-      'snd10.desc':'Attivo dal 2008 nel quartiere torinese di Vanchiglia, tra vinile e cultura di strada.',
-      'snd11.desc':"Sound system punk/DIY di Udine, attivo dal 2006 con un'etichetta discografica propria.",
-      'snd12.desc':'Attivo dal 2013 a Remedello, nel bresciano, tra session roots e cultura sound system.',
-      'sounds.more':'Altri sound in arrivo nel diario',
+            'sounds.more':'Altri sound in arrivo nel diario',
       'sounds.view.grid':'Griglia','sounds.view.map':'Mappa',
       'sounds.map.unlocated':'+{n} sound system ancora senza città — aggiungila dal pannello di gestione',
       'sounds.map.tbd':'Da confermare','sounds.map.since':'Dal','sounds.map.yes':'Sì','sounds.map.no':'No',
@@ -978,70 +1522,65 @@
       'contact.page.eyebrow':'06 — Contatti','contact.page.heading':'HAI UN SOUND?',
       'contact.page.lead':'Sound System Diaries è sempre alla ricerca di nuovi sound, nuove persone e nuove storie.',
       'contact.tag.soundsystems':'Sound System','contact.tag.artists':'Artisti','contact.tag.selectors':'Selectors','contact.tag.festivals':'Festival','contact.tag.promoters':'Promoter','contact.tag.photographers':'Fotografi',
-      'contact.page.cta':'Contattami'
+      'contact.page.cta':'Contattami','contact.page.ctaSound':'Proponi Un Sound','contact.page.ctaSession':'Segnala Una Session',
+      'filters.empty':'Nessun risultato con questi filtri.',
+      'diaries.filter.search':'Cerca nei diari…','diaries.filter.allYears':'Tutti gli anni','diaries.filter.allLocations':'Tutte le località','diaries.filter.allSounds':'Tutti i sound system',
+      'diaries.detail.back':'Tutti i Diari','diaries.detail.notfound':'Diario non trovato.','diaries.detail.followIG':'Segui su Instagram','diaries.detail.share':'Condividi','diaries.detail.copied':'Link copiato!','diaries.detail.related':'Diari Correlati',
+      'events.view.list':'Elenco','events.view.month':'Mese','events.filter.allLocations':'Tutte le località','events.filter.allMonths':'Tutti i mesi','events.archive.toggle':'Eventi passati',
+      'events.submit.cta':'Proponi un Evento','events.submit.title':'Proponi un Evento','events.submit.note':"Ogni proposta viene verificata da Siaka prima di essere aggiunta al calendario — nessun evento viene pubblicato automaticamente.",
+      'events.submit.name':'Nome evento','events.submit.location':'Luogo','events.submit.date':'Data','events.submit.sounds':'Sound system / lineup','events.submit.organizerEmail':'La tua email','events.submit.link':'Link ufficiale (opzionale)','events.submit.desc':'Descrizione','events.submit.submitBtn':'Invia per la verifica',
+      'events.submit.success':'Grazie — il tuo evento è stato inviato per la verifica.','events.submit.error':'Qualcosa è andato storto — riprova o scrivici direttamente.',
+      'people.filter.all':'Tutte le categorie','role.selector':'Selector','role.producer':'Producer','role.singer':'Cantante','role.mc':'MC','role.crew':'Crew Sound System','role.engineer':'Sound Engineer','role.organizer':'Organizzatore','role.photographer':'Fotografo','role.other':'Altro'
     },
     es:{
       'nav.home':'Inicio','nav.about':'Sobre Mí','nav.diaries':'Diarios','nav.events':'Eventos','nav.sounds':'Sonidos','nav.people':'Personas','nav.contact':'Contacto',
-      'hero.eyebrow':'Un Diario De La Cultura Sound System','hero.tag':'Música · Personas · Cultura · Recuerdos','hero.script':'Un diario visual de la cultura Sound System.',
+      'hero.eyebrow':'Un Diario De La Cultura Sound System','hero.tag':'Música · Personas · Cultura · Recuerdos','hero.script':'Un diario visual de cultura Roots, Reggae, Dub y Sound System.','hero.cta.diaries':'Descubre El Diario','hero.cta.propose':'Propón Un Sound',
       'marquee.culture':'Cultura',
-      'about.teaser.eyebrow':'Quién está detrás','about.teaser.heading':'SOY SIAKA.',
+      'about.teaser.eyebrow':'Quién está detrás','about.teaser.heading':'SOY SHAKA.',
       'about.teaser.body':'Sound System Diaries nació de una pasión simple: la cultura Roots, Reggae Dub y Sound System.',
       'about.teaser.cta':'Lee Mi Historia',
       'diaries.teaser.eyebrow':'Los Diarios','diaries.teaser.heading':'Momentos Para Recordar','diaries.teaser.cta':'Ver Todos Los Diarios',
       'events.teaser.eyebrow':'Eventos','events.teaser.heading':'Lo Que Viene','events.teaser.cta':'Ver Todos Los Eventos',
       'diaries.watchTag':'▶ Ver',
-      'diaries.watchAriaTpl':'Ver el vídeo en Instagram — {title}','diaries.watchClipAriaTpl':'Ver el vídeo en Instagram — {name} @ {title}',
       'diaries.watchAria1':'Ver el vídeo en Instagram — Lowland Festival 2026',
       'sounds.teaser.eyebrow':'Los Sonidos','sounds.teaser.heading':'Cada Sonido Tiene Una Historia','sounds.teaser.cta':'Explora Los Sonidos',
       'people.teaser.eyebrow':'Las Personas','people.teaser.heading':'Rostros De La Cultura','people.teaser.cta':'Conoce A Las Personas',
       'contact.teaser.eyebrow':'¿Tienes Un Sonido?','contact.teaser.heading':'Añadamos Tu Historia Al Diario','contact.teaser.cta':'Contáctame',
       'about.tape':'desde la pista',
       'about.page.eyebrow':'04 — Sobre Mí','about.page.imtag':'SOY',
-      'about.page.p1':'Quiero mostraros quién está detrás de Sound System Diaries.',
-      'about.page.p2':'Sound System Diaries nació de una pasión simple: la cultura Roots, Reggae Dub y Sound System.',
-      'about.page.p3':'Voy a los bailes, escucho, conozco gente, grabo, fotografío e intento capturar todo lo que a menudo no se puede explicar con palabras: las vibraciones, la energía del sound, la gente, las conexiones y esos momentos que hacen que cada session sea diferente de las demás.',
-      'about.page.p4':'No quiero contar esta cultura desde fuera. Quiero vivirla, conocerla, documentarla y compartirla.',
-      'about.page.p5':'Cada vídeo, cada foto y cada momento que recojo es un pequeño fragmento de un viaje que estoy viviendo personalmente, sound tras sound.',
-      'about.page.p6':'Sound System Diaries es mi manera de dar valor a estos momentos, descubrir nuevos sounds, conocer nuevas personas y seguir aprendiendo de una cultura que me inspira profundamente.',
-      'about.page.p7':'Esto es lo que hay detrás de Sound System Diaries.',
+      'about.page.p1':'Sound System Diaries nació de mi pasión por la música: la cultura Roots, Reggae Dub y Sound System.',
+      'about.page.p2':'Voy a los bailes, e intento capturar todo lo que a menudo no se puede explicar con palabras: las vibraciones, la energía del sound, la gente, las conexiones y esos momentos que hacen que cada session sea especial.',
+      'about.page.p3':'No quiero contar esta cultura desde fuera. Quiero vivirla, conocerla, documentarla y compartirla.',
+      'about.page.p4':'Cada vídeo, cada foto y cada momento que recojo es un pequeño fragmento de un viaje que estoy viviendo personalmente, sound tras sound.',
+      'about.page.p5':'Sound System Diaries es mi manera de dar valor a estos momentos, descubrir nuevos sounds, conocer nuevas personas y seguir aprendiendo de una cultura que me inspira profundamente.',
+      'about.page.p6':'Esto es lo que hay detrás de Sound System Diaries.',
       'about.page.final':'No solo imágenes. No solo música. Sino experiencias, personas, vibraciones y momentos para recordar.',
       'about.journey.label':'El Viaje Hasta Ahora',
       'diaries.page.eyebrow':'02 — Los Diarios','diaries.page.heading':'LOS DIARIOS','diaries.page.tag':'Momentos para recordar.',
-      'diary1.loc':'Países Bajos','diary1.desc':'Bajos pesados, un campo abierto y una noche que no termina nunca. Un diario fotográfico desde la pista, entre selectors, operators y el público que lo mantiene todo unido.',
+      'diary1.dateLabel':'10–12 septiembre 2026','diary1.loc':'Países Bajos','diary1.desc':'Bajos pesados, un campo abierto y una noche que no termina nunca. Un diario fotográfico desde la pista, entre selectors, operators y el público que lo mantiene todo unido.',
       'diaries.watchAria2':'Ver el vídeo en Instagram — Reno Splash Festival 2026',
-      'diary2.loc':'Bolonia, IT','diary2.desc':'Dos noches en Officina Bistrot, entre voces pesadas y selecciones dub directamente desde la mesa de mezclas.',
+      'diary2.dateLabel':'11–12 julio 2026','diary2.loc':'Bolonia, IT','diary2.desc':'Dos noches en Officina Bistrot, entre voces pesadas y selecciones dub directamente desde la mesa de mezclas.',
       'diaries.watchOnIG':'▶ Ver en Instagram','diaries.viewDiary':'Ver Diario','diaries.closeDiary':'Cerrar Diario',
       'diaries.galleryVideoNote':'Toca un clip para verlo en Instagram.',
       'diary1.video.galas':'Ver el vídeo en Instagram — Galas @ Lowland Festival 2026',
       'diary1.video.bababoom':'Ver el vídeo en Instagram — Bababoom HiFi @ Lowland Festival 2026',
       'diary1.video.jules':'Ver el vídeo en Instagram — Jules I @ Lowland Festival 2026',
+      'diary1.video.worldinapressure':'Ver el vídeo en Instagram — Bababoom Hi-Fi @ Lowland Festival 2026',
       'diary2.video.juniorkelly':'Ver el vídeo en Instagram — Junior Kelly @ Reno Splash Festival 2026',
       'diary2.video.drdubwiser':'Ver el vídeo en Instagram — Dr Dubwiser @ Reno Splash Festival 2026',
       'diary2.video.princealla':'Ver el vídeo en Instagram — Prince Alla @ Reno Splash Festival 2026',
       'events.page.eyebrow':'03 — Eventos','events.page.heading':'EVENTOS','events.page.tag':'Lo que viene.',
-      'event1.date':'18 SEP','event1.location':'Mazara del Vallo (TP) — Azienda Agricola Mirto','event1.name':'DUB YARD','event1.sounds':'Kurina Sound System · Wise Sound · Awla','event1.desc':'Desde las 18:00 — entrada gratuita en lista, zona de food & drink.',
-      'event2.date':'19 SEP','event2.location':'Torino — Strada Castello di Mirafiori 346 (Dagiau)','event2.name':'DUBRIVIDI AND FRIENDS','event2.sounds':'Dubrividi Sound & Friends','event2.desc':'De 17:00 a 24:00 — entrada 5€ con carnet ARCI.',
-      'event3.date':'19 SEP','event3.location':'Florencia — Parco delle Cascine','event3.name':'DUB FANTASTIK','event3.sounds':'Warrior Charge Sound System · open act Loud And Proud Sound System','event3.desc':'Desde las 23:00, dentro del Festival Cirk Fantastik — full sound in session.',
-      'event4.date':'19 SEP','event4.location':'Lugar por confirmar','event4.name':'BACK TO THE RIVER — SPECIAL EDITION','event4.sounds':'Alburnian Sound System in session','event4.desc':'Hora y lugar por confirmar.',
-      'event5.date':'20 SEP','event5.location':'Legnano (MI) — Parco del Castello','event5.name':'CULTURE CORNER DEYA','event5.sounds':'Street Roots Hi.Fi. M.W.P. · Back A Bush · special bless Henry The Combatant','event5.desc':'Desde las 12:00 hasta el cierre — entrada libre.',
-      'event6.date':'26 SEP','event6.location':'Vallefoglia (PU) — Risto Park','event6.name':'BASS STATION','event6.sounds':'Vibra Family & Dub Lab Interceptor · secret artist','event6.desc':'De 19:00 a 03:00 — food, drink y camping gratuito, entrada libre.',
-      'event7.date':'26 SEP','event7.location':'Mortegliano (UD) — Festintenda','event7.name':'DUB GATE','event7.sounds':'King Shiloh · Imperial Sound Army','event7.desc':'Desde las 20:00, camping gratuito disponible — entradas anticipadas y en puerta.',
+      'event14.date':'16 OCT','event14.location':'Venafro (IS) — Monkeys Bar','event14.name':'BREDDA ITAL — DUB REGGAE SELECTION','event14.sounds':'Bredda Ital','event14.desc':'Selección dub reggae, empieza a las 22:00.',
+      'event15.date':'16 OCT','event15.location':'Como — Arci Joshua Blues Club','event15.name':'HOPE INA DE YARD','event15.sounds':'Rising Hope Sound System · Monza Ina De Yard','event15.desc':'Una noche de música reggae y dancehall con Vito War — "el padrino del reggae italiano" — presentada por Rising Hope Sound System y Monza Ina De Yard. Contribución artística 5€, entrada reservada a socios ARCI, comienza a las 21:30.',
+      'event16.date':'16 OCT','event16.location':'Bologna — Officina Bistrot (DUMBO), Via Camillo Casarini 19','event16.name':'FLYAH BACK — LA DANCEHALL COME UNA VOLTA','event16.sounds':'Roots Balera · Jitsu Ken Tai','event16.desc':'Reggae, dancehall y hip hop de 19:00 a 3:00 de la madrugada. Entrada gratuita, sin necesidad de carnet.',
+      'event13.date':'17 OCT','event13.location':'Recanati (MC) — Spaziotempo','event13.name':'DUB ROOM VOL. 2','event13.sounds':'Doublespliff · Mannaroman · Zizze','event13.desc':'Doublespliff ft Mannaroman y Zizze — entrada reservada a socios ARCI.',
+      'event12.date':'17 OCT','event12.location':'Roma — CSA Intifada, Via di Casal Brucciato 15','event12.name':'MOA ANBESSA — FULL CREW IN SESSION','event12.sounds':'Jah Station Soundsystem','event12.desc':'Moa Anbessa, full crew in session, amplificados por Jah Station Soundsystem. Early vibes de Mash Up Babylon.',
       'event8.date':'24 OCT','event8.location':'Romola (FI) — Piazza Aiaccia, 1','event8.name':'DUB NIGHT WITH JAH STATION','event8.sounds':'Meet: Trail Foundation · Romola Soundsystem','event8.desc':'De 18:00 a 02:00 — 3 sounds, 1 yard. Entrada con carnet ARCI.',
+      'event11.date':'07 NOV','event11.location':'Presicce-Acquarica (LE) — Suoni Unione Kultura Arte','event11.name':'DUBWISE ROOM — ORIGINAL SALENTO DUB CLUB','event11.sounds':'Bababoom HiFi · Earthikal Towa Sound System','event11.desc':'Bababoom HiFi — Original Roots Defender de Nápoles — y Earthikal Towa Sound System, invitado especial Brisco. Entrada reservada a socios, inscripción online mediante código QR.',
       'events.more':'Más eventos próximamente en el diario',
-      'sounds.page.eyebrow':'01 — Los Sonidos','sounds.page.heading':'LOS SONIDOS','sounds.page.tag':'Cada sonido tiene una historia.',
+      'sounds.page.eyebrow':'01 — Los Sonidos','sounds.page.heading':'LOS SONIDOS','sounds.page.tag':'Cada sonido tiene una historia.','sounds.detail.back':'Todos Los Sounds','sounds.detail.notfound':'No se encontró este sound system.','sounds.detail.inDiaries':'Presente En Estos Diarios','sounds.detail.inEvents':'Toca En Estos Eventos','sounds.detail.moreSoon':'Más contenido sobre este sound llegará pronto.',
       'sound.addCity':'— añade ciudad —','sound.italy':'Italia',
-      'snd1.desc':'Sound system joven de la llanura lombarda, nacido en 2019 entre vinilos y sesiones al aire libre.',
-      'snd2.desc':'Sound system de Bolonia dedicado a los fundamentos del roots reggae, entre selección clásica y vibraciones analógicas.',
-      'snd3.desc':'Uno de los sound system más históricos del sur de Italia, activo desde 2004 entre el dub y la cultura napolitana.',
-      'snd4.desc':'Crew de Bolonia crecida en la escena roots de Emilia-Romaña, equipo autoconstruido y noches dedicadas al dub.',
-      'snd6.desc':'Sound system véneto de Feltre, estandarte de una escena dub en crecimiento al pie de las Dolomitas.',
-      'snd7.desc':'Crew de Génova formada en 2013, sound system desde 2018: valores antifascistas, antirracistas y antisexistas.',
-      'snd8.desc':'Muro de altavoces crecido en Osoppo, Friuli, conocido como Sgrasay Tower Crew.',
-      'snd9.desc':'Nacido en 2012 en la Baja Módena, de la fuerte vibración del terremoto de ese año.',
-      'snd10.desc':'Activo desde 2008 en el barrio turinés de Vanchiglia, entre vinilo y cultura de calle.',
-      'snd11.desc':'Sound system punk/DIY de Udine, activo desde 2006 con su propio sello discográfico.',
-      'snd12.desc':'Activo desde 2013 en Remedello, cerca de Brescia, entre sesiones roots y cultura sound system.',
-      'sounds.more':'Más sonidos llegarán pronto al diario',
+            'sounds.more':'Más sonidos llegarán pronto al diario',
       'sounds.view.grid':'Cuadrícula','sounds.view.map':'Mapa',
       'sounds.map.unlocated':'+{n} sound systems aún sin ciudad — añádela desde el panel de gestión',
       'sounds.map.tbd':'Por confirmar','sounds.map.since':'Desde','sounds.map.yes':'Sí','sounds.map.no':'No',
@@ -1053,11 +1592,176 @@
       'contact.page.eyebrow':'06 — Contacto','contact.page.heading':'¿TIENES UN SONIDO?',
       'contact.page.lead':'Sound System Diaries siempre está buscando nuevos sonidos, nueva gente y nuevas historias.',
       'contact.tag.soundsystems':'Sound Systems','contact.tag.artists':'Artistas','contact.tag.selectors':'Selectors','contact.tag.festivals':'Festivales','contact.tag.promoters':'Promotores','contact.tag.photographers':'Fotógrafos',
-      'contact.page.cta':'Contáctame'
+      'contact.page.cta':'Contáctame','contact.page.ctaSound':'Propón Un Sound','contact.page.ctaSession':'Reporta Una Session',
+      'filters.empty':'Nada coincide con estos filtros.',
+      'diaries.filter.search':'Buscar en los diarios…','diaries.filter.allYears':'Todos los años','diaries.filter.allLocations':'Todas las ubicaciones','diaries.filter.allSounds':'Todos los sound systems',
+      'diaries.detail.back':'Todos los Diarios','diaries.detail.notfound':'No se encontró este diario.','diaries.detail.followIG':'Seguir en Instagram','diaries.detail.share':'Compartir','diaries.detail.copied':'¡Enlace copiado!','diaries.detail.related':'Diarios Relacionados',
+      'events.view.list':'Lista','events.view.month':'Mes','events.filter.allLocations':'Todas las ubicaciones','events.filter.allMonths':'Todos los meses','events.archive.toggle':'Eventos pasados',
+      'events.submit.cta':'Proponer un Evento','events.submit.title':'Proponer un Evento','events.submit.note':'Cada propuesta es revisada por Siaka antes de añadirse al calendario — ningún evento se publica automáticamente.',
+      'events.submit.name':'Nombre del evento','events.submit.location':'Ubicación','events.submit.date':'Fecha','events.submit.sounds':'Sound systems / lineup','events.submit.organizerEmail':'Tu email','events.submit.link':'Enlace oficial (opcional)','events.submit.desc':'Descripción','events.submit.submitBtn':'Enviar para revisión',
+      'events.submit.success':'Gracias — tu evento fue enviado para revisión.','events.submit.error':'Algo salió mal — intenta de nuevo o escríbenos directamente.',
+      'people.filter.all':'Todas las categorías','role.selector':'Selector','role.producer':'Productor','role.singer':'Cantante','role.mc':'MC','role.crew':'Crew Sound System','role.engineer':'Sound Engineer','role.organizer':'Organizador','role.photographer':'Fotógrafo','role.other':'Otro'
     }
   };
 
-  var currentLang = 'en';
+  var ITALY_MAP_PATHS = [
+    'M 43.82,218.19 L 54.87,204.68 L 52.51,200.06 L 53.37,197.07 L 37.02,200.95 L 19.26,192.89 L 13.13,184.27 L 13.43,180.39 L 16.23,179.74 L 11.54,172.77 L 17.25,166.83 L 16.93,163.00 L 22.63,162.10 L 18.91,155.26 L 20.04,153.08 L 6.27,147.47 L 6.02,140.24 L 2.26,139.52 L 0.00,134.05 L 7.19,130.29 L 13.48,131.81 L 17.08,127.08 L 22.71,126.61 L 25.64,123.90 L 24.36,118.96 L 28.21,113.80 L 18.83,106.90 L 18.67,97.70 L 9.42,92.16 L 9.64,84.66 L 15.91,83.62 L 20.94,78.60 L 24.13,82.94 L 28.76,82.81 L 33.68,78.68 L 38.19,80.36 L 47.59,74.20 L 52.32,75.03 L 55.16,78.54 L 62.42,79.03 L 64.56,73.77 L 69.90,72.57 L 70.94,66.76 L 77.02,63.49 L 76.29,58.06 L 73.34,55.71 L 85.15,47.56 L 84.72,44.54 L 91.34,41.92 L 92.92,45.49 L 91.66,56.44 L 96.15,58.67 L 100.15,65.15 L 106.75,65.10 L 112.27,68.26 L 108.93,74.12 L 114.40,76.19 L 116.79,82.19 L 115.31,84.87 L 121.27,85.51 L 124.21,80.10 L 119.16,75.37 L 121.16,73.80 L 120.18,70.92 L 132.22,57.55 L 134.87,51.25 L 132.21,43.82 L 133.97,39.73 L 137.99,38.85 L 140.43,41.77 L 142.98,39.00 L 143.01,47.89 L 147.44,52.89 L 155.24,53.67 L 156.92,49.62 L 167.80,47.68 L 169.99,49.60 L 170.01,54.10 L 172.99,55.51 L 172.57,57.88 L 176.87,58.10 L 179.07,55.90 L 175.53,50.28 L 178.53,45.81 L 172.22,43.29 L 172.40,36.84 L 175.33,32.00 L 182.24,30.35 L 182.48,34.19 L 185.10,36.09 L 194.01,36.54 L 195.01,31.71 L 190.44,30.22 L 189.64,27.25 L 194.29,15.21 L 198.11,16.50 L 203.88,14.06 L 208.68,17.61 L 207.03,20.00 L 221.74,21.54 L 224.83,17.68 L 225.46,11.60 L 228.96,7.98 L 252.12,4.81 L 258.31,7.74 L 282.37,0.00 L 281.40,3.79 L 277.17,5.18 L 279.55,9.84 L 278.34,11.46 L 284.92,13.54 L 286.54,16.45 L 285.38,20.33 L 289.10,20.90 L 293.40,26.75 L 333.25,35.87 L 340.32,34.13 L 357.53,37.94 L 356.26,43.58 L 351.71,43.63 L 340.46,53.17 L 342.88,59.40 L 354.97,61.17 L 345.54,72.95 L 348.81,75.75 L 353.90,74.48 L 350.45,83.59 L 351.60,86.38 L 361.69,90.80 L 367.87,98.20 L 363.95,101.63 L 357.99,100.82 L 362.26,99.62 L 355.67,91.19 L 348.43,86.60 L 347.61,90.74 L 349.42,92.03 L 343.38,95.14 L 330.89,92.94 L 326.44,98.08 L 317.11,99.51 L 290.18,113.08 L 286.10,124.48 L 287.91,135.08 L 299.08,143.43 L 290.89,155.52 L 290.00,155.78 L 287.26,155.40 L 290.51,155.34 L 287.06,151.87 L 284.07,153.63 L 285.46,153.43 L 283.19,162.04 L 285.65,177.41 L 290.86,194.42 L 305.79,209.73 L 316.84,214.07 L 335.95,230.59 L 344.42,235.24 L 347.09,233.88 L 353.07,239.31 L 369.48,290.83 L 375.12,302.51 L 397.67,327.29 L 407.92,332.35 L 409.14,338.29 L 430.69,349.57 L 443.41,351.05 L 473.50,347.71 L 479.97,350.13 L 482.20,352.22 L 482.36,359.61 L 467.79,370.70 L 470.68,380.80 L 502.34,398.01 L 527.88,407.78 L 547.43,423.61 L 570.52,433.34 L 572.56,434.90 L 570.08,436.47 L 574.46,436.34 L 577.82,444.22 L 595.18,460.07 L 600.00,472.56 L 594.77,480.21 L 593.47,492.18 L 591.21,493.96 L 576.29,484.71 L 573.40,479.81 L 574.56,477.50 L 572.39,476.20 L 574.25,472.42 L 566.71,460.57 L 548.95,459.84 L 533.68,452.14 L 535.83,448.64 L 529.50,444.69 L 519.22,449.40 L 503.41,474.39 L 504.51,482.60 L 497.48,495.78 L 499.56,498.48 L 499.34,502.90 L 511.72,505.50 L 531.22,520.36 L 528.84,526.64 L 530.76,533.61 L 528.77,540.30 L 533.67,545.88 L 528.05,554.82 L 522.43,551.77 L 517.78,552.43 L 503.36,560.38 L 499.83,567.03 L 501.75,586.21 L 496.43,592.22 L 488.90,595.77 L 481.19,606.09 L 480.09,613.31 L 476.11,620.33 L 459.40,620.33 L 454.55,614.87 L 454.33,600.23 L 462.44,596.31 L 468.20,585.13 L 469.35,578.25 L 464.58,571.61 L 472.17,566.30 L 478.21,567.06 L 482.00,564.68 L 483.98,554.15 L 477.86,545.57 L 474.80,524.47 L 472.50,517.35 L 466.50,509.98 L 461.21,490.95 L 461.74,487.09 L 454.21,474.96 L 448.82,474.95 L 443.59,480.46 L 436.08,478.29 L 436.09,474.78 L 429.11,468.23 L 424.17,468.14 L 417.87,463.32 L 422.35,453.50 L 411.73,434.73 L 388.33,441.26 L 389.05,437.42 L 396.09,432.71 L 395.22,429.52 L 385.57,422.68 L 381.56,426.04 L 377.28,423.49 L 375.60,424.41 L 376.46,427.11 L 373.94,426.16 L 372.55,416.49 L 358.75,395.94 L 352.80,394.45 L 350.28,398.25 L 335.71,391.94 L 323.80,396.70 L 318.02,386.69 L 302.45,382.01 L 293.24,368.83 L 282.28,361.65 L 277.65,349.58 L 266.76,341.67 L 262.72,342.35 L 252.50,324.34 L 234.27,315.95 L 230.04,319.69 L 225.57,317.69 L 225.84,314.08 L 229.63,313.66 L 229.75,308.06 L 218.18,294.42 L 207.04,290.01 L 209.16,288.04 L 209.20,282.77 L 203.50,279.86 L 195.19,281.04 L 194.55,277.40 L 197.24,270.91 L 196.55,259.76 L 184.93,239.54 L 185.50,239.42 L 186.31,237.01 L 185.03,238.61 L 182.19,217.46 L 173.65,207.13 L 168.35,206.32 L 162.65,201.41 L 160.72,202.02 L 161.73,205.53 L 131.60,185.29 L 130.70,188.63 L 124.72,183.66 L 106.80,179.93 L 92.04,189.35 L 90.70,195.66 L 82.86,199.42 L 77.51,209.35 L 78.05,211.92 L 72.87,216.27 L 52.80,224.01 L 46.89,223.74 L 43.82,218.19 Z',
+    'M 318.09,613.37 L 325.44,609.35 L 324.19,606.00 L 326.83,602.39 L 331.17,603.82 L 337.40,600.08 L 340.90,607.93 L 348.65,607.67 L 350.03,612.59 L 359.10,617.31 L 373.11,612.49 L 386.51,614.82 L 398.30,612.47 L 404.07,610.33 L 409.73,604.06 L 418.10,602.29 L 427.28,607.09 L 433.07,602.72 L 433.74,596.98 L 434.58,600.60 L 437.18,601.31 L 449.72,594.87 L 455.37,597.15 L 451.78,598.67 L 447.31,610.24 L 433.20,631.78 L 431.34,643.99 L 426.76,650.37 L 427.46,661.57 L 432.81,663.15 L 435.30,666.68 L 433.70,666.85 L 434.14,669.59 L 431.79,667.01 L 431.74,669.79 L 434.36,675.21 L 437.33,675.80 L 436.31,680.36 L 439.39,682.55 L 436.30,682.54 L 430.15,688.82 L 427.23,696.88 L 429.39,704.54 L 426.43,706.89 L 423.31,703.22 L 416.20,701.25 L 411.36,703.10 L 396.83,697.49 L 391.28,685.99 L 385.01,679.08 L 375.91,675.58 L 365.85,676.08 L 354.89,669.89 L 349.54,663.69 L 343.17,662.44 L 330.04,649.70 L 322.53,649.46 L 317.36,643.94 L 305.04,645.09 L 301.53,639.52 L 294.80,635.28 L 292.53,628.63 L 295.58,623.85 L 294.20,621.52 L 297.30,614.66 L 295.93,614.22 L 306.89,607.92 L 307.71,602.59 L 309.82,603.13 L 312.79,610.80 L 318.09,613.37 Z',
+    'M 89.54,452.10 L 84.17,439.64 L 79.54,441.27 L 79.16,437.92 L 77.58,441.86 L 76.84,440.15 L 79.61,433.72 L 76.00,430.28 L 80.31,420.91 L 78.16,416.46 L 79.46,413.92 L 84.49,422.15 L 94.30,424.22 L 109.15,417.33 L 120.33,403.69 L 127.75,401.17 L 127.01,395.34 L 131.60,394.58 L 133.69,398.99 L 138.06,398.01 L 141.08,400.07 L 141.98,404.99 L 146.05,401.46 L 148.33,404.23 L 145.22,411.45 L 148.03,409.52 L 147.75,411.82 L 149.70,410.60 L 153.24,412.45 L 150.56,411.86 L 148.74,416.93 L 145.07,417.94 L 152.22,417.49 L 150.89,419.56 L 156.42,422.68 L 153.60,426.66 L 157.58,433.89 L 157.65,439.11 L 161.52,444.01 L 158.29,453.33 L 151.20,462.72 L 152.85,470.17 L 156.84,474.56 L 154.39,480.90 L 155.85,484.57 L 154.14,486.55 L 152.29,516.32 L 149.90,523.70 L 151.71,527.30 L 149.09,529.61 L 148.93,535.66 L 146.15,541.14 L 145.09,538.66 L 141.81,539.29 L 135.95,533.72 L 130.47,532.15 L 127.84,535.24 L 125.32,533.08 L 121.71,535.81 L 120.18,539.21 L 122.45,541.78 L 121.00,542.06 L 121.09,547.50 L 112.42,555.96 L 105.62,551.85 L 101.57,556.70 L 98.29,545.38 L 96.06,543.53 L 92.91,543.81 L 91.58,549.71 L 89.69,550.19 L 86.98,540.95 L 90.78,540.16 L 92.82,543.66 L 93.92,541.81 L 87.88,532.89 L 91.32,527.91 L 88.11,522.22 L 90.10,518.55 L 88.56,516.62 L 93.02,506.98 L 91.68,496.20 L 94.65,499.17 L 98.01,489.04 L 94.09,485.93 L 91.25,489.43 L 89.40,486.33 L 90.17,478.66 L 88.31,477.39 L 94.14,473.95 L 92.29,467.82 L 93.69,461.22 L 88.59,456.85 L 89.54,452.10 Z'
+  ];
+  var ITALY_MAP_VIEWBOX_W = 600, ITALY_MAP_VIEWBOX_H = 706.9;
+  // Projects lat/lon onto the map's SVG coordinate space (equirectangular, corrected
+  // for Italy's mean latitude so the outline isn't horizontally stretched). This lets
+  // Siaka add a new sound system's coordinates from the admin panel — no separate
+  // "map position" field to compute by hand, the pin appears automatically.
+  var ITALY_MAP_PROJ = {lonMin: 6.626621418032804, latMax: 47.0831730819083, cosCorr: 0.7447141944826597, scale: 67.73957093768041};
+  function projectLatLon(lat, lon){
+    return {
+      x: (lon - ITALY_MAP_PROJ.lonMin) * ITALY_MAP_PROJ.cosCorr * ITALY_MAP_PROJ.scale,
+      y: (ITALY_MAP_PROJ.latMax - lat) * ITALY_MAP_PROJ.scale
+    };
+  }
+
+var SOUNDS_MAP_DATA = [{"id":"roar","name":"Roar Sound System","city":"Viadana","region":"Lombardia","founded":2019,"lat":44.9339,"lon":10.5187,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":null,"hasPhoto":true},{"id":"rise-shine","name":"Rise & Shine Sound System","city":"Bologna","region":"Emilia-Romagna","founded":null,"lat":44.4949,"lon":11.3426,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":null,"hasPhoto":true},{"id":"bababoom","name":"Bababoom HiFi","city":"Napoli","region":"Campania","founded":2004,"lat":40.8518,"lon":14.2681,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":null,"hasPhoto":true},{"id":"48-roots","name":"48 Roots","city":"Bologna","region":"Emilia-Romagna","founded":null,"lat":44.4949,"lon":11.3426,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":null,"hasPhoto":true},{"id":"natural-mystic","name":"Natural Mystic Sound System","city":"Torino","region":"Piemonte","founded":null,"lat":45.0703,"lon":7.6869,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":null,"hasPhoto":true},{"id":"imperial-sound-army","name":"Imperial Sound Army","city":"Feltre","region":"Veneto","founded":null,"lat":46.0167,"lon":11.9,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":null,"hasPhoto":true},{"id":"militant-youths","name":"Militant Youths HiFi","city":"Genova","region":"Liguria","founded":2018,"lat":44.4056,"lon":8.9463,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":null,"hasPhoto":true},{"id":"warrior-charge","name":"Warrior Charge Sound System","city":"Udine","region":"Friuli-Venezia Giulia","founded":2006,"lat":46.0711,"lon":13.2346,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":null,"hasPhoto":true},{"id":"nuovo-sound-07","name":"Echotronix Sound System","city":null,"region":null,"founded":null,"lat":null,"lon":null,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":"mix","hasPhoto":true},{"id":"high-vision","name":"High Vision","city":null,"region":null,"founded":null,"lat":null,"lon":null,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":null,"hasPhoto":true},{"id":"dreadlion","name":"Dreadlion Firestarter System","city":null,"region":null,"founded":null,"lat":null,"lon":null,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":null,"hasPhoto":true},{"id":"dub-stone","name":"Dub Stone Sound System","city":null,"region":null,"founded":null,"lat":null,"lon":null,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":null,"hasPhoto":true},{"id":"peaceful-warriors","name":"Peaceful Warriors Sound System","city":null,"region":null,"founded":null,"lat":null,"lon":null,"genres":{"roots":false,"dub":false,"steppers":false},"vinyl":null,"selfBuilt":null,"instagram":null,"facebook":null,"color":null,"hasPhoto":true}];
+
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+  function fillTpl(tpl, vars){
+    return tpl.replace(/\{(\w+)\}/g, function(_, k){ return vars[k] != null ? vars[k] : ''; });
+  }
+
+  // ===================== ITALIAN SOUND SYSTEM MAP =====================
+  // Pins are positioned from each sound's mapX/mapY (pre-computed from city coordinates,
+  // see data/sounds.json in site-v2). Sounds with no confirmed city (mapX/mapY null) aren't
+  // pinned — the note below the map tells Siaka how many are still waiting for a location.
+  // Photos aren't duplicated in this file's JS data: the popup looks up the already-embedded
+  // <img> from the matching .sound-card in the grid via its data-sound-id attribute.
+  var mapPinGroups = {};
+
+  function soundPhotoSrc(id){
+    var img = document.querySelector('.sound-card[data-sound-id="' + id + '"] img.real-photo');
+    return img ? img.getAttribute('src') : null;
+  }
+
+  function renderMap(data){
+    var svgEl = document.getElementById('italySvg');
+    if(svgEl && !svgEl.dataset.built){
+      svgEl.innerHTML = ITALY_MAP_PATHS.map(function(d){ return '<path d="' + d + '"></path>'; }).join('');
+      svgEl.dataset.built = '1';
+    }
+    var pinsEl = document.getElementById('mapPins');
+    if(!pinsEl) return;
+
+    var groups = {};
+    var order = [];
+    var unlocated = 0;
+    data.forEach(function(s){
+      if(s.lat == null || s.lon == null){ unlocated++; return; }
+      var p = projectLatLon(s.lat, s.lon);
+      s._mapX = p.x; s._mapY = p.y;
+      var key = p.x.toFixed(1) + ',' + p.y.toFixed(1);
+      if(!groups[key]){ groups[key] = []; order.push(key); }
+      groups[key].push(s);
+    });
+    mapPinGroups = groups;
+
+    pinsEl.innerHTML = order.map(function(key){
+      var group = groups[key];
+      var first = group[0];
+      var leftPct = (first._mapX / ITALY_MAP_VIEWBOX_W * 100).toFixed(2);
+      var topPct = (first._mapY / ITALY_MAP_VIEWBOX_H * 100).toFixed(2);
+      var countBadge = group.length > 1 ? '<span class="count">' + group.length + '</span>' : '';
+      var label = group.map(function(s){ return s.name; }).join(', ');
+      return '<button type="button" class="map-pin" style="left:' + leftPct + '%; top:' + topPct + '%;" data-key="' + esc(key) + '" aria-label="' + esc(label) + '">' +
+        '<span class="dot"></span>' + countBadge +
+      '</button>';
+    }).join('');
+
+    pinsEl.querySelectorAll('.map-pin').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        openMapPopup(groups[btn.getAttribute('data-key')], btn);
+      });
+    });
+  }
+
+  function openMapPopup(group, btn){
+    if(!group || !group.length) return;
+    document.querySelectorAll('.map-pin.active').forEach(function(b){ b.classList.remove('active'); });
+    if(btn) btn.classList.add('active');
+    var dict = I18N[currentLang] || I18N.en;
+    var headTitle = group.length === 1 ? group[0].name : (group[0].city || group[0].region || '');
+    var itemsHtml = group.map(function(s){
+      var photoSrc = s.hasPhoto ? soundPhotoSrc(s.id) : null;
+      var thumb = photoSrc
+        ? '<img loading="lazy" decoding="async" class="thumb" src="' + esc(photoSrc) + '" alt="' + esc(s.name) + '">'
+        : '<div class="thumb ph pal-' + esc(s.color || 'red') + '"></div>';
+      var loc = [s.city, s.region].filter(Boolean).join(', ') || dict['sounds.map.tbd'];
+      var yr = s.founded ? (dict['sounds.map.since'] + ' ' + s.founded) : dict['sounds.map.tbd'];
+      var genres = s.genres || {};
+      var tags = ['roots','dub','steppers'].map(function(g){
+        return '<span class="' + (genres[g] ? 'on' : '') + '">' + esc(dict['sounds.map.' + g]) + '</span>';
+      }).join('');
+      var yn = function(v){ return (v === true || v === 'true') ? dict['sounds.map.yes'] : (v === false || v === 'false') ? dict['sounds.map.no'] : dict['sounds.map.tbd']; };
+      var social = '';
+      if(s.instagram) social += '<a href="' + esc(s.instagram) + '" target="_blank" rel="noopener">Instagram</a>';
+      if(s.facebook) social += '<a href="' + esc(s.facebook) + '" target="_blank" rel="noopener">Facebook</a>';
+      return '<div class="map-popup-item">' +
+        thumb +
+        '<div>' +
+          '<h5>' + esc(s.name) + '</h5>' +
+          '<span class="yr">' + esc(loc) + ' · ' + esc(yr) + '</span>' +
+          '<div class="map-popup-tags">' + tags + '</div>' +
+          '<div class="map-popup-tags"><span>' + esc(dict['sounds.map.vinyl']) + ': ' + esc(yn(s.vinyl)) + '</span><span>' + esc(dict['sounds.map.selfbuilt']) + ': ' + esc(yn(s.selfBuilt)) + '</span></div>' +
+          (social ? '<div class="map-popup-social">' + social + '</div>' : '') +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    var popupEl = document.getElementById('mapPopup');
+    var backdropEl = document.getElementById('mapPopupBackdrop');
+    popupEl.innerHTML =
+      '<div class="map-popup-head"><h4>' + esc(headTitle) + '</h4><button type="button" class="map-popup-close" id="mapPopupCloseBtn" aria-label="Close">&times;</button></div>' +
+      itemsHtml;
+    backdropEl.classList.add('active');
+    document.getElementById('mapPopupCloseBtn').addEventListener('click', closeMapPopup);
+  }
+
+  function closeMapPopup(){
+    var backdropEl = document.getElementById('mapPopupBackdrop');
+    if(backdropEl) backdropEl.classList.remove('active');
+    document.querySelectorAll('.map-pin.active').forEach(function(b){ b.classList.remove('active'); });
+  }
+
+  function setupSoundsMapUI(){
+    var toggleEl = document.getElementById('soundsViewToggle');
+    var gridEl = document.getElementById('soundsPageGrid');
+    var mapEl = document.getElementById('soundsMapWrap');
+    if(toggleEl){
+      toggleEl.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click', function(){
+          toggleEl.querySelectorAll('button').forEach(function(x){ x.classList.remove('active'); });
+          b.classList.add('active');
+          var view = b.getAttribute('data-view');
+          if(gridEl) gridEl.classList.toggle('is-hidden', view === 'map');
+          if(mapEl) mapEl.classList.toggle('is-hidden', view !== 'map');
+        });
+      });
+    }
+    var backdropEl = document.getElementById('mapPopupBackdrop');
+    if(backdropEl){
+      backdropEl.addEventListener('click', function(e){
+        if(e.target === backdropEl) closeMapPopup();
+      });
+    }
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeMapPopup();
+    });
+  }
+
+  var currentLang = 'it';
   try {
     var savedLang = localStorage.getItem('ssd_lang');
     if (savedLang && I18N[savedLang]) currentLang = savedLang;
@@ -1073,14 +1777,6 @@
     document.title = langTitles[name] || langTitles.home;
   }
 
-  function refreshDiaryToggles(){
-    document.querySelectorAll('.diary-toggle').forEach(function(btn){
-      var gallery = btn.nextElementSibling;
-      var open = gallery && gallery.classList.contains('open');
-      btn.innerHTML = (open ? t('diaries.closeDiary') : t('diaries.viewDiary')) + ' <span>' + (open ? '×' : '→') + '</span>';
-    });
-  }
-
   function applyLanguage(lang){
     if(!I18N[lang]) lang = 'en';
     currentLang = lang;
@@ -1094,7 +1790,6 @@
       var val = t(spec[1]);
       if(val) el.setAttribute(spec[0], val);
     });
-    refreshDiaryToggles();
     updateTitleFor(pageFromHash());
     document.querySelectorAll('[data-lang-switch] button').forEach(function(b){
       b.classList.toggle('active', b.dataset.lang === lang);
@@ -1159,23 +1854,11 @@
   }
   window.addEventListener('scroll', onHeroScroll, {passive:true});
 
-  // diary gallery toggle (delegated setup, reusable for dynamically-created articles)
-  function setupDiaryToggles(root){
-    root.querySelectorAll('.diary-toggle').forEach(function(btn){
-      if(btn.dataset.wired) return;
-      btn.dataset.wired = '1';
-      btn.addEventListener('click', function(){
-        var gallery = btn.nextElementSibling;
-        var open = gallery.classList.toggle('open');
-        btn.innerHTML = (open ? t('diaries.closeDiary') : t('diaries.viewDiary')) + ' <span>' + (open ? '×' : '→') + '</span>';
-      });
-    });
-  }
-
   // footer year
   document.getElementById('year').textContent = '© ' + new Date().getFullYear() + ' Sound System Diaries';
 
-  // pointer tilt (delegated setup, reusable for dynamically-created cards)
+  // pointer tilt (delegated setup, reusable for dynamically-created cards — diary detail page,
+  // the event month view — same pattern as the CMS-driven site-v2 build)
   var TILT_MAX = 7;
   function setupTilt(root){
     root.querySelectorAll('.tilt').forEach(function(el){
@@ -1205,6 +1888,7 @@
       el.addEventListener('pointercancel', reset);
     });
   }
+  setupTilt(document);
 
   // ---- tiny hash router: swaps which .page is visible, no server needed ----
   function pageFromHash(){
@@ -1218,8 +1902,9 @@
       p.classList.toggle('active', isMatch);
       if(isMatch) target = p;
     });
+    var navName = name === 'diary' ? 'diaries' : (name === 'sound' ? 'sounds' : name); // detail pages keep their parent section highlighted in the nav
     document.querySelectorAll('[data-nav]').forEach(function(a){
-      a.classList.toggle('active', a.dataset.nav === name);
+      a.classList.toggle('active', a.dataset.nav === navName);
     });
     updateTitleFor(name);
     window.scrollTo(0, 0);
@@ -1227,410 +1912,403 @@
     onHeroScroll();
     if(target) observeReveals(target);
   }
-  function route(){ showPage(pageFromHash()); }
+  function route(){
+    var name = pageFromHash();
+    showPage(name);
+    if(name === 'diary'){
+      renderDiaryDetail((location.hash.split('/')[1] || '').trim());
+    }
+    if(name === 'sound'){
+      renderSoundDetail((location.hash.split('/')[1] || '').trim());
+    }
+    if(name === 'events' && location.hash.split('/')[1] === 'submit'){
+      var backdrop = document.getElementById('eventSubmitBackdrop');
+      if(backdrop) backdrop.classList.add('active');
+    }
+  }
   window.addEventListener('hashchange', route);
 
-  // ===================== DYNAMIC CONTENT (sounds / events / diaries / people) =====================
-  // Content for these four sections lives in data/*.json (edited via the /admin CMS panel)
-  // instead of being hardcoded here, so Siaka can add/change sounds, events, diaries and people
-  // without touching code. Each item's translated fields are merged into the I18N dictionaries
-  // above under "dyn.*" keys, then rendered with the same data-i18n / data-i18n-attr mechanism
-  // used everywhere else on the page, so language switching keeps working unchanged.
-
-  function esc(s){
-    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
-      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
-    });
-  }
-  function revealClass(i, cycle){
-    var m = i % cycle;
-    return m === 0 ? '' : ' d' + m;
-  }
-  function fillTpl(tpl, vars){
-    return tpl.replace(/\{(\w+)\}/g, function(_, k){ return vars[k] != null ? vars[k] : ''; });
-  }
-  // merge one {en,it,es} object into I18N under the given key
-  function mergeI18NField(key, obj){
-    if(!obj) return;
-    ['en','it','es'].forEach(function(lang){
-      if(obj[lang] != null) I18N[lang][key] = obj[lang];
-    });
-  }
-
-  function fetchJSON(path){
-    return fetch(path, {cache:'no-cache'}).then(function(r){
-      if(!r.ok) throw new Error('failed to load ' + path);
-      return r.json();
-    });
-  }
-
-  var ITALY_MAP_PATHS = [
-    'M 43.82,218.19 L 54.87,204.68 L 52.51,200.06 L 53.37,197.07 L 37.02,200.95 L 19.26,192.89 L 13.13,184.27 L 13.43,180.39 L 16.23,179.74 L 11.54,172.77 L 17.25,166.83 L 16.93,163.00 L 22.63,162.10 L 18.91,155.26 L 20.04,153.08 L 6.27,147.47 L 6.02,140.24 L 2.26,139.52 L 0.00,134.05 L 7.19,130.29 L 13.48,131.81 L 17.08,127.08 L 22.71,126.61 L 25.64,123.90 L 24.36,118.96 L 28.21,113.80 L 18.83,106.90 L 18.67,97.70 L 9.42,92.16 L 9.64,84.66 L 15.91,83.62 L 20.94,78.60 L 24.13,82.94 L 28.76,82.81 L 33.68,78.68 L 38.19,80.36 L 47.59,74.20 L 52.32,75.03 L 55.16,78.54 L 62.42,79.03 L 64.56,73.77 L 69.90,72.57 L 70.94,66.76 L 77.02,63.49 L 76.29,58.06 L 73.34,55.71 L 85.15,47.56 L 84.72,44.54 L 91.34,41.92 L 92.92,45.49 L 91.66,56.44 L 96.15,58.67 L 100.15,65.15 L 106.75,65.10 L 112.27,68.26 L 108.93,74.12 L 114.40,76.19 L 116.79,82.19 L 115.31,84.87 L 121.27,85.51 L 124.21,80.10 L 119.16,75.37 L 121.16,73.80 L 120.18,70.92 L 132.22,57.55 L 134.87,51.25 L 132.21,43.82 L 133.97,39.73 L 137.99,38.85 L 140.43,41.77 L 142.98,39.00 L 143.01,47.89 L 147.44,52.89 L 155.24,53.67 L 156.92,49.62 L 167.80,47.68 L 169.99,49.60 L 170.01,54.10 L 172.99,55.51 L 172.57,57.88 L 176.87,58.10 L 179.07,55.90 L 175.53,50.28 L 178.53,45.81 L 172.22,43.29 L 172.40,36.84 L 175.33,32.00 L 182.24,30.35 L 182.48,34.19 L 185.10,36.09 L 194.01,36.54 L 195.01,31.71 L 190.44,30.22 L 189.64,27.25 L 194.29,15.21 L 198.11,16.50 L 203.88,14.06 L 208.68,17.61 L 207.03,20.00 L 221.74,21.54 L 224.83,17.68 L 225.46,11.60 L 228.96,7.98 L 252.12,4.81 L 258.31,7.74 L 282.37,0.00 L 281.40,3.79 L 277.17,5.18 L 279.55,9.84 L 278.34,11.46 L 284.92,13.54 L 286.54,16.45 L 285.38,20.33 L 289.10,20.90 L 293.40,26.75 L 333.25,35.87 L 340.32,34.13 L 357.53,37.94 L 356.26,43.58 L 351.71,43.63 L 340.46,53.17 L 342.88,59.40 L 354.97,61.17 L 345.54,72.95 L 348.81,75.75 L 353.90,74.48 L 350.45,83.59 L 351.60,86.38 L 361.69,90.80 L 367.87,98.20 L 363.95,101.63 L 357.99,100.82 L 362.26,99.62 L 355.67,91.19 L 348.43,86.60 L 347.61,90.74 L 349.42,92.03 L 343.38,95.14 L 330.89,92.94 L 326.44,98.08 L 317.11,99.51 L 290.18,113.08 L 286.10,124.48 L 287.91,135.08 L 299.08,143.43 L 290.89,155.52 L 290.00,155.78 L 287.26,155.40 L 290.51,155.34 L 287.06,151.87 L 284.07,153.63 L 285.46,153.43 L 283.19,162.04 L 285.65,177.41 L 290.86,194.42 L 305.79,209.73 L 316.84,214.07 L 335.95,230.59 L 344.42,235.24 L 347.09,233.88 L 353.07,239.31 L 369.48,290.83 L 375.12,302.51 L 397.67,327.29 L 407.92,332.35 L 409.14,338.29 L 430.69,349.57 L 443.41,351.05 L 473.50,347.71 L 479.97,350.13 L 482.20,352.22 L 482.36,359.61 L 467.79,370.70 L 470.68,380.80 L 502.34,398.01 L 527.88,407.78 L 547.43,423.61 L 570.52,433.34 L 572.56,434.90 L 570.08,436.47 L 574.46,436.34 L 577.82,444.22 L 595.18,460.07 L 600.00,472.56 L 594.77,480.21 L 593.47,492.18 L 591.21,493.96 L 576.29,484.71 L 573.40,479.81 L 574.56,477.50 L 572.39,476.20 L 574.25,472.42 L 566.71,460.57 L 548.95,459.84 L 533.68,452.14 L 535.83,448.64 L 529.50,444.69 L 519.22,449.40 L 503.41,474.39 L 504.51,482.60 L 497.48,495.78 L 499.56,498.48 L 499.34,502.90 L 511.72,505.50 L 531.22,520.36 L 528.84,526.64 L 530.76,533.61 L 528.77,540.30 L 533.67,545.88 L 528.05,554.82 L 522.43,551.77 L 517.78,552.43 L 503.36,560.38 L 499.83,567.03 L 501.75,586.21 L 496.43,592.22 L 488.90,595.77 L 481.19,606.09 L 480.09,613.31 L 476.11,620.33 L 459.40,620.33 L 454.55,614.87 L 454.33,600.23 L 462.44,596.31 L 468.20,585.13 L 469.35,578.25 L 464.58,571.61 L 472.17,566.30 L 478.21,567.06 L 482.00,564.68 L 483.98,554.15 L 477.86,545.57 L 474.80,524.47 L 472.50,517.35 L 466.50,509.98 L 461.21,490.95 L 461.74,487.09 L 454.21,474.96 L 448.82,474.95 L 443.59,480.46 L 436.08,478.29 L 436.09,474.78 L 429.11,468.23 L 424.17,468.14 L 417.87,463.32 L 422.35,453.50 L 411.73,434.73 L 388.33,441.26 L 389.05,437.42 L 396.09,432.71 L 395.22,429.52 L 385.57,422.68 L 381.56,426.04 L 377.28,423.49 L 375.60,424.41 L 376.46,427.11 L 373.94,426.16 L 372.55,416.49 L 358.75,395.94 L 352.80,394.45 L 350.28,398.25 L 335.71,391.94 L 323.80,396.70 L 318.02,386.69 L 302.45,382.01 L 293.24,368.83 L 282.28,361.65 L 277.65,349.58 L 266.76,341.67 L 262.72,342.35 L 252.50,324.34 L 234.27,315.95 L 230.04,319.69 L 225.57,317.69 L 225.84,314.08 L 229.63,313.66 L 229.75,308.06 L 218.18,294.42 L 207.04,290.01 L 209.16,288.04 L 209.20,282.77 L 203.50,279.86 L 195.19,281.04 L 194.55,277.40 L 197.24,270.91 L 196.55,259.76 L 184.93,239.54 L 185.50,239.42 L 186.31,237.01 L 185.03,238.61 L 182.19,217.46 L 173.65,207.13 L 168.35,206.32 L 162.65,201.41 L 160.72,202.02 L 161.73,205.53 L 131.60,185.29 L 130.70,188.63 L 124.72,183.66 L 106.80,179.93 L 92.04,189.35 L 90.70,195.66 L 82.86,199.42 L 77.51,209.35 L 78.05,211.92 L 72.87,216.27 L 52.80,224.01 L 46.89,223.74 L 43.82,218.19 Z',
-    'M 318.09,613.37 L 325.44,609.35 L 324.19,606.00 L 326.83,602.39 L 331.17,603.82 L 337.40,600.08 L 340.90,607.93 L 348.65,607.67 L 350.03,612.59 L 359.10,617.31 L 373.11,612.49 L 386.51,614.82 L 398.30,612.47 L 404.07,610.33 L 409.73,604.06 L 418.10,602.29 L 427.28,607.09 L 433.07,602.72 L 433.74,596.98 L 434.58,600.60 L 437.18,601.31 L 449.72,594.87 L 455.37,597.15 L 451.78,598.67 L 447.31,610.24 L 433.20,631.78 L 431.34,643.99 L 426.76,650.37 L 427.46,661.57 L 432.81,663.15 L 435.30,666.68 L 433.70,666.85 L 434.14,669.59 L 431.79,667.01 L 431.74,669.79 L 434.36,675.21 L 437.33,675.80 L 436.31,680.36 L 439.39,682.55 L 436.30,682.54 L 430.15,688.82 L 427.23,696.88 L 429.39,704.54 L 426.43,706.89 L 423.31,703.22 L 416.20,701.25 L 411.36,703.10 L 396.83,697.49 L 391.28,685.99 L 385.01,679.08 L 375.91,675.58 L 365.85,676.08 L 354.89,669.89 L 349.54,663.69 L 343.17,662.44 L 330.04,649.70 L 322.53,649.46 L 317.36,643.94 L 305.04,645.09 L 301.53,639.52 L 294.80,635.28 L 292.53,628.63 L 295.58,623.85 L 294.20,621.52 L 297.30,614.66 L 295.93,614.22 L 306.89,607.92 L 307.71,602.59 L 309.82,603.13 L 312.79,610.80 L 318.09,613.37 Z',
-    'M 89.54,452.10 L 84.17,439.64 L 79.54,441.27 L 79.16,437.92 L 77.58,441.86 L 76.84,440.15 L 79.61,433.72 L 76.00,430.28 L 80.31,420.91 L 78.16,416.46 L 79.46,413.92 L 84.49,422.15 L 94.30,424.22 L 109.15,417.33 L 120.33,403.69 L 127.75,401.17 L 127.01,395.34 L 131.60,394.58 L 133.69,398.99 L 138.06,398.01 L 141.08,400.07 L 141.98,404.99 L 146.05,401.46 L 148.33,404.23 L 145.22,411.45 L 148.03,409.52 L 147.75,411.82 L 149.70,410.60 L 153.24,412.45 L 150.56,411.86 L 148.74,416.93 L 145.07,417.94 L 152.22,417.49 L 150.89,419.56 L 156.42,422.68 L 153.60,426.66 L 157.58,433.89 L 157.65,439.11 L 161.52,444.01 L 158.29,453.33 L 151.20,462.72 L 152.85,470.17 L 156.84,474.56 L 154.39,480.90 L 155.85,484.57 L 154.14,486.55 L 152.29,516.32 L 149.90,523.70 L 151.71,527.30 L 149.09,529.61 L 148.93,535.66 L 146.15,541.14 L 145.09,538.66 L 141.81,539.29 L 135.95,533.72 L 130.47,532.15 L 127.84,535.24 L 125.32,533.08 L 121.71,535.81 L 120.18,539.21 L 122.45,541.78 L 121.00,542.06 L 121.09,547.50 L 112.42,555.96 L 105.62,551.85 L 101.57,556.70 L 98.29,545.38 L 96.06,543.53 L 92.91,543.81 L 91.58,549.71 L 89.69,550.19 L 86.98,540.95 L 90.78,540.16 L 92.82,543.66 L 93.92,541.81 L 87.88,532.89 L 91.32,527.91 L 88.11,522.22 L 90.10,518.55 L 88.56,516.62 L 93.02,506.98 L 91.68,496.20 L 94.65,499.17 L 98.01,489.04 L 94.09,485.93 L 91.25,489.43 L 89.40,486.33 L 90.17,478.66 L 88.31,477.39 L 94.14,473.95 L 92.29,467.82 L 93.69,461.22 L 88.59,456.85 L 89.54,452.10 Z'
-  ];
-  var ITALY_MAP_VIEWBOX_W = 600, ITALY_MAP_VIEWBOX_H = 706.9;
-  // Projects lat/lon onto the map's SVG coordinate space (equirectangular, corrected
-  // for Italy's mean latitude so the outline isn't horizontally stretched). This lets
-  // Siaka add a new sound system's coordinates from the admin panel — no separate
-  // "map position" field to compute by hand, the pin appears automatically.
-  var ITALY_MAP_PROJ = {lonMin: 6.626621418032804, latMax: 47.0831730819083, cosCorr: 0.7447141944826597, scale: 67.73957093768041};
-  function projectLatLon(lat, lon){
-    return {
-      x: (lon - ITALY_MAP_PROJ.lonMin) * ITALY_MAP_PROJ.cosCorr * ITALY_MAP_PROJ.scale,
-      y: (ITALY_MAP_PROJ.latMax - lat) * ITALY_MAP_PROJ.scale
-    };
-  }
-
-  function renderSounds(data){
-    // Home teaser strip: only sounds with a real photo
-    var stripEl = document.getElementById('homeSoundsStrip');
-    if(stripEl){
-      stripEl.innerHTML = data.filter(function(s){ return s.photo; }).map(function(s){
-        return '<a href="#sounds" class="sq tilt"><img class="ph real-photo" src="' + esc(s.photo) + '" alt="' + esc(s.name) + '"><div class="grad"></div><span class="nm">' + esc(s.name) + '</span></a>';
-      }).join('');
+  // ===================== DIARIES — filters, search, dedicated detail page =====================
+  // reads straight from the already-rendered [data-diary-card] articles above, so there's
+  // nothing to keep in sync with a separate data array
+  function populateDiariesFilterOptions(){
+    var cards = Array.prototype.slice.call(document.querySelectorAll('[data-diary-card]'));
+    var yearEl = document.getElementById('diariesYearFilter');
+    var locEl = document.getElementById('diariesLocFilter');
+    var soundEl = document.getElementById('diariesSoundFilter');
+    if(yearEl && yearEl.options.length === 1){
+      uniqueSorted(cards.map(function(c){ return c.dataset.year; })).reverse().forEach(function(y){
+        var o = document.createElement('option'); o.value = y; o.textContent = y; yearEl.appendChild(o);
+      });
     }
-    // Sounds page grid: every sound, real photo or placeholder color
-    var gridEl = document.getElementById('soundsPageGrid');
-    if(gridEl){
-      var html = data.map(function(s, i){
-        var photoHtml = s.photo
-          ? '<img class="ph real-photo" src="' + esc(s.photo) + '" alt="' + esc(s.name) + '">'
-          : '<div class="ph pal-' + esc(s.color || 'red') + '"></div>';
-        return '<div class="sound-card tilt reveal' + revealClass(i, 6) + '">' +
-          photoHtml +
-          '<div class="grad"></div><div class="tint"></div>' +
-          '<div class="sound-info">' +
-            '<p class="place">' + esc(s.place) + '</p>' +
-            '<h3>' + esc(s.name.toUpperCase()) + '</h3>' +
-          '</div>' +
-        '</div>';
-      }).join('');
-      html += '<div class="sound-more reveal"><span class="plus">+</span><p data-i18n="sounds.more">More sounds joining the diary soon</p></div>';
-      gridEl.innerHTML = html;
+    if(locEl && locEl.options.length === 1){
+      uniqueSorted(cards.map(function(c){ return c.dataset.loc; })).forEach(function(l){
+        var o = document.createElement('option'); o.value = l; o.textContent = l; locEl.appendChild(o);
+      });
     }
-    renderMap(data);
+    if(soundEl && soundEl.options.length === 1){
+      var names = [];
+      cards.forEach(function(c){ names = names.concat((c.dataset.sounds || '').split('|').filter(Boolean)); });
+      uniqueSorted(names).forEach(function(n){
+        var o = document.createElement('option'); o.value = n; o.textContent = n; soundEl.appendChild(o);
+      });
+    }
   }
-
-  // ===================== ITALIAN SOUND SYSTEM MAP =====================
-  // Pins are positioned from each sound's mapX/mapY (pre-computed from city coordinates,
-  // see data/sounds.json). Sounds with no confirmed city (mapX/mapY null) aren't pinned —
-  // the note below the map tells Siaka how many are still waiting for a location.
-  var mapPinGroups = {};
-
-  function renderMap(data){
-    var svgEl = document.getElementById('italySvg');
-    if(svgEl && !svgEl.dataset.built){
-      svgEl.innerHTML = ITALY_MAP_PATHS.map(function(d){ return '<path d="' + d + '"></path>'; }).join('');
-      svgEl.dataset.built = '1';
-    }
-    var pinsEl = document.getElementById('mapPins');
-    if(!pinsEl) return;
-
-    var groups = {};
-    var order = [];
-    var unlocated = 0;
-    data.forEach(function(s){
-      var x, y;
-      if(s.lat != null && s.lon != null){
-        var p = projectLatLon(s.lat, s.lon);
-        x = p.x; y = p.y;
-      } else if(s.mapX != null && s.mapY != null){
-        x = s.mapX; y = s.mapY;
-      } else {
-        unlocated++; return;
-      }
-      s._mapX = x; s._mapY = y;
-      var key = x.toFixed(1) + ',' + y.toFixed(1);
-      if(!groups[key]){ groups[key] = []; order.push(key); }
-      groups[key].push(s);
+  function applyDiariesFilters(){
+    var searchEl = document.getElementById('diariesSearch');
+    var yearEl = document.getElementById('diariesYearFilter');
+    var locEl = document.getElementById('diariesLocFilter');
+    var soundEl = document.getElementById('diariesSoundFilter');
+    if(!yearEl || !locEl || !soundEl) return;
+    var q = normText(searchEl ? searchEl.value : '').trim();
+    var year = yearEl.value, loc = locEl.value, snd = soundEl.value;
+    var any = false;
+    document.querySelectorAll('[data-diary-card]').forEach(function(card){
+      var matches = true;
+      if(year && card.dataset.year !== year) matches = false;
+      if(loc && card.dataset.loc !== loc) matches = false;
+      if(snd && (card.dataset.sounds || '').split('|').indexOf(snd) === -1) matches = false;
+      if(q && card.dataset.search.indexOf(q) === -1) matches = false;
+      card.classList.toggle('is-hidden', !matches);
+      if(matches) any = true;
     });
-    mapPinGroups = groups;
-
-    pinsEl.innerHTML = order.map(function(key){
-      var group = groups[key];
-      var first = group[0];
-      var leftPct = (first._mapX / ITALY_MAP_VIEWBOX_W * 100).toFixed(2);
-      var topPct = (first._mapY / ITALY_MAP_VIEWBOX_H * 100).toFixed(2);
-      var countBadge = group.length > 1 ? '<span class="count">' + group.length + '</span>' : '';
-      var label = group.map(function(s){ return s.name; }).join(', ');
-      return '<button type="button" class="map-pin" style="left:' + leftPct + '%; top:' + topPct + '%;" data-key="' + esc(key) + '" aria-label="' + esc(label) + '">' +
-        '<span class="dot"></span>' + countBadge +
-      '</button>';
-    }).join('');
-
-    pinsEl.querySelectorAll('.map-pin').forEach(function(btn){
+    var emptyEl = document.getElementById('diariesEmptyState');
+    if(emptyEl) emptyEl.classList.toggle('is-hidden', any);
+  }
+  function wireDiariesFilters(){
+    var searchEl = document.getElementById('diariesSearch');
+    var yearEl = document.getElementById('diariesYearFilter');
+    var locEl = document.getElementById('diariesLocFilter');
+    var soundEl = document.getElementById('diariesSoundFilter');
+    [searchEl, yearEl, locEl, soundEl].forEach(function(el){
+      if(!el || el.dataset.wired) return;
+      el.dataset.wired = '1';
+      el.addEventListener(el.tagName === 'INPUT' ? 'input' : 'change', applyDiariesFilters);
+    });
+  }
+  function wireShareButtons(root){
+    root.querySelectorAll('.share-btn').forEach(function(btn){
+      if(btn.dataset.wired) return;
+      btn.dataset.wired = '1';
       btn.addEventListener('click', function(){
-        openMapPopup(groups[btn.getAttribute('data-key')], btn);
+        var url = location.href;
+        var title = btn.getAttribute('data-share-title') || document.title;
+        if(navigator.share){
+          navigator.share({title: title, url: url}).catch(function(){});
+        } else if(navigator.clipboard){
+          navigator.clipboard.writeText(url).then(function(){
+            var old = btn.textContent;
+            btn.textContent = t('diaries.detail.copied');
+            setTimeout(function(){ btn.textContent = old; }, 1800);
+          }).catch(function(){});
+        }
       });
     });
   }
+  function renderDiaryDetail(id){
+    var el = document.getElementById('diaryDetailContent');
+    if(!el) return;
+    var card = document.querySelector('[data-diary-card][data-id="' + id + '"]');
+    if(!card){
+      el.innerHTML = '<p class="diary-desc">' + esc(t('diaries.detail.notfound')) + '</p>';
+      return;
+    }
+    var title = card.querySelector('.diary-title').textContent;
+    var year = card.dataset.year;
+    var watchUrl = card.dataset.watchUrl;
+    var dateMetaEl = card.querySelector('.diary-meta.date');
+    var dateNode = dateMetaEl ? dateMetaEl.cloneNode(true) : null;
+    var locNode = card.querySelector('.diary-meta.loc').cloneNode(true);
+    var artistsNode = card.querySelector('.diary-meta.artists').cloneNode(true);
+    var descNode = card.querySelector('.diary-desc').cloneNode(true);
+    var galleryNode = card.querySelector('.diary-gallery').cloneNode(true);
+    galleryNode.removeAttribute('hidden');
+    galleryNode.classList.add('open');
 
-  function openMapPopup(group, btn){
-    if(!group || !group.length) return;
-    document.querySelectorAll('.map-pin.active').forEach(function(b){ b.classList.remove('active'); });
-    if(btn) btn.classList.add('active');
-    var dict = I18N[currentLang] || I18N.en;
-    var headTitle = group.length === 1 ? group[0].name : (group[0].city || group[0].region || '');
-    var itemsHtml = group.map(function(s){
-      var thumb = s.photo
-        ? '<img class="thumb" src="' + esc(s.photo) + '" alt="' + esc(s.name) + '">'
-        : '<div class="thumb ph pal-' + esc(s.color || 'red') + '"></div>';
-      var loc = [s.city, s.region].filter(Boolean).join(', ') || dict['sounds.map.tbd'];
-      var yr = s.founded ? (dict['sounds.map.since'] + ' ' + s.founded) : dict['sounds.map.tbd'];
-      var genres = s.genres || {};
-      var tags = ['roots','dub','steppers'].map(function(g){
-        return '<span class="' + (genres[g] ? 'on' : '') + '">' + esc(dict['sounds.map.' + g]) + '</span>';
-      }).join('');
-      var yn = function(v){ return v === true ? dict['sounds.map.yes'] : v === false ? dict['sounds.map.no'] : dict['sounds.map.tbd']; };
-      var social = '';
-      if(s.instagram) social += '<a href="' + esc(s.instagram) + '" target="_blank" rel="noopener">Instagram</a>';
-      if(s.facebook) social += '<a href="' + esc(s.facebook) + '" target="_blank" rel="noopener">Facebook</a>';
-      return '<div class="map-popup-item">' +
-        thumb +
-        '<div>' +
-          '<h5>' + esc(s.name) + '</h5>' +
-          '<span class="yr">' + esc(loc) + ' · ' + esc(yr) + '</span>' +
-          '<div class="map-popup-tags">' + tags + '</div>' +
-          '<div class="map-popup-tags"><span>' + esc(dict['sounds.map.vinyl']) + ': ' + esc(yn(s.vinyl)) + '</span><span>' + esc(dict['sounds.map.selfbuilt']) + ': ' + esc(yn(s.selfBuilt)) + '</span></div>' +
-          (social ? '<div class="map-popup-social">' + social + '</div>' : '') +
-        '</div>' +
-      '</div>';
+    var head = document.createElement('div');
+    head.className = 'diary-detail-head';
+    var yearSpan = document.createElement('span');
+    yearSpan.className = 'diary-year';
+    yearSpan.textContent = year;
+    var h1 = document.createElement('h1');
+    h1.className = 'section-title';
+    h1.textContent = title;
+    head.appendChild(yearSpan);
+    head.appendChild(h1);
+    if(dateNode) head.appendChild(dateNode);
+    head.appendChild(locNode);
+    head.appendChild(artistsNode);
+
+    var shareWrap = document.createElement('div');
+    shareWrap.className = 'share-buttons';
+    shareWrap.innerHTML = '<a href="' + esc(watchUrl) + '" target="_blank" rel="noreferrer" class="btn btn-gold" data-i18n="diaries.detail.followIG">Follow on Instagram</a>' +
+      '<button type="button" class="btn share-btn" data-share-title="' + esc(title) + '" data-i18n="diaries.detail.share">' + esc(t('diaries.detail.share')) + '</button>';
+
+    var others = Array.prototype.slice.call(document.querySelectorAll('[data-diary-card]')).filter(function(c){ return c !== card; }).slice(0, 2);
+    var relatedHtml = others.map(function(c){
+      var img = c.querySelector('.diary-img img');
+      var rid = c.dataset.id;
+      var rtitle = c.querySelector('.diary-title').textContent;
+      return '<a class="related-card tilt" href="#diary/' + esc(rid) + '"><img loading="lazy" decoding="async" class="ph real-photo" src="' + img.getAttribute('src') + '" alt="' + esc(rtitle) + '"><div class="grad"></div><span class="nm">' + esc(rtitle) + '</span></a>';
     }).join('');
 
-    var popupEl = document.getElementById('mapPopup');
-    var backdropEl = document.getElementById('mapPopupBackdrop');
-    popupEl.innerHTML =
-      '<div class="map-popup-head"><h4>' + esc(headTitle) + '</h4><button type="button" class="map-popup-close" id="mapPopupCloseBtn" aria-label="Close">&times;</button></div>' +
-      itemsHtml;
-    backdropEl.classList.add('active');
-    document.getElementById('mapPopupCloseBtn').addEventListener('click', closeMapPopup);
+    el.innerHTML = '';
+    var wrap = document.createElement('div');
+    wrap.className = 'diary-detail reveal';
+    wrap.appendChild(head);
+    wrap.appendChild(descNode);
+    wrap.appendChild(galleryNode);
+    wrap.appendChild(shareWrap);
+    if(relatedHtml){
+      var relSection = document.createElement('div');
+      relSection.className = 'related-section';
+      relSection.innerHTML = '<h3>' + esc(t('diaries.detail.related')) + '</h3><div class="related-grid">' + relatedHtml + '</div>';
+      wrap.appendChild(relSection);
+    }
+    el.appendChild(wrap);
+
+    applyLanguage(currentLang);
+    setupTilt(el);
+    wireShareButtons(el);
+    observeReveals(el);
   }
 
-  function closeMapPopup(){
-    var backdropEl = document.getElementById('mapPopupBackdrop');
-    if(backdropEl) backdropEl.classList.remove('active');
-    document.querySelectorAll('.map-pin.active').forEach(function(b){ b.classList.remove('active'); });
-  }
 
-  function setupSoundsMapUI(){
-    var toggleEl = document.getElementById('soundsViewToggle');
-    var gridEl = document.getElementById('soundsPageGrid');
-    var mapEl = document.getElementById('soundsMapWrap');
-    if(toggleEl){
-      toggleEl.querySelectorAll('button').forEach(function(b){
-        b.addEventListener('click', function(){
-          toggleEl.querySelectorAll('button').forEach(function(x){ x.classList.remove('active'); });
-          b.classList.add('active');
-          var view = b.getAttribute('data-view');
-          if(gridEl) gridEl.classList.toggle('is-hidden', view === 'map');
-          if(mapEl) mapEl.classList.toggle('is-hidden', view !== 'map');
-        });
-      });
+  // ===================== SOUND DETAIL — one page per sound, reached via #sound/<id> =====================
+  // Metadata comes from SOUNDS_MAP_DATA (used already for the Italy map); the photo is read straight
+  // from the matching .sound-card in the grid, exactly like the diary detail page reads its own cards.
+  function splitNames(str){
+    return String(str || '').split('|').map(function(s){ return s.trim(); }).filter(Boolean);
+  }
+  function renderSoundDetail(id){
+    var el = document.getElementById('soundDetailContent');
+    if(!el) return;
+    var s = SOUNDS_MAP_DATA.filter(function(x){ return x.id === id; })[0];
+    var card = document.querySelector('.sound-card[data-sound-id="' + id + '"]');
+    if(!s || !card){
+      el.innerHTML = '<p class="diary-desc">' + esc(t('sounds.detail.notfound')) + '</p>';
+      return;
     }
-    var backdropEl = document.getElementById('mapPopupBackdrop');
-    if(backdropEl){
-      backdropEl.addEventListener('click', function(e){
-        if(e.target === backdropEl) closeMapPopup();
+    var imgEl = card.querySelector('img.real-photo');
+    var placeEl = card.querySelector('.place');
+    var place = placeEl ? placeEl.textContent : '';
+    var photoHtml = imgEl
+      ? '<img loading="lazy" decoding="async" class="ph real-photo" src="' + imgEl.getAttribute('src') + '" alt="' + esc(s.name) + '">'
+      : '<div class="ph pal-' + esc(s.color || 'red') + '"></div>';
+
+    var meta = [];
+    if(s.founded) meta.push('<span>' + esc(t('sounds.map.since')) + ' ' + esc(s.founded) + '</span>');
+    ['roots','dub','steppers'].forEach(function(g){
+      if(s.genres && s.genres[g]) meta.push('<span>' + esc(t('sounds.map.' + g)) + '</span>');
+    });
+    if(s.vinyl === true) meta.push('<span>' + esc(t('sounds.map.vinyl')) + ': ' + esc(t('sounds.map.yes')) + '</span>');
+    else if(s.vinyl === false) meta.push('<span>' + esc(t('sounds.map.vinyl')) + ': ' + esc(t('sounds.map.no')) + '</span>');
+    if(s.selfBuilt === true) meta.push('<span>' + esc(t('sounds.map.selfbuilt')) + ': ' + esc(t('sounds.map.yes')) + '</span>');
+    else if(s.selfBuilt === false) meta.push('<span>' + esc(t('sounds.map.selfbuilt')) + ': ' + esc(t('sounds.map.no')) + '</span>');
+
+    var social = [];
+    if(s.instagram) social.push('<a class="btn btn-gold" href="' + esc(s.instagram) + '" target="_blank" rel="noreferrer">Instagram</a>');
+    if(s.facebook) social.push('<a class="btn" href="' + esc(s.facebook) + '" target="_blank" rel="noreferrer">Facebook</a>');
+
+    var sName = normText(s.name);
+    var diaryHits = Array.prototype.slice.call(document.querySelectorAll('[data-diary-card]')).filter(function(c){
+      return splitNames(c.dataset.sounds).map(normText).indexOf(sName) !== -1;
+    });
+    var eventHits = Array.prototype.slice.call(document.querySelectorAll('#eventsPageGrid [data-event-card]')).filter(function(c){
+      return splitNames(c.dataset.sounds).map(normText).indexOf(sName) !== -1;
+    });
+    var diaryBlock = diaryHits.length ? '<div class="related-section"><h3 data-i18n="sounds.detail.inDiaries">Featured in these diaries</h3><div class="related-grid">' +
+      diaryHits.map(function(c){
+        var rid = c.dataset.id;
+        var rimg = c.querySelector('.diary-img img');
+        var rtitle = c.querySelector('.diary-title').textContent;
+        return '<a class="related-card tilt" href="#diary/' + esc(rid) + '"><img loading="lazy" decoding="async" class="ph real-photo" src="' + rimg.getAttribute('src') + '" alt="' + esc(rtitle) + '"><div class="grad"></div><span class="nm">' + esc(rtitle) + '</span></a>';
+      }).join('') + '</div></div>' : '';
+    var eventBlock = eventHits.length ? '<div class="related-section"><h3 data-i18n="sounds.detail.inEvents">Playing at these events</h3><div class="related-grid">' +
+      eventHits.map(function(c){
+        var rimg = c.querySelector('img.real-photo');
+        var rtitle = c.querySelector('h3').textContent;
+        return '<a class="related-card tilt" href="#events"><img loading="lazy" decoding="async" class="ph real-photo" src="' + rimg.getAttribute('src') + '" alt="' + esc(rtitle) + '"><div class="grad"></div><span class="nm">' + esc(rtitle) + '</span></a>';
+      }).join('') + '</div></div>' : '';
+    var noExtra = (!diaryHits.length && !eventHits.length)
+      ? '<p class="sound-no-extra" data-i18n="sounds.detail.moreSoon">More on this sound is coming soon.</p>' : '';
+
+    el.innerHTML =
+      '<div class="sound-detail reveal">' +
+        '<div class="sound-detail-photo tilt">' + photoHtml + '</div>' +
+        '<div class="sound-detail-head">' +
+          (place ? '<p class="place">' + esc(place) + '</p>' : '') +
+          '<h1 class="section-title">' + esc(s.name.toUpperCase()) + '</h1>' +
+          (meta.length ? '<div class="sound-meta-row">' + meta.join('') + '</div>' : '') +
+        '</div>' +
+        (social.length ? '<div class="sound-social">' + social.join('') + '</div>' : '') +
+        noExtra +
+        diaryBlock + eventBlock +
+      '</div>';
+    applyLanguage(currentLang);
+    setupTilt(el);
+    observeReveals(el);
+  }
+  function wireSoundCardLinks(){
+    document.querySelectorAll('.sound-card[data-sound-id]').forEach(function(card){
+      if(card.dataset.wired) return;
+      card.dataset.wired = '1';
+      card.setAttribute('role', 'link');
+      card.setAttribute('tabindex', '0');
+      card.addEventListener('click', function(){ location.hash = '#sound/' + card.dataset.soundId; });
+      card.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); location.hash = '#sound/' + card.dataset.soundId; }
       });
-    }
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') closeMapPopup();
     });
   }
 
-  function renderEvents(data){
-    // Home teaser (first 8, 4-column grid, 4-cycle stagger)
-    var stripEl = document.getElementById('homeEventsStrip');
-    if(stripEl){
-      stripEl.innerHTML = data.map(function(ev, i){
-        var dateKey = 'dyn.event.' + ev.id + '.date';
-        mergeI18NField(dateKey, ev.date);
-        return '<div class="teaser-card tilt reveal' + revealClass(i, 4) + '">' +
-          '<a class="thumb" href="#events">' +
-            '<img class="ph real-photo" src="' + esc(ev.photo) + '" alt="' + esc(ev.name) + ' — ' + esc(ev.location) + '">' +
-            '<div class="grad"></div>' +
-            '<span class="yr" data-i18n="' + dateKey + '">' + esc(ev.date.en) + '</span>' +
-            '<span class="ttl">' + esc(ev.name) + '</span>' +
-          '</a>' +
-        '</div>';
-      }).join('');
+  // ===================== EVENTS — month grouping, filters, submit modal =====================
+  function renderEventsMonthView(){
+    var wrap = document.getElementById('eventsMonthWrap');
+    if(!wrap) return;
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#eventsPageGrid [data-event-card]'));
+    var groups = {}, order = [];
+    cards.forEach(function(c){
+      var key = c.dataset.month;
+      if(!groups[key]){ groups[key] = []; order.push(key); }
+      groups[key].push(c);
+    });
+    wrap.innerHTML = '';
+    order.forEach(function(key){
+      var section = document.createElement('div');
+      section.className = 'events-month-group reveal';
+      var h3 = document.createElement('h3');
+      h3.className = 'events-month-label';
+      h3.textContent = key;
+      var grid = document.createElement('div');
+      grid.className = 'event-grid';
+      groups[key].forEach(function(c){ grid.appendChild(c.cloneNode(true)); });
+      section.appendChild(h3);
+      section.appendChild(grid);
+      wrap.appendChild(section);
+    });
+    setupTilt(wrap);
+    observeReveals(wrap);
+  }
+  function populateEventsFilterOptions(){
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#eventsPageGrid [data-event-card]'));
+    var locEl = document.getElementById('eventsLocFilter');
+    var monthEl = document.getElementById('eventsMonthFilter');
+    if(locEl && locEl.options.length === 1){
+      uniqueSorted(cards.map(function(c){ return c.dataset.location; })).forEach(function(loc){
+        var o = document.createElement('option'); o.value = loc; o.textContent = loc; locEl.appendChild(o);
+      });
     }
-    // Events page grid
+    if(monthEl && monthEl.options.length === 1){
+      uniqueSorted(cards.map(function(c){ return c.dataset.month; })).forEach(function(m){
+        var o = document.createElement('option'); o.value = m; o.textContent = m; monthEl.appendChild(o);
+      });
+    }
+  }
+  function applyEventsFilters(){
+    var locEl = document.getElementById('eventsLocFilter');
+    var monthEl = document.getElementById('eventsMonthFilter');
+    if(!locEl || !monthEl) return;
+    var loc = locEl.value, month = monthEl.value;
+    var any = false;
+    document.querySelectorAll('[data-event-card]').forEach(function(card){
+      var matches = true;
+      if(loc && card.dataset.location !== loc) matches = false;
+      if(month && card.dataset.month !== month) matches = false;
+      card.classList.toggle('is-hidden', !matches);
+      if(matches) any = true;
+    });
+    var emptyEl = document.getElementById('eventsEmptyState');
+    if(emptyEl) emptyEl.classList.toggle('is-hidden', any);
+  }
+  function wireEventsFilters(){
+    var locEl = document.getElementById('eventsLocFilter');
+    var monthEl = document.getElementById('eventsMonthFilter');
+    [locEl, monthEl].forEach(function(el){
+      if(el && !el.dataset.wired){ el.dataset.wired = '1'; el.addEventListener('change', applyEventsFilters); }
+    });
+  }
+  function setupEventsViewToggle(){
+    var toggleEl = document.getElementById('eventsViewToggle');
     var gridEl = document.getElementById('eventsPageGrid');
-    if(gridEl){
-      var html = data.map(function(ev, i){
-        var dateKey = 'dyn.event.' + ev.id + '.date';
-        var descKey = 'dyn.event.' + ev.id + '.desc';
-        mergeI18NField(dateKey, ev.date);
-        mergeI18NField(descKey, ev.desc);
-        return '<div class="event-card tilt reveal' + revealClass(i, 6) + '">' +
-          '<img class="ph real-photo" src="' + esc(ev.photo) + '" alt="' + esc(ev.name) + ' — ' + esc(ev.sounds) + ' — ' + esc(ev.location) + '">' +
-          '<div class="grad"></div>' +
-          '<div class="event-date" data-i18n="' + dateKey + '">' + esc(ev.date.en) + '</div>' +
-          '<div class="event-info">' +
-            '<p class="place">' + esc(ev.location) + '</p>' +
-            '<h3>' + esc(ev.name) + '</h3>' +
-            '<p class="event-sounds">' + esc(ev.sounds) + '</p>' +
-            '<p class="event-desc" data-i18n="' + descKey + '">' + esc(ev.desc.en) + '</p>' +
-          '</div>' +
-        '</div>';
-      }).join('');
-      html += '<div class="sound-more reveal d2"><span class="plus">+</span><p data-i18n="events.more">More events joining the diary soon</p></div>';
-      gridEl.innerHTML = html;
-    }
-  }
-
-  function renderDiaries(data){
-    // Home teaser: flatten every diary's clips into one 3/6-wide grid
-    var stripEl = document.getElementById('homeDiariesStrip');
-    if(stripEl){
-      var clipCards = [];
-      data.forEach(function(d){
-        (d.clips || []).forEach(function(clip, ci){
-          var ariaKey = 'dyn.diary.' + d.id + '.clip.' + ci + '.aria';
-          mergeI18NField(ariaKey, {
-            en: fillTpl(t('diaries.watchClipAriaTpl') || I18N.en['diaries.watchClipAriaTpl'], {name:clip.name, title:d.title}),
-            it: fillTplLang('it', clip, d),
-            es: fillTplLang('es', clip, d)
-          });
-          clipCards.push('<div class="teaser-card tilt reveal' + revealClass(clipCards.length, 3) + '">' +
-            '<a class="thumb video-link" href="' + esc(clip.url) + '" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:' + ariaKey + '" aria-label="' + esc(I18N.en[ariaKey]) + '">' +
-              '<img class="ph real-photo" src="' + esc(clip.photo) + '" alt="' + esc(clip.name) + ' — ' + esc(d.title) + '">' +
-              '<div class="video-preview"><span class="play-btn"></span><span class="ig-tag" data-i18n="diaries.watchTag">▶ Watch</span></div>' +
-            '</a>' +
-          '</div>');
-        });
+    var monthEl = document.getElementById('eventsMonthWrap');
+    if(!toggleEl || toggleEl.dataset.wired) return;
+    toggleEl.dataset.wired = '1';
+    toggleEl.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click', function(){
+        toggleEl.querySelectorAll('button').forEach(function(x){ x.classList.remove('active'); });
+        b.classList.add('active');
+        var view = b.getAttribute('data-view');
+        if(gridEl) gridEl.classList.toggle('is-hidden', view === 'month');
+        if(monthEl) monthEl.classList.toggle('is-hidden', view !== 'month');
       });
-      stripEl.innerHTML = clipCards.join('');
-    }
-
-    // Diaries page: full articles with expandable gallery
-    var listEl = document.getElementById('diariesPageList');
-    if(listEl){
-      listEl.innerHTML = data.map(function(d, i){
-        var locKey = 'dyn.diary.' + d.id + '.loc';
-        var descKey = 'dyn.diary.' + d.id + '.desc';
-        var watchAriaKey = 'dyn.diary.' + d.id + '.watchAria';
-        mergeI18NField(locKey, d.loc);
-        mergeI18NField(descKey, d.desc);
-        mergeI18NField(watchAriaKey, {
-          en: fillTpl(I18N.en['diaries.watchAriaTpl'], {title:d.title}),
-          it: fillTpl(I18N.it['diaries.watchAriaTpl'], {title:d.title}),
-          es: fillTpl(I18N.es['diaries.watchAriaTpl'], {title:d.title})
-        });
-        var clipsHtml = (d.clips || []).map(function(clip, ci){
-          var ariaKey = 'dyn.diary.' + d.id + '.clip.' + ci + '.aria';
-          return '<a class="ph real-photo video-link" href="' + esc(clip.url) + '" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:' + ariaKey + '" aria-label="' + esc(I18N.en[ariaKey] || '') + '">' +
-            '<img src="' + esc(clip.photo) + '" alt="' + esc(clip.name) + ' — ' + esc(d.title) + '" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">' +
-            '<div class="video-preview"><span class="play-btn"></span></div>' +
-          '</a>';
-        }).join('');
-        return '<article class="diary-entry' + (i === 1 ? ' reverse' : '') + ' reveal">' +
-          '<a class="diary-img stamp-border tilt video-link" href="' + esc(d.watchUrl) + '" target="_blank" rel="noreferrer" data-i18n-attr="aria-label:' + watchAriaKey + '" aria-label="' + esc(I18N.en[watchAriaKey]) + '">' +
-            '<img class="ph real-photo" src="' + esc(d.mainPhoto) + '" alt="' + esc(d.title) + '">' +
-            '<div class="grad"></div>' +
-            '<span class="diary-year">' + esc(d.year) + '</span>' +
-            '<div class="video-preview"><span class="play-btn"></span><span class="ig-tag" data-i18n="diaries.watchOnIG">▶ Watch on Instagram</span></div>' +
-          '</a>' +
-          '<div>' +
-            '<h3 class="diary-title">' + esc(d.title) + '</h3>' +
-            '<p class="diary-meta loc" data-i18n="' + locKey + '">' + esc(d.loc.en) + '</p>' +
-            '<p class="diary-meta artists">' + esc(d.artists) + '</p>' +
-            '<p class="diary-desc" data-i18n="' + descKey + '">' + esc(d.desc.en) + '</p>' +
-            '<button class="btn diary-toggle" type="button">View Diary <span>→</span></button>' +
-            '<div class="diary-gallery">' + clipsHtml + '<p class="note" data-i18n="diaries.galleryVideoNote">Tap a clip to watch it on Instagram.</p></div>' +
-          '</div>' +
-        '</article>';
-      }).join('');
-    }
-  }
-  // small helper: fill a per-language aria template for a diary clip
-  function fillTplLang(lang, clip, d){
-    var tpl = I18N[lang]['diaries.watchClipAriaTpl'] || I18N.en['diaries.watchClipAriaTpl'];
-    return fillTpl(tpl, {name:clip.name, title:d.title});
-  }
-
-  function renderPeople(data){
-    var stripEl = document.getElementById('homePeopleStrip');
-    if(stripEl){
-      stripEl.innerHTML = data.map(function(p){
-        var roleKey = 'dyn.people.' + p.id + '.role';
-        mergeI18NField(roleKey, p.role);
-        return '<a href="#people" class="pp tilt">' +
-          '<img class="ph real-photo" src="' + esc(p.photo) + '" alt="' + esc(p.name) + '">' +
-          '<div class="grad"></div>' +
-          '<p class="pp-name">' + esc(p.name) + '</p><p class="pp-role" data-i18n="' + roleKey + '">' + esc(p.role.en) + '</p>' +
-        '</a>';
-      }).join('');
-    }
-    var gridEl = document.getElementById('peoplePageGrid');
-    if(gridEl){
-      gridEl.innerHTML = data.map(function(p, i){
-        var roleKey = 'dyn.people.' + p.id + '.role';
-        return '<div class="people-card tilt reveal' + revealClass(i, 6) + '">' +
-          '<img class="ph real-photo" src="' + esc(p.photo) + '" alt="' + esc(p.name) + '">' +
-          '<div class="grad"></div>' +
-          '<div class="people-info"><p class="pname">' + esc(p.name) + '</p><p class="prole" data-i18n="' + roleKey + '">' + esc(p.role.en) + '</p></div>' +
-        '</div>';
-      }).join('');
-    }
-  }
-
-  function renderJourneyTags(tags){
-    var el = document.getElementById('journeyTags');
-    if(!el || !tags || !tags.length) return;
-    el.innerHTML = tags.map(function(t){ return '<span>' + esc(t) + '</span>'; }).join('');
-  }
-
-  function initDynamicContent(){
-    return Promise.all([
-      fetchJSON('data/sounds.json').catch(function(){ return []; }),
-      fetchJSON('data/events.json').catch(function(){ return []; }),
-      fetchJSON('data/diaries.json').catch(function(){ return []; }),
-      fetchJSON('data/people.json').catch(function(){ return []; }),
-      fetchJSON('data/site.json').catch(function(){ return {}; })
-    ]).then(function(results){
-      var sounds = (results[0] && results[0].items) || [];
-      var events = (results[1] && results[1].items) || [];
-      var diaries = (results[2] && results[2].items) || [];
-      var people = (results[3] && results[3].items) || [];
-      var site = results[4] || {};
-      renderSounds(sounds);
-      renderEvents(events);
-      renderDiaries(diaries);
-      renderPeople(people);
-      if(site.hero){
-        mergeI18NField('hero.eyebrow', site.hero.eyebrow);
-        mergeI18NField('hero.script', site.hero.script);
-      }
-      if(site.about){
-        ['p1','p2','p3','p4','p5','p6','p7'].forEach(function(k){
-          mergeI18NField('about.page.' + k, site.about[k]);
-        });
-        mergeI18NField('about.page.final', site.about.final);
-        renderJourneyTags(site.about.journey);
-      }
-      if(site.contact){
-        mergeI18NField('contact.page.lead', site.contact.lead);
-      }
-      setupTilt(document);
-      setupDiaryToggles(document);
-      applyLanguage(currentLang);
-      route();
     });
   }
+  function setupEventSubmitModal(){
+    var openBtn = document.getElementById('eventSubmitOpenBtn');
+    var backdrop = document.getElementById('eventSubmitBackdrop');
+    var closeBtn = document.getElementById('eventSubmitCloseBtn');
+    var form = document.getElementById('eventSubmitForm');
+    var statusEl = document.getElementById('eventSubmitStatus');
+    if(!openBtn || !backdrop || openBtn.dataset.wired) return;
+    openBtn.dataset.wired = '1';
+    openBtn.addEventListener('click', function(){ backdrop.classList.add('active'); });
+    if(closeBtn) closeBtn.addEventListener('click', function(){ backdrop.classList.remove('active'); });
+    backdrop.addEventListener('click', function(e){ if(e.target === backdrop) backdrop.classList.remove('active'); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') backdrop.classList.remove('active'); });
+    if(form){
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var data = new FormData(form);
+        fetch('/', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: new URLSearchParams(data).toString()
+        }).then(function(){
+          statusEl.textContent = t('events.submit.success');
+          statusEl.className = 'form-status ok';
+          form.reset();
+        }).catch(function(){
+          statusEl.textContent = t('events.submit.error');
+          statusEl.className = 'form-status err';
+        });
+      });
+    }
+  }
 
-  // static (non-dynamic) parts of the page still work immediately
-  setupTilt(document);
-  setupDiaryToggles(document);
+  // ===================== PEOPLE — category filter =====================
+  function applyPeopleFilter(){
+    var catEl = document.getElementById('peopleCategoryFilter');
+    if(!catEl) return;
+    var cat = catEl.value;
+    var any = false;
+    document.querySelectorAll('#peoplePageGrid .people-card').forEach(function(card){
+      var matches = !cat || card.dataset.category === cat;
+      card.classList.toggle('is-hidden', !matches);
+      if(matches) any = true;
+    });
+    var emptyEl = document.getElementById('peopleEmptyState');
+    if(emptyEl) emptyEl.classList.toggle('is-hidden', any);
+  }
+  function wirePeopleFilter(){
+    var catEl = document.getElementById('peopleCategoryFilter');
+    if(catEl && !catEl.dataset.wired){ catEl.dataset.wired = '1'; catEl.addEventListener('change', applyPeopleFilter); }
+  }
+
+  renderMap(SOUNDS_MAP_DATA);
   setupSoundsMapUI();
+  wireSoundCardLinks();
+  renderEventsMonthView();
+  setupEventsViewToggle();
+  setupEventSubmitModal();
+  populateDiariesFilterOptions();
+  wireDiariesFilters();
+  populateEventsFilterOptions();
+  wireEventsFilters();
+  wirePeopleFilter();
   applyLanguage(currentLang);
   route();
-  // then load + render the CMS-managed content and re-apply language once it's in the DOM
-  initDynamicContent();
 </script>
-
 
 </body>
 </html>
