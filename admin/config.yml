@@ -1,266 +1,116 @@
-# Pannello di gestione — Sound System Diaries
-# Backend: Decap Turbo (turbo-github). Prima di usare questo pannello devi:
-#   1. Creare un account gratuito su https://decapcms.org/turbo/
-#   2. Collegare il repository GitHub del sito
-#   3. Creare un "site" che punta a questo repo, con config path:
-#      admin/config.yml
-#   4. Copiare il "Site ID" che ti viene dato e incollarlo qui sotto al posto di
-#      REPLACE_WITH_YOUR_TURBO_SITE_ID
+# Pannello di gestione — Sound System Diaries (https://soundsystemdiaries.it/admin/)
+# Ogni volta che premi "Pubblica" il pannello salva su GitHub e Netlify ricostruisce il sito
+# in un paio di minuti (comando: python3 build/build.py, vedi netlify.toml).
 
 backend:
   name: turbo-github
   turbo_site_id: 1a17d0ff-6a88-4e99-b43e-bd525368c0c6
   branch: main
+  commit_messages:
+    update: "Pannello: aggiornato {{collection}} “{{slug}}”"
+    uploadMedia: "Pannello: caricata foto “{{path}}”"
+    deleteMedia: "Pannello: eliminata foto “{{path}}”"
 
-# media_folder è relativo alla RADICE DEL REPO (dove git salva i file caricati) —
-# public_folder è relativo alla RADICE DEL SITO PUBBLICATO (da dove il browser li carica).
+# le foto caricate dal pannello finiscono qui (il sito le ridimensiona da solo)
 media_folder: "images/uploads"
-public_folder: "images/uploads"
-
+public_folder: "/images/uploads"
 locale: "it"
+site_url: "https://soundsystemdiaries.it"
+display_url: "https://soundsystemdiaries.it"
 
 collections:
-  - name: "site"
-    label: "Sito (Home, About, Contact)"
-    files:
-      - name: "site"
-        label: "Testi Home / About / Contact"
-        file: "data/site.json"
-        fields:
-          - label: "Home"
-            name: "hero"
-            widget: "object"
-            fields:
-              - label: "Frase sopra il titolo (eyebrow)"
-                name: "eyebrow"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "string"}
-                  - {label: "Italiano", name: "it", widget: "string"}
-                  - {label: "Spagnolo", name: "es", widget: "string"}
-              - label: "Sottotitolo (sotto il titolo)"
-                name: "script"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "string"}
-                  - {label: "Italiano", name: "it", widget: "string"}
-                  - {label: "Spagnolo", name: "es", widget: "string"}
-          - label: "About"
-            name: "about"
-            widget: "object"
-            fields:
-              - label: "Paragrafo 1"
-                name: "p1"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "text"}
-                  - {label: "Italiano", name: "it", widget: "text"}
-                  - {label: "Spagnolo", name: "es", widget: "text"}
-              - label: "Paragrafo 2"
-                name: "p2"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "text"}
-                  - {label: "Italiano", name: "it", widget: "text"}
-                  - {label: "Spagnolo", name: "es", widget: "text"}
-              - label: "Paragrafo 3"
-                name: "p3"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "text"}
-                  - {label: "Italiano", name: "it", widget: "text"}
-                  - {label: "Spagnolo", name: "es", widget: "text"}
-              - label: "Paragrafo 4"
-                name: "p4"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "text"}
-                  - {label: "Italiano", name: "it", widget: "text"}
-                  - {label: "Spagnolo", name: "es", widget: "text"}
-              - label: "Paragrafo 5"
-                name: "p5"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "text"}
-                  - {label: "Italiano", name: "it", widget: "text"}
-                  - {label: "Spagnolo", name: "es", widget: "text"}
-              - label: "Paragrafo 6"
-                name: "p6"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "text"}
-                  - {label: "Italiano", name: "it", widget: "text"}
-                  - {label: "Spagnolo", name: "es", widget: "text"}
-              - label: "Paragrafo 7"
-                name: "p7"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "text"}
-                  - {label: "Italiano", name: "it", widget: "text"}
-                  - {label: "Spagnolo", name: "es", widget: "text"}
-              - label: "Frase finale (in corsivo/evidenza)"
-                name: "final"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "text"}
-                  - {label: "Italiano", name: "it", widget: "text"}
-                  - {label: "Spagnolo", name: "es", widget: "text"}
-              - label: "Tag \"The Journey So Far\" (festival/eventi, uno per riga)"
-                name: "journey"
-                widget: "list"
-                hint: "Es. Dub Stone, Rototom, Zion Station Festival... Valgono per tutte e 3 le lingue."
-          - label: "Contact"
-            name: "contact"
-            widget: "object"
-            fields:
-              - label: "Testo introduttivo"
-                name: "lead"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "string"}
-                  - {label: "Italiano", name: "it", widget: "string"}
-                  - {label: "Spagnolo", name: "es", widget: "string"}
-
-  - name: "sounds"
-    label: "Sound System"
-    files:
-      - name: "sounds"
-        label: "Elenco Sound System"
-        file: "data/sounds.json"
-        fields:
-          - label: "Sound System"
-            name: "items"
-            widget: "list"
-            summary: "{{fields.name}} — {{fields.place}}"
-            fields:
-              - {label: "ID interno (minuscolo, senza spazi, es. roar)", name: "id", widget: "string", hint: "Non modificare per i sound già esistenti"}
-              - {label: "Nome", name: "name", widget: "string"}
-              - {label: "Foto", name: "photo", widget: "image", required: false, hint: "Se non carichi una foto, verrà usato un colore placeholder"}
-              - {label: "Colore placeholder (solo se nessuna foto)", name: "color", widget: "select", required: false, options: ["red", "green", "gold", "mix"]}
-              - {label: "Città / Regione (testo libero, es. Viadana, Lombardia)", name: "place", widget: "string"}
-              - {label: "Anno di fondazione", name: "founded", widget: "number", value_type: "int", required: false}
-              - label: "Descrizione (facoltativa)"
-                name: "desc"
-                widget: "object"
-                required: false
-                fields:
-                  - {label: "Inglese", name: "en", widget: "text", required: false}
-                  - {label: "Italiano", name: "it", widget: "text", required: false}
-                  - {label: "Spagnolo", name: "es", widget: "text", required: false}
-              - {label: "🗺️ Città (per la ITALIAN SOUND SYSTEM MAP, es. Viadana)", name: "city", widget: "string", required: false}
-              - {label: "🗺️ Regione (per la mappa, es. Lombardia)", name: "region", widget: "string", required: false}
-              - label: "🗺️ Latitudine"
-                name: "lat"
-                widget: "number"
-                value_type: "float"
-                required: false
-                hint: "Per trovarla: cerca la città su Google Maps, tasto destro sul punto → clicca sulle coordinate per copiarle (il primo numero è la latitudine, il secondo la longitudine, es. 44.9339). Senza latitudine e longitudine il sound non compare sulla mappa."
-              - {label: "🗺️ Longitudine", name: "lon", widget: "number", value_type: "float", required: false}
-              - label: "🗺️ Generi"
-                name: "genres"
-                widget: "object"
-                required: false
-                fields:
-                  - {label: "Roots", name: "roots", widget: "boolean", default: false}
-                  - {label: "Dub", name: "dub", widget: "boolean", default: false}
-                  - {label: "Steppers", name: "steppers", widget: "boolean", default: false}
-              - {label: "🗺️ Suona vinile", name: "vinyl", widget: "select", required: false, options: [{label: "Sì", value: "true"}, {label: "No", value: "false"}], hint: "Lascia vuoto se non confermato"}
-              - {label: "🗺️ Impianto autocostruito", name: "selfBuilt", widget: "select", required: false, options: [{label: "Sì", value: "true"}, {label: "No", value: "false"}], hint: "Lascia vuoto se non confermato"}
-              - {label: "🗺️ Instagram (link completo)", name: "instagram", widget: "string", required: false}
-              - {label: "🗺️ Facebook (link completo)", name: "facebook", widget: "string", required: false}
-
-  - name: "events"
+  # ------------------------------------------------------------------ EVENTI
+  - name: "eventi"
     label: "Eventi"
     files:
       - name: "events"
-        label: "Elenco Eventi"
+        label: "Calendario eventi"
         file: "data/events.json"
         fields:
           - label: "Eventi"
             name: "items"
             widget: "list"
-            summary: "{{fields.name}} — {{fields.location}}"
+            label_singular: "evento"
+            add_to_top: true
+            summary: "{{fields.date}} — {{fields.title}} ({{fields.city}})"
+            hint: "Gli eventi passati spariscono da soli dalla home e finiscono in «Eventi passati»."
             fields:
-              - {label: "ID interno (minuscolo, senza spazi)", name: "id", widget: "string"}
-              - {label: "Flyer / foto evento", name: "photo", widget: "image"}
-              - label: "Data (es. 18 SEP / 18 SET / 18 SEP)"
-                name: "date"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "string"}
-                  - {label: "Italiano", name: "it", widget: "string"}
-                  - {label: "Spagnolo", name: "es", widget: "string"}
-              - {label: "Location", name: "location", widget: "string"}
-              - {label: "Nome evento", name: "name", widget: "string"}
-              - {label: "Sound in line-up", name: "sounds", widget: "string"}
-              - label: "Descrizione / orari"
-                name: "desc"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "text"}
-                  - {label: "Italiano", name: "it", widget: "text"}
-                  - {label: "Spagnolo", name: "es", widget: "text"}
+              - {label: "Flyer", name: "flyer", widget: "image", hint: "Il flyer ufficiale della serata (anche foto da telefono, il sito la ridimensiona)."}
+              - {label: "Nome della serata", name: "title", widget: "string", hint: "Es. Backabush meets Echotronix — scrivilo normale, non tutto maiuscolo."}
+              - {label: "Data", name: "date", widget: "datetime", date_format: "DD/MM/YYYY", format: "YYYY-MM-DD", time_format: false, picker_utc: true}
+              - {label: "Orario di inizio", name: "time", widget: "string", required: false, hint: "Es. 22:00"}
+              - {label: "Città", name: "city", widget: "string"}
+              - label: "Regione"
+                name: "region"
+                widget: "select"
+                options: ["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia-Romagna", "Friuli-Venezia Giulia", "Lazio", "Liguria", "Lombardia", "Marche", "Molise", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana", "Trentino-Alto Adige", "Umbria", "Valle d'Aosta", "Veneto", "San Marino"]
+              - {label: "Locale / spazio", name: "venue", widget: "string", required: false, hint: "Es. Sottotetto Soundclub"}
+              - {label: "Indirizzo", name: "address", widget: "string", required: false}
+              - {label: "Sound e artisti", name: "lineup", widget: "string", hint: "Separati da · oppure da virgola. Es. Heavy Rootation · Dub Hunters · Peaceful Warriors"}
+              - {label: "Ingresso", name: "entry", widget: "string", required: false, hint: "Es. 10€ con tessera, gratuito…"}
+              - {label: "Link (evento Facebook, biglietti…)", name: "link", widget: "string", required: false}
+              - {label: "Descrizione (italiano)", name: "desc_it", widget: "text", required: false}
+              - {label: "Descrizione (inglese)", name: "desc_en", widget: "text", required: false}
+              - {label: "Latitudine (facoltativa)", name: "lat", widget: "number", value_type: "float", required: false, hint: "Serve solo per un punto preciso sulla mappa. Se la lasci vuota il sito usa la città (se c'è già un sound lì) o il centro della regione. Da Google Maps: tasto destro sul punto → il primo numero."}
+              - {label: "Longitudine (facoltativa)", name: "lon", widget: "number", value_type: "float", required: false, hint: "Il secondo numero di Google Maps."}
+              - {label: "ID", name: "id", widget: "hidden", required: false}
 
-  - name: "diaries"
-    label: "Diari"
+  # ------------------------------------------------------------------ SOUND
+  - name: "sound"
+    label: "Sound system"
     files:
-      - name: "diaries"
-        label: "Elenco Diari"
-        file: "data/diaries.json"
+      - name: "sounds"
+        label: "Archivio sound"
+        file: "data/sounds.json"
         fields:
-          - label: "Diari"
+          - label: "Sound"
             name: "items"
             widget: "list"
-            summary: "{{fields.title}}"
+            label_singular: "sound"
+            summary: "{{fields.name}} — {{fields.city}} {{fields.region}}"
+            hint: "Per aggiungere un sound premi «Aggiungi sound». Per farlo comparire in «Aggiunti di recente» vai poi in «Home»."
             fields:
-              - {label: "ID interno (minuscolo, senza spazi)", name: "id", widget: "string"}
-              - {label: "Titolo (es. LOWLAND FESTIVAL 2026)", name: "title", widget: "string"}
-              - {label: "Anno", name: "year", widget: "number", value_type: "int"}
-              - {label: "Foto principale", name: "mainPhoto", widget: "image"}
-              - {label: "Link Instagram (video completo)", name: "watchUrl", widget: "string"}
-              - {label: "Artisti / sound (es. Bababoom HiFi · Galas · Jules I)", name: "artists", widget: "string"}
-              - label: "Località"
-                name: "loc"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "string"}
-                  - {label: "Italiano", name: "it", widget: "string"}
-                  - {label: "Spagnolo", name: "es", widget: "string"}
-              - label: "Descrizione"
-                name: "desc"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "text"}
-                  - {label: "Italiano", name: "it", widget: "text"}
-                  - {label: "Spagnolo", name: "es", widget: "text"}
-              - label: "Clip / video dei singoli artisti"
-                name: "clips"
-                widget: "list"
-                summary: "{{fields.name}}"
-                fields:
-                  - {label: "Nome artista", name: "name", widget: "string"}
-                  - {label: "Link Instagram", name: "url", widget: "string"}
-                  - {label: "Foto", name: "photo", widget: "image"}
+              - {label: "Nome", name: "name", widget: "string", hint: "Es. Dubass Sound System"}
+              - {label: "Indirizzo della scheda", name: "id", widget: "string", required: false, hint: "Diventa soundsystemdiaries.it/sound/QUESTO/. Lascia vuoto per i sound nuovi (si crea dal nome). Non cambiarlo per i sound già pubblicati, altrimenti il vecchio link smette di funzionare."}
+              - {label: "Foto del sound", name: "photo", widget: "image", required: false}
+              - {label: "Città", name: "city", widget: "string", required: false}
+              - label: "Regione"
+                name: "region"
+                widget: "select"
+                options: ["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia-Romagna", "Friuli-Venezia Giulia", "Lazio", "Liguria", "Lombardia", "Marche", "Molise", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana", "Trentino-Alto Adige", "Umbria", "Valle d'Aosta", "Veneto", "San Marino"]
+              - {label: "Anno di fondazione", name: "founded", widget: "number", value_type: "int", required: false}
+              - {label: "La storia (italiano)", name: "story", widget: "text", required: false, hint: "Lascia una riga vuota tra un paragrafo e l'altro. Le frasi tra «virgolette» vengono messe in evidenza come citazioni. Per firmare un testo scrivi in fondo: Testo di Nome Cognome."}
+              - {label: "La storia (inglese)", name: "story_en", widget: "text", required: false, hint: "Stessa storia in inglese, sempre con una riga vuota tra i paragrafi. Per firmare: Text by Nome Cognome."}
+              - {label: "Instagram (link completo)", name: "instagram", widget: "string", required: false}
+              - {label: "Facebook (link completo)", name: "facebook", widget: "string", required: false}
+              - {label: "Latitudine (facoltativa)", name: "lat", widget: "number", value_type: "float", required: false, hint: "Per il punto preciso sulla mappa. Se la lasci vuota il sito usa la città (se c'è già un altro sound lì) o il centro della regione."}
+              - {label: "Longitudine (facoltativa)", name: "lon", widget: "number", value_type: "float", required: false}
 
-  - name: "people"
-    label: "Persone"
+  # ------------------------------------------------------------------ HOME
+  - name: "home"
+    label: "Home"
     files:
-      - name: "people"
-        label: "Elenco Persone"
-        file: "data/people.json"
+      - name: "home"
+        label: "Sound in evidenza in home"
+        file: "data/home.json"
         fields:
-          - label: "Persone"
-            name: "items"
-            widget: "list"
-            summary: "{{fields.name}}"
-            fields:
-              - {label: "ID interno (minuscolo, senza spazi)", name: "id", widget: "string"}
-              - {label: "Foto", name: "photo", widget: "image"}
-              - {label: "Nome", name: "name", widget: "string"}
-              - label: "Ruolo"
-                name: "role"
-                widget: "object"
-                fields:
-                  - {label: "Inglese", name: "en", widget: "string", default: "Artist"}
-                  - {label: "Italiano", name: "it", widget: "string", default: "Artista"}
-                  - {label: "Spagnolo", name: "es", widget: "string", default: "Artista"}
+          - label: "Aggiunti di recente (il carosello sotto la mappa)"
+            name: "recent"
+            widget: "relation"
+            collection: "sound"
+            file: "sounds"
+            search_fields: ["items.*.name"]
+            value_field: "items.*.name"
+            display_fields: ["items.*.name"]
+            multiple: true
+            hint: "Nell'ordine in cui li vuoi vedere."
+          - label: "Ogni sound ha una storia (la griglia in home, ideale 12)"
+            name: "home_sounds"
+            widget: "relation"
+            collection: "sound"
+            file: "sounds"
+            search_fields: ["items.*.name"]
+            value_field: "items.*.name"
+            display_fields: ["items.*.name"]
+            multiple: true
+            max: 12

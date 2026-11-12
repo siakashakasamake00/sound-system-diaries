@@ -1,16 +1,26 @@
-# Sound System Diaries
+# Sound System Diaries — soundsystemdiaries.it
 
-Sito statico, nessun build step. Struttura:
+L'archivio dei sound system italiani.
 
-- `index.html` — pagina principale (CSS e JS inline, contenuti caricati da `data/*.json` via fetch)
-- `data/sounds.json`, `data/events.json`, `data/diaries.json`, `data/people.json` — contenuti modificabili dal pannello `/admin`
-- `images/` — foto e flyer (le nuove foto caricate dal pannello finiscono in `images/uploads/`)
-- `admin/` — pannello Decap CMS (config in `admin/config.yml`, backend `turbo-github`)
+## Come si aggiorna
 
-## Deploy
+Dal pannello **https://soundsystemdiaries.it/admin/**:
 
-Netlify, nessun comando di build, publish directory `.` (vedi `netlify.toml`). Ogni push su `main` pubblica automaticamente.
+- **Eventi** — aggiungi una serata con flyer, data, città, locale e sound. Dopo la data passa da sola in «Eventi passati».
+- **Sound system** — schede, foto, storia in italiano e inglese, link social.
+- **Home** — quali sound compaiono in «Aggiunti di recente» e nella griglia «Ogni sound ha una storia».
 
-## Pannello di gestione
+Quando premi «Pubblica», il pannello salva su GitHub e Netlify ricostruisce il sito in un paio di minuti.
 
-`https://<tuo-dominio>/admin/` — richiede un account gratuito su decapcms.org/turbo collegato a questo repository (vedi `admin/config.yml` per il `turbo_site_id`).
+I messaggi dei moduli «Aggiungi il tuo sound / evento» arrivano su Netlify → progetto → **Forms** (e per email, se attivi le notifiche).
+
+## Com'è fatto
+
+- `data/` — i contenuti (`sounds.json`, `events.json`, `home.json`), modificati dal pannello
+- `build/build.py` — costruisce il sito in `dist/` (solo Python, nessuna dipendenza)
+- `build/template.html` — la pagina del sito con i segnaposto per i contenuti
+- `static/` — immagini ottimizzate, font, anteprime social (`og/`), privacy, `_headers`, `_redirects`
+- `images/uploads/` — foto caricate dal pannello (servite ridimensionate dal CDN di Netlify)
+- `admin/` — pannello Decap CMS
+
+Per provarlo in locale: `python3 build/build.py` e poi apri `dist/` con un server (es. `python3 -m http.server -d dist`).

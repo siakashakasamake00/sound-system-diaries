@@ -1,9 +1,10 @@
+# Il sito viene costruito da Netlify a ogni modifica (anche dal pannello /admin).
 [build]
-  publish = "."
-  command = ""
+  command = "python3 build/build.py"
+  publish = "dist"
 
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"

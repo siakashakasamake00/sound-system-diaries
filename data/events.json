@@ -1,55 +1,76 @@
 {
   "items": [
     {
-      "id": "bass-station",
-      "photo": "images/events/event6-bass-station.jpg",
-      "date": {
-        "en": "26 SEP",
-        "it": "26 SET",
-        "es": "26 SEP"
-      },
-      "location": "Vallefoglia (PU) — Risto Park",
-      "name": "BASS STATION",
-      "sounds": "Vibra Family & Dub Lab Interceptor · secret artist",
-      "desc": {
-        "en": "From 7pm to 3am — food, drink and free camping, free entry.",
-        "it": "Dalle 19:00 alle 03:00 — food, drink e free camping, ingresso libero.",
-        "es": "De 19:00 a 03:00 — food, drink y camping gratuito, entrada libre."
-      }
+      "id": "ev261114r",
+      "title": "Backabush meets Echotronix",
+      "date": "2026-11-14",
+      "time": "22:00",
+      "city": "Rho",
+      "region": "Lombardia",
+      "venue": "SOS Fornace",
+      "address": "",
+      "lineup": "Backabush · Echotronix · Lion Warriah · Ja Snoke",
+      "entry": "",
+      "link": "",
+      "flyer": "/img/090116e01b40.webp",
+      "desc_it": "Backabush meets Echotronix Sound System, con Lion Warriah e Ja Snoke. Dalle 22:00 alle 03:00.",
+      "desc_en": "Backabush meets Echotronix Sound System, with Lion Warriah and Ja Snoke. From 10pm to 3am.",
+      "lat": 45.5287,
+      "lon": 9.04
     },
     {
-      "id": "dub-gate",
-      "photo": "images/events/event7-dub-gate.jpg",
-      "date": {
-        "en": "26 SEP",
-        "it": "26 SET",
-        "es": "26 SEP"
-      },
-      "location": "Mortegliano (UD) — Festintenda",
-      "name": "DUB GATE",
-      "sounds": "King Shiloh · Imperial Sound Army",
-      "desc": {
-        "en": "From 8pm, free camping available — tickets presale and at the door.",
-        "it": "Dalle 20:00, possibilità di campeggio gratuito — biglietti in prevendita e alla porta.",
-        "es": "Desde las 20:00, camping gratuito disponible — entradas anticipadas y en puerta."
-      }
+      "id": "ev261114",
+      "title": "Sound System Conference — Three The Hard Way",
+      "date": "2026-11-14",
+      "time": "23:00",
+      "city": "Bologna",
+      "region": "Emilia-Romagna",
+      "venue": "Sottotetto Soundclub",
+      "address": "Via Viadagola 16",
+      "lineup": "Heavy Rootation · Dub Hunters · Peaceful Warriors",
+      "entry": "10€ con tessera 2026",
+      "link": "",
+      "flyer": "/img/633ea37b6ab4.webp",
+      "desc_it": "3 sounds, one yard: Heavy Rootation, Dub Hunters e Peaceful Warriors nella stessa sala. Ingresso 10€ con tessera 2026, dalle 23:00. Bus notturni 21b e N3.",
+      "desc_en": "3 sounds, one yard: Heavy Rootation, Dub Hunters and Peaceful Warriors in the same room. Entry €10 with 2026 membership card, from 11pm. Night buses 21b and N3.",
+      "lat": 44.4949,
+      "lon": 11.3426
     },
     {
-      "id": "dub-night-jah-station",
-      "photo": "images/events/event8-dub-night-jah-station.jpg",
-      "date": {
-        "en": "24 OCT",
-        "it": "24 OTT",
-        "es": "24 OCT"
-      },
-      "location": "Romola (FI) — Piazza Aiaccia, 1",
-      "name": "DUB NIGHT WITH JAH STATION",
-      "sounds": "Meet: Trail Foundation · Romola Soundsystem",
-      "desc": {
-        "en": "From 6pm to 2am — 3 sounds, 1 yard. Entry with ARCI card.",
-        "it": "Dalle 18:00 alle 02:00 — 3 sound, 1 yard. Ingresso con tessera ARCI.",
-        "es": "De 18:00 a 02:00 — 3 sounds, 1 yard. Entrada con carnet ARCI."
-      }
+      "id": "ev261205",
+      "title": "Dubwise Room — Black Star Line Sound System",
+      "date": "2026-12-05",
+      "time": "22:00",
+      "city": "Presicce-Acquarica",
+      "region": "Puglia",
+      "venue": "Suoni Unione Kultura Arte",
+      "address": "",
+      "lineup": "Black Star Line Sound System · Stephen I · Irie Youthman",
+      "entry": "Riservato ai soci, tesseramento online",
+      "link": "",
+      "flyer": "/img/23b9bd851dec.webp",
+      "desc_it": "Original Salento Dub Club: Black Star Line Sound System ft Stephen I, special guest Irie Youthman da Treviso. Ingresso riservato ai soci, tesseramento online. Gate open 22:00 till morning.",
+      "desc_en": "Original Salento Dub Club: Black Star Line Sound System ft Stephen I, special guest Irie Youthman from Treviso. Members only, online membership. Gate open 10pm till morning.",
+      "lat": 39.9017,
+      "lon": 18.2617
+    },
+    {
+      "id": "ev261212",
+      "title": "Skankin' Tree presents Henry Skeng",
+      "date": "2026-12-12",
+      "time": "20:00",
+      "city": "Roma",
+      "region": "Lazio",
+      "venue": "CSOA Ex Snia",
+      "address": "Via Prenestina 173",
+      "lineup": "Henry Skeng aka King Pharaoh · Skankin' Tree Sound System",
+      "entry": "5€",
+      "link": "",
+      "flyer": "/img/3918d3060b91.webp",
+      "desc_it": "Straight from Brixton, London: Henry Skeng aka King Pharaoh con Skankin' Tree Sound System. Ingresso 5€, dalle 20:00 alle 02:00.",
+      "desc_en": "Straight from Brixton, London: Henry Skeng aka King Pharaoh with Skankin' Tree Sound System. Entry €5, 8pm to 2am.",
+      "lat": 41.9028,
+      "lon": 12.4964
     }
   ]
 }
