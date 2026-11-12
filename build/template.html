@@ -1602,6 +1602,7 @@
   var STORY_EN = __STORY_EN__;
   var PAGES = ['submit','home','sounds','sound','diaries','diary','events','about','people','contact'];
   function normText(s){ return String(s == null ? '' : s).toLowerCase(); }
+  function nameKey(s){ return normText(s).trim().replace(/\s*(sound\s*system|soundsystem)$/, ''); }
   function uniqueSorted(arr){
     var seen = {}, out = [];
     arr.forEach(function(v){ v = (v == null ? '' : String(v).trim()); if(v && !seen[v]){ seen[v] = 1; out.push(v); } });
@@ -2393,12 +2394,12 @@ var SOUNDS_MAP_DATA = __SOUNDS_DATA__;
     if(s.instagram) social.push('<a class="btn btn-gold" href="' + esc(s.instagram) + '" target="_blank" rel="noreferrer">Instagram</a>');
     if(s.facebook) social.push('<a class="btn" href="' + esc(s.facebook) + '" target="_blank" rel="noreferrer">Facebook</a>');
 
-    var sName = normText(s.name);
+    var sName = nameKey(s.name);
     var diaryHits = Array.prototype.slice.call(document.querySelectorAll('[data-diary-card]')).filter(function(c){
-      return splitNames(c.dataset.sounds).map(normText).indexOf(sName) !== -1;
+      return splitNames(c.dataset.sounds).map(nameKey).indexOf(sName) !== -1;
     });
     var eventHits = Array.prototype.slice.call(document.querySelectorAll('#eventsPageGrid [data-event-card]')).filter(function(c){
-      return splitNames(c.dataset.sounds).map(normText).indexOf(sName) !== -1;
+      return splitNames(c.dataset.sounds).map(nameKey).indexOf(sName) !== -1;
     });
     var diaryBlock = diaryHits.length ? '<div class="related-section"><h3 data-i18n="sounds.detail.inDiaries">Featured in these diaries</h3><div class="related-grid">' +
       diaryHits.map(function(c){

@@ -2,7 +2,7 @@
   "items": [
     {
       "id": "roar",
-      "name": "Roar Sound System",
+      "name": "Roar",
       "photo": "/img/6a728fdb5048.webp",
       "city": "Viadana",
       "region": "Lombardia",
@@ -16,7 +16,7 @@
     },
     {
       "id": "rise-shine",
-      "name": "Rise & Shine Sound System",
+      "name": "Rise & Shine",
       "photo": "/img/15491267b069.webp",
       "city": "Bologna",
       "region": "Emilia-Romagna",
@@ -58,7 +58,7 @@
     },
     {
       "id": "natural-mystic",
-      "name": "Natural Mystic Sound System",
+      "name": "Natural Mystic",
       "photo": "/img/f43c63df2023.webp",
       "city": "Torino",
       "region": "Piemonte",
@@ -100,7 +100,7 @@
     },
     {
       "id": "warrior-charge",
-      "name": "Warrior Charge Sound System",
+      "name": "Warrior Charge",
       "photo": "/img/6a5c7639c65a.webp",
       "city": "Udine",
       "region": "Friuli-Venezia Giulia",
@@ -114,7 +114,7 @@
     },
     {
       "id": "echotronix",
-      "name": "Echotronix Sound System",
+      "name": "Echotronix",
       "photo": "/img/d25d6547df82.webp",
       "city": "Aosta",
       "region": "Valle d'Aosta",
@@ -128,7 +128,7 @@
     },
     {
       "id": "high-vision",
-      "name": "High Vision Sound System",
+      "name": "High Vision",
       "photo": "/img/601aca73f32d.webp",
       "city": "Mandello del Lario",
       "region": "Lombardia",
@@ -156,7 +156,7 @@
     },
     {
       "id": "dub-stone",
-      "name": "Dub Stone Sound System",
+      "name": "Dub Stone",
       "photo": "/img/a4fa874c340e.webp",
       "city": "Bergamo",
       "region": "Lombardia",
@@ -170,7 +170,7 @@
     },
     {
       "id": "peaceful-warriors",
-      "name": "Peaceful Warriors Sound System",
+      "name": "Peaceful Warriors",
       "photo": "/img/dad84ba74d6f.webp",
       "city": "Bologna",
       "region": "Emilia-Romagna",
@@ -198,7 +198,7 @@
     },
     {
       "id": "vanchiglia",
-      "name": "Vanchiglia Sound System",
+      "name": "Vanchiglia",
       "photo": "/img/9b9e239bd6bf.webp",
       "city": "Torino",
       "region": "Piemonte",
@@ -212,7 +212,7 @@
     },
     {
       "id": "tuffest",
-      "name": "Tuffest Sound System",
+      "name": "Tuffest",
       "photo": "/img/ea4732430108.webp",
       "city": "Pavia",
       "region": "Lombardia",
@@ -240,7 +240,7 @@
     },
     {
       "id": "jah-lion",
-      "name": "Jah Lion Sound System",
+      "name": "Jah Lion",
       "photo": "/img/a65a83013fa2.webp",
       "city": "Morbegno",
       "region": "Lombardia",
@@ -268,7 +268,7 @@
     },
     {
       "id": "ama-bassador",
-      "name": "Ama-Bassador Soundsystem",
+      "name": "Ama-Bassador",
       "photo": "/img/c72a7e02f804.webp",
       "city": "Padova",
       "region": "Veneto",
@@ -282,7 +282,7 @@
     },
     {
       "id": "sgrasay",
-      "name": "Sgrasay Sound System",
+      "name": "Sgrasay",
       "photo": "/img/a7fcca226bf9.webp",
       "city": "Osoppo",
       "region": "Friuli-Venezia Giulia",
@@ -296,7 +296,7 @@
     },
     {
       "id": "spiritual-youth",
-      "name": "Spiritual Youth Sound System",
+      "name": "Spiritual Youth",
       "photo": "/img/255f91f171a4.webp",
       "city": "Pennabilli (Rimini)",
       "region": "Emilia-Romagna",
@@ -310,7 +310,7 @@
     },
     {
       "id": "shabada",
-      "name": "Shabadà Sound System",
+      "name": "Shabadà",
       "photo": "/img/99c14a601ecc.webp",
       "city": "Senigallia",
       "region": "Marche",
@@ -324,7 +324,7 @@
     },
     {
       "id": "kawa",
-      "name": "Kawa Sound System",
+      "name": "Kawa",
       "photo": "/img/d5ad590ba44d.webp",
       "city": "Guidonia",
       "region": "Lazio",
@@ -338,7 +338,7 @@
     },
     {
       "id": "bassotto",
-      "name": "Bassotto Sound System",
+      "name": "Bassotto",
       "photo": "/img/105c825dfc78.webp",
       "city": "Napoli",
       "region": "Campania",
@@ -352,7 +352,7 @@
     },
     {
       "id": "spantka",
-      "name": "Spantka Sound System",
+      "name": "Spantka",
       "photo": "/img/3bd22161e98e.webp",
       "city": "San Felice a Cancello",
       "region": "Campania",
@@ -366,7 +366,7 @@
     },
     {
       "id": "uva",
-      "name": "Uva Sound System",
+      "name": "Uva",
       "photo": "/img/4462b52460d6.webp",
       "city": "Brienza",
       "region": "Basilicata",
@@ -380,7 +380,7 @@
     },
     {
       "id": "consciousness",
-      "name": "Consciousness Sound System",
+      "name": "Consciousness",
       "photo": "/img/5e21dd2a0f00.webp",
       "city": "Matera",
       "region": "Basilicata",
@@ -394,7 +394,7 @@
     },
     {
       "id": "bad-side",
-      "name": "Bad Side Sound System",
+      "name": "Bad Side",
       "photo": "/img/bc2ae7cbaebb.webp",
       "city": "Nardò",
       "region": "Puglia",
@@ -422,7 +422,7 @@
     },
     {
       "id": "ciuridda",
-      "name": "Ciuridda Sound System",
+      "name": "Ciuridda",
       "photo": "/img/512cf73edf1c.webp",
       "city": "Tremestieri Etneo",
       "region": "Sicilia",
@@ -436,7 +436,7 @@
     },
     {
       "id": "mighty-roots",
-      "name": "Mighty Roots Sound System",
+      "name": "Mighty Roots",
       "photo": "/img/1a744fa47d8a.webp",
       "city": "Palermo",
       "region": "Sicilia",
@@ -450,7 +450,7 @@
     },
     {
       "id": "jah-l-sas",
-      "name": "Jah L Sas Sound System",
+      "name": "Jah L Sas",
       "photo": "/img/ee05769795b9.webp",
       "city": "Alghero",
       "region": "Sardegna",
@@ -464,7 +464,7 @@
     },
     {
       "id": "shakalaka",
-      "name": "Shakalaka Soundsystem",
+      "name": "Shakalaka",
       "photo": "/img/bf293259d8a3.webp",
       "city": "Narbolia",
       "region": "Sardegna",
@@ -478,7 +478,7 @@
     },
     {
       "id": "dubass",
-      "name": "Dubass Sound System",
+      "name": "Dubass",
       "photo": "/img/9a1b5a996edf.webp",
       "city": "Roma",
       "region": "Lazio",
@@ -492,7 +492,7 @@
     },
     {
       "id": "dogana-bass",
-      "name": "Dogana Bass Sound System",
+      "name": "Dogana Bass",
       "photo": "/img/fd68da75f2fc.webp",
       "city": "San Marino",
       "region": "",
@@ -506,7 +506,7 @@
     },
     {
       "id": "elefant-hifi",
-      "name": "Elefant HiFi Sound System",
+      "name": "Elefant HiFi",
       "photo": "/img/1906b0f98fdc.webp",
       "city": "Verona",
       "region": "Veneto",
@@ -520,7 +520,7 @@
     },
     {
       "id": "blue-shepherd",
-      "name": "Blue Shepherd Sound System",
+      "name": "Blue Shepherd",
       "photo": "/img/028f77a161df.webp",
       "city": "Legnago",
       "region": "Veneto",
@@ -618,7 +618,7 @@
     },
     {
       "id": "steppers-tribe",
-      "name": "Stepper's Tribe Soundsystem",
+      "name": "Stepper's Tribe",
       "photo": "/img/b5178c63ba1e.webp",
       "city": "Trieste",
       "region": "Friuli-Venezia Giulia",
@@ -632,7 +632,7 @@
     },
     {
       "id": "rockers-dub-master",
-      "name": "Rockers Dub Master Sound System",
+      "name": "Rockers Dub Master",
       "photo": "/img/e2e107f4c7d0.webp",
       "city": "",
       "region": "Friuli-Venezia Giulia",
@@ -674,7 +674,7 @@
     },
     {
       "id": "soul-rockers",
-      "name": "Soul Rockers Soundsystem",
+      "name": "Soul Rockers",
       "photo": "/img/d849c608b9e2.webp",
       "city": "",
       "region": "Toscana",
@@ -702,7 +702,7 @@
     },
     {
       "id": "ital-skank",
-      "name": "I-tal Skank Sound System",
+      "name": "I-tal Skank",
       "photo": "/img/5fdb6b11f384.webp",
       "city": "",
       "region": "Lazio",
@@ -716,7 +716,7 @@
     },
     {
       "id": "jahlead",
-      "name": "Jahlead Sound System",
+      "name": "Jahlead",
       "photo": "/img/2931543c9767.webp",
       "city": "Città Sant'Angelo",
       "region": "Abruzzo",
@@ -730,7 +730,7 @@
     },
     {
       "id": "fe-zion",
-      "name": "Fe Zion Sound System",
+      "name": "Fe Zion",
       "photo": "/img/9c51c9087aee.webp",
       "city": "Napoli",
       "region": "Campania",
@@ -744,7 +744,7 @@
     },
     {
       "id": "black-star-line",
-      "name": "Black Star Line Sound System",
+      "name": "Black Star Line",
       "photo": "/img/a8e7d29d4c14.webp",
       "city": "",
       "region": "Campania",
@@ -758,7 +758,7 @@
     },
     {
       "id": "earthikal-towa",
-      "name": "Earthikal Towa Sound System",
+      "name": "Earthikal Towa",
       "photo": "/img/431c81b74c76.webp",
       "city": "",
       "region": "Lazio",
@@ -772,7 +772,7 @@
     },
     {
       "id": "himera",
-      "name": "Himera Sound System",
+      "name": "Himera",
       "photo": "/img/c80fc770b977.webp",
       "city": "",
       "region": "Sicilia",
@@ -814,7 +814,7 @@
     },
     {
       "id": "infiammati-dub",
-      "name": "Infiammati Dub Sound System",
+      "name": "Infiammati Dub",
       "photo": "/img/014225b72a45.webp",
       "city": "",
       "region": "Puglia",
@@ -828,7 +828,7 @@
     },
     {
       "id": "jah-station",
-      "name": "Jah Station Soundsystem",
+      "name": "Jah Station",
       "photo": "/img/d616089d8c60.webp",
       "city": "",
       "region": "Toscana",
@@ -856,7 +856,7 @@
     },
     {
       "id": "mistical",
-      "name": "Mistical Sound System",
+      "name": "Mistical",
       "photo": "/img/f0c7f00d6b40.webp",
       "city": "",
       "region": "Sicilia",
@@ -870,7 +870,7 @@
     },
     {
       "id": "alpha-sud",
-      "name": "Alpha Sud Sound System",
+      "name": "Alpha Sud",
       "photo": "/img/17d7d77b7b59.webp",
       "city": "",
       "region": "Sicilia",
@@ -898,7 +898,7 @@
     },
     {
       "id": "canapa",
-      "name": "Canapa Soundsystem",
+      "name": "Canapa",
       "photo": "/img/31ae27dce8a3.webp",
       "city": "",
       "region": "Sardegna",
@@ -912,7 +912,7 @@
     },
     {
       "id": "ikno",
-      "name": "Ikno Soundsystem",
+      "name": "Ikno",
       "photo": "/img/adc7e4ddd3e2.webp",
       "city": "",
       "region": "Sardegna",
@@ -954,7 +954,7 @@
     },
     {
       "id": "ramabass",
-      "name": "Ramabass Soundsystem",
+      "name": "Ramabass",
       "photo": "/img/7147c8d11c7a.webp",
       "city": "",
       "region": "Veneto",
@@ -968,7 +968,7 @@
     },
     {
       "id": "trail-foundation",
-      "name": "Trail Foundation Sound System",
+      "name": "Trail Foundation",
       "photo": "/img/49f7362545a8.webp",
       "city": "Firenze",
       "region": "Toscana",
