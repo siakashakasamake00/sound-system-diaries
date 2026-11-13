@@ -661,16 +661,16 @@
     {
       "id": "roots-militant",
       "name": "Roots Militant Hi-Fi",
-      "photo": "/img/4b43329e5eef.webp",
-      "city": "",
+      "photo": "/images/uploads/roots-militant-hi-fi.jpg",
+      "city": "Pisa",
       "region": "Toscana",
-      "founded": null,
-      "story": "",
-      "story_en": "",
-      "instagram": "",
-      "facebook": "",
-      "lat": 43.7696,
-      "lon": 11.2558
+      "founded": 2012,
+      "story": "Il progetto nasce nel 2012 all'interno di uno spazio sociale ormai sgomberato, per dare voce a tutti i vinili collezionati e portare la cultura del sound system e di quei generi musicali, cercando di essere fedeli e coerenti allo stile e alla proposta.\n\nIl sound è un mezzo per dare voce a chi spesso non ne ha, a sostegno di situazioni legate ai movimenti dal basso.\n\nCrew: Ranking Teo, Vibra One e Rastantó. Impianto da 5 kW: 3 scoop bin, 2 mid bass, 2 medi e 2 alti. Musica: roots, digital e stepper, in vinile.",
+      "story_en": "The project was born in 2012 inside a social space that has since been evicted, to give voice to all the collected vinyl and bring sound system culture and its music, trying to stay faithful and consistent with the style and the selection.\n\nThe sound is a way to give voice to those who often have none, supporting grassroots movements.\n\nCrew: Ranking Teo, Vibra One and Rastantó. 5 kW system: 3 scoop bins, 2 mid bass, 2 mids and 2 highs. Music: roots, digital and stepper, on vinyl.",
+      "instagram": "https://www.instagram.com/rootsmilitanthifi/",
+      "facebook": "https://www.facebook.com/rootsmilitanthifi",
+      "lat": 43.7228,
+      "lon": 10.4017
     },
     {
       "id": "soul-rockers",
