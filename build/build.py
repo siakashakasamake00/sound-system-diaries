@@ -218,7 +218,7 @@ for x in sounds:
         if len(desc) > 200:
             desc = desc[:desc.rfind(' ', 0, 195)] + '…'
     else:
-        desc = x['name'] + (f", sound system da {x['place']}" if x['place'] else '') + ". La scheda nell'archivio dei sound system italiani di Sound System Diaries."
+        desc = x['name'] + (f", sound system da {x['place']}" if x['place'] else '') + ". La scheda nel diario dei sound system italiani di Sound System Diaries."
     og = f'/og/{x["id"]}.jpg'
     image = BASE + og if os.path.exists(P('static', 'og', x['id'] + '.jpg')) else (BASE + img_url(x.get('photo'), 1200) if x.get('photo') else BASE + '/og-image.jpg')
     url = f'{BASE}/sound/{x["id"]}/'

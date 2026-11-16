@@ -1,6 +1,6 @@
 # Sound System Diaries — soundsystemdiaries.it
 
-L'archivio dei sound system italiani.
+Il diario dei sound system italiani.
 
 ## Come si aggiorna
 
