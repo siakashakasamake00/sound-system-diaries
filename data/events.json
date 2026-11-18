@@ -127,6 +127,24 @@
    "lon": 13.2183
   },
   {
+   "id": "ev261121pr",
+   "title": "Punky Reggae Party #2",
+   "date": "2026-11-21",
+   "time": "21:00",
+   "city": "Palermo",
+   "region": "Sicilia",
+   "venue": "Centro Sociale Anomalia",
+   "address": "Via Archimede 1",
+   "lineup": "Lowroots Factory",
+   "entry": "3€",
+   "link": "",
+   "flyer": "/img/7c274540e7aa.webp",
+   "desc_it": "Seconda edizione del Punky Reggae Party al Centro Sociale Anomalia con Lowroots Factory (Bari/Palermo) e altri sound system. Dalle 21:00, ingresso 3€.",
+   "desc_en": "Second Punky Reggae Party at Centro Sociale Anomalia with Lowroots Factory (Bari/Palermo) and more sound systems. From 9pm, entry €3.",
+   "lat": 38.1294,
+   "lon": 13.353
+  },
+  {
    "id": "2026-11-27-inna-one-vibe",
    "title": "Inna One Vibe",
    "date": "2026-11-27",
