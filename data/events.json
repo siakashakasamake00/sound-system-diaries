@@ -109,6 +109,24 @@
    "lon": 12.4706
   },
   {
+   "id": "ev261120ds",
+   "title": "Dai Sud — Soundsystem Session",
+   "date": "2026-11-20",
+   "time": "21:00",
+   "city": "Bressanone",
+   "region": "Trentino-Alto Adige",
+   "venue": "Astra",
+   "address": "Via Roma 11",
+   "lineup": "Bababoom HiFi ft Jules I · UprisingMylz · Lionsquarter HiFi",
+   "entry": "",
+   "link": "",
+   "flyer": "/img/1878b9232739.webp",
+   "desc_it": "Bababoom HiFi con Jules I e UprisingMylz, sull'impianto di Lionsquarter HiFi. Alle 16:30 proiezione del film Playing with Purpose.",
+   "desc_en": "Bababoom HiFi with Jules I and UprisingMylz, powered by Lionsquarter HiFi. Movie screening of Playing with Purpose at 4:30pm.",
+   "lat": 46.7155,
+   "lon": 11.6573
+  },
+  {
    "id": "2026-11-21-serretta-in-pressure",
    "title": "Serretta in Pressure",
    "date": "2026-11-21",
@@ -143,6 +161,24 @@
    "desc_en": "Second Punky Reggae Party at Centro Sociale Anomalia with Lowroots Factory (Bari/Palermo) and more sound systems. From 9pm, entry €3.",
    "lat": 38.1294,
    "lon": 13.353
+  },
+  {
+   "id": "ev261121va",
+   "title": "Come Again — Villa Ada Sound",
+   "date": "2026-11-21",
+   "time": "22:00",
+   "city": "Roma",
+   "region": "Lazio",
+   "venue": "CSA Intifada",
+   "address": "Via di Casal Bruciato 15",
+   "lineup": "Villa Ada Sound · DJ Priest · Miss B-Ranks · Brooks",
+   "entry": "",
+   "link": "",
+   "flyer": "/img/62dea578e3ff.webp",
+   "desc_it": "Reggae e dancehall con Villa Ada Sound, DJ Priest, Miss B-Ranks e Brooks, sull'impianto di Villa Ada Sound System.",
+   "desc_en": "Reggae and dancehall with Villa Ada Sound, DJ Priest, Miss B-Ranks and Brooks, amplified by Villa Ada Sound System.",
+   "lat": 41.9165,
+   "lon": 12.553
   },
   {
    "id": "2026-11-27-inna-one-vibe",
@@ -287,6 +323,24 @@
    "desc_en": "Full Immersion with Baracca Sound System at CSOA La Strada, Garbatella.",
    "lat": 41.8605,
    "lon": 12.4886
+  },
+  {
+   "id": "ev261212wf",
+   "title": "Winston Francis",
+   "date": "2026-12-12",
+   "time": "22:00",
+   "city": "Bologna",
+   "region": "Emilia-Romagna",
+   "venue": "Sottotetto Soundclub",
+   "address": "Via Viadagola 16",
+   "lineup": "Winston Francis · Bless Line Intl. · Dj Depa · Dj Chris · WhiteCat",
+   "entry": "15 € · riservato ai soci con tessera",
+   "link": "",
+   "flyer": "/img/4873d05468fc.webp",
+   "desc_it": "Winston Francis dal vivo al Sottotetto, con Bless Line Intl., Dj Depa, Dj Chris e WhiteCat.",
+   "desc_en": "Winston Francis live at Sottotetto, with Bless Line Intl., Dj Depa, Dj Chris and WhiteCat.",
+   "lat": 44.547,
+   "lon": 11.402
   },
   {
    "id": "ev261217sr",

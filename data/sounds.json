@@ -354,15 +354,15 @@
       "id": "spantka",
       "name": "Spantka",
       "photo": "/img/3bd22161e98e.webp",
-      "city": "San Felice a Cancello",
+      "city": "Montoro",
       "region": "Campania",
-      "founded": null,
+      "founded": 2017,
       "story": "",
       "story_en": "",
-      "instagram": "",
+      "instagram": "https://www.instagram.com/spantkasoundsystem/",
       "facebook": "",
-      "lat": 41.011,
-      "lon": 14.48
+      "lat": 40.8195,
+      "lon": 14.766
     },
     {
       "id": "uva",
