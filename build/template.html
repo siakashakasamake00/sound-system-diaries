@@ -776,6 +776,9 @@
   .sound-search{display:flex; justify-content:center; margin:0 0 24px;}
   .sound-search input{width:100%; max-width:520px; padding:14px 18px; border:1px solid rgba(24,20,15,.45); background:transparent; font-family:var(--f-mono); font-size:.8rem; letter-spacing:.08em; color:var(--text);}
   .sound-search input:focus{outline:none; border-color:var(--red);}
+  .sound-search{flex-wrap:wrap; gap:10px;}
+  .sound-search select{width:100%; max-width:520px; padding:12px 16px; border:1px solid rgba(24,20,15,.45); background:transparent; font-family:var(--f-mono); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text); cursor:pointer;}
+  .sound-search select:focus{outline:none; border-color:var(--red);}
   .sound-card.is-filtered{display:none;}
   .search-empty{text-align:center; font-family:var(--f-mono); font-size:.75rem; letter-spacing:.16em; text-transform:uppercase; opacity:.7; padding:30px 0;}
 
@@ -1131,7 +1134,7 @@
           <button type="button" data-view="map" data-i18n="sounds.view.map">MAP</button>
         </div>
       </div>
-      <div class="sound-search reveal"><input type="search" id="soundSearch" autocomplete="off" data-i18n-attr="placeholder:search.ph" placeholder="Cerca un sound o una città…"></div>
+      <div class="sound-search reveal"><input type="search" id="soundSearch" autocomplete="off" data-i18n-attr="placeholder:search.ph" placeholder="Cerca un sound o una città…"><select id="soundRegionFilter" aria-label="Regione"><option value="" data-i18n="search.allRegions">Tutte le regioni</option></select></div>
         <p class="search-empty" id="searchEmpty" style="display:none" data-i18n="search.none"></p>
         <div class="sound-grid" id="soundsPageGrid">
 <!--@SOUND_CARDS-->
@@ -2029,7 +2032,7 @@ var SOUNDS_MAP_DATA = __SOUNDS_DATA__;
     'sd.sendstory':'Manda la vostra storia','sd.share':'Condividi','sd.copied':'Link copiato','sd.location':'Dove',
     'sd.area':'Zona indicativa nella regione','sd.kind':'Musica','sd.zoom':'Ingrandisci la foto','sd.back':'Tutti i sound',
     'map.sounds':'Sound','map.events':'Eventi','map.noevents':'Nessun evento in programma al momento',
-    'map.toevents':'Vai agli eventi','search.ph':'Cerca un sound o una città…','search.none':'Nessun sound trovato'
+    'map.toevents':'Vai agli eventi','search.ph':'Cerca un sound o una città…','search.none':'Nessun sound trovato','search.allRegions':'Tutte le regioni'
   });
   Object.assign(I18N.en, {'hero.v3.sub':'The diary of Italian sound systems','hero.v3.map':'Explore the map','ev261114r.date':'14 NOV','ev261114r.location':"Rho (MI) — SOS Fornace",'ev261114r.name':"BACKABUSH MEETS ECHOTRONIX",'ev261114r.sounds':"Backabush · Echotronix · Lion Warriah · Ja Snoke",'ev261114r.desc':"Backabush meets Echotronix Sound System, with Lion Warriah and Ja Snoke. From 10pm to 3am.",'ev261114.date':'14 NOV','ev261114.location':"Bologna — Sottotetto Soundclub, Via Viadagola 16",'ev261114.name':"SOUND SYSTEM CONFERENCE — THREE THE HARD WAY",'ev261114.sounds':"Heavy Rootation · Dub Hunters · Peaceful Warriors",'ev261114.desc':"3 sounds, one yard: Heavy Rootation, Dub Hunters and Peaceful Warriors in the same room. Entry €10 with 2026 membership card, from 11pm. Night buses 21b and N3.",'ev261205.date':'05 DEC','ev261205.location':"Presicce-Acquarica (LE) — Suoni Unione Kultura Arte",'ev261205.name':"DUBWISE ROOM — BLACK STAR LINE SOUND SYSTEM",'ev261205.sounds':"Black Star Line Sound System · Stephen I · Irie Youthman",'ev261205.desc':"Original Salento Dub Club: Black Star Line Sound System ft Stephen I, special guest Irie Youthman from Treviso. Members only, online membership. Gate open 10pm till morning.",'ev261212.date':'12 DEC','ev261212.location':"Roma — CSOA Ex Snia, Via Prenestina 173",'ev261212.name':"SKANKIN' TREE PRESENTS HENRY SKENG",'ev261212.sounds':"Henry Skeng aka King Pharaoh · Skankin' Tree Sound System",'ev261212.desc':"Straight from Brixton, London: Henry Skeng aka King Pharaoh with Skankin' Tree Sound System. Entry €5, 8pm to 2am.",
     'latest.eyebrow':'Archive','latest.heading':'Recently added sounds','latest.cta':'See all sounds',
@@ -2041,7 +2044,7 @@ var SOUNDS_MAP_DATA = __SOUNDS_DATA__;
     'sd.sendstory':'Send your story','sd.share':'Share','sd.copied':'Link copied','sd.location':'Where',
     'sd.area':'Approximate area within the region','sd.kind':'Music','sd.zoom':'Enlarge photo','sd.back':'All sounds',
     'map.sounds':'Sounds','map.events':'Events','map.noevents':'No upcoming events right now',
-    'map.toevents':'Go to events','search.ph':'Search a sound or a city…','search.none':'No sound found'
+    'map.toevents':'Go to events','search.ph':'Search a sound or a city…','search.none':'No sound found','search.allRegions':'All regions'
   });
   var currentLang = 'it';
   try {
@@ -2851,26 +2854,33 @@ var SOUNDS_MAP_DATA = __SOUNDS_DATA__;
     if(inp){
       var norm = function(x){ return String(x||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); };
       var byId = {}; SOUNDS_MAP_DATA.forEach(function(s){ byId[s.id] = s; });
-      inp.addEventListener('input', function(){
-        var q = norm(inp.value.trim()), shown = 0;
+      var regSel = document.getElementById('soundRegionFilter');
+      if(regSel){
+        var regs = {}; SOUNDS_MAP_DATA.forEach(function(s){ if(s.region) regs[s.region] = (regs[s.region]||0) + 1; });
+        Object.keys(regs).sort(function(a,b){ return a.localeCompare(b,'it'); }).forEach(function(r){ var o = document.createElement('option'); o.value = r; o.textContent = r; regSel.appendChild(o); });
+      }
+      var applySoundFilter = function(){
+        var q = norm(inp.value.trim()), reg = regSel ? regSel.value : '', shown = 0;
+        var match = function(s, extra){ return (!reg || s.region === reg) && (!q || norm([s.name, s.city, s.region, extra||''].join(' ')).indexOf(q) !== -1); };
         document.querySelectorAll('#soundsPageGrid .sound-card[data-sound-id]').forEach(function(c){
           var s = byId[c.getAttribute('data-sound-id')] || {};
-          var hay = norm([s.name, s.city, s.region, c.textContent].join(' '));
-          var ok = !q || hay.indexOf(q) !== -1;
+          var ok = match(s, c.textContent);
           c.classList.toggle('is-filtered', !ok); if(ok) shown++;
         });
-        var more = document.querySelector('#soundsPageGrid .sound-more'); if(more) more.style.display = q ? 'none' : '';
+        var more = document.querySelector('#soundsPageGrid .sound-more'); if(more) more.style.display = (q || reg) ? 'none' : '';
         document.getElementById('searchEmpty').style.display = shown ? 'none' : 'block';
         // map: hide sound pins with no match
         var groups = mapPinGroups || {};
         document.querySelectorAll('#mapPins .map-pin:not(.ev)').forEach(function(pin){
           var g = groups[pin.getAttribute('data-key')] || [];
-          var ok = !q || g.some(function(s){ return norm([s.name, s.city, s.region].join(' ')).indexOf(q) !== -1; });
+          var ok = g.some(function(s){ return match(s); });
           pin.classList.toggle('is-filtered-pin', !ok);
           var evMode = document.querySelector('#soundsMapType button[data-type="events"].active');
           if(!evMode) pin.classList.toggle('is-off', !ok);
         });
-      });
+      };
+      inp.addEventListener('input', applySoundFilter);
+      if(regSel) regSel.addEventListener('change', applySoundFilter);
     }
   })();
   wireSoundCardLinks();
