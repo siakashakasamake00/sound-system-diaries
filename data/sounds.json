@@ -1413,6 +1413,34 @@
       "facebook": "",
       "lat": 45.667,
       "lon": 12.243
+    },
+    {
+      "id": "sattamassagana",
+      "name": "Sattamassagana",
+      "photo": "/img/991904a1af03.webp",
+      "city": "Treviso",
+      "region": "Veneto",
+      "founded": 2014,
+      "story": "The Heavy Step Giant. Nasce a Treviso alla fine del 2014 da un gruppo di amici del Nord-Est uniti dalla passione per il reggae, le radici e la cultura dub. Oggi porta il suo impianto in club, dub session e festival, da Padova a Trieste.",
+      "story_en": "The Heavy Step Giant. Born in Treviso in late 2014 from a group of friends from North-East Italy united by a love of reggae, roots and dub culture. Today it brings its system to club nights, dub sessions and festivals, from Padua to Trieste.",
+      "instagram": "https://www.instagram.com/sattamassagana_sound_system/",
+      "facebook": "",
+      "lat": 45.667,
+      "lon": 12.243
+    },
+    {
+      "id": "elijah",
+      "name": "Elijah",
+      "photo": "/img/72d9ba77eb79.webp",
+      "city": "",
+      "region": "Puglia",
+      "founded": null,
+      "story": "Sound system pugliese, anche in studio: tra le sue produzioni il 7 pollici \"Questo Mondo\" e il riddim \"Fuoco su Babilonia\", entrambi con Hunza.",
+      "story_en": "Sound system from Apulia, also in the studio: its productions include the 7-inch \"Questo Mondo\" and the \"Fuoco su Babilonia\" riddim, both with Hunza.",
+      "instagram": "",
+      "facebook": "",
+      "lat": null,
+      "lon": null
     }
   ]
 }
