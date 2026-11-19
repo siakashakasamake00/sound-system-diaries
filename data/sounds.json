@@ -1712,15 +1712,15 @@
       "id": "dub-hunters",
       "name": "Dub Hunters",
       "photo": "",
-      "city": "Parma",
+      "city": "Reggio Emilia",
       "region": "Emilia-Romagna",
       "founded": 2023,
       "story": "Duo emiliano. Nel 2018 esce il primo EP su Dub-O-Matic Records, prodotto da Michael Exodus con Prince Jamo, Nish Wadada, Ras Tweed e Fyahred. Il 21 gennaio 2023 inaugurano il loro sound system allo Splinter Club di Parma.",
       "story_en": "A duo from Emilia-Romagna. In 2018 they released their first EP on Dub-O-Matic Records, produced by Michael Exodus with Prince Jamo, Nish Wadada, Ras Tweed and Fyahred. On 21 January 2023 they inaugurated their sound system at Splinter Club in Parma.",
       "instagram": "https://www.instagram.com/dub_hunters/",
       "facebook": "",
-      "lat": 44.801,
-      "lon": 10.328
+      "lat": 44.698,
+      "lon": 10.631
     },
     {
       "id": "kalyweed",
@@ -1964,15 +1964,15 @@
       "id": "backabush",
       "name": "Backabush",
       "photo": "",
-      "city": "",
+      "city": "Rho",
       "region": "Lombardia",
       "founded": null,
       "story": "",
       "story_en": "",
       "instagram": "https://www.instagram.com/backabush_soundsystem/",
       "facebook": "",
-      "lat": null,
-      "lon": null
+      "lat": 45.531,
+      "lon": 9.04
     },
     {
       "id": "mr-brown",
@@ -2020,15 +2020,29 @@
       "id": "words-of-wisdom",
       "name": "Words of Wisdom",
       "photo": "",
-      "city": "",
+      "city": "Bologna",
       "region": "Emilia-Romagna",
       "founded": null,
       "story": "",
       "story_en": "",
       "instagram": "https://www.instagram.com/wow_soundsystem/",
       "facebook": "",
-      "lat": null,
-      "lon": null
+      "lat": 44.495,
+      "lon": 11.343
+    },
+    {
+      "id": "tanit",
+      "name": "Tanit",
+      "photo": "",
+      "city": "Torino",
+      "region": "Piemonte",
+      "founded": null,
+      "story": "",
+      "story_en": "",
+      "instagram": "https://www.instagram.com/tanitsoundsystem/",
+      "facebook": "",
+      "lat": 45.07,
+      "lon": 7.687
     }
   ]
 }
