@@ -199,6 +199,24 @@
    "lon": 12.3908
   },
   {
+   "id": "ev261127dh",
+   "title": "Dub House",
+   "date": "2026-11-27",
+   "time": "",
+   "city": "Padova",
+   "region": "Veneto",
+   "venue": "Grind House club",
+   "address": "Via Longhin 37",
+   "lineup": "Moldevik · Atomic Vibrations · Heal Hertz · Rootikal Chamber · Sattamassagana Sound System",
+   "entry": "7 € + tessera AICS",
+   "link": "",
+   "flyer": "/img/36599a8b8859.webp",
+   "desc_it": "Moldevik dalla Spagna per la prima volta in Italia, con Atomic Vibrations, Heal Hertz e Rootikal Chamber. Sull'impianto di Sattamassagana Sound System.",
+   "desc_en": "Moldevik from Spain for the first time in Italy, with Atomic Vibrations, Heal Hertz and Rootikal Chamber. Powered by Sattamassagana Sound System.",
+   "lat": 45.4064,
+   "lon": 11.8768
+  },
+  {
    "id": "2026-11-28-uplifting",
    "title": "Uplifting — Reggae & Dub Night",
    "date": "2026-11-28",
@@ -377,6 +395,24 @@
    "desc_en": "Twenty years of Dubzoic with Tommy Evok, Luca Dread and Livio Roaring Bass. Entry for ARCI members.",
    "lat": 43.4036,
    "lon": 13.5531
+  },
+  {
+   "id": "ev261219dc",
+   "title": "Dub Culture Vol VI",
+   "date": "2026-12-19",
+   "time": "17:00",
+   "city": "Trieste",
+   "region": "Friuli-Venezia Giulia",
+   "venue": "Casa delle Culture",
+   "address": "Via Orlandini 38",
+   "lineup": "Sattamassagana ft Irie Youthman · Stepper's Tribe Sound System · Mufajah · Skankin Foundation",
+   "entry": "",
+   "link": "",
+   "flyer": "/img/d41396cfb9ce.webp",
+   "desc_it": "Ruff & Muff Crew presenta il sesto Dub Culture: reggae, roots, dubwise e stepper con Sattamassagana ft Irie Youthman, Stepper's Tribe, Mufajah e Skankin Foundation.",
+   "desc_en": "Ruff & Muff Crew presents the sixth Dub Culture: reggae, roots, dubwise and stepper with Sattamassagana ft Irie Youthman, Stepper's Tribe, Mufajah and Skankin Foundation.",
+   "lat": 45.6495,
+   "lon": 13.7768
   }
  ]
 }
