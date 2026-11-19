@@ -536,15 +536,15 @@
       "id": "delta-hifi",
       "name": "Delta Hi-Fi",
       "photo": "/img/49f19aabe521.webp",
-      "city": "",
+      "city": "Porto Viro",
       "region": "Veneto",
       "founded": null,
       "story": "",
       "story_en": "",
       "instagram": "",
       "facebook": "",
-      "lat": null,
-      "lon": null
+      "lat": 45.0263,
+      "lon": 12.2186
     },
     {
       "id": "heavy-rootation",
@@ -662,15 +662,15 @@
       "id": "soul-rockers",
       "name": "Soul Rockers",
       "photo": "/img/d849c608b9e2.webp",
-      "city": "",
+      "city": "Piombino",
       "region": "Toscana",
-      "founded": null,
+      "founded": 2015,
       "story": "",
       "story_en": "",
       "instagram": "",
       "facebook": "",
-      "lat": null,
-      "lon": null
+      "lat": 42.9257,
+      "lon": 10.5266
     },
     {
       "id": "one-love-high-powa",
@@ -690,15 +690,15 @@
       "id": "ital-skank",
       "name": "I-tal Skank",
       "photo": "/img/5fdb6b11f384.webp",
-      "city": "",
+      "city": "Roma",
       "region": "Lazio",
-      "founded": null,
+      "founded": 2015,
       "story": "",
       "story_en": "",
       "instagram": "https://www.instagram.com/ital_skank_sound_system/",
       "facebook": "",
-      "lat": null,
-      "lon": null
+      "lat": 41.9028,
+      "lon": 12.4964
     },
     {
       "id": "jahlead",
@@ -746,15 +746,15 @@
       "id": "earthikal-towa",
       "name": "Earthikal Towa",
       "photo": "/img/431c81b74c76.webp",
-      "city": "",
+      "city": "Roma",
       "region": "Lazio",
       "founded": null,
       "story": "",
       "story_en": "",
       "instagram": "https://www.instagram.com/earthikaltowasoundsystem/",
       "facebook": "",
-      "lat": null,
-      "lon": null
+      "lat": 41.9028,
+      "lon": 12.4964
     },
     {
       "id": "himera",
@@ -802,15 +802,15 @@
       "id": "infiammati-dub",
       "name": "Infiammati Dub",
       "photo": "/img/014225b72a45.webp",
-      "city": "",
+      "city": "Bitonto",
       "region": "Puglia",
-      "founded": null,
+      "founded": 2015,
       "story": "",
       "story_en": "",
       "instagram": "https://www.instagram.com/infiammati_dub/",
       "facebook": "",
-      "lat": null,
-      "lon": null
+      "lat": 41.1083,
+      "lon": 16.6905
     },
     {
       "id": "jah-station",
@@ -858,43 +858,43 @@
       "id": "alpha-sud",
       "name": "Alpha Sud",
       "photo": "/img/17d7d77b7b59.webp",
-      "city": "",
+      "city": "Enna",
       "region": "Sicilia",
       "founded": null,
       "story": "",
       "story_en": "",
       "instagram": "https://www.instagram.com/alphasud_soundsystem/",
       "facebook": "",
-      "lat": null,
-      "lon": null
+      "lat": 37.567,
+      "lon": 14.2795
     },
     {
       "id": "lupen-hifi",
       "name": "Lupen Hi-Fi",
       "photo": "/img/d390dd7813ad.webp",
-      "city": "",
+      "city": "Palermo",
       "region": "Sicilia",
       "founded": null,
       "story": "",
       "story_en": "",
       "instagram": "https://www.instagram.com/lupen_hi_fi/",
       "facebook": "",
-      "lat": null,
-      "lon": null
+      "lat": 38.1157,
+      "lon": 13.3615
     },
     {
       "id": "canapa",
       "name": "Canapa",
       "photo": "/img/31ae27dce8a3.webp",
-      "city": "",
+      "city": "Pula",
       "region": "Sardegna",
       "founded": null,
       "story": "",
       "story_en": "",
       "instagram": "https://www.instagram.com/canapa_sound/",
       "facebook": "",
-      "lat": null,
-      "lon": null
+      "lat": 38.9997,
+      "lon": 8.9692
     },
     {
       "id": "ikno",
@@ -928,29 +928,29 @@
       "id": "wavedub",
       "name": "Wavedub",
       "photo": "/img/79e6814e03f0.webp",
-      "city": "",
+      "city": "Valdagno",
       "region": "Veneto",
       "founded": null,
       "story": "",
       "story_en": "",
       "instagram": "https://www.instagram.com/wavedubsoundsystem/",
       "facebook": "",
-      "lat": null,
-      "lon": null
+      "lat": 45.6479,
+      "lon": 11.3011
     },
     {
       "id": "ramabass",
       "name": "Ramabass",
       "photo": "/img/7147c8d11c7a.webp",
-      "city": "",
+      "city": "Verona",
       "region": "Veneto",
-      "founded": null,
+      "founded": 2012,
       "story": "",
       "story_en": "",
       "instagram": "https://www.instagram.com/ramabasssoundsystem/",
       "facebook": "",
-      "lat": null,
-      "lon": null
+      "lat": 45.4384,
+      "lon": 10.9916
     },
     {
       "id": "trail-foundation",
