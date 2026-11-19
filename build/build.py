@@ -77,12 +77,15 @@ for x in load('sounds.json')['items']:
     sounds.append(x)
 for x in sounds:
     if x.get('lat') in (None, '') or x.get('lon') in (None, ''):
-        c = known_city.get(x['city'].lower()) or REGION_CENTER.get(x['region'])
+        # no city, no pin: a dot in the middle of a region would tell people the wrong place
+        c = known_city.get(x['city'].lower()) if x['city'] else None
         x['lat'], x['lon'] = (c if c else (None, None))
         x['_approx'] = not known_city.get(x['city'].lower())
     x['place'] = ', '.join(v for v in (x['city'], x['region']) if v)
     x['story_it'] = paras(x.get('story'))
     x['story_en_l'] = paras(x.get('story_en'))
+# photo-first: sounds with a photo come before the ones still waiting for one (stable, keeps data order)
+sounds.sort(key=lambda x: 0 if x.get('photo') else 1)
 BYID = {x['id']: x for x in sounds}
 BYNAME = {x['name'].lower(): x for x in sounds}
 find = lambda v: BYNAME.get(str(v).strip().lower()) or BYID.get(slug(v))
