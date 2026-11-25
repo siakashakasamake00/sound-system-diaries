@@ -493,7 +493,7 @@
   /* ===================== SOUNDS (page) ===================== */
   .sound-grid{display:grid; grid-template-columns:1fr; gap:24px;}
   @media(min-width:640px){.sound-grid{grid-template-columns:1fr 1fr;}}
-  @media(min-width:1024px){.sound-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(min-width:1024px){.sound-grid{grid-template-columns:repeat(4,1fr); gap:20px;}}
   .sound-card{position:relative; aspect-ratio:1/1; overflow:hidden;}
   .sound-card .grad{position:absolute; inset:0; background:linear-gradient(to top, var(--black), rgba(0,0,0,.3) 55%, transparent);}
   .sound-card .tint{position:absolute; inset:0; background:var(--red); opacity:0; mix-blend-mode:multiply; transition:opacity .5s;}
