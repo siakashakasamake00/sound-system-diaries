@@ -1347,14 +1347,14 @@
     {
       "id": "street-roots-hi-fi",
       "name": "Street Roots Hi Fi",
-      "photo": "",
+      "photo": "/img/ecda2adf14bc.webp",
       "city": "Remedello",
       "region": "Lombardia",
       "founded": 2013,
       "story": "Street Roots Hi Fi è un sound system autocostruito che nasce nel 2013 nella bassa bresciana, dalla passione per la musica reggae roots e da un amore profondo per la sound system culture.\n\nGiradischi, sirene, delay e una valanga di vinili che vanno dal reggae roots fino al dub. Spaziando tra classici e nuove produzioni, cerchiamo di portare avanti la nostra missione con consapevolezza, rispetto e sempre coscienti dell’importante messaggio di pace, amore e fratellanza che la musica reggae porta con sé.\n\nNel 2022, dopo una lunga collaborazione con la label milanese Militant Warriors Promotions, spinti dalla profonda amicizia, passione e rispetto reciproco, Mario, Dany e Kadamawi decidiamo di unire la crew in un’unica family. Si inizia quindi a lavorare insieme unendo forze, idee, esperienze e sound equipment, con l’intento di offrire alla massive il meglio delle vibrazioni positive in circolazione.",
       "story_en": "Street Roots Hi Fi is a self-built sound system born in 2013 in the lowlands south of Brescia, from a passion for roots reggae and a deep love for sound system culture.\n\nTurntables, sirens, delay and an avalanche of vinyl ranging from roots reggae to dub. Moving between classics and new productions, we try to carry on our mission with awareness and respect, always conscious of the important message of peace, love and brotherhood that reggae music carries.\n\nIn 2022, after a long collaboration with the Milan label Militant Warriors Promotions, driven by deep friendship, passion and mutual respect, Mario, Dany and Kadamawi decided to bring the crew together into one family. They began working together, joining forces, ideas, experience and sound equipment, to give the massive the best positive vibrations around.",
       "instagram": "https://www.instagram.com/streetrootshifi/",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/share/19rfa67SzU/",
       "lat": 45.26,
       "lon": 10.375
     },
@@ -2043,6 +2043,48 @@
       "facebook": "",
       "lat": 45.07,
       "lon": 7.687
+    },
+    {
+      "id": "no-identity",
+      "name": "No Identity",
+      "photo": "/img/9a1b7fbacb31.webp",
+      "city": "Tarvisio",
+      "region": "Friuli-Venezia Giulia",
+      "founded": 2024,
+      "story": "No Identity Sound System nasce in una falegnameria casalinga che dispone ancora oggi di attrezzi creati 70 anni fa dagli avi di famiglia.\n\nLa stessa passione dedicata alla realizzazione di questi attrezzi è stata utilizzata per creare il sound, che vuole trasmettere un messaggio di rispetto, amore e positive vibration!",
+      "story_en": "No Identity Sound System was born in a home carpentry workshop that still holds tools made 70 years ago by the family's ancestors.\n\nThe same passion that went into making those tools went into building the sound, which wants to spread a message of respect, love and positive vibration!",
+      "instagram": "https://www.instagram.com/no_identity_soundsystem/",
+      "facebook": "",
+      "lat": 46.5056,
+      "lon": 13.5786
+    },
+    {
+      "id": "dubrividi",
+      "name": "Dubrividi",
+      "photo": "/img/2c222be0a10d.webp",
+      "city": "Torino",
+      "region": "Piemonte",
+      "founded": 2026,
+      "story": "Nasce nel cuore di Torino nel 2026, Dubrividi Sound System è un progetto sonoro dedicato alle vibrazioni profonde del roots, dub e steppa, con un approccio internazionale che unisce culture e influenze da tutto il mondo. La nostra missione è diffondere vibrazioni positive e consapevolezza attraverso la musica.\n\nLa crew: Sabai Man, Almagheddon, Frank HD e Cino. L'impianto è autocostruito, a 5 vie con 2 colonne (scoop, kick e top).",
+      "story_en": "Born in the heart of Turin in 2026, Dubrividi Sound System is a sound project devoted to the deep vibrations of roots, dub and steppa, with an international approach that brings together cultures and influences from all over the world. Our mission is to spread positive vibrations and awareness through music.\n\nThe crew: Sabai Man, Almagheddon, Frank HD and Cino. The system is self-built, 5-way with 2 stacks (scoop, kick and top).",
+      "instagram": "https://www.instagram.com/dubrividisoundsystem/",
+      "facebook": "https://www.facebook.com/share/19sCawKcXG/",
+      "lat": 45.0703,
+      "lon": 7.6869
+    },
+    {
+      "id": "x-knives",
+      "name": "X Knives",
+      "photo": "/img/627a30e6180d.webp",
+      "city": "Rimini",
+      "region": "Emilia-Romagna",
+      "founded": 2022,
+      "story": "Nasce come un piccolo sound bluetooth, che man mano ha preso piede. Ora lo porto spesso in piccoli locali ed eventi dove i grandi sound sarebbero troppo grandi. Adoro invitare le crew vicine a suonare tutti insieme.\n\nÈ un piccolo impianto all'insegna della qualità e del calore analogico dei transistor vecchia scuola. Roots, dub e cumbia.",
+      "story_en": "It started as a small bluetooth sound that slowly grew. Now I often take it to small venues and events where the big sounds would be too big. I love inviting nearby crews to play all together.\n\nIt is a small system built for quality and the analogue warmth of old-school transistors. Roots, dub and cumbia.",
+      "instagram": "https://www.instagram.com/xknivessoundsystem/",
+      "facebook": "",
+      "lat": 44.0594,
+      "lon": 12.5683
     }
   ]
 }
