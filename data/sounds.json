@@ -1263,7 +1263,7 @@
     {
       "id": "black-noise",
       "name": "Black Noise",
-      "photo": "",
+      "photo": "/img/6471180fa5f9.webp",
       "city": "Montefiore Conca",
       "region": "Emilia-Romagna",
       "founded": 2020,
@@ -1599,7 +1599,7 @@
     {
       "id": "nameless",
       "name": "Nameless",
-      "photo": "",
+      "photo": "/img/7839479d8f6b.webp",
       "city": "Cesena",
       "region": "Emilia-Romagna",
       "founded": null,
@@ -1711,7 +1711,7 @@
     {
       "id": "dub-hunters",
       "name": "Dub Hunters",
-      "photo": "",
+      "photo": "/img/fe449d7d8bf2.webp",
       "city": "Reggio Emilia",
       "region": "Emilia-Romagna",
       "founded": 2023,
@@ -1725,7 +1725,7 @@
     {
       "id": "kalyweed",
       "name": "Kalyweed",
-      "photo": "",
+      "photo": "/img/c3436af7773b.webp",
       "city": "Bologna",
       "region": "Emilia-Romagna",
       "founded": 1999,
@@ -2019,7 +2019,7 @@
     {
       "id": "words-of-wisdom",
       "name": "Words of Wisdom",
-      "photo": "",
+      "photo": "/img/7db5d757e846.webp",
       "city": "Bologna",
       "region": "Emilia-Romagna",
       "founded": null,
