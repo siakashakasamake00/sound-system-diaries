@@ -295,20 +295,6 @@
       "lon": 13.082
     },
     {
-      "id": "spiritual-youth",
-      "name": "Spiritual Youth",
-      "photo": "/img/255f91f171a4.webp",
-      "city": "Pennabilli",
-      "region": "Emilia-Romagna",
-      "founded": null,
-      "story": "",
-      "story_en": "",
-      "instagram": "https://www.instagram.com/spiritual_youth_soundsystem/",
-      "facebook": "",
-      "lat": 43.817,
-      "lon": 12.266
-    },
-    {
       "id": "shabada",
       "name": "Shabadà",
       "photo": "/img/99c14a601ecc.webp",
@@ -1263,7 +1249,7 @@
     {
       "id": "dub-lab-interceptor-hifi",
       "name": "Dub Lab Interceptor HiFi",
-      "photo": "/img/9f9e32a73e0b.webp",
+      "photo": "/img/255f91f171a4.webp",
       "city": "Pennabilli",
       "region": "Emilia-Romagna",
       "founded": 2014,
