@@ -1233,23 +1233,9 @@
       "lon": 11.162
     },
     {
-      "id": "labo",
-      "name": "Labo",
-      "photo": "",
-      "city": "Castel Maggiore",
-      "region": "Emilia-Romagna",
-      "founded": 2023,
-      "story": "",
-      "story_en": "",
-      "instagram": "https://www.instagram.com/labosound/",
-      "facebook": "",
-      "lat": 44.575,
-      "lon": 11.34
-    },
-    {
       "id": "spesso",
       "name": "Spesso",
-      "photo": "",
+      "photo": "/img/a3d56d185b89.webp",
       "city": "Mirandola",
       "region": "Emilia-Romagna",
       "founded": 2012,
@@ -1277,7 +1263,7 @@
     {
       "id": "dub-lab-interceptor-hifi",
       "name": "Dub Lab Interceptor HiFi",
-      "photo": "",
+      "photo": "/img/9f9e32a73e0b.webp",
       "city": "Pennabilli",
       "region": "Emilia-Romagna",
       "founded": 2014,
